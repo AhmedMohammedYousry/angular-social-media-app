@@ -8,17 +8,36 @@ import { environment } from 'src/environments/environment';
 export class ApiUserService {
 
   constructor(private _httpClient:HttpClient) { }
-  get(url:string){
-    return this._httpClient.get(`${environment.api_URL}/${url}`);
+  get(url:string,options={}){
+    return this._httpClient.get(`${environment.api_URL}/${url}`,options);
    }
-   getUser(url:string, id:number){
-    return this._httpClient.get(`${environment.api_URL}/${url}/${id}`);
+   getUser(url:string, id:number,options={}){
+    return this._httpClient.get(`${environment.api_URL}/${url}/${id}`,options);
    }
- 
-   post(url:string,body:any){
-     return this._httpClient.post(`${environment.api_URL}/${url}`,body);
+   generateUserToken(email:string, password:string){
+    let request=  this._httpClient.post(`${environment.api_URL}/user/token`,
+    {
+      email: email,
+      password: password,
+      device_name: "test"
     }
- 
+    
+  //   {
+  //     "email": "mm@gmail.com",
+  //     "password": "12345678",
+  //     "device_name": "samsung"
+  // }
+  ,{responseType: 'text'});
+  
+    
+    return request;
+   }
+   post(url:string,body:any){
+     let request= this._httpClient.post(`${environment.api_URL}/${url}`,body);
+     
+     
+     return request;
+    }
     
   //  put(url:string,body:any){
   //    return this._httpClient.put(`${environment.api_URL}/${url}`,body);

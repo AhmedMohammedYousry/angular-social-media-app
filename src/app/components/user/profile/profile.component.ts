@@ -1,4 +1,9 @@
+
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { ApiUserService } from 'src/app/services/api-user.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +12,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  user:User = new User();
+  constructor(private _apiUserService:ApiUserService) { 
+
+  }
 
   ngOnInit(): void {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('Token')}`
+    });
+    let options = {
+      'headers': headers
+    }
+    this._apiUserService.get('users',options)
+    .subscribe(
+      (response:any)=>{
+        console.log(response);
+        
+      },
+      (error:any)=> {}
+    )
   }
 
 }

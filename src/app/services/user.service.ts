@@ -10,27 +10,7 @@ export class UserService {
   logged=new BehaviorSubject<boolean>(this.isLoggedIn());
   constructor(private _httpClient:HttpClient, private _apiUserService:ApiUserService) { }
 
-  validate(email:string, password:string){
-   
-
-    this._apiUserService.get('users').subscribe(
-      (response:any)=>{ 
-      
-        response.forEach((user:any)=> {   
-          if(user.email == email ){
-            this._apiUserService.getUser('users',user.id).subscribe((res:any)=>{
-              alert(JSON.stringify(res))
-            })
-          }
-          
-        });
-      },
-      (error:any)=> {
-
-      }
-    )
-    
-  }
+  
   login(token:string)
   {
     localStorage.setItem("Token",token);

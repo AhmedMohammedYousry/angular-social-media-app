@@ -25,10 +25,23 @@ export class LoginComponent implements OnInit {
 
     // alert(JSON.stringify(this.formLogin.value));
     //Call API to validate user
-    this._userService.login('3453535453453453453535353535');
     
-    this._userService.validate(this.formLogin.value.Email,this.formLogin.value.Password)
-    this._router.navigateByUrl('/profile');
+    
+    this._apiUserService.generateUserToken(this.formLogin.value.Email,this.formLogin.value.Password)
+    .subscribe(
+      (response:any)=>{ 
+      
+        
+        this._userService.login(response);
+        this._router.navigateByUrl('/profile');
+      },
+      (error:any)=> {
+        console.log(error);
+        
+        alert("failed to login")
+      }
+    )
+
   }
 
 
