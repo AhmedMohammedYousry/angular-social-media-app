@@ -1,0 +1,37 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Home </a>
+        </li>
+        <!-- <li class="nav-item"> -->
+          <!-- <a class="nav-link" [routerLink]="['/about']" >About</a> -->
+          <!-- <a class="nav-link" routerLink="/about/{{id}}}/{{ddd}}" >About</a> -->
+        <!-- </li> -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contact</a>
+        </li> -->
+        <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/tasks">Tasks ({{tasksCount}})</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="/student">Students</a>
+          </li>  -->
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="/register">Create User</a>
+          </li>
+          <li class="nav-item" *ngIf="!isLogged">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+          <li class="nav-item"  *ngIf="isLogged">
+            <a class="nav-link" routerLink="/logout">Logout</a>
+          </li>
+      
+      </ul>
+    </div>
+  </nav>

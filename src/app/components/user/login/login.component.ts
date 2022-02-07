@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
     // alert(JSON.stringify(this.formLogin.value));
     //Call API to validate user
-    // this._userService.login('3453535453453453453535353535');
+    this._userService.login('3453535453453453453535353535');
     
     this._userService.validate(this.formLogin.value.Email,this.formLogin.value.Password)
     this._router.navigateByUrl('/profile');

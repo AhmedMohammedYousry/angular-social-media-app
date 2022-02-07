@@ -6,10 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const routes: Routes = [
   {path:'register',component:CreateUserComponent},
   {path:'login',component:LoginComponent},
+  {path:'logout',component:LogoutComponent},
   {path:'profile',component:ProfileComponent},
 
   
@@ -20,7 +22,8 @@ const routes: Routes = [
   declarations: [
     CreateUserComponent,
   LoginComponent,
-  ProfileComponent],
+  ProfileComponent,
+  LogoutComponent],
   imports: [
     CommonModule,FormsModule , ReactiveFormsModule,HttpClientModule,
     RouterModule.forChild(routes)
