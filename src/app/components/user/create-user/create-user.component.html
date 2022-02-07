@@ -1,0 +1,133 @@
+<div [formGroup]="formRegister" class="container">
+  <div class="form-group">
+    <label for="firstname">First Name</label>
+    <input formControlName="firstname" type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter first name"> 
+    <div *ngIf="isInValidAndTouched('firstname')">
+      <small *ngIf="isControlHasError('firstname','required')">required firstname</small>
+      <small *ngIf="isControlHasError('firstname','minlength')">min length is 4</small>
+      <small *ngIf="isControlHasError('firstname','maxlength')">max length is 20</small>
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="lastname">Last Name</label>
+    <input formControlName="lastname" type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter last name"> 
+    <div *ngIf="isInValidAndTouched('lastname')">
+      <small *ngIf="isControlHasError('lastname','required')">required lastname</small>
+      <small *ngIf="isControlHasError('lastname','minlength')">min length is 4</small>
+      <small *ngIf="isControlHasError('lastname','maxlength')">max length is 20</small>
+      </div>
+  </div>
+  
+<div class="form-group">
+      <label for="exampleInputemail1">email address</label>
+      <input formControlName="email" type="email" class="form-control" [class.is-invalid]="isInValidAndTouched('email')" [class.is-valid]="isValidControl('email')" aria-describedby="emailHelp" placeholder="Enter email">
+      <div *ngIf="isInValidAndTouched('email')">
+        <small class="form-text text-danger" *ngIf="isControlHasError('email','required')">required email</small>
+        <small class="form-text text-danger" *ngIf="isControlHasError('email','minlength')">min length is 8</small>
+        <small class="form-text text-danger" *ngIf="isControlHasError('email','maxlength')">max length is 20</small>
+      </div> 
+     
+    </div>
+    <div class="form-group">
+      <label for="exampleInputpassword1">password</label>
+      <input formControlName="password" type="password" class="form-control"  placeholder="password">
+      <div *ngIf="isInValidAndTouched('password')">
+        <small class="form-text text-danger" *ngIf="isControlHasError('password','required')">required password</small>
+        <small class="form-text text-danger" *ngIf="isControlHasError('password','minlength')">min length is 8</small>
+        <small class="form-text text-danger" *ngIf="isControlHasError('password','maxlength')">max length is 20</small>
+      </div> 
+       </div>
+       <div class="form-group">
+        <label for="Address">Address</label>
+        <input formControlName="Address" type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter your address"> 
+        <div *ngIf="isInValidAndTouched('firstname')">
+          <small *ngIf="isControlHasError('firstname','required')">required firstname</small>
+          <small *ngIf="isControlHasError('firstname','minlength')">min length is 4</small>
+          <small *ngIf="isControlHasError('firstname','maxlength')">max length is 20</small>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">doB</label>
+        <input formControlName="date_of_birth" type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter date"> 
+      </div>
+      <div class="form-group">
+        <label for="gender">gender</label>
+        <input formControlName="gender" type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Enter gender"> 
+      </div>
+    
+    <button [disabled]="formRegister.invalid" (click)="register()" type="button" class="btn btn-primary">Submit</button>
+</div>
+
+
+
+
+
+<!-- <div [formGroup]="formRegister">
+ 
+  <label>firstname:</label>
+  <input type="text" formControlName="firstname" [(ngModel)]="student.firstname" placeholder="Enter your firstname">
+  <br>
+  <div *ngIf="isInValidAndTouched('firstname')">
+  <small *ngIf="isControlHasError('firstname','required')">required firstname</small>
+  <small *ngIf="isControlHasError('firstname','minlength')">min length is 4</small>
+  <small *ngIf="isControlHasError('firstname','maxlength')">max length is 20</small>
+  </div>
+  <br>
+  <label>lastname:</label>
+  <input type="text" formControlName="lastname" [(ngModel)]="student.lastname" placeholder="Enter your firstname">
+  <br>
+  <div *ngIf="isInValidAndTouched('lastname')">
+  <small *ngIf="isControlHasError('lastname','required')">required lastname</small>
+  <small *ngIf="isControlHasError('lastname','minlength')">min length is 4</small>
+  <small *ngIf="isControlHasError('lastname','maxlength')">max length is 20</small>
+  </div>
+  <br>
+     <label>Address:</label>
+  <input type="text" formControlName="Address" [(ngModel)]="student.lastname" placeholder="Enter your Address">
+  <br>
+  <div *ngIf="isInValidAndTouched('lastname')">
+  <small *ngIf="isControlHasError('Address','required')">required Address</small>
+  <small *ngIf="isControlHasError('Address','minlength')">min length is 4</small>
+  <small *ngIf="isControlHasError('Address','maxlength')">max length is 20</small>
+  </div>
+  <br>
+  <label>Age:</label>
+  
+  <input type="text" [(ngModel)]="student.Age" formControlName="Age" placeholder="Enter Your Age ">
+  <br>
+  <div *ngIf="!isValidControl('Age')">
+  <small>*required</small>
+  </div>
+  <br>
+  <label>email:</label>
+  
+  <input type="email" [(ngModel)]="student.email" formControlName="email" placeholder="Enter Your email ">
+  <br>
+  <div *ngIf="isInValidAndTouched('email')">
+  <small *ngIf="isControlHasError('email','required')">required email</small>
+  <small *ngIf="isControlHasError('email','pattern')">you should add @ and .com</small>
+  </div>
+  <br>
+  <label>Mobile:</label>
+  <input type="text" [(ngModel)]="student.Mobile" formControlName="Mobile" placeholder="Enter Your Mobile ">
+  <br>
+  <div *ngIf="isInValidAndTouched('Mobile')">
+  <small *ngIf="isControlHasError('Mobile','required')">required Phone</small>
+  <small *ngIf="isControlHasError('Mobile','pattern')">you should 012/11/15 and atleast 11number</small>
+  </div>
+  <br>
+  <label>NationalID:</label>
+  
+  <input type="text" [(ngModel)]="student.NationalID" formControlName="NationalID" placeholder="Enter Your ID ">
+  <br>
+  <div *ngIf="isInValidAndTouched('NationalID')">
+  <small *ngIf="isControlHasError('NationalID','required')">required ID</small>
+  <small *ngIf="isControlHasError('NationalID','minlength')">min length is 14</small>
+  <small *ngIf="isControlHasError('NationalID','maxlength')">max length is 14</small>
+  </div>
+  <br>
+  <button id="btn" [disabled]='formlogin.invalid' type="button"
+  (click)="addStudent(student.firstname,student.lastname,student.Age,student.email,student.NationalID,student.Mobile)">add</button>
+  <br>
+ </div>
+ <div> -->
