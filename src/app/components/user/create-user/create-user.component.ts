@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ApiUserService } from 'src/app/services/api-user.service';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -12,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class CreateUserComponent implements OnInit {
 
   formRegister=new FormGroup({});
-  constructor(private _formBuilder:FormBuilder,private _apiUserService:ApiUserService) { }
+  constructor(private _formBuilder:FormBuilder,private _apiUserService:ApiUserService,private _router:Router) { }
 
   ngOnInit(): void {
     this.formRegister=this._formBuilder.group({
@@ -35,8 +36,7 @@ export class CreateUserComponent implements OnInit {
       this._apiUserService.post(`users`,this.formRegister.value)
       .subscribe(
         (response:any)=>{
-          this._apiUserService.get('users')
-          .subscribe((response:any)=>{alert(JSON.stringify(response))},(error:any)=>{})
+          this._router.navigateByUrl('/login');
         },
         (error:any)=>{}
       );

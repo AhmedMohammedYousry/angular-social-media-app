@@ -13,8 +13,8 @@
         <h2>Register Facebook</h2>
       </div>
       <div class="card-body">
-        <div class="form">
-        <div [formGroup]="formRegister" class="container">
+        <div class="form" [formGroup]="formRegister">
+        <div  class="container">
           <!-- <label for="firstname">First Name</label> -->
           <input formControlName="firstname" type="text" class="form-control" aria-describedby="emailHelp"
             placeholder="Enter first name">
