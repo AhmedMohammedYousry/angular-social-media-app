@@ -12,8 +12,9 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+  
   user:User = new User();
+  postOwner:string="";
   constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient) { 
     
   }
@@ -30,6 +31,7 @@ export class ProfileComponent implements OnInit {
       (response:any)=>{
         // alert(JSON.stringify(response))
         this.user = response
+        this.postOwner=response.name
         if(!localStorage.getItem('id')){
           localStorage.setItem('id', response.id)
         }
