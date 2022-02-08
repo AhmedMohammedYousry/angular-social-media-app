@@ -24,10 +24,10 @@ export class ProfileComponent implements OnInit {
     let options = {
       'headers': headers
     }
-    this._apiUserService.get('users',options)
+    this._apiUserService.getUserByUserId(`${localStorage.getItem('userid')}`,options)
     .subscribe(
       (response:any)=>{
-        console.log(response);
+        alert(JSON.stringify(response))
         
       },
       (error:any)=> {}

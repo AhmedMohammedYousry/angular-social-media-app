@@ -25,15 +25,23 @@ export class LoginComponent implements OnInit {
 
     // alert(JSON.stringify(this.formLogin.value));
     //Call API to validate user
-    
-    
-    this._apiUserService.generateUserToken(this.formLogin.value.Email,this.formLogin.value.Password)
+    let email = this.formLogin.value.Email;
+    let password = this.formLogin.value.Password;
+    this._apiUserService.generateUserToken(email,password)
     .subscribe(
       (response:any)=>{ 
       
-        
-        this._userService.login(response);
-        this._router.navigateByUrl('/profile');
+        this._apiUserService.getUserId(email,password)
+        .subscribe(
+          (res:any)=>{
+            
+            localStorage.setItem("userid",res);
+            this._userService.login(response);
+            this._router.navigateByUrl('/profile');
+          },(error:any)=>{
+
+          }
+        )
       },
       (error:any)=> {
         console.log(error);
