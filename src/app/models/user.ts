@@ -5,11 +5,6 @@ export class User{
     firstname:string="";
     lastname:string="";
 
-    
-
-
-
-
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();
