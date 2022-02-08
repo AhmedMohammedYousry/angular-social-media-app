@@ -1,9 +1,10 @@
 
-import { HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { ApiUserService } from 'src/app/services/api-user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -13,8 +14,8 @@ import { ApiUserService } from 'src/app/services/api-user.service';
 export class ProfileComponent implements OnInit {
 
   user:User = new User();
-  constructor(private _apiUserService:ApiUserService) { 
-
+  constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient) { 
+    
   }
 
   ngOnInit(): void {
@@ -27,11 +28,18 @@ export class ProfileComponent implements OnInit {
     this._apiUserService.getUserByUserId(`${localStorage.getItem('userid')}`,options)
     .subscribe(
       (response:any)=>{
-        alert(JSON.stringify(response))
-        
+        // alert(JSON.stringify(response))
+        this.user = response
+        if(!localStorage.getItem('id')){
+          localStorage.setItem('id', response.id)
+        }
       },
       (error:any)=> {}
     )
-  }
 
+   
+    
+    
+  }
+  
 }
