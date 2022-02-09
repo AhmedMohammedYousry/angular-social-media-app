@@ -32,6 +32,32 @@ export class ApiUserService {
     
     return request;
    }
+
+   getUserId(email:string, password:string){
+    let request=  this._httpClient.post(`${environment.api_URL}/user/id`,
+    {
+      email: email,
+      password: password
+    }
+    
+  ,{responseType: 'text'});
+  
+    
+    return request;
+   }
+   getUserByUserId(userid:string,options={}){
+    let request=  this._httpClient.post(`${environment.api_URL}/user/userid`,
+    {
+      userid: userid
+    },options
+    
+  );
+  
+    
+    return request;
+   }
+  
+   
    post(url:string,body:any){
      let request= this._httpClient.post(`${environment.api_URL}/${url}`,body);
      

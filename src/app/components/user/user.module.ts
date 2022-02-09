@@ -7,12 +7,20 @@ import { Router, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from 'src/app/guards/auth.guard';
+import { PostModule } from '../post/post.module';
+
+
 
 const routes: Routes = [
   {path:'register',component:CreateUserComponent},
   {path:'login',component:LoginComponent},
   {path:'logout',component:LogoutComponent},
-  {path:'profile',component:ProfileComponent},
+  {
+    path:'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
 
   
   {path:'',component:LoginComponent},
@@ -26,7 +34,8 @@ const routes: Routes = [
   LogoutComponent],
   imports: [
     CommonModule,FormsModule , ReactiveFormsModule,HttpClientModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    PostModule
   ]
   
 })

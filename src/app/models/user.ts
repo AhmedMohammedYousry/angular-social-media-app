@@ -5,6 +5,9 @@ export class User{
     firstname:string="";
     lastname:string="";
 
+    address:string="";
+
+
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();
