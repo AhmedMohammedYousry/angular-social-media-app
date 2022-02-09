@@ -10,7 +10,7 @@
 .login-register-content{
   width: 100%;
   height: 100vh;
-  background: linear-gradient(160deg, #000428, #004e92);
+  /* background: linear-gradient(160deg, #000428, #004e92); */
   display: flex;
   align-items: center;
   justify-content: center;
