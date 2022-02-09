@@ -4,6 +4,8 @@ export class User{
     email:string="";
     firstname:string="";
     lastname:string="";
+    date_of_birth:string="";
+
 
     address:string="";
 

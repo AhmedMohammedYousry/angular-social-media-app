@@ -10,13 +10,13 @@ import { RightsideComponent } from './components/dashboard/rightside/rightside.c
 import { LeftSidebarComponent } from './components/dashboard/left-sidebar/left-sidebar.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     RightsideComponent,
     LeftSidebarComponent,
-
   ],
   imports: [
     BrowserModule,
