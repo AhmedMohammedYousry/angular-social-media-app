@@ -6,7 +6,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserModule } from './components/user/user.module';
 import { HeaderComponent } from './components/header/header.component';
 import { PostModule } from './components/post/post.module';
-import { RightsideComponent } from './components/user/rightside/rightside.component';
+import { RightsideComponent } from './components/dashboard/rightside/rightside.component';
+import { LeftSidebarComponent } from './components/dashboard/left-sidebar/left-sidebar.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { RightsideComponent } from './components/user/rightside/rightside.compon
     AppComponent,
     HeaderComponent,
     RightsideComponent,
+    LeftSidebarComponent,
 
   ],
   imports: [
