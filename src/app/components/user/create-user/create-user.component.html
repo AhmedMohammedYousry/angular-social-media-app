@@ -20,9 +20,9 @@
             placeholder="Enter first name">
             <i class="fas fa-user icon"></i>
             <div *ngIf="isInValidAndTouched('firstname')">
-            <small *ngIf="isControlHasError('firstname','required')">required firstname</small>
-            <small *ngIf="isControlHasError('firstname','minlength')">min length is 4</small>
-            <small *ngIf="isControlHasError('firstname','maxlength')">max length is 20</small>
+            <small class="form-text text-danger" *ngIf="isControlHasError('firstname','required')">*required firstname</small>
+            <small class="form-text text-danger" *ngIf="isControlHasError('firstname','minlength')">*min length is 4</small>
+            <small class="form-text text-danger" *ngIf="isControlHasError('firstname','maxlength')">*max length is 20</small>
           </div>
         </div>
         <div class="form-group">
@@ -32,9 +32,9 @@
             <i class="fas fa-user-edit icon"></i>
 
           <div *ngIf="isInValidAndTouched('lastname')">
-            <small *ngIf="isControlHasError('lastname','required')">required lastname</small>
-            <small *ngIf="isControlHasError('lastname','minlength')">min length is 4</small>
-            <small *ngIf="isControlHasError('lastname','maxlength')">max length is 20</small>
+            <small class="form-text text-danger" *ngIf="isControlHasError('lastname','required')">*required lastname</small>
+            <small class="form-text text-danger" *ngIf="isControlHasError('lastname','minlength')">*min length is 4</small>
+            <small class="form-text text-danger" *ngIf="isControlHasError('lastname','maxlength')">*max length is 20</small>
           </div>
         </div>
 
@@ -45,9 +45,8 @@
             aria-describedby="emailHelp" placeholder="Enter email">
             <i class="fas fa-envelope icon"></i>
           <div *ngIf="isInValidAndTouched('email')">
-            <small class="form-text text-danger" *ngIf="isControlHasError('email','required')">required email</small>
-            <small class="form-text text-danger" *ngIf="isControlHasError('email','minlength')">min length is 8</small>
-            <small class="form-text text-danger" *ngIf="isControlHasError('email','maxlength')">max length is 20</small>
+            <small class="form-text text-danger" *ngIf="isControlHasError('email','required')">*required email</small>
+            <small class="form-text text-danger" *ngIf="isControlHasError('email','pattern')">*you should add @ and .com</small>
           </div>
 
         </div>
@@ -57,12 +56,15 @@
           <i class="fas fa-key icon"></i>
           <div *ngIf="isInValidAndTouched('password')">
             <i class="fas fa-unlock-alt"></i>
-            <small class="form-text text-danger" *ngIf="isControlHasError('password','required')">required
+            <small class="form-text text-danger" *ngIf="isControlHasError('password','required')">*required
               password</small>
-            <small class="form-text text-danger" *ngIf="isControlHasError('password','minlength')">min length is
-              8</small>
-            <small class="form-text text-danger" *ngIf="isControlHasError('password','maxlength')">max length is
-              20</small>
+              <small class="form-text text-danger" *ngIf="isControlHasError('password','pattern')">*At least 8 characters in length
+                Lowercase letters
+                Uppercase letters
+                Numbers
+                Special characters
+               </small>
+              
           </div>
         </div>
         <div class="form-group">
@@ -70,10 +72,8 @@
           <input formControlName="Address" type="text" class="form-control" aria-describedby="emailHelp"
             placeholder="Enter your address">
             <i class="fas fa-address-card icon"></i>
-          <div *ngIf="isInValidAndTouched('firstname')">
-            <small *ngIf="isControlHasError('firstname','required')">required Address</small>
-            <small *ngIf="isControlHasError('firstname','minlength')">min length is 4</small>
-            <small *ngIf="isControlHasError('firstname','maxlength')">max length is 20</small>
+          <div *ngIf="isInValidAndTouched('Address')">
+            <small class="form-text text-danger" *ngIf="isControlHasError('Address','required')">*required Address</small>
           </div>
         </div>
         <div class="form-group">
@@ -81,14 +81,22 @@
           <input formControlName="date_of_birth" type="text" class="form-control" aria-describedby="emailHelp"
             placeholder="Enter date">
             <i class="fas fa-calendar-week icon"></i>
+            <div *ngIf="isInValidAndTouched('date_of_birth')">
+              <small class="form-text text-danger" *ngIf="isControlHasError('date_of_birth','required')">*date required </small>
+            </div>
+  
         </div>
+ 
         <div class="form-group">
-          <!-- <label for="gender">gender</label> -->
+          <!-- <label for="date_of_birth">Date_of_Birth</label> -->
           <input formControlName="gender" type="text" class="form-control" aria-describedby="emailHelp"
             placeholder="Enter gender">
-            <i class="fas fa-venus-mars icon"></i>
+            <i class="fas fa-calendar-week icon"></i>
+            <div *ngIf="isInValidAndTouched('gender')">
+              <small class="form-text text-danger" *ngIf="isControlHasError('gender','required')">*gender required </small>
+            </div>
+  
         </div>
-
         <button [disabled]="formRegister.invalid" (click)="register()" type="button"
           class="btn btn-primary">Submit</button>
           <a [routerLink]="['/login']" class="btn btn-light text-center text-secondary "  >
