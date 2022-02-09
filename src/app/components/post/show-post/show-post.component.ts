@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ShowPostComponent implements OnInit {
 
   @Input() postOwner:string="";
+  @Input() postContent:string="";
   constructor() { }
 
   ngOnInit(): void {
