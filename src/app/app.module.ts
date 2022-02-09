@@ -6,14 +6,18 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserModule } from './components/user/user.module';
 import { HeaderComponent } from './components/header/header.component';
 import { PostModule } from './components/post/post.module';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+import { LeftSidebarComponent } from './components/dashboard/left-sidebar/left-sidebar.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    DashboardComponent,
+
+    LeftSidebarComponent,
+
 
   ],
   imports: [

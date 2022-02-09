@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ApiUserService } from 'src/app/services/api-user.service';
@@ -17,13 +18,13 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.formRegister=this._formBuilder.group({
-      email:['' , [Validators.required,Validators.maxLength(50),Validators.minLength(10)]],
-      password:['',[Validators.required,Validators.minLength(8),Validators.maxLength(20)]],
+      email:['',[Validators.required,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
+      password:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
       firstname:['',[Validators.required,Validators.minLength(4),Validators.maxLength(20)]],
       lastname:['',[Validators.required,Validators.minLength(4),Validators.maxLength(20)]],
-      Address:['',[]],
-      date_of_birth: ['',[]],
-      gender: ['',[]],
+      Address:['',[Validators.required]],
+      date_of_birth: ['',[Validators.required]],
+      gender: ['',[Validators.required]],
 
     
     });
@@ -31,19 +32,26 @@ export class CreateUserComponent implements OnInit {
 
   register():void{
 
-    // alert(JSON.stringify(this.formRegister.value));
+  //alert(JSON.stringify(this.formRegister.value));
     //Call API to create user    
       this._apiUserService.post(`users`,this.formRegister.value)
       .subscribe(
         (response:any)=>{
           this._router.navigateByUrl('/login');
         },
-        (error:any)=>{}
+        (error:any)=>{
+          console.log(error)
+        }
       );
       
     
   }
-
+  
+ /*myFunction(){
+    this.formRegister.value.date_of_birth=new Date();
+    let latest_date =this.datepipe.transform(this.formRegister.value.date_of_birth,'yyyy-MM-dd');
+   }*/
+   
 
   isValidControl(name:string):boolean
   {

@@ -17,8 +17,8 @@
             <i class="fa fa-user " ></i>
             <div *ngIf="isInValidAndTouched('Email')">
               <small class="form-text text-danger" *ngIf="isControlHasError('Email','required')">required email</small>
-              <small class="form-text text-danger" *ngIf="isControlHasError('Email','minlength')">min length is 8</small>
-              <small class="form-text text-danger" *ngIf="isControlHasError('Email','maxlength')">max length is 20</small>
+              <small class="form-text text-danger" *ngIf="isControlHasError('Email','pattern')">*you should add @ and .com</small>
+
             </div> 
 
         
@@ -28,10 +28,15 @@
             <input type="password" name="password" placeholder="Password" formControlName="Password" type="password" class="form-control"  >
             <i class="fas fa-fingerprint icon " style="top:-55px; margin-left:-1px;"></i>
             <div *ngIf="isInValidAndTouched('Password')">
-              <small class="form-text text-danger" *ngIf="isControlHasError('Password','required')">required password</small>
-              <small class="form-text text-danger" *ngIf="isControlHasError('Password','minlength')">min length is 8</small>
-              <small class="form-text text-danger" *ngIf="isControlHasError('Password','maxlength')">max length is 20</small>
-            </div> 
+              <small class="form-text text-danger" *ngIf="isControlHasError('Password','required')">*required
+                password</small>
+                <small class="form-text text-danger" *ngIf="isControlHasError('Password','pattern')">*At least 8 characters in length
+                  Lowercase letters
+                  Uppercase letters
+                  Numbers
+                  Special characters
+                 </small>
+              </div> 
           </div>
            
             <button type="button" (click)="login()">Login</button>
