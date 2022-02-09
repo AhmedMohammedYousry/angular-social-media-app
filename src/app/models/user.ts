@@ -5,7 +5,7 @@ export class User{
     firstname:string="";
     lastname:string="";
     address:string="";
-    
+    date_of_birth:string="";
 
 
 

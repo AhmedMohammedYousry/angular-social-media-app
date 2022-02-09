@@ -1,10 +1,13 @@
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Post } from 'src/app/models/post';
 import { User } from 'src/app/models/user';
+
 import { ApiUserService } from 'src/app/services/api-user.service';
-import { environment } from 'src/environments/environment';
+import { ApiService } from 'src/app/services/api.service';
+
+
 
 @Component({
   selector: 'app-profile',
@@ -14,8 +17,10 @@ import { environment } from 'src/environments/environment';
 export class ProfileComponent implements OnInit {
   
   user:User = new User();
+  posts:Post[] = [];
   postOwner:string="";
-  constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient) { 
+  postContents:string[]=[];
+  constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService) { 
     
   }
 
@@ -37,6 +42,17 @@ export class ProfileComponent implements OnInit {
         }
       },
       (error:any)=> {}
+    )
+      // get user posts
+    this._apiService.get('posts',options).subscribe(
+      (response:any)=>{
+        response.forEach((post:any)=>{
+          if(post.user_id == localStorage.getItem('id')){
+            this.posts.push(post)
+            this.postContents.push(post.content)
+          }
+        })
+      },(error:any)=>{}
     )
 
    

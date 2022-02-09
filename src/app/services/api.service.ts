@@ -5,12 +5,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiPostService {
+export class ApiService {
 
   constructor(private _httpClient:HttpClient) { }
-  post(url:string,body:any,options={}){
-    return this._httpClient.post(`${environment.api_URL}/${url}`,body,options);
-  
-   }
 
+  get(url:string,options={}){
+    return this._httpClient.get(`${environment.api_URL}/${url}`,options);
+   }
 }
