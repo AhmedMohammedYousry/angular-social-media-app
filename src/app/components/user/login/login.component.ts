@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiUserService } from 'src/app/services/api-user.service';
+import { ApiService } from 'src/app/services/api.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
 
   formLogin=new FormGroup({});
-  constructor(private _formBuilder:FormBuilder,private _apiUserService:ApiUserService,private _router:Router,private _userService:UserService) { }
+  constructor(private _formBuilder:FormBuilder,private _apiUserService:ApiUserService,private _router:Router,private _userService:UserService,private _apiService:ApiService) { }
 
   ngOnInit(): void {
     this.formLogin=this._formBuilder.group({
@@ -27,10 +28,18 @@ export class LoginComponent implements OnInit {
     //Call API to validate user
     let email = this.formLogin.value.Email;
     let password = this.formLogin.value.Password;
+    
     this._apiUserService.generateUserToken(email,password)
     .subscribe(
       (response:any)=>{ 
-      
+        // store id 
+        this._apiService.get('users',{'headers':{'Authorization': `Bearer ${response}`}})
+        .subscribe((users:any)=>{
+          users.forEach((user:any)=>{
+            if(user.email == email)
+              localStorage.setItem('id', user.id)
+          })
+        })
         this._apiUserService.getUserId(email,password)
         .subscribe(
           (res:any)=>{

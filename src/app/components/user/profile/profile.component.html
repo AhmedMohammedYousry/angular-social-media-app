@@ -65,7 +65,9 @@
                 </div>
             </div>
         </div>
+        
         <div class="row profile-body">
+            
             <!-- left wrapper start -->
             <div class="d-none d-md-block col-md-4 col-xl-3 left-wrapper">
                 <div class="card rounded">
@@ -103,7 +105,7 @@
                         <p>Hi! I'm {{user.firstname}}.</p>
                         <div class="mt-3">
                             <label class="tx-11 font-weight-bold mb-0 text-uppercase">Joined:</label>
-                            <p class="text-muted">November 15, 2017</p>
+                            <p class="text-muted">{{user.created_at | date}}</p>
                         </div>
                         <div class="mt-3">
                             <label class="tx-11 font-weight-bold mb-0 text-uppercase">Lives:</label>
@@ -114,13 +116,14 @@
                             <p class="text-muted">{{user.email}}</p>
                         </div>
                         <div class="mt-3">
-                            <label class="tx-11 font-weight-bold mb-0 text-uppercase">Website:</label>
-                            <p class="text-muted">www.therichpost.com</p>
+                            <label class="tx-11 font-weight-bold mb-0 text-uppercase">Mobile:</label>
+                            <p class="text-muted">{{user.mobile}}</p>
                         </div>
                         
                     </div>
                 </div>
             </div>
+            
             <!-- left wrapper end -->
             <!-- middle wrapper start -->
             <div class="col-md-8 col-xl-6 middle-wrapper">
@@ -128,8 +131,8 @@
                     <div class="col-md-12">
                         
                         <app-create-post></app-create-post>
-                        <div *ngFor='let post of posts ;let i = index'>
-                        <app-show-post [postOwner]="postOwner" [postContent]="postContents[i]"></app-show-post>
+                        <div *ngFor='let post of user.posts ;let i = index'>
+                        <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content" [created_at]="user.posts[i].created_at"></app-show-post>
 
                         </div>
                     </div>
@@ -149,6 +152,7 @@
                                         <div class="col-md-4">
                                             <figure>
                                                 <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
+                                                <figcaption>Friend</figcaption>
                                             </figure>
                                         </div>
                                         <div class="col-md-4">
@@ -193,6 +197,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -307,6 +312,29 @@
                         </div>
                     </div>
                 </div>
+                <!-- friends section starts -->
+                <div class="row">
+                    <div class="col-md-12 grid-margin">
+                        <div class="card rounded">
+                            <div class="card-body">
+                                <h6 class="card-title">Friends</h6>
+                                <p class="text-muted small">{{user.friends.length}} friends</p>
+                                <div class="latest-photos">
+                                    <div class="row">
+                                        <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
+                                            <figure>
+                                                <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
+                                                <figcaption>{{friends[i]}}</figcaption>
+                                            </figure>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!-- friends section ends -->
             </div>
             <!-- right wrapper end -->
         </div>

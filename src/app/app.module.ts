@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { PostModule } from './components/post/post.module';
 import { RightsideComponent } from './components/dashboard/rightside/rightside.component';
 import { LeftSidebarComponent } from './components/dashboard/left-sidebar/left-sidebar.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NavigationHeaderComponent } from './components/navigation-header/navigation-header.component';
 
 
 
@@ -17,6 +19,8 @@ import { LeftSidebarComponent } from './components/dashboard/left-sidebar/left-s
     HeaderComponent,
     RightsideComponent,
     LeftSidebarComponent,
+    DashboardComponent,
+    NavigationHeaderComponent
   ],
   imports: [
     BrowserModule,

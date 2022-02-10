@@ -17,9 +17,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class ProfileComponent implements OnInit {
   
   user:User = new User();
-  posts:Post[] = [];
-  postOwner:string="";
-  postContents:string[]=[];
+  friends:string[]=[];
   constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService) { 
     
   }
@@ -31,35 +29,20 @@ export class ProfileComponent implements OnInit {
     let options = {
       'headers': headers
     }
-    this._apiUserService.getUserByUserId(`${localStorage.getItem('userid')}`,options)
+    this._apiService.getOne('users',parseInt(`${localStorage.getItem('id')}`),options)
     .subscribe(
       (response:any)=>{
         // alert(JSON.stringify(response))
-        this.user = response
-        this.postOwner=response.name
-        if(!localStorage.getItem('id')){
-          localStorage.setItem('id', response.id)
-        }
+        this.user = response[parseInt(`${localStorage.getItem('id')}`)-1]
+        // get friends' names
+        let i =1;
+        this.user.friends.forEach((friend:any)=>{
+          this._apiService.getOne('users',parseInt(friend.friend_id),options)
+          .subscribe((res:any)=>{this.friends.push(res[i].firstname);i=i+1;});
+        })
       },
       (error:any)=> {}
     )
-      // get user posts
-    this._apiService.get('posts',options).subscribe(
-      (response:any)=>{
-        response.forEach((post:any)=>{
-          if(post.user_id == localStorage.getItem('id')){
-            this.posts.push(post)
-            this.postContents.push(post.content)
-          }
-        })
-      },(error:any)=>{}
-    )
-
-
-
-
-
-   
     
     
   }

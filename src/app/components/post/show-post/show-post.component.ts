@@ -9,6 +9,7 @@ export class ShowPostComponent implements OnInit {
 
   @Input() postOwner:string="";
   @Input() postContent:string="";
+  @Input() created_at:string="";
   constructor() { }
 
   ngOnInit(): void {

@@ -1,3 +1,5 @@
+import { Post } from "./post";
+
 export class User{
     id:number=0;
     name:string="";
@@ -5,10 +7,13 @@ export class User{
     firstname:string="";
     lastname:string="";
     date_of_birth:string="";
+    created_at:string="";
+    mobile:string="";
 
 
     address:string="";
-
+    posts:Post[]=[];
+    friends:User[]=[];
 
     // $table->id();
     // $table->string('name');
