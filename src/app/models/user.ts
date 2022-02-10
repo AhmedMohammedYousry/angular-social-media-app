@@ -1,4 +1,5 @@
 import { Post } from "./post";
+import { Comment } from "./comment";
 
 export class User{
     id:number=0;
@@ -13,8 +14,9 @@ export class User{
 
     address:string="";
     posts:Post[]=[];
+    comments:Comment[]=[];
     friends:User[]=[];
-
+    isAdmin:number=0;
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();

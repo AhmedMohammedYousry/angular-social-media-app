@@ -10,6 +10,7 @@ import { RightsideComponent } from './components/dashboard/rightside/rightside.c
 import { LeftSidebarComponent } from './components/dashboard/left-sidebar/left-sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavigationHeaderComponent } from './components/navigation-header/navigation-header.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -24,7 +25,7 @@ import { NavigationHeaderComponent } from './components/navigation-header/naviga
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,UserModule,PostModule
+    AppRoutingModule,UserModule,PostModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

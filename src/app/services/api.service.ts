@@ -15,4 +15,7 @@ export class ApiService {
    getOne(url:string,id:number,options={}){
     return this._httpClient.get(`${environment.api_URL}/${url}/${id}`,options);
    }
+   post(url:string,body:any,options={}){
+    return this._httpClient.post(`${environment.api_URL}/${url}`,body,options);
+   }
 }

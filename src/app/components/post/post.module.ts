@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ShowPostComponent } from './show-post/show-post.component';
+import { CreateCommentComponent } from './create-comment/create-comment.component';
+import { ShowCommentComponent } from './show-comment/show-comment.component';
 
 const routes: Routes = [
   {path:'post',component:ShowPostComponent},
@@ -15,14 +17,16 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     CreatePostComponent,
-    ShowPostComponent
+    ShowPostComponent,
+    CreateCommentComponent,
+    ShowCommentComponent
   ],
   imports: [
     CommonModule,FormsModule , ReactiveFormsModule,HttpClientModule,
     RouterModule.forChild(routes)
   ],
   exports: [
-    CreatePostComponent,ShowPostComponent
+    CreatePostComponent,ShowPostComponent,CreateCommentComponent,ShowCommentComponent
   ]
 })
 export class PostModule { }

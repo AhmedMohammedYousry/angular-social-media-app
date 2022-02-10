@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import { PostModule } from '../post/post.module';
+import { CommentcontentPipe } from 'src/app/pipes/commentcontent.pipe';
 
 
 
@@ -31,7 +32,8 @@ const routes: Routes = [
     CreateUserComponent,
   LoginComponent,
   ProfileComponent,
-  LogoutComponent],
+  LogoutComponent,
+  CommentcontentPipe],
   imports: [
     CommonModule,FormsModule , ReactiveFormsModule,HttpClientModule,
     RouterModule.forChild(routes),

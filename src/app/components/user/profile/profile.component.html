@@ -129,11 +129,19 @@
             <div class="col-md-8 col-xl-6 middle-wrapper">
                 <div class="row">
                     <div class="col-md-12">
-                        
+                        <p>{{user.isAdmin}}</p>
                         <app-create-post></app-create-post>
                         <div *ngFor='let post of user.posts ;let i = index'>
-                        <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content" [created_at]="user.posts[i].created_at"></app-show-post>
-
+                        <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
+                         [created_at]="user.posts[i].created_at"
+                         ></app-show-post>
+                        <!-- create comment here -->
+                        <app-create-comment [post_id]="post.id"></app-create-comment>
+                        <!-- display comments here -->
+                        <div *ngFor='let comment of post.comments ;let j = index'>
+                        
+                        <app-show-comment [commentOwner]="user.name" [commentContent]="comment.content"></app-show-comment>
+                        </div>
                         </div>
                     </div>
                    
