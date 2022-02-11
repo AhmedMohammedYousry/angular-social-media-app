@@ -34,7 +34,8 @@ export class ProfileComponent implements OnInit {
     .subscribe(
       (response:any)=>{
         // alert(JSON.stringify(response))
-        this.user = response[parseInt(`${localStorage.getItem('id')}`)-1]
+        this.user = response
+        // [parseInt(`${localStorage.getItem('id')}`)-1]
         
       },
       (error:any)=> {}
@@ -42,8 +43,6 @@ export class ProfileComponent implements OnInit {
     
     
   }
-  godash(){
-    this._router.navigateByUrl('dashboard')
-  }
+  
   
 }

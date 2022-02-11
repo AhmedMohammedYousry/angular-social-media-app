@@ -10,6 +10,11 @@ export class ShowPostComponent implements OnInit {
   @Input() postOwner:string="";
   @Input() postContent:string="";
   @Input() created_at:string="";
+  @Input() comments_number:any;
+  @Input() post_likes_number:any;
+  @Input() post_shares_number:any;
+
+  
   constructor() { }
 
   ngOnInit(): void {

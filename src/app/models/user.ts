@@ -16,6 +16,7 @@ export class User{
     posts:Post[]=[];
     comments:Comment[]=[];
     friends:User[]=[];
+    friend:User[]=[];
     isAdmin:number=0;
     // $table->id();
     // $table->string('name');

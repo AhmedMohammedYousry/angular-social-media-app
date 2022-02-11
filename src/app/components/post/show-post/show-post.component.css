@@ -382,7 +382,8 @@ nav{
 
 }
 .post-text{
-    color: #9a9a9a;
+    /* color: #9a9a9a; */
+    color: dimgray;
     margin: 15px 0;
     font-size: 15px;
 

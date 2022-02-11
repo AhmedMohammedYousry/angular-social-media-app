@@ -132,15 +132,24 @@
                         <app-create-post></app-create-post>
                         <div *ngFor='let post of user.posts ;let i = index'>
                         <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
-                         [created_at]="user.posts[i].created_at"
+                         [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
+                         
                          ></app-show-post>
                         <!-- create comment here -->
                         <app-create-comment [post_id]="post.id"></app-create-comment>
                         <!-- display comments here -->
-                        <div *ngFor='let comment of post.comments ;let j = index'>
                         
-                        <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content"></app-show-comment>
-                        </div>
+                            <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                              Show comments
+                            </a>
+                            
+                          <div class="collapse" id="allposts{{i}}">
+                            <div *ngFor='let comment of post.comments ;let j = index'>
+                        
+                                <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content" [comment_created_at]="comment.created_at"></app-show-comment>
+                                </div>
+                          </div>
+                        
                         </div>
                     </div>
                    
@@ -325,13 +334,20 @@
                         <div class="card rounded">
                             <div class="card-body">
                                 <h6 class="card-title">Friends</h6>
-                                <p class="text-muted small">{{user.friends.length}} friends</p>
+                                <p class="text-muted small">{{user.friends.length+user.friend.length}} friends</p>
                                 <div class="latest-photos">
                                     <div class="row">
+                                        <!-- show all friends -->
                                         <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
                                             <figure>
                                                 <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
-                                                <figcaption (click)="godash()">friend</figcaption>
+                                                <figcaption class="small">{{friend.firstname}}</figcaption>
+                                            </figure>
+                                        </div>
+                                        <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
+                                            <figure>
+                                                <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
+                                                <figcaption class="small">{{friend.firstname}}</figcaption>
                                             </figure>
                                         </div>
                                         

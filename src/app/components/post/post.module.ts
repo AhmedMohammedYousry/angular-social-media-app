@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShowPostComponent } from './show-post/show-post.component';
 import { CreateCommentComponent } from './create-comment/create-comment.component';
 import { ShowCommentComponent } from './show-comment/show-comment.component';
+import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
 
 const routes: Routes = [
   {path:'post',component:ShowPostComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
     CreatePostComponent,
     ShowPostComponent,
     CreateCommentComponent,
-    ShowCommentComponent
+    ShowCommentComponent,
+    DateAgoPipe
   ],
   imports: [
     CommonModule,FormsModule , ReactiveFormsModule,HttpClientModule,

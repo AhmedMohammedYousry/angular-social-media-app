@@ -9,6 +9,7 @@ export class ShowCommentComponent implements OnInit {
 
   @Input() commentOwner:string="";
   @Input() commentContent:string="";
+  @Input() comment_created_at:string="";
 
   constructor() { }
 

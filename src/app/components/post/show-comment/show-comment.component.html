@@ -1,7 +1,8 @@
-<div class="card m-1" >
+<div class="card m-1 rounded-card" >
     <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
     <div class="card-body">
       <h6 class="card-title">{{commentOwner}}</h6>
       <p class="card-text">{{commentContent}}</p>
     </div>
   </div>
+  <p class="small text-muted">{{comment_created_at|dateAgo}}</p>
