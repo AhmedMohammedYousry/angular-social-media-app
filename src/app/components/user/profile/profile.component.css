@@ -4,6 +4,14 @@ body{
     #exampleFormControlTextarea6{
         resize: none;
     }
+    .postdiv{
+      border-radius: 10px;
+      border-style: solid;
+      border-color: white;
+      background-color: #f0f2f5;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
     .shadow-textarea textarea.form-control::placeholder {
         font-weight: 300;
         
@@ -45,7 +53,7 @@ body{
     border-radius: .25rem .25rem 0 0;
     width: 100%;
     height: 250px;
-    background-color:aqua;
+    background-color: #c2c2c2d3;
   }
   
   @media (max-width: 767px) {
@@ -219,3 +227,4 @@ body{
     border: 1px solid #f2f4f9;
     border-radius: 0.25rem;
   }
+  

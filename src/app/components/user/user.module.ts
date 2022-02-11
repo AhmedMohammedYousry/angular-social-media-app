@@ -10,6 +10,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import { PostModule } from '../post/post.module';
 import { CommentcontentPipe } from 'src/app/pipes/commentcontent.pipe';
+import { NavigationHeaderComponent } from '../navigation-header/navigation-header.component';
 
 
 

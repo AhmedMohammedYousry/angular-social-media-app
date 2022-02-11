@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navigation-header',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationHeaderComponent implements OnInit {
 
-  constructor() { }
+  isLogged=false;
+  constructor(private _userService:UserService,private _router:Router) { }
 
   ngOnInit(): void {
+
+    this.isLogged=this._userService.isLoggedIn();
+    this._userService.logged.subscribe(status=>{
+      this.isLogged=status;
+    })
+
+    
+  }
+
+  signOut(){
+    this._router.navigateByUrl('/logout')
+  }
+  visitProfile(){
+    this._router.navigateByUrl('/profile')
   }
 
 }

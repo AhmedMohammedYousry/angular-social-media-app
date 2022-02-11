@@ -1,4 +1,6 @@
-
+.logout:hover{
+    cursor: pointer;
+}
 
 *{
     margin: 0;

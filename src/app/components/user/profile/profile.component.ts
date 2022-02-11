@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   
   user:User = new User();
+ 
   constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router) { 
     
   }

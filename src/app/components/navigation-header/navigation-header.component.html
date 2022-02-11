@@ -1,7 +1,7 @@
 <!-- new nav -->
-<nav>
+<nav *ngIf="isLogged">
   <div class="nav-left">
-    <a href="Index.html">
+    <a routerLink="/dashboard">
       <img src="https://i.postimg.cc/Y9nZymQq/logo2.png" class="logo" />
     </a>
     <ul>
@@ -27,8 +27,10 @@
   </div>
   <div class="nav-right">
     <div class="nav-user-icon online" onclick="settingsMenuToggle()">
-      <img src="https://i.postimg.cc/cHg22LhR/profile-pic.png" />
+      <img src="https://i.postimg.cc/cHg22LhR/profile-pic.png" (click)="visitProfile()" />
     </div>
+  <i class="far fa-sign-out icon text-white ms-4 logout" (click)="signOut()"></i>
+    
   </div>
 
   <!----------------Settings Menu"----------------------->

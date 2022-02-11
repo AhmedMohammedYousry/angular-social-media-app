@@ -11,7 +11,7 @@ import { LeftSidebarComponent } from './components/dashboard/left-sidebar/left-s
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavigationHeaderComponent } from './components/navigation-header/navigation-header.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -27,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,UserModule,PostModule,ReactiveFormsModule
   ],
+  exports: [NavigationHeaderComponent,CommonModule],
   providers: [],
   bootstrap: [AppComponent]
 })

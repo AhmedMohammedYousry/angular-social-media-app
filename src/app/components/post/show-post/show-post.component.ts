@@ -13,7 +13,10 @@ export class ShowPostComponent implements OnInit {
   @Input() comments_number:any;
   @Input() post_likes_number:any;
   @Input() post_shares_number:any;
-
+  @Input() like: boolean = false;
+  likebtn(){
+      this.like = !this.like;       
+  }
   
   constructor() { }
 
