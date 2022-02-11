@@ -1,3 +1,4 @@
+import { User } from "./user";
 
 export class Comment{
     id:number=0;
@@ -6,5 +7,5 @@ export class Comment{
     post_id:number=0;
     created_at:string="";
     updated_at:string="";
-
+    user:User=new User;
 }

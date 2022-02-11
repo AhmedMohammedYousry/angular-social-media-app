@@ -129,7 +129,6 @@
             <div class="col-md-8 col-xl-6 middle-wrapper">
                 <div class="row">
                     <div class="col-md-12">
-                        <p>{{user.isAdmin}}</p>
                         <app-create-post></app-create-post>
                         <div *ngFor='let post of user.posts ;let i = index'>
                         <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
@@ -140,7 +139,7 @@
                         <!-- display comments here -->
                         <div *ngFor='let comment of post.comments ;let j = index'>
                         
-                        <app-show-comment [commentOwner]="user.name" [commentContent]="comment.content"></app-show-comment>
+                        <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content"></app-show-comment>
                         </div>
                         </div>
                     </div>
@@ -160,7 +159,7 @@
                                         <div class="col-md-4">
                                             <figure>
                                                 <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
-                                                <figcaption>Friend</figcaption>
+                                                
                                             </figure>
                                         </div>
                                         <div class="col-md-4">
@@ -332,7 +331,7 @@
                                         <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
                                             <figure>
                                                 <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
-                                                <figcaption>{{friends[i]}}</figcaption>
+                                                <figcaption (click)="godash()">friend</figcaption>
                                             </figure>
                                         </div>
                                         
