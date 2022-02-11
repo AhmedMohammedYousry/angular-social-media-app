@@ -1,8 +1,12 @@
 
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
+
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import {Subscription} from 'rxjs';
+
 import { ApiUserService } from 'src/app/services/api-user.service';
 
 @Component({
@@ -35,3 +39,4 @@ export class ProfileComponent implements OnInit {
   }
 
 }
+

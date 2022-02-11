@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Login To Facebook</title>
+    <title>Login To FireClub</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
   </head>
@@ -8,7 +8,7 @@
     <section class="login-register-content">
       <div class="card-content">
         <div class="card-header">
-          <h2>Login Facebook</h2>
+          <h2>Login FireClub</h2>
         </div>
         <div class="card-body">
           <div [formGroup]="formLogin" class="container form" >
@@ -49,30 +49,3 @@
 </html>
 
 
-
-<!-- 
-
-<div [formGroup]="formLogin" class="container">
-
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input formControlName="Email" type="email" class="form-control" [class.is-invalid]="isInValidAndTouched('Email')" [class.is-valid]="isValidControl('Email')" aria-describedby="emailHelp" placeholder="Enter email">
-      <div *ngIf="isInValidAndTouched('Email')">
-        <small class="form-text text-danger" *ngIf="isControlHasError('Email','required')">required email</small>
-        <small class="form-text text-danger" *ngIf="isControlHasError('Email','minlength')">min length is 8</small>
-        <small class="form-text text-danger" *ngIf="isControlHasError('Email','maxlength')">max length is 20</small>
-      </div> 
-     
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input formControlName="Password" type="password" class="form-control"  placeholder="Password">
-      <div *ngIf="isInValidAndTouched('Password')">
-        <small class="form-text text-danger" *ngIf="isControlHasError('Password','required')">required password</small>
-        <small class="form-text text-danger" *ngIf="isControlHasError('Password','minlength')">min length is 8</small>
-        <small class="form-text text-danger" *ngIf="isControlHasError('Password','maxlength')">max length is 20</small>
-      </div> 
-       </div>
-    
-    <button [disabled]="formLogin.invalid" (click)="login()" type="button" class="btn btn-primary">Submit</button>
-</div> -->

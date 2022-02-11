@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
 
 
 
+
   isValidControl(name:string):boolean
   {
     return this.formLogin.controls[name].valid;

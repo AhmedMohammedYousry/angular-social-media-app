@@ -1,25 +1,30 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ProfileComponent } from './profile.component';
-
-describe('ProfileComponent', () => {
-  let component: ProfileComponent;
-  let fixture: ComponentFixture<ProfileComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ]
-    })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ProfileComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+import { HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { ApiUserService } from 'src/app/services/api-user.service';
+@Component({
+selector: 'app-profile',
+templateUrl: './profile.component.html',
+styleUrls: ['./profile.component.css']
+})
+export class ProfileComponent implements OnInit {
+user:User = new User();
+constructor(private _apiUserService:ApiUserService) {
+}
+ngOnInit(): void {
+const headers = new HttpHeaders({
+Authorization: `Bearer ${localStorage.getItem('Token')}`
 });
+let options = {
+'headers': headers
+}
+this._apiUserService.get('users',options)
+.subscribe(
+(response:any)=>{
+console.log(response);
+},
+(error:any)=> {}
+)
+}
+}

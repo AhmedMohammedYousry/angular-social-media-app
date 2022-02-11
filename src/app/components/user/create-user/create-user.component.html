@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Register To Facebook</title>
+  <title>Register To FireClub</title>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 </head>
@@ -10,13 +10,13 @@
   <section class="login-register-content">
  <div class="card-content">
       <div class="card-header">
-        <h2>Register Facebook</h2>
+        <h2>Register FireClub</h2>
       </div>
       <div class="card-body">
         <div class="form" [formGroup]="formRegister">
         <div  class="container">
           <!-- <label for="firstname">First Name</label> -->
-          <input formControlName="firstname" type="text" class="form-control" aria-describedby="emailHelp"
+          <input formControlName="firstname" type="text" class="form-control fname" aria-describedby="emailHelp"
             placeholder="Enter first name">
             <i class="fas fa-user icon"></i>
             <div *ngIf="isInValidAndTouched('firstname')">
@@ -78,15 +78,21 @@
         </div>
         <div class="form-group">
           <!-- <label for="date_of_birth">Date_of_Birth</label> -->
-          <input formControlName="date_of_birth" type="text" class="form-control" aria-describedby="emailHelp"
+          <input formControlName="date_of_birth" type="date" class="form-control" aria-describedby="emailHelp"
             placeholder="Enter date">
             <i class="fas fa-calendar-week icon"></i>
         </div>
-        <div class="form-group">
-          <!-- <label for="gender">gender</label> -->
-          <input formControlName="gender" type="text" class="form-control" aria-describedby="emailHelp"
-            placeholder="Enter gender">
-            <i class="fas fa-venus-mars icon"></i>
+        <div class="custom-radio-wrap">
+          <div class="form-group">
+            <input id="male" type="radio" name="gender" formControlName="gender" value="male" />
+            <label class="custom-radio" for="male"></label>
+            <span class="label-text">male</span>
+          </div>
+          <div class="form-group">
+            <input id="female" type="radio" formControlName="gender" name="gender" value="female" />
+            <label class="custom-radio" for="female"></label>
+            <span class="label-text">female</span>
+          </div>
         </div>
 
         <button [disabled]="formRegister.invalid" (click)="register()" type="button"
