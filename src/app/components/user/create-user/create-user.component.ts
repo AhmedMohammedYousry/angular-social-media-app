@@ -32,7 +32,7 @@ export class CreateUserComponent implements OnInit {
 
   register():void{
 
-  //alert(JSON.stringify(this.formRegister.value));
+  // alert(JSON.stringify(this.formRegister.value));
     //Call API to create user    
       this._apiUserService.post(`users`,this.formRegister.value)
       .subscribe(
