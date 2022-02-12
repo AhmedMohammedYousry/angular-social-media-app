@@ -13,6 +13,7 @@ export class CreateCommentComponent implements OnInit {
   formComment=new FormGroup({});
   @Input() post_id:number=0;
 
+
   constructor(private _apiService:ApiService,private _formBuilder:FormBuilder) { }
 
   ngOnInit(): void {

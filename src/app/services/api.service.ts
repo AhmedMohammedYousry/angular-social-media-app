@@ -18,4 +18,7 @@ export class ApiService {
    post(url:string,body:any,options={}){
     return this._httpClient.post(`${environment.api_URL}/${url}`,body,options);
    }
+   delete(url:string,id:number,options={}){
+    return this._httpClient.delete(`${environment.api_URL}/${url}/${id}`,options);
+   }
 }

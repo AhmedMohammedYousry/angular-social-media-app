@@ -138,7 +138,7 @@
                         <div *ngFor='let post of user.posts ;let i = index' class="postdiv">
                         <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
                          [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
-                         
+                         [post_id]="post.id"
                          ></app-show-post>
                          
                         

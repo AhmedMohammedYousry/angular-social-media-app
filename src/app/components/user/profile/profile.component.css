@@ -4,11 +4,14 @@ body{
     #exampleFormControlTextarea6{
         resize: none;
     }
+    .middle-wrapper{
+      background-color: #f0f2f5f6;
+    }
     .postdiv{
       border-radius: 10px;
       border-style: solid;
       border-color: white;
-      background-color: #f0f2f5;
+      background-color: white;
       padding: 1rem;
       margin-top: 1rem;
     }
