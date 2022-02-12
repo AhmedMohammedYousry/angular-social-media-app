@@ -12,6 +12,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavigationHeaderComponent } from './components/navigation-header/navigation-header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ChatComponent } from './components/chat/chat.component';
+import { PagesComponent } from './components/pages/pages.component';
 
 
 @NgModule({
@@ -21,7 +23,10 @@ import { CommonModule } from '@angular/common';
     RightsideComponent,
     LeftSidebarComponent,
     DashboardComponent,
-    NavigationHeaderComponent
+    NavigationHeaderComponent,
+    ChatComponent,
+    PagesComponent,
+    
   ],
   imports: [
     BrowserModule,
