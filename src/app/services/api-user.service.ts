@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +73,23 @@ export class ApiUserService {
   //   delete(url:string){
   //    return this._httpClient.delete(`${environment.api_URL}/${url}`);
   //   }
+  isFriend(userOne:User,userTwo:User){
+    userOne.friends.forEach(
+      (user:any)=>{
+        if(user.id==userTwo.id){
+          return true;
+        }
+      }
+    );
+    userOne.friend.forEach(
+      (user:any)=>{
+        if(user.id==userTwo.id){
+          return true;
+        }
+      }
+    )
+    return false;
+  }
 
   
 

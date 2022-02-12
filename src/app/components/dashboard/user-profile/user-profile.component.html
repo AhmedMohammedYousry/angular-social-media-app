@@ -1,0 +1,164 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Social Media</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+</head>
+
+<body>
+
+    <div>
+        <!----------------Porfile page----------------------->
+        <div class="pofile-container">
+            <img src="https://i.postimg.cc/sfQS7fj3/cover.png" class="cover-img">
+            <div class="profile-details">
+                <div class="pd-left">
+                    <div class="pd-row">
+                        <img src="https://i.postimg.cc/Qx7txHXW/profile.png" class="pd-image">
+                        <div>
+                            <h3>{{user.name}}</h3>
+                            <p> Friends - 20 mutual</p>
+                            <img src="https://i.postimg.cc/WbdZmNs2/member-1.png">
+                            <img src="https://i.postimg.cc/9Fs7J6fy/member-2.png">
+                            <img src="https://i.postimg.cc/L8fZ7xqw/member-3.png">
+                            <img src="https://i.postimg.cc/xd3Njq3P/member-5.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="pd-right">
+                    <button type="button"> Friends</button>
+                    <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button>
+                </div>
+            </div>
+            <div class="profile-info">
+                <div class="info-col">
+                    <div class="profile-intro">
+                        <h3>Intro</h3>
+                        <p class="intro-text">Believe in yourself and you can
+                            do unbelievable things <img src="https://i.postimg.cc/7YZVFrDc/feeling.png"></p>
+                        <hr>
+                        <ul>
+                            <li><img src="https://i.postimg.cc/vZLZfkxY/profile-job.png"> Director at 99media Ltd</li>
+                            <li><img src="https://i.postimg.cc/V65syNGv/profile-study.png"> Studied at Amity University
+                            </li>
+                            <li><img src="https://i.postimg.cc/V65syNGv/profile-study.png"> Went to DPS Delhi</li>
+                            <li><img src="https://i.postimg.cc/zG1fL8B2/profile-home.png"> Lives in Bangalore, India
+                            </li>
+                            <li><img src="https://i.postimg.cc/W4Nbn80M/profile-location.png"> From Bangalore, India
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="profile-intro">
+                        <div class="title-box">
+                            <h3>Photos</h3>
+                            <a href="">Photos</a>
+                        </div>
+                        <div class="photo-box">
+                            <div><img src="https://i.postimg.cc/pdCyb4PG/photo1.png"></div>
+                            <div><img src="https://i.postimg.cc/LX0XhPYj/photo2.png"></div>
+                            <div><img src="https://i.postimg.cc/kG65S5Kz/photo3.png"></div>
+                            <div><img src="https://i.postimg.cc/xCd805C0/photo4.png"></div>
+                            <div><img src="https://i.postimg.cc/FzMHVQxR/photo5.png"></div>
+                            <div><img src="https://i.postimg.cc/QNwC3pr3/photo6.png"></div>
+                        </div>
+                    </div>
+                    <div class="profile-intro  " >
+                        <div class="title-box">
+                            <h3>Friends</h3>
+                            <a href="">Friends</a>
+                        </div>
+                        <p>120 (10 Mutual)</p>
+                        <div class="friends-box  row">
+                            <div  class=""><img src="https://i.postimg.cc/WbdZmNs2/member-1.png">
+                                <p>Joseph N</p>
+                            </div>
+                            <div  class=""><img src="https://i.postimg.cc/9Fs7J6fy/member-2.png">
+                                <p>Nathan N</p>
+                            </div>
+                            <div class="" ><img src="https://i.postimg.cc/L8fZ7xqw/member-3.png">
+                                <p>George D</p>
+                            </div>
+                            <div  class="">
+                                <img src="https://i.postimg.cc/43ghTpVd/member-4.png">
+                                <p>Francis L</p>
+                            </div>
+                            <div class="">
+                                <img src="https://i.postimg.cc/xd3Njq3P/member-5.png">
+                                <p>Anthony E</p>
+                            </div>
+                            <div class="">
+                                <img src="https://i.postimg.cc/RFP3f886/member-6.png">
+                                <p>Michael A</p>
+                            </div>
+                            <div class=""> 
+                                <img src="https://i.postimg.cc/PJ9PVDdd/member-7.png">
+                                <p>Edward M</p>
+                            </div>
+                            <div class=" ">
+                                <img src="https://i.postimg.cc/h45ztkTN/member-8.png">
+                                <p>Brandon C</p>
+                            </div>
+                            <div class="">
+                                <img src="https://i.postimg.cc/mgQtVhJG/member-9.png">
+                                <p>James Doe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="write-post-container">
+                
+                    <div class="post-input-container">
+
+                        <div class="test">
+                            <div class="col-md-8 col-xl-6 middle-wrapper">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <app-create-post></app-create-post>
+                                        <div *ngFor='let post of user.posts ;let i = index' class="postdiv">
+                                        <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
+                                         [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
+                                         [post_id]="post.id"
+                                         ></app-show-post>
+                                         
+                                        
+                                        <!-- create comment here -->
+                                        <app-create-comment [post_id]="post.id"></app-create-comment>
+                                        <!-- display comments here -->
+                                        
+                                            <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                              Show comments
+                                            </a>
+                                            
+                                          <div class="collapse" id="allposts{{i}}">
+                                            <div *ngFor='let comment of post.comments ;let j = index'>
+                                        
+                                                <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content" [comment_created_at]="comment.created_at"></app-show-comment>
+                                                </div>
+                                          </div>
+                                        
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        
+                        
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Copyright 2022 - Vkive Tutorials</p>
+    </div>
+</body>
+
+</html>

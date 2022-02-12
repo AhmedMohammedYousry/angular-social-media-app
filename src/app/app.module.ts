@@ -12,7 +12,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavigationHeaderComponent } from './components/navigation-header/navigation-header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { ShowUsersComponent } from './components/dashboard/show-users/show-users.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { ShowUserComponent } from './components/dashboard/show-user/show-user.component';
+import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +25,15 @@ import { CommonModule } from '@angular/common';
     RightsideComponent,
     LeftSidebarComponent,
     DashboardComponent,
-    NavigationHeaderComponent
+    NavigationHeaderComponent,
+    ShowUsersComponent,
+    ShowUserComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,UserModule,PostModule,ReactiveFormsModule
+    AppRoutingModule,UserModule,PostModule,ReactiveFormsModule, BrowserAnimationsModule,
+    MatCardModule
   ],
   exports: [NavigationHeaderComponent,CommonModule],
   providers: [],

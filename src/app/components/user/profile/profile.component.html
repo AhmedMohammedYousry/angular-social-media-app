@@ -280,13 +280,13 @@
                                     <div class="row">
                                         <!-- show all friends -->
                                         <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
-                                            <figure>
+                                            <figure (click)="goToProfile(friend.id)">
                                                 <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
                                                 <figcaption class="small">{{friend.firstname}}</figcaption>
                                             </figure>
                                         </div>
                                         <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
-                                            <figure>
+                                            <figure (click)="goToProfile(friend.id)">
                                                 <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
                                                 <figcaption class="small">{{friend.firstname}}</figcaption>
                                             </figure>
