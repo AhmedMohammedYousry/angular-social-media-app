@@ -1,22 +1,23 @@
 <!-- new nav -->
 <nav *ngIf="isLogged">
   <div class="nav-left">
-    <a routerLink="/dashboard">
-      <img src="https://i.postimg.cc/Y9nZymQq/logo2.png" class="logo" />
+    <a  class=" logo"routerLink="/dashboard">
+      <h2  class=" logo">FireClub</h2>
     </a>
     <ul>
       <li>
         <i class="fas fa-bell icon"></i>
       </li>
+ 
       <li>
-        <i class="far fa-envelope icon"></i>
+        <a [routerLink]="['/chat']" >
+        <i class="fab fa-facebook-messenger icon">  </i>
+         </a>
+       
       </li>
       <li>
-        <i class="fab fa-facebook-messenger icon"></i>
-      </li>
-      <li>
-        
-        <a routerLink="/users"><i class="fas fa-user-plus icon"></i></a>
+        <i class="fas fa-user-plus icon"></i>
+     
       </li>
     </ul>
   </div>

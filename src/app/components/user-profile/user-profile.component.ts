@@ -32,11 +32,14 @@ export class UserProfileComponent implements OnInit {
         // alert(JSON.stringify(response))
         this.user = response
         // [parseInt(`${localStorage.getItem('id')}`)-1]
-        alert(JSON.stringify(response))
+        // alert(JSON.stringify(response))
         
       },
       (error:any)=> {}
     )
   }
+  goToProfile(user_id:number){
+    this._router.navigateByUrl(`users/${user_id}`)
 
+  }
 }

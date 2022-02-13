@@ -12,7 +12,7 @@ export class ApiService {
   get(url:string,options={}){
     return this._httpClient.get(`${environment.api_URL}/${url}`,options);
    }
-   getOne(url:string,id:any,options={}){
+   getOne(url:string,id:number,options={}){
     return this._httpClient.get(`${environment.api_URL}/${url}/${id}`,options);
    }
    post(url:string,body:any,options={}){

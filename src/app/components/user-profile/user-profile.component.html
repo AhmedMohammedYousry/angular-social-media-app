@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -43,16 +43,15 @@
                             do unbelievable things <img src="https://i.postimg.cc/7YZVFrDc/feeling.png"></p>
                         <hr>
                         <ul>
-                            <li><img src="https://i.postimg.cc/vZLZfkxY/profile-job.png"> Director at 99media Ltd</li>
-                            <li><img src="https://i.postimg.cc/V65syNGv/profile-study.png"> Studied at Amity University
-                            </li>
-                            <li><img src="https://i.postimg.cc/V65syNGv/profile-study.png"> Went to DPS Delhi</li>
-                            <li><img src="https://i.postimg.cc/zG1fL8B2/profile-home.png"> Lives in Bangalore, India
-                            </li>
-                            <li><img src="https://i.postimg.cc/W4Nbn80M/profile-location.png"> From Bangalore, India
+                        
+                            <li><i class="fa-solid fa-user-graduate "></i>{{user.school}}</li>
+                            <li><i class="fa-solid fa-calendar-check"></i>{{user.date_of_birth}}</li>
+                            <li><i class="fa-solid fa-location-pin"></i>{{user.address}}</li>
+                            <li><i class="fa-solid fa-phone"></i>{{user.mobile}}
                             </li>
                         </ul>
                     </div>
+                   
                     <div class="profile-intro">
                         <div class="title-box">
                             <h3>Photos</h3>
@@ -72,42 +71,13 @@
                             <h3>Friends</h3>
                             <a href="">Friends</a>
                         </div>
-                        <p>120 (10 Mutual)</p>
-                        <div class="friends-box  row">
-                            <div  class=""><img src="https://i.postimg.cc/WbdZmNs2/member-1.png">
-                                <p>Joseph N</p>
-                            </div>
-                            <div  class=""><img src="https://i.postimg.cc/9Fs7J6fy/member-2.png">
-                                <p>Nathan N</p>
-                            </div>
-                            <div class="" ><img src="https://i.postimg.cc/L8fZ7xqw/member-3.png">
-                                <p>George D</p>
-                            </div>
-                            <div  class="">
-                                <img src="https://i.postimg.cc/43ghTpVd/member-4.png">
-                                <p>Francis L</p>
-                            </div>
-                            <div class="">
-                                <img src="https://i.postimg.cc/xd3Njq3P/member-5.png">
-                                <p>Anthony E</p>
-                            </div>
-                            <div class="">
-                                <img src="https://i.postimg.cc/RFP3f886/member-6.png">
-                                <p>Michael A</p>
-                            </div>
-                            <div class=""> 
-                                <img src="https://i.postimg.cc/PJ9PVDdd/member-7.png">
-                                <p>Edward M</p>
-                            </div>
-                            <div class=" ">
-                                <img src="https://i.postimg.cc/h45ztkTN/member-8.png">
-                                <p>Brandon C</p>
-                            </div>
-                            <div class="">
-                                <img src="https://i.postimg.cc/mgQtVhJG/member-9.png">
-                                <p>James Doe</p>
-                            </div>
-                        </div>
+                        <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
+                            <figure (click)="goToProfile(friend.id)">
+                                <p>{{i+1}}(10 Mutual)</p>
+                                <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
+                                <figcaption class="small">{{friend.firstname}}</figcaption>
+                            </figure>
+                        </div> 
                     </div>
                 </div>
                 <div class="write-post-container">
@@ -115,28 +85,23 @@
                     <div class="post-input-container">
 
                         <div class="test">
-                            <div class="col-md-8 col-xl-6 middle-wrapper">
+                            <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <app-create-post></app-create-post>
+                                    <div>
+                                        
                                         <div *ngFor='let post of user.posts ;let i = index' class="postdiv">
                                         <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
                                          [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
                                          [post_id]="post.id"
-                                         ></app-show-post>
-                                         
-                                        
+                                         ></app-show-post>     
                                         <!-- create comment here -->
                                         <app-create-comment [post_id]="post.id"></app-create-comment>
                                         <!-- display comments here -->
-                                        
                                             <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                               Show comments
-                                            </a>
-                                            
+                                            </a>   
                                           <div class="collapse" id="allposts{{i}}">
                                             <div *ngFor='let comment of post.comments ;let j = index'>
-                                        
                                                 <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content" [comment_created_at]="comment.created_at"></app-show-comment>
                                                 </div>
                                           </div>

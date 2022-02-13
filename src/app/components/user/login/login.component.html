@@ -1,19 +1,19 @@
 <html>
   <head>
-    <title>Login To Facebook</title>
+    <title>Login To FireClub</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
   </head>
   <body>
+
     <section class="login-register-content">
       <div class="card-content">
         <div class="card-header">
-          <h2>Login Facebook</h2>
+          <h2>Login FireClub</h2>
         </div>
         <div class="card-body">
           <div [formGroup]="formLogin" class="container form" >
-            <!-- <label for="exampleInputEmail1">Email address</label> -->
-            <input type="text" name="username" placeholder="Username" formControlName="Email" type="email" class="form-control" [class.is-invalid]="isInValidAndTouched('Email')" [class.is-valid]="isValidControl('Email')" aria-describedby="emailHelp">
+            <input type="text" name="username" placeholder="Email" formControlName="Email" type="email" class="form-control" [class.is-invalid]="isInValidAndTouched('Email')" [class.is-valid]="isValidControl('Email')" aria-describedby="emailHelp">
             <i class="fa fa-user " ></i>
             <div *ngIf="isInValidAndTouched('Email')">
               <small class="form-text text-danger" *ngIf="isControlHasError('Email','required')">required email</small>
@@ -24,7 +24,6 @@
         
 
             <div class="form-group">
-            <!-- <label for="exampleInputPassword1">Password</label> -->
             <input type="password" name="password" placeholder="Password" formControlName="Password" type="password" class="form-control"  >
             <i class="fas fa-fingerprint icon " style="top:-55px; margin-left:-1px;"></i>
             <div *ngIf="isInValidAndTouched('Password')">

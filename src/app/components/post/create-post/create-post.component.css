@@ -7,3 +7,7 @@ textarea{
 .shadow-textarea textarea.form-control {
     padding-left: 0.8rem;
 }
+.button{
+    background: #6d0606;
+
+}

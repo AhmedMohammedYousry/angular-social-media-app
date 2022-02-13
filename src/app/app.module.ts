@@ -12,11 +12,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavigationHeaderComponent } from './components/navigation-header/navigation-header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ShowUsersComponent } from './components/dashboard/show-users/show-users.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule } from '@angular/material/card';
-import { ShowUserComponent } from './components/dashboard/show-user/show-user.component';
-import { UserProfileComponent } from './components/dashboard/user-profile/user-profile.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { PagesComponent } from './components/pages/pages.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -26,14 +27,14 @@ import { UserProfileComponent } from './components/dashboard/user-profile/user-p
     LeftSidebarComponent,
     DashboardComponent,
     NavigationHeaderComponent,
-    ShowUsersComponent,
-    ShowUserComponent,
+    ChatComponent,
+    PagesComponent,
     UserProfileComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,UserModule,PostModule,ReactiveFormsModule, BrowserAnimationsModule,
-    MatCardModule
+    AppRoutingModule,UserModule,PostModule,ReactiveFormsModule,MatCardModule
   ],
   exports: [NavigationHeaderComponent,CommonModule],
   providers: [],

@@ -8,12 +8,7 @@
     font-family: 'poppins',sans-serif;
     box-sizing: border-box;
 }
-:root{
-    --body-color:#efefef;
-    --nav-color: #1876f2;
-    --bg-color: #fff;
 
-}
 .dark-theme{
     --body-color:#0a0a0a;
     --nav-color: #000;
@@ -25,7 +20,9 @@ body{
     transition: background 0.3s;
 
 
+
 }
+
 
 
 
@@ -33,7 +30,8 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #1876f2;
+    background: linear-gradient( 109deg , #ff2403, #000000);
+
     padding: 5px 5%;
     position: sticky;
     top: 0;
@@ -41,8 +39,17 @@ nav{
 
 }
 .logo{
-    width: 160px;
-    margin-right: 45px;
+    text-decoration: none;
+    color: white;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff;
+
+      text-decoration: none;
+      
+      font-size: 30px;
+      margin-right: 50px;
 
 }
 .nav-left, .nav-right{
@@ -66,6 +73,7 @@ nav{
 }
 .nav-left ul li i {
     font-size: 24px;
+    margin-left: 20px;
 }
 .nav-left ul:hover li {
     filter: blur(0px);
