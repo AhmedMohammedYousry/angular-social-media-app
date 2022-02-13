@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ChatComponent } from './components/chat/chat.component';
 import { PagesComponent } from './components/pages/pages.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { PagesComponent } from './components/pages/pages.component';
     NavigationHeaderComponent,
     ChatComponent,
     PagesComponent,
+    UserProfileComponent,
     
   ],
   imports: [

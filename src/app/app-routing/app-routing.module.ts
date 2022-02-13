@@ -7,6 +7,7 @@ import { CreateUserComponent } from '../components/user/create-user/create-user.
 import { AuthGuard } from '../guards/auth.guard';
 import { ChatComponent } from "../components/chat/chat.component";
 import { PagesComponent } from "../components/pages/pages.component";
+import {  UserProfileComponent } from "../components/user-profile/user-profile.component";
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
@@ -27,6 +28,7 @@ const routes: Routes = [
         path: 'pages',
         component: PagesComponent,
     },
+    {path: 'users/:id',component: UserProfileComponent, canActivate:[AuthGuard]},
 
     // {
     // path: '',

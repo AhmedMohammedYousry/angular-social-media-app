@@ -4,7 +4,7 @@
   
   </head>
 <div class="container">
-    <div class="profile-page tx-13">
+    <div class="profile-page tx-13 ">
         <div class="row">
             <div class="col-12 grid-margin">
                 <div class="profile-header">
@@ -131,7 +131,7 @@
             
             <!-- left wrapper end -->
             <!-- middle wrapper start -->
-            <div class="col-md-8 col-xl-6 middle-wrapper">
+            <div class="col-md-9 col-xl-6">
                 <div class="row">
                     <div class="col-md-12">
                         <app-create-post></app-create-post>
@@ -152,7 +152,7 @@
                             
                           <div class="collapse" id="allposts{{i}}">
                             <div *ngFor='let comment of post.comments ;let j = index'>
-                        
+        
                                 <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content" [comment_created_at]="comment.created_at"></app-show-comment>
                                 </div>
                           </div>
@@ -280,17 +280,12 @@
                                     <div class="row">
                                         <!-- show all friends -->
                                         <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
-                                            <figure>
+                                            <figure (click)="goToProfile(friend.id)">
                                                 <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
                                                 <figcaption class="small">{{friend.firstname}}</figcaption>
                                             </figure>
                                         </div>
-                                        <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
-                                            <figure>
-                                                <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
-                                                <figcaption class="small">{{friend.firstname}}</figcaption>
-                                            </figure>
-                                        </div>
+                                  
                                         
                                     </div>
                                 </div>
@@ -303,4 +298,4 @@
             <!-- right wrapper end -->
         </div>
     </div>
-    </div>-
+    </div>

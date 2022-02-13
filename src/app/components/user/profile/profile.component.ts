@@ -1,4 +1,3 @@
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post';
@@ -44,6 +43,9 @@ export class ProfileComponent implements OnInit {
     
     
   }
-  
+  goToProfile(user_id:number){
+    this._router.navigateByUrl(`users/${user_id}`)
+
+  }
   
 }
