@@ -11,6 +11,12 @@ import { LeftSidebarComponent } from './components/dashboard/left-sidebar/left-s
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavigationHeaderComponent } from './components/navigation-header/navigation-header.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageComponent } from './page/page.component';
+import { SecurityPageComponent } from './security-page/security-page.component';
+import { EditProfilePageComponent } from './edit-profile-page/edit-profile-page.component';
+import { FriendsPageComponent } from './friends-page/friends-page.component';
+import { VideosPageComponent } from './videos-page/videos-page.component';
+
 
 
 
@@ -21,7 +27,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     RightsideComponent,
     LeftSidebarComponent,
     DashboardComponent,
-    NavigationHeaderComponent
+    NavigationHeaderComponent,
+    PageComponent,
+    SecurityPageComponent,
+    EditProfilePageComponent,
+    FriendsPageComponent,
+    VideosPageComponent,
+  
   ],
   imports: [
     BrowserModule,

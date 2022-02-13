@@ -20,7 +20,7 @@
   margin-left: 3px;
 }
 
-.card-content{
+.card-content {
   width: 100%;
   max-width: 500px;
   height: auto;
@@ -29,7 +29,7 @@
   overflow: hidden;
 }
 
-.card-header{
+.card-header { 
   width: 100%;
   heigth: auto;
   padding: 15px;
@@ -44,21 +44,22 @@
   color: #fff;
 }
 
-.card-body{
+.card-body {
   width: 100%;
   height: auto;
   background-color: #fff;
 }
-.card-body .form{
+.card-body .form { 
   padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.card-body .form input{
+.card-body .form input {
   padding: 15px 50px;
   border-radius: 50px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  
 }
 .card-body .form i{
   width: 42px;
@@ -74,12 +75,12 @@
   color: #fff;
   margin-bottom: -42px;
 }
-.card-body .form #password{
+.card-body .form #password { 
   top: -65px;
   left: 425px;
   margin-bottom: -60px;
 }
-.card-body .form button{
+.card-body .form button { 
   padding: 15px;
   border-radius: 30px;
   background: linear-gradient(-160deg, #000428, #004e92);
