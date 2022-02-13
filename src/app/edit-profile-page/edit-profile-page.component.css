@@ -1,5 +1,6 @@
 body{margin-top:20px;
     background-color:#f2f6fc;
+  
     color:#69707a;
     }
     .img-account-profile {
@@ -20,7 +21,8 @@ body{margin-top:20px;
     .card-header {
         padding: 1rem 1.35rem;
         margin-bottom: 0;
-        background-color: rgba(33, 40, 50, 0.03);
+        /* background-color: rgba(33, 40, 50, 0.03); */
+       
         border-bottom: 1px solid rgba(33, 40, 50, 0.125);
     }
     .form-control, .dataTable-input {
@@ -32,6 +34,7 @@ body{margin-top:20px;
         line-height: 1;
         color: #69707a;
         background-color: #fff;
+        /* background: linear-gradient( 109deg , #ff2403, #000000); */
         background-clip: padding-box;
         border: 1px solid #c5ccd6;
         -webkit-appearance: none;
@@ -42,11 +45,14 @@ body{margin-top:20px;
     }
     
     .nav-borders .nav-link.active {
-        color: #0061f2;
-        border-bottom-color: #0061f2;
+        color: #0061f2; 
+         border-bottom-color: #0061f2;
+    
+       
     }
     .nav-borders .nav-link {
         color: #69707a;
+      
         border-bottom-width: 0.125rem;
         border-bottom-style: solid;
         border-bottom-color: transparent;
@@ -62,4 +68,8 @@ body{margin-top:20px;
         color: #000;
         background-color: #f1e0e3;
         border-color: #f1e0e3;
+    }
+    .btn{
+
+        background: linear-gradient( 109deg , #ff2403, #000000); 
     }

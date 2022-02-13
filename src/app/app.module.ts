@@ -16,6 +16,7 @@ import { SecurityPageComponent } from './security-page/security-page.component';
 import { EditProfilePageComponent } from './edit-profile-page/edit-profile-page.component';
 import { FriendsPageComponent } from './friends-page/friends-page.component';
 import { VideosPageComponent } from './videos-page/videos-page.component';
+import { PhotosComponent } from './photos/photos.component';
 
 
 
@@ -33,6 +34,7 @@ import { VideosPageComponent } from './videos-page/videos-page.component';
     EditProfilePageComponent,
     FriendsPageComponent,
     VideosPageComponent,
+    PhotosComponent,
   
   ],
   imports: [

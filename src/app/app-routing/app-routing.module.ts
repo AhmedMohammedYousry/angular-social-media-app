@@ -5,9 +5,15 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
 import { CreateUserComponent } from '../components/user/create-user/create-user.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { SecurityPageComponent  } from '../security-page/security-page.component';
+import { EditProfilePageComponent   } from '../edit-profile-page/edit-profile-page.component';
+import { FriendsPageComponent  } from '../friends-page/friends-page.component';
+import { PhotosComponent} from '../photos/photos.component';
 const routes: Routes = [
     {path:'dashboard',component:DashboardComponent, canActivate:[AuthGuard]},
     {path:'security-page',component:SecurityPageComponent  },
+    {path:'edit-profile-page',component:EditProfilePageComponent },
+    {path:'friends',component:FriendsPageComponent  },
+    {path:'photos',component:PhotosComponent },
     // {
     //     path: 'user', 
        

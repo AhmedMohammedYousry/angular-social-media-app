@@ -13,12 +13,15 @@
                             </div>
                             <div class="d-none d-md-block">
                                 <button class="btn btn-primary btn-icon-text btn-edit-profile">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit btn-icon-prepend">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" strroutePathoke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit btn-icon-prepend">
                                         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
                                         <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                                    </svg> Edit profile
+                                    </svg><a [routerLink]="['/edit-profile-page']" routerLinkActive="router-link-active"  class="text-light"> Edit profile</a>
                                 </button>
-                            </div>
+                            </div> 
+                           
+
+
                         </div>
                     </div>
                     <div class="header-links">
@@ -43,7 +46,7 @@
                                     <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                                 </svg>
-                                <a class="pt-1px d-none d-md-block" href="#">Friends <span class="text-muted tx-12">3,765</span></a>
+                                <a class="pt-1px d-none d-md-block" [routerLink]="['/friends']" routerLinkActive="router-link-active" >Friends <span class="text-muted tx-12">3,765</span></a>
                             </li>
                             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image mr-1 icon-md">
@@ -51,7 +54,7 @@
                                     <circle cx="8.5" cy="8.5" r="1.5"></circle>
                                     <polyline points="21 15 16 10 5 21"></polyline>
                                 </svg>
-                                <a class="pt-1px d-none d-md-block" href="#">Photos</a>
+                                <a class="pt-1px d-none d-md-block" [routerLink]="['/photos']" routerLinkActive="router-link-active" >Photos</a>
                             </li>
                             <li class="header-link-item ml-3 pl-3 border-left d-flex align-items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video mr-1 icon-md">
