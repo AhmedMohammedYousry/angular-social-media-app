@@ -31,7 +31,7 @@ body{
      -webkit-box-pack: end;
      justify-content: flex-end;
      overflow: hidden;
-     background: url(https://bootdey.com/img/Content/bg1.jpg) no-repeat;
+     background: url(../../../assets/images/page.jpeg) no-repeat;
      background-size: cover;
  }
  
