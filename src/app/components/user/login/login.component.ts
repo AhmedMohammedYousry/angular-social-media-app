@@ -23,12 +23,10 @@ export class LoginComponent implements OnInit {
   }
 
   login():void{
-
     // alert(JSON.stringify(this.formLogin.value));
     //Call API to validate user
     let email = this.formLogin.value.Email;
     let password = this.formLogin.value.Password;
-    
     this._apiUserService.generateUserToken(email,password)
     .subscribe(
       (response:any)=>{ 
