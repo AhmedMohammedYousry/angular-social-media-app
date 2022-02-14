@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user';
 import { ApiUserService } from 'src/app/services/api-user.service';
 import { ApiService } from 'src/app/services/api.service';
 import { UserService } from 'src/app/services/user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,7 +16,7 @@ export class UserProfileComponent implements OnInit {
 
   user_id:number=0;
   user:User = new User();
-
+  storageURL = environment.storage_URL
   isfriend:boolean=false;
    logged_user_id = localStorage.getItem('id')
 

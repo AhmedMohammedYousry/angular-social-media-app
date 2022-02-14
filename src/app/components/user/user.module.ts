@@ -11,6 +11,7 @@ import { AuthGuard } from 'src/app/guards/auth.guard';
 import { PostModule } from '../post/post.module';
 import { CommentcontentPipe } from 'src/app/pipes/commentcontent.pipe';
 import { NavigationHeaderComponent } from '../navigation-header/navigation-header.component';
+import { ImageFormComponent } from './image-form/image-form.component';
 
 
 
@@ -23,9 +24,12 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuard]
   },
+  {path:'imageform',component:ImageFormComponent},
 
   
   {path:'',component:LoginComponent},
+ 
+
 ];
 
 @NgModule({
@@ -34,7 +38,8 @@ const routes: Routes = [
   LoginComponent,
   ProfileComponent,
   LogoutComponent,
-  CommentcontentPipe],
+  CommentcontentPipe,
+  ImageFormComponent],
   imports: [
     CommonModule,FormsModule , ReactiveFormsModule,HttpClientModule,
     RouterModule.forChild(routes),

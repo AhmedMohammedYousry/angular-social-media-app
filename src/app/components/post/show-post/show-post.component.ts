@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-show-post',
@@ -10,6 +11,8 @@ import { ApiService } from 'src/app/services/api.service';
 export class ShowPostComponent implements OnInit {
 
   @Input() postOwner:string="";
+  @Input() profilePic:string="";
+  storageURL = environment.storage_URL
   @Input() postContent:string="";
   @Input() created_at:string="";
   @Input() comments_number:any;

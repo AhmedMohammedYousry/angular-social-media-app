@@ -8,6 +8,7 @@ import { ApiService } from 'src/app/services/api.service';
 
 import { CommentcontentPipe } from 'src/app/pipes/commentcontent.pipe';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   
   user:User = new User();
- 
+  storageURL = environment.storage_URL
   constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router) { 
     
   }

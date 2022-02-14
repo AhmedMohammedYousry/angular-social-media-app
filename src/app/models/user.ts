@@ -19,6 +19,7 @@ export class User{
     friend:User[]=[];
     isAdmin:number=0;
     school:string="";
+    profilePic:string="";
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();

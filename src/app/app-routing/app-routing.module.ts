@@ -33,10 +33,10 @@ const routes: Routes = [
 
     {path: 'users/:id',component: UserProfileComponent, canActivate:[AuthGuard]},
 
-    // {
-    // path: '',
-    // component: CreateUserComponent,
-    // },
+    {
+    path: '',
+    component: DashboardComponent,
+    },
 
 ];
 
