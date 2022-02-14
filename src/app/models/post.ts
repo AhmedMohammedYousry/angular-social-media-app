@@ -4,6 +4,8 @@ export class Post{
     id:number=0;
     content:string="";
     user_id:User= new User;
+    user:User= new User;
+
     created_at:string="";
     comments:Comment[]=[];
     post_likes:any;

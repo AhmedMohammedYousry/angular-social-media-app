@@ -51,6 +51,8 @@ export class UserProfileComponent implements OnInit {
       (response:any)=>{
         // alert(JSON.stringify(response))
         this.user = response
+        this.user.posts=this.user.posts.reverse()
+
         // [parseInt(`${localStorage.getItem('id')}`)-1]
         // alert(JSON.stringify(response))
         
@@ -65,11 +67,24 @@ export class UserProfileComponent implements OnInit {
   
   addFriend(){
     this._apiService.post('friends',{
-      user_id: this.logged_user_id,
-      fried_id: this.user.id
+      user_id: parseInt(this.logged_user_id),
+      friend_id: this.user.id
     }).subscribe((response:any)=>{
-      alert(JSON.stringify(response))
       this.ngOnInit()
-    },(error:any)=>{alert(JSON.stringify(error))})
+    },(error:any)=>{})
+  }
+  unfriend(){
+    this._apiService.get('friends')
+    .subscribe((friends:any)=>
+    {
+      let friendship_id = friends.filter((friendship:any)=> 
+      {return (friendship.user_id==parseInt(localStorage.getItem('id')) && friendship.friend_id==this.user.id)
+              || (friendship.friend_id==parseInt(localStorage.getItem('id')) && friendship.user_id==this.user.id)
+    })[0].id
+    // delete friendship
+    this._apiService.delete('friends',friendship_id).subscribe((response:any)=>{
+      this.ngOnInit()
+    },(error:any)=>{})
+    })
   }
 }

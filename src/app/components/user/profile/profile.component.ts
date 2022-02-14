@@ -35,6 +35,8 @@ export class ProfileComponent implements OnInit {
       (response:any)=>{
         // alert(JSON.stringify(response))
         this.user = response
+        this.user.posts=this.user.posts.reverse()
+
         // [parseInt(`${localStorage.getItem('id')}`)-1]
         
       },
