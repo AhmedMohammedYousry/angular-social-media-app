@@ -23,8 +23,8 @@
       <div class="col-lg-12">
         <div class="panel profile-cover ">
           <div class="profile-cover__img">
-            <img class="rounded-circle"src="https://i.postimg.cc/WbdZmNs2/member-1.png">
-            <h3 class="h3 text-muted">Page Name</h3>
+            <img class="rounded-circle" src="https://i.postimg.cc/WbdZmNs2/member-1.png">
+            <h3 class="h3 text-muted">{{page.page_name}}</h3>
           </div>
           <div class="profile-cover__action " data-overlay="0.3">
             <button class="btn btn-rounded button">
@@ -86,7 +86,7 @@
 
 
     <div class="row">
-      <div class="col-lg-8">
+      <!-- <div class="col-lg-8">
         <ul class="panel-activity__list ">
           <li>
             <i class="activity__list__icon fa fa-question-circle-o"></i>
@@ -194,9 +194,9 @@
               <span> <i class="fa fa-clock"></i>2 hours ago</span>
             </div>
           </li>
-        </ul>
+        </ul> 
+      </div>-->
 
-      </div>
       <div class="col-lg-4">
         <div class="panel panel-theme rounded shadow">
           <div class="panel-heading">
@@ -227,7 +227,7 @@
               <h6 class="card-title">suggestions Pages for you</h6>
               <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
                 <div class="d-flex align-items-center hover-pointer ">
-                  <img class="rounded-circle "src="https://i.postimg.cc/WbdZmNs2/member-1.png">
+                  <img class="rounded-circle " src="https://i.postimg.cc/WbdZmNs2/member-1.png">
                   <div class="ml-2">
                     <p>The Lady </p>
                     <p class="tx-11 text-muted">12,000 Likes</p>
@@ -256,10 +256,11 @@
                       d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
                   </svg>
                 </button>
+                
               </div>
               <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
                 <div class="d-flex align-items-center hover-pointer">
-                  <a href="#"><img  class="rounded-circle " src="https://i.postimg.cc/rFCbvb1P/shortcut-2.png"></a>
+                  <a href="#"><img class="rounded-circle " src="https://i.postimg.cc/rFCbvb1P/shortcut-2.png"></a>
                   <div class="ml-2">
                     <p>Veranda</p>
                     <p class="tx-11 text-muted">12,000 Likes</p>
@@ -312,7 +313,7 @@
                     <p>Programming Facts</p>
                     <p class="tx-11 text-muted">12,000 Likes</p>
                   </div>
-              </div>
+                </div>
                 <button class="btn btn-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart"
                     viewBox="0 0 16 16">
@@ -321,11 +322,36 @@
                   </svg>
                 </button>
               </div>
-
             </div>
           </div>
         </div>
       </div>
+
+
+      <div class="col-lg-8">
+        <ul class="panel-activity__list ">
+          <li *ngFor="let post of page.posts">
+            <i class="activity__list__icon fa fa-question-circle-o"></i>
+            <div class="activity__list__header">
+              <img src="https://i.postimg.cc/WbdZmNs2/member-1.png" alt="" />
+              <a href="#" class="h5">{{page.page_name}}</a>
+              <div>{{post.created_at|date:'medium'}}</div>
+            </div>
+            <div class="activity__list__body entry-content">
+              <p>
+                <strong>{{post.content}}</strong>
+              </p>
+            </div>
+            <div class="activity__list__footer">
+              <a href="#"> <i class="fa fa-thumbs-up"></i></a>
+              <a href="#"> <i class="fa fa-comments"></i></a>
+              <span> <i class="fa fa-clock"></i></span>
+            </div>
+          </li>
+        </ul> 
+
+      </div>
+
     </div>
     <!-- right wrapper end -->
 

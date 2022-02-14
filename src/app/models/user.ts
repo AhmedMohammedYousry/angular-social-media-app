@@ -1,5 +1,7 @@
+import { Pagelike } from './pagelike';
 import { Post } from "./post";
 import { Comment } from "./comment";
+import { Page } from "./page";
 
 export class User{
     id:number=0;
@@ -19,6 +21,9 @@ export class User{
     friend:User[]=[];
     isAdmin:number=0;
     school:string="";
+    page_likes: any;
+    pages:Page[]=[];
+
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();

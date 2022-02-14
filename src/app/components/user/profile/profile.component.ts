@@ -35,17 +35,22 @@ export class ProfileComponent implements OnInit {
       (response:any)=>{
         // alert(JSON.stringify(response))
         this.user = response
+        console.log(response);
+        
         // [parseInt(`${localStorage.getItem('id')}`)-1]
         
       },
       (error:any)=> {}
-    )
-    
-    
+    )   
   }
-  goToProfile(user_id:number){
-    this._router.navigateByUrl(`users/${user_id}`)
 
+  goToProfile(user_id:number){
+    this._router.navigateByUrl(`users/${user_id}`);
+
+  }
+
+  goToPage(page_id:number){
+    this._router.navigateByUrl (`pages/${page_id}`);
   }
   
 }

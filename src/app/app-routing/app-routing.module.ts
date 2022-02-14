@@ -11,9 +11,6 @@ import {  UserProfileComponent } from "../components/user-profile/user-profile.c
 
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-   
-
-
     // {
     //     path: 'user', 
 
@@ -28,6 +25,8 @@ const routes: Routes = [
         path: 'pages',
         component: PagesComponent,canActivate:[AuthGuard]
     },
+    { path: 'pages/:id', component: PagesComponent, canActivate: [AuthGuard] },
+
     {path: 'users/:id',component: UserProfileComponent, canActivate:[AuthGuard]},
 
     // {

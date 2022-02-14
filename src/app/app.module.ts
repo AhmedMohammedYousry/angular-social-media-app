@@ -19,6 +19,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import {MatCardModule} from '@angular/material/card';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import {MatCardModule} from '@angular/material/card';
     NavigationHeaderComponent,
     ChatComponent,
     PagesComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    PagesComponent
     
   ],
   imports: [

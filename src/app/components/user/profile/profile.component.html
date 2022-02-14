@@ -74,7 +74,7 @@
               <h3>Friends</h3>
               <a href="">Friends</a>
             </div>
-            <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
+            <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
               <figure (click)="goToProfile(friend.id)">
                 <p>{{i+1}}(10 Mutual)</p>
                 <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
@@ -82,6 +82,57 @@
               </figure>
             </div>
           </div>
+
+          <!-- pages part -->
+
+          <div class="profile-intro  ">
+            <div class="title-box">
+              <h3>Pages</h3>
+              <a href="">Pages</a>
+  
+              
+            </div>
+            <div class="col-md-4" *ngFor="let page of user.pages; index as i">
+              <figure (click)="goToPage(page.id)">
+                <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo">
+                <figcaption class="small text-center">{{page.page_name}}</figcaption>
+              </figure>
+            </div>
+          </div>
+          <!-- <div class="profile-intro">
+            <div class="title-box">
+              <h3>Pages</h3>
+              <a href="">myPages</a>
+            </div>
+            <div class="col-md-4" *ngFor="let page of user.pages; index as i">
+              <figure (click)="goToPage(page.id)">
+                <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo">
+                <figcaption class="small text-center"><a [routerLink]="['/pages',page.id]" routerLinkActive="router-link-active">{{page.page_name}}</a></figcaption>
+              </figure>
+              <a [routerLink]="['/pages',page.id]">{{page.page_name}}</a>
+            </div>
+          </div> -->
+
+
+            <!-- <h6 >Liked Pages</h6>
+            <div class="col-md-4" *ngFor="let page of user.page_likes;index as i">
+              <figure (click)="goToPage(page.page.id)">
+                <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo">
+                <figcaption class="small text-center"><a [routerLink]="['/pages/[page.page.id]']" routerLinkActive="router-link-active">{{page.page.page_name}}</a></figcaption>
+              </figure>
+            </div>
+
+            <h6 >My Pages</h6>
+            <div class="col-md-4" *ngFor="let page of user.pages;index as i">
+              <figure (click)="goToPage(page.id)">
+                <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo">
+                <figcaption class="small text-center">{{page.page_name}}</figcaption>
+              </figure>
+            </div> -->
+
+          
+
+
         </div>
         <div class="write-post-container">
 
@@ -91,6 +142,7 @@
               <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper">
                 <div class="row">
                   <div>
+                    
 
                     <app-create-post></app-create-post>
                     <div *ngFor='let post of user.posts ;let i = index' class="postdiv">

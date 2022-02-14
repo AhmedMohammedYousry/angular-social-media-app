@@ -23,6 +23,7 @@ export class UserProfileComponent implements OnInit {
       (response:any)=>{
         this.user= response
       }
+      
     )
 
     
