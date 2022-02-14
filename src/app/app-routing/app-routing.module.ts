@@ -1,3 +1,5 @@
+import { FriendsPageComponent } from './../components/friends-page/friends-page.component';
+import { ProfileComponent } from './../components/user/profile/profile.component';
 import { Comment } from './../models/comment';
 import { LeftSidebarComponent } from './../components/dashboard/left-sidebar/left-sidebar.component';
 import { NgModule, Component } from '@angular/core';
@@ -10,11 +12,18 @@ import { PagesComponent } from "../components/pages/pages.component";
 import {  UserProfileComponent } from "../components/user-profile/user-profile.component";
 import { ShowUsersComponent } from '../components/dashboard/show-users/show-users.component';
 import { PageComponent  } from '../components/page/page.component';
+import { EditProfilePageComponent  } from '../components/edit-profile-page/edit-profile-page.component';
+// import { FriendsPageComponent } from '../components/friends-page/friends-page.component';
+import { PhotosComponent  } from '../components/photos/photos.component';
+import {SecurityPageComponent } from '../components/security-page/security-page.component';
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
    
     { path: 'create-page', component:PageComponent  },
-
+    { path: 'edit-profile', component:EditProfilePageComponent },
+    // { path: 'friends', component:FriendsPageComponent},
+    { path: 'photos', component:PhotosComponent},
+    { path: 'security-page', component:SecurityPageComponent},
     // {
     //     path: 'user', 
 
