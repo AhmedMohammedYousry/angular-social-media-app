@@ -15,7 +15,8 @@ import { CommonModule } from '@angular/common';
 import { ChatComponent } from './components/chat/chat.component';
 import { PagesComponent } from './components/pages/pages.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-
+import {ShowUserComponent} from './components/dashboard/show-user/show-user.component'
+import {ShowUsersComponent} from './components/dashboard/show-users/show-users.component'
 import {MatCardModule} from '@angular/material/card';
 
 
@@ -29,8 +30,9 @@ import {MatCardModule} from '@angular/material/card';
     NavigationHeaderComponent,
     ChatComponent,
     PagesComponent,
-    UserProfileComponent
-    
+    UserProfileComponent,
+    ShowUserComponent,
+    ShowUsersComponent
   ],
   imports: [
     BrowserModule,

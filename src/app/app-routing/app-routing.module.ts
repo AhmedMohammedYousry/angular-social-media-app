@@ -8,6 +8,7 @@ import { AuthGuard } from '../guards/auth.guard';
 import { ChatComponent } from "../components/chat/chat.component";
 import { PagesComponent } from "../components/pages/pages.component";
 import {  UserProfileComponent } from "../components/user-profile/user-profile.component";
+import { ShowUsersComponent } from '../components/dashboard/show-users/show-users.component';
 
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -28,6 +29,8 @@ const routes: Routes = [
         path: 'pages',
         component: PagesComponent,canActivate:[AuthGuard]
     },
+    {path: 'users',component: ShowUsersComponent, canActivate:[AuthGuard]},
+
     {path: 'users/:id',component: UserProfileComponent, canActivate:[AuthGuard]},
 
     // {

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -15,24 +15,28 @@ export class ShowPostComponent implements OnInit {
   @Input() comments_number:any;
   @Input() post_likes_number:any;
   @Input() post_shares_number:any;
-  @Input() like: boolean = false;
+  @Input() like: number = 0;
   @Input() post_id: number = 100;
   postlike_id:any;
+
   likebtn(){
 
-    if(this.like == false){
+    if(this.like == 0){
       this._apiService.post('postslikes',{
         post_id: this.post_id,
         user_id: localStorage.getItem('id')
       }).subscribe((res:any)=>{
-        this.like = !this.like;
-        this.ngOnInit();     
+        this.like = 1-this.like;
+        this.post_likes_number++;
+        this.ngOnInit();
+             
 
       })
     } else{
       this._apiService.delete('postslikes', this.postlike_id)
       .subscribe((res:any)=>{
-        this.like = !this.like
+        this.post_likes_number--;
+        this.like = 1-this.like
         
       }
       )
@@ -46,13 +50,15 @@ export class ShowPostComponent implements OnInit {
     .subscribe((response:any)=>{
       response.forEach((obj:any)=>{
         if(obj.post_id == this.post_id && obj.user_id == localStorage.getItem('id'))
-        {this.like=true
+        {this.like=1
         this.postlike_id=obj.id
         }
       })
     },(error:any)=>{
 
     })
+
+   
   }
 
 }

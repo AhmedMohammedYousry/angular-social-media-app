@@ -14,11 +14,25 @@
             <div class="col-md-12">
                         
                 <app-create-post></app-create-post>
-                <!-- <div *ngFor='let post of posts ;let i = index'>
-                <app-show-post [postOwner]="postOwner" [postContent]="postContents[i]"></app-show-post>
-
-                </div> -->
-            </div>
+                 <div *ngFor='let post of posts ;let i = index' class="postdiv">
+                    <app-show-post [postOwner]="post.user_id.name" [postContent]="post.content"
+                     [created_at]="post.created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
+                     [post_id]="post.id" [post_likes_number]="post.post_likes.length"
+                     ></app-show-post>     
+                 
+                    <app-create-comment [post_id]="post.id"></app-create-comment>
+                    
+                        <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          Show comments
+                        </a>   
+                      <div class="collapse" id="allposts{{i}}">
+                        <div *ngFor='let comment of post.comments ;let j = index'>
+                            <app-show-comment [commentOwner]="comment.user.name" [commentContent]="comment.content" [comment_created_at]="comment.created_at"></app-show-comment>
+                            </div>
+                      </div>
+                    
+                    </div>
+            </div> 
         </div>
         <div class="col-md-3 fixed-right">
             <app-rightside></app-rightside>

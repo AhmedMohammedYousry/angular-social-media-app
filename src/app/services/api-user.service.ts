@@ -72,7 +72,4 @@ export class ApiUserService {
   //   delete(url:string){
   //    return this._httpClient.delete(`${environment.api_URL}/${url}`);
   //   }
-
-  
-
 }

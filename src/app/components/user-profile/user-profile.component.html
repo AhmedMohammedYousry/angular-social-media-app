@@ -31,7 +31,8 @@
                     </div>
                 </div>
                 <div class="pd-right">
-                    <button type="button"> Friends</button>
+                    <button type="button" *ngIf="!isfriend" (click)="addFriend()"> <i class="fas fa-user-plus icon"></i>ِAdd to Friends</button>
+                    <button type="button" *ngIf="isfriend"><i class="fas fa-user-friends"></i>Friends</button>
                     <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button>
                 </div>
             </div>
@@ -92,7 +93,7 @@
                                         <div *ngFor='let post of user.posts ;let i = index' class="postdiv">
                                         <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
                                          [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
-                                         [post_id]="post.id"
+                                         [post_id]="post.id" [post_likes_number]="post.post_likes.length"
                                          ></app-show-post>     
                                         <!-- create comment here -->
                                         <app-create-comment [post_id]="post.id"></app-create-comment>
@@ -122,7 +123,7 @@
     </div>
 
     <div class="footer">
-        <p>Copyright 2022 - Vkive Tutorials</p>
+        <p>Copyright 2022</p>
     </div>
 </body>
 

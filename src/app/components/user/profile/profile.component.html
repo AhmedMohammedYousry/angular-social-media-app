@@ -34,8 +34,8 @@
           </div>
         </div>
         <div class="pd-right">
-          <button type="button"> Friends</button>
-          <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button>
+          <button type="button" style="background-color: #a41702;color:white"><i class="fas fa-edit"></i> Edit Profile</button>
+          <!-- <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button> -->
         </div>
       </div>
       <div class="profile-info">
@@ -96,7 +96,7 @@
                     <div *ngFor='let post of user.posts ;let i = index' class="postdiv">
                     <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
                      [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
-                     [post_id]="post.id"
+                     [post_id]="post.id" [post_likes_number]="post.post_likes.length"
                      ></app-show-post>
                      
                     
@@ -131,9 +131,7 @@
     </div>
   </div>
 
-  <div class="footer">
-    <p>Copyright 2022 - Vkive Tutorials</p>
-  </div>
+ 
 </body>
 
 </html>
