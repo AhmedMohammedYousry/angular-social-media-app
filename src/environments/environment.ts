@@ -5,15 +5,12 @@
 export const environment = {
   production: false,
   api_URL: 'http://localhost:8000/api',
-<<<<<<< HEAD
 
   pusher: {
     key: '473d6c2ef580e2c7c5d8',
-  }
+  },
   
-=======
   storage_URL: 'http://127.0.0.1:8000/storage'
->>>>>>> bbc7e323b49098f1f2057766f8b39082425bc868
 };
 
 /*

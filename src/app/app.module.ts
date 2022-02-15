@@ -33,19 +33,12 @@ import { PusherService } from './services/pusher.service';
     ChatComponent,
     PagesComponent,
     UserProfileComponent,
-<<<<<<< HEAD
-    PagesComponent,
-    
-    
-    
-=======
 
     PagesComponent,
 
     ShowUserComponent,
     ShowUsersComponent
 
->>>>>>> bbc7e323b49098f1f2057766f8b39082425bc868
   ],
   imports: [
     BrowserModule,
