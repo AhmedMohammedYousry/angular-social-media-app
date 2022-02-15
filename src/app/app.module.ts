@@ -33,7 +33,7 @@ import {MatCardModule} from '@angular/material/card';
     PagesComponent,
     UserProfileComponent,
 
-    PagesComponent
+    PagesComponent,
 
     ShowUserComponent,
     ShowUsersComponent

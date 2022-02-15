@@ -78,16 +78,25 @@
           <div class="profile-intro  ">
             <div class="title-box">
               <h3>Friends</h3>
-              <a href="">Friends</a>
+              <a class="ms-3">Friends</a>
             </div>
+            <div class="row">
             <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
-              <figure (click)="goToProfile(friend.id)">
-                <p>{{i+1}}(10 Mutual)</p>
-                <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
+              <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
+                <!-- <p>{{i+1}}(10 Mutual)</p> -->
+                <img style="height: 50px; width: 50px;" class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
+                <figcaption class="small">{{friend.firstname}}</figcaption>
+              </figure>
+            </div>
+            <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
+              <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
+                <!-- <p>{{i+1}}(10 Mutual)</p> -->
+                <img style="height: 50px;" class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
                 <figcaption class="small">{{friend.firstname}}</figcaption>
               </figure>
             </div>
           </div>
+        </div>
 
           <!-- pages part -->
 
@@ -156,6 +165,8 @@
                      [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
                      [post_id]="post.id" 
                      [post_likes_number]="post.post_likes.length" [profilePic]="user.profilePic"
+                     [hasPic]="post.hasPic"
+                     [postPic]="post.postPic"
                      ></app-show-post>
                      
                     

@@ -17,7 +17,7 @@
         <a href="#"><i class="fas fa-ellipsis-v"></i></a>
     </div>
     <p class="post-text">{{postContent}}</p>
-    <img src="https://static.addtoany.com/images/dracaena-cinnabari.jpg" class="post-img">
+    <img *ngIf="hasPic" src="{{storageURL}}/posts/{{postPic}}" class="post-img">
     <hr>
     <div class="post-row">
         <div class="activity-icons">

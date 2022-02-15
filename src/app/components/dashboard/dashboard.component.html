@@ -19,6 +19,8 @@
                      [created_at]="post.created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
                      [post_id]="post.id" [post_likes_number]="post.post_likes.length"
                      [profilePic]="post.user_id.profilePic"
+                     [hasPic]="post.hasPic"
+                     [postPic]="post.postPic"
                      ></app-show-post>     
                  
                     <app-create-comment [post_id]="post.id"></app-create-comment>

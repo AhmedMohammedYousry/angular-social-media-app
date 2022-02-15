@@ -108,6 +108,8 @@
                                          [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
                                          [post_id]="post.id" [post_likes_number]="post.post_likes.length"
                                          [profilePic]="user.profilePic"
+                                         [hasPic]="post.hasPic"
+                                         [postPic]="post.postPic"
                                          ></app-show-post>     
                                         <!-- create comment here -->
                                         <app-create-comment [post_id]="post.id"></app-create-comment>

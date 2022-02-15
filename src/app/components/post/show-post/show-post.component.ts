@@ -21,7 +21,8 @@ export class ShowPostComponent implements OnInit {
   @Input() like: number = 0;
   @Input() post_id: number = 100;
   postlike_id:any;
-
+  @Input() hasPic:boolean=false;
+  @Input() postPic:any;
   likebtn(){
 
     if(this.like == 0){

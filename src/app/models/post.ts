@@ -1,3 +1,4 @@
+import { NULL_EXPR } from "@angular/compiler/src/output/output_ast";
 import { Comment } from "./comment";
 import { User } from "./user";
 export class Post{
@@ -5,7 +6,8 @@ export class Post{
     content:string="";
     user_id:User= new User;
     user:User= new User;
-
+    postPic:string="";
+    hasPic:boolean=false;
     created_at:string="";
     comments:Comment[]=[];
     post_likes:any;
