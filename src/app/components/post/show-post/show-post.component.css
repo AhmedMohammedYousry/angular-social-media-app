@@ -334,8 +334,12 @@ nav{
 
 }
 .user-profile img{
-    width: 45px;
-    border-radius: 50%;
+     width: 40px;
+            height: 40px;
+            border-radius: 50%; 
+            
+            background-position: center center;
+            background-size: cover;
     margin-right: 10px;
 }
 .user-profile p{

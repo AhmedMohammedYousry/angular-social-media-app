@@ -14,28 +14,34 @@
 </head>
 
 <body>
-
   <div>
     <!----------------Porfile page----------------------->
     <div class="pofile-container">
       <img src="https://i.postimg.cc/sfQS7fj3/cover.png" class="cover-img">
       <div class="profile-details">
         <div class="pd-left">
-          <div class="pd-row">
-            <img src="https://i.postimg.cc/Qx7txHXW/profile.png" class="pd-image">
+          <div class="pd-row" style="
+          background-size:cover;
+          background-position:center;
+          background-repeat:no-repeat;">
+            <img src="{{storageURL}}/profiles/{{user.profilePic}}" class="pd-image">
+
             <div>
+             
+
               <h3>{{user.name}}</h3>
-              <p> Friends - 20 mutual</p>
-              <img src="https://i.postimg.cc/WbdZmNs2/member-1.png">
+              <p> {{user.friend.length+user.friends.length}} Friends</p>
+              <!-- <img src="https://i.postimg.cc/WbdZmNs2/member-1.png">
               <img src="https://i.postimg.cc/9Fs7J6fy/member-2.png">
               <img src="https://i.postimg.cc/L8fZ7xqw/member-3.png">
-              <img src="https://i.postimg.cc/xd3Njq3P/member-5.png">
+              <img src="https://i.postimg.cc/xd3Njq3P/member-5.png"> -->
+              <app-image-form></app-image-form>
             </div>
           </div>
         </div>
         <div class="pd-right">
-          <button type="button"> Friends</button>
-          <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button>
+          <button type="button" style="background-color: #a41702;color:white"><i class="fas fa-edit"></i> Edit Profile</button>
+          <!-- <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button> -->
         </div>
       </div>
       <div class="profile-info">
@@ -148,7 +154,8 @@
                     <div *ngFor='let post of user.posts ;let i = index' class="postdiv">
                     <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
                      [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
-                     [post_id]="post.id"
+                     [post_id]="post.id" 
+                     [post_likes_number]="post.post_likes.length" [profilePic]="user.profilePic"
                      ></app-show-post>
                      
                     
@@ -183,9 +190,7 @@
     </div>
   </div>
 
-  <div class="footer">
-    <p>Copyright 2022 - Vkive Tutorials</p>
-  </div>
+ 
 </body>
 
 </html>

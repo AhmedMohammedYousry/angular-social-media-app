@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { Post } from '../../models/post';
+
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  posts:Post[] = []
+  constructor(private _apiService:ApiService, private _userService:UserService) { }
 
   ngOnInit(): void {
+    this._apiService.get('posts')
+    .subscribe(
+      (response:any)=>{
+        this.posts = response.data
+        this.posts=this.posts.filter((post:any)=>post.user_id.id != localStorage.getItem('id'))
+        this.posts=this.posts.reverse()
+        this.posts=this.posts.filter((post:any)=>this._userService.isFriend(post.user_id))
+
+        // alert(JSON.stringify(this.posts))
+      }
+    )
   }
 
 }

@@ -18,9 +18,13 @@
             <img src="https://i.postimg.cc/sfQS7fj3/cover.png" class="cover-img">
             <div class="profile-details">
                 <div class="pd-left">
-                    <div class="pd-row">
-                        <img src="https://i.postimg.cc/Qx7txHXW/profile.png" class="pd-image">
-                        <div>
+                    <div class="pd-row" style="
+                        background-size:cover;
+                        background-position:center;
+                        background-repeat:no-repeat;">
+            <img src="{{storageURL}}/profiles/{{user.profilePic}}" class="pd-image">
+
+            <div>
                             <h3>{{user.name}}</h3>
                             <p> Friends - 20 mutual</p>
                             <img src="https://i.postimg.cc/WbdZmNs2/member-1.png">
@@ -30,9 +34,19 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="pd-right">
-                    <button type="button"> Friends</button>
-                    <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button>
+                    <button type="button" *ngIf="!isfriend" (click)="addFriend()"> <i class="fas fa-user-plus icon"></i>ِAdd to Friends</button>
+                    <!-- <button type="button" *ngIf="isfriend"><i class="fas fa-user-friends"></i>Friends</button> -->
+                    <div class="dropdown" *ngIf="isfriend">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Friends
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li class="dropdown-item" style="cursor: pointer;" (click)="unfriend()">Unfriend</li>
+                        </ul>
+                      </div>
+                    <!-- <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button> -->
                 </div>
             </div>
             <div class="profile-info">
@@ -92,7 +106,8 @@
                                         <div *ngFor='let post of user.posts ;let i = index' class="postdiv">
                                         <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
                                          [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
-                                         [post_id]="post.id"
+                                         [post_id]="post.id" [post_likes_number]="post.post_likes.length"
+                                         [profilePic]="user.profilePic"
                                          ></app-show-post>     
                                         <!-- create comment here -->
                                         <app-create-comment [post_id]="post.id"></app-create-comment>
@@ -122,7 +137,7 @@
     </div>
 
     <div class="footer">
-        <p>Copyright 2022 - Vkive Tutorials</p>
+        <p>Copyright 2022</p>
     </div>
 </body>
 

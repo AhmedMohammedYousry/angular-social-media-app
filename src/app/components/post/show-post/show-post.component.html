@@ -8,7 +8,7 @@
   <div class="post-container">
     <div class="post-row">
         <div class="user-profile">
-            <img src="https://i.postimg.cc/cHg22LhR/profile-pic.png">
+            <img src="{{storageURL}}/profiles/{{profilePic}}">
             <div>
                 <p>{{postOwner}}</p>
                <span>{{ created_at| date:'medium'}}</span>
@@ -25,7 +25,7 @@
                 [ngClass]="like ? 'text-primary' : 'text-normal'"></i>
                 <span class="ms-2">{{post_likes_number}}</span></div>
             <div><i class="fas fa-comment-alt"></i><span class="ms-2">{{comments_number}}</span></div>
-            <div><i class="fas fa-share"></i><span class="ms-2">{{post_shares_number}}</span></div>
+            <div><i class="fas fa-share"></i><span class="ms-2"></span></div>
         </div>
         
         <div class="post-porfile-icon">
