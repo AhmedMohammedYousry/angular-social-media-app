@@ -22,9 +22,13 @@ export class User{
     friend:User[]=[];
     isAdmin:number=0;
     school:string="";
+
     page_likes: any;
     pages:Page[]=[];
     chats:Chat[]=[];
+
+
+    profilePic:string="";
 
     // $table->id();
     // $table->string('name');

@@ -7,11 +7,12 @@ export class Message {
     content:string='';
     user:User=new User;
     created_at:string='';
-    
-    toMe(){
-        if(this.from_user_id!=this.user.id){
-            return true;
-        }
-        return false;
-    }
+    other_message:boolean =true;
+
+    // toMe(){
+    //     if(this.from_user_id!=this.user.id){
+    //         this.other_message= true;
+    //     }
+    //     this.other_message=false;
+    // }
 }

@@ -2,6 +2,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 import { ApiPostService } from 'src/app/services/post/api-post.service';
 
 @Component({
@@ -12,12 +13,16 @@ import { ApiPostService } from 'src/app/services/post/api-post.service';
 export class CreatePostComponent implements OnInit {
 
   formPost=new FormGroup({});
-  constructor(private _router:Router, private _apiPostService:ApiPostService,private _formBuilder:FormBuilder) { }
+  files:any;
+  data:any;
+  post_id:any;
+  constructor(private _router:Router, private _apiPostService:ApiPostService,
+    private _formBuilder:FormBuilder,private _apiService:ApiService) { }
 
   ngOnInit(): void {
     this.formPost=this._formBuilder.group({
       content:['' , [Validators.required,Validators.maxLength(120),Validators.minLength(10)]],
-
+      image: [null]
     
     });
   }
@@ -35,10 +40,30 @@ export class CreatePostComponent implements OnInit {
     },options).subscribe(
       (response:any)=>{
         // this._router.navigateByUrl('post')
+        this.post_id=response.id;
+        this.addPicToPost();
         location.reload(); 
       },(error:any)=>{console.log(error);
       }
     )
+
+    
+  }
+
+  uploadImage(event){
+    this.files = event.target.files[0]
+    // console.log(this.files);
+    
+  }
+
+  addPicToPost(){
+    const formData = new FormData();
+    formData.append('image', this.files, this.files.name)
+    this._apiService.post(`postpicture/${this.post_id}`, formData)
+    .subscribe((response:any)=>{
+      this.data = response;
+      this.formPost.get('image').reset();
+    })
   }
 
 }

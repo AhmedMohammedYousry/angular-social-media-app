@@ -102,7 +102,11 @@ nav{
 
 .nav-user-icon img{
     width: 40px;
-    border-radius: 50%;
+            height: 40px;
+            border-radius: 50%; 
+            
+            background-position: center center;
+            background-size: cover;
     cursor: pointer;
 }
 .nav-user-icon {

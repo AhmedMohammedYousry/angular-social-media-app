@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiUserService } from 'src/app/services/api-user.service';
 import { ApiService } from 'src/app/services/api.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-chat',
@@ -18,8 +19,10 @@ export class ChatComponent implements OnInit {
   chat:Chat=new Chat;
   chatPressed:boolean=false;
   messages:Message[]=[];
+  formMessage=new FormGroup({});
 
-  constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router) { 
+
+  constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router ,private _formBuilder:FormBuilder) { 
  
   }
 
@@ -41,7 +44,10 @@ export class ChatComponent implements OnInit {
         
       },
       (error:any)=> {}
-    )   
+    ) 
+    this.formMessage=this._formBuilder.group({
+      message:['' ,[Validators.required,Validators.maxLength(120),Validators.minLength(2)]],
+    });  
   }
   getChat(chat_id:number){
     console.log('we are here');
@@ -56,6 +62,25 @@ export class ChatComponent implements OnInit {
       },
       (error:any)=>{}
     )
+
+  }
+
+  sendMessage(){
+    this._apiService.post('messages',{
+      content:this.formMessage.value.message,
+      from_user_id:localStorage.getItem('id'),
+      to_user_id:this.chat.user.id,
+      chat_id:this.chat.id,
+    }).subscribe(
+      (response:any)=>{
+        console.log(response);
+      },
+      (error:any)=>{}
+    )
+    this.sendMessage();
+  }
+  
+  showMessage(){
 
   }
 

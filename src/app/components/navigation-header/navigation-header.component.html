@@ -16,8 +16,9 @@
        
       </li>
       <li>
+        <a [routerLink]="['/users']" >
         <i class="fas fa-user-plus icon"></i>
-     
+      </a>
       </li>
     </ul>
   </div>
@@ -29,9 +30,10 @@
   </div>
   <div class="nav-right">
     <div class="nav-user-icon online" onclick="settingsMenuToggle()">
-      <img src="https://i.postimg.cc/cHg22LhR/profile-pic.png" (click)="visitProfile()" />
+      <img src="{{storageURL}}/profiles/{{user.profilePic}}" (click)="visitProfile()" />
     </div>
-  <i class="far fa-sign-out icon text-white ms-4 logout" (click)="signOut()"></i>
+    
+    <i class="fa-solid fa-arrow-right-from-bracket text-white ms-4 logout" (click)="signOut()"></i>
     
   </div>
 

@@ -1,8 +1,18 @@
 <div class="card m-1 rounded-card" >
     <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
     <div class="card-body">
-      <h6 class="card-title">{{commentOwner}}</h6>
-      <p class="card-text">{{commentContent}}</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <!-- https://i.postimg.cc/cHg22LhR/profile-pic.png -->
+            <img class="comment-owner-pic img-fluid" src="{{storageURL}}/profiles/{{commentOwnerPic}}">
+          </div>
+          <div class="col-md-10">
+            <h6 class="card-title"><a routerLink="/users/{{commentOwnerId}}">{{commentOwner}}</a></h6>
+            <p class="card-text">{{commentContent}}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <p class="small text-muted">{{comment_created_at|dateAgo}}</p>

@@ -70,30 +70,16 @@
                     <span class="message-data-time">{{message.created_at|date}}</span>
                     <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar"> -->
                   </div>
-                  <div class="message" ng-class="{my-message:false, other-message text-right:true}" > 
-                    {{message.content}} </div>
+                  <div class="message" [ngClass]="{'my-message': !message.other_message ,'text-right': message.other_message,'other-message':message.other_message}">{{message.content}}</div>
                 </li>
-                <!-- <li class="clearfix">
-                  <div class="message-data">
-                    <span class="message-data-time">10:12 AM, Today</span>
-                  </div>
-                  <div class="message my-message">Are we meeting today?</div>
-                </li>
-                <li class="clearfix">
-                  <div class="message-data">
-                    <span class="message-data-time">10:15 AM, Today</span>
-                  </div>
-                  <div class="message my-message">Project has been already finished and I have results to show you.
-                  </div>
-                </li> -->
               </ul>
             </div>
             <div class="chat-message clearfix">
-              <div class="input-group mb-0">
-                <div class="input-group-prepend">
+              <div class="input-group mb-0" [formGroup]="formMessage">
+                <div class="input-group-prepend" (click)="sendMessage()">
                   <span class="input-group-text"><i class="fa fa-send send"></i></span>
                 </div>
-                <input type="text" class="form-control" placeholder="Enter text here...">
+                <input type="text" formControlName="message" class="form-control" placeholder="Enter text here...">
               </div>
             </div>
           </div>

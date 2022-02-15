@@ -15,7 +15,8 @@ import { CommonModule } from '@angular/common';
 import { ChatComponent } from './components/chat/chat.component';
 import { PagesComponent } from './components/pages/pages.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-
+import {ShowUserComponent} from './components/dashboard/show-user/show-user.component'
+import {ShowUsersComponent} from './components/dashboard/show-users/show-users.component'
 import {MatCardModule} from '@angular/material/card';
 import { PusherService } from './services/pusher.service';
 
@@ -32,10 +33,19 @@ import { PusherService } from './services/pusher.service';
     ChatComponent,
     PagesComponent,
     UserProfileComponent,
+<<<<<<< HEAD
     PagesComponent,
     
     
     
+=======
+
+    PagesComponent,
+
+    ShowUserComponent,
+    ShowUsersComponent
+
+>>>>>>> bbc7e323b49098f1f2057766f8b39082425bc868
   ],
   imports: [
     BrowserModule,
