@@ -1,6 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators , ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiPostService } from 'src/app/services/post/api-post.service';
 
@@ -16,9 +16,7 @@ export class CreatePostComponent implements OnInit {
 
   ngOnInit(): void {
     this.formPost=this._formBuilder.group({
-      content:['' , [Validators.required,Validators.maxLength(120),Validators.minLength(10)]],
-
-    
+      content:['' , [Validators.required,Validators.maxLength(120),Validators.minLength(10)]], 
     });
   }
 

@@ -1,5 +1,23 @@
-<div class="form-group shadow-textarea" [formGroup]="formPost">
-    <label for="exampleFormControlTextarea6">Create a new post</label>
-    <textarea formControlName="content" class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Write something here..."></textarea>
-    <button class="btn btn-danger m-2 button" (click)="post()">Post</button>
+
+
+<div class="form-group shadow-textarea " [formGroup]="formPost">
+    <textarea formControlName="content" class="form-control mt-2 z-depth-1" id="exampleFormControlTextarea6" rows="3"
+        placeholder="What's on your mind? ">
+    </textarea>
+    <div class="file-input  ">
+        <input type="file" name="file-input" id="file-input" class="file-input__input" />
+        <label class="file-input__label btn w-50 btn-secondry text-center" for="file-input">
+            <i class="fa-solid fa-images"></i>
+            <span class="ms-2 ">Upload Image</span>
+
+        </label>
+        
+        <button class=" text-white w-50 p-2  button" (click)="post()">
+            <i class="fa-solid fa-plus"></i>
+            Add Post</button>
+
+    </div>
+
+
 </div>
+
