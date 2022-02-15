@@ -20,6 +20,7 @@ import {ShowUsersComponent} from './components/dashboard/show-users/show-users.c
 import {MatCardModule} from '@angular/material/card';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,8 +32,12 @@ import {MatCardModule} from '@angular/material/card';
     ChatComponent,
     PagesComponent,
     UserProfileComponent,
+
+    PagesComponent
+
     ShowUserComponent,
     ShowUsersComponent
+
   ],
   imports: [
     BrowserModule,
