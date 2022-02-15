@@ -32,7 +32,9 @@ import { PusherService } from './services/pusher.service';
     ChatComponent,
     PagesComponent,
     UserProfileComponent,
-    PagesComponent
+    PagesComponent,
+    
+    
     
   ],
   imports: [

@@ -1,3 +1,5 @@
+import { Message } from './../../models/message';
+import { Chat } from './../../models/chat';
 import { User } from 'src/app/models/user';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -12,7 +14,10 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ChatComponent implements OnInit {
   user:User=new User();
-  chats:any;
+  chats:Chat[]=[];
+  chat:Chat=new Chat;
+  chatPressed:boolean=false;
+  messages:Message[]=[];
 
   constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router) { 
  
@@ -37,6 +42,21 @@ export class ChatComponent implements OnInit {
       },
       (error:any)=> {}
     )   
+  }
+  getChat(chat_id:number){
+    console.log('we are here');
+    
+    this._apiService.getOne('chats',chat_id).subscribe(
+      (response:any)=>{
+        this.chatPressed=true;
+        console.log(response);
+        this.chat=response;
+        this.messages=this.chat.messages;
+        console.log(this.messages); 
+      },
+      (error:any)=>{}
+    )
+
   }
 
 }
