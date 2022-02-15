@@ -17,6 +17,7 @@ import { PagesComponent } from './components/pages/pages.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 import {MatCardModule} from '@angular/material/card';
+import { PusherService } from './services/pusher.service';
 
 
 
@@ -39,7 +40,7 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,UserModule,PostModule,ReactiveFormsModule,MatCardModule
   ],
   exports: [NavigationHeaderComponent,CommonModule],
-  providers: [],
+  providers: [PusherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
