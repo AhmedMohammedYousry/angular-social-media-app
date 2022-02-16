@@ -18,6 +18,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import {ShowUserComponent} from './components/dashboard/show-user/show-user.component'
 import {ShowUsersComponent} from './components/dashboard/show-users/show-users.component'
 import {MatCardModule} from '@angular/material/card';
+import { TimelineComponent } from './components/timeline/timeline.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {MatCardModule} from '@angular/material/card';
     PagesComponent,
     UserProfileComponent,
     ShowUserComponent,
-    ShowUsersComponent
+    ShowUsersComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,7 @@ import { PageComponent  } from '../components/page/page.component';
 import { EditProfilePageComponent  } from '../components/edit-profile-page/edit-profile-page.component';
 // import { FriendsPageComponent } from '../components/friends-page/friends-page.component';
 import { PhotosComponent  } from '../components/photos/photos.component';
+import { TimelineComponent   } from '../components/timeline/timeline.component';
 import {SecurityPageComponent } from '../components/security-page/security-page.component';
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -24,6 +25,7 @@ const routes: Routes = [
     // { path: 'friends', component:FriendsPageComponent},
     { path: 'photos', component:PhotosComponent},
     { path: 'security-page', component:SecurityPageComponent},
+    { path: 'timeline', component:TimelineComponent },
     // {
     //     path: 'user', 
 
