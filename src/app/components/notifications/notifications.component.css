@@ -1,0 +1,23 @@
+body{
+    margin-top:20px;
+    background-color: #f0f2f5;
+}
+.dropdown-list-image {
+    position: relative;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+.dropdown-list-image img {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.btn{
+    background-color: #c72121;
+    color: white;
+}
+.photo{
+width: 100px;
+height: 100px;
+margin-top: 20px;
+}
