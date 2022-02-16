@@ -18,6 +18,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { FriendsComponent } from './components/friends/friends.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { PhotosComponent } from './components/photos/photos.component';
+import { AllpagesComponent } from './components/allpages/allpages.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { PhotosComponent } from './components/photos/photos.component';
     EditProfileComponent,
 
     PhotosComponent,
+     AllpagesComponent,
     
   ],
   imports: [

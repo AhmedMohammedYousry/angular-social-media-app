@@ -9,45 +9,44 @@
     position: sticky;
     top: 70px;
     align-self: flex-start;
+    margin-top: 30px;
+    margin-bottom:30px;
+    -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.1), -3px 0 3px rgba(0,0,0,0.05);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1), -3px 0 3px rgba(0,0,0,0.05);
+  
 
 }
-.right-sidebar{
-    flex-basis: 25%;
-    position: sticky;
-    top: 70px;
-    align-self: flex-start;
-    background: var(--bg-color);
-    padding: 20px;
-    border-radius: 4px;
-    color: #626262;
 
+.imp-links:first-child{
+  padding-top: 1px;
 }
-.main-content{
-    flex-basis: 47%;
 
-}
+
 .imp-links a, .shortcut-link a{
     text-decoration: none;
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
-    color: #626262;
+    margin-bottom: 50px;
+    color: #000000;
     width: fit-content;
+    /* margin-left: 40px; */
+    margin: 30px auto;
+
+ 
+    
 
 }
 .imp-links a i{
     width: 25px;
     margin-right: 15px;
+    color:#c72121;
+    text-align: center;
+
 
 
 }
-.imp-links a:last-child{
-    color:#1876f2;
 
-}
-.imp-links{
-    border-bottom: 1px solid #ccc;
-}
+
 .shortcut-link a i{
     width: 40px;
     border-radius: 4px;
@@ -72,12 +71,7 @@
     font-size: 16px;
 
 }
-.sidebar-title a{
-    text-decoration: none;
-    color: #1876f2;
-    font-size: 12px;
 
-}
 .event{
     display: flex;
     font-size: 16px;
