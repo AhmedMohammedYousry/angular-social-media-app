@@ -1,3 +1,5 @@
+import { Page } from './../../models/page';
+import { Post } from './../../models/post';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
@@ -14,6 +16,8 @@ export class NavigationHeaderComponent implements OnInit {
 
   isLogged = false;
   user: User = new User;
+  post:Post= new Post;
+  page:Page=new Page;
   formsearch = new FormGroup({});
   storageURL = environment.storage_URL
   constructor(private _userService: UserService, private _router: Router, private _apiService: ApiService, private _formBuilder: FormBuilder) { }
@@ -40,39 +44,20 @@ export class NavigationHeaderComponent implements OnInit {
 
     //alert(JSON.stringify(this.formRegister.value));
     //Call API to create user    
-
-  
-    this._apiService.getName(`pages`,this.formsearch.value.search)
+    this._apiService.getName(`search`,this.formsearch.value.search)
     .subscribe(
       (response: any) => {
         alert(JSON.stringify(response));
+        this.user=response;
+        this.post=response;
+        this.page=response;
+        this._router.navigateByUrl (`search`);
       },
       (error: any) => {
         alert(error)
       }
       );
-    
-      this._apiService.getName(`posts`,this.formsearch.value.search)
-      .subscribe(
-        (response: any) => {
-          alert(response);
-        },
-        (error: any) => {
-          alert(error)
-        }
-        );
-    this._apiService.getName(`users`,this.formsearch.value.search)
-    .subscribe(
-      (response: any) => {
-        alert(response);
-      },
-      (error: any) => {
-        alert(error)
-      }
-  
-     
-   
-      );
+
   }
 
   isValidControl(name: string): boolean {

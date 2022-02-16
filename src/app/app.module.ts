@@ -18,6 +18,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import {ShowUserComponent} from './components/dashboard/show-user/show-user.component'
 import {ShowUsersComponent} from './components/dashboard/show-users/show-users.component'
 import {MatCardModule} from '@angular/material/card';
+import { PusherService } from './services/pusher.service';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -36,7 +38,8 @@ import {MatCardModule} from '@angular/material/card';
     PagesComponent,
 
     ShowUserComponent,
-    ShowUsersComponent
+    ShowUsersComponent,
+    SearchComponent
 
   ],
   imports: [
@@ -44,7 +47,7 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,UserModule,PostModule,ReactiveFormsModule,MatCardModule
   ],
   exports: [NavigationHeaderComponent,CommonModule],
-  providers: [],
+  providers: [PusherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

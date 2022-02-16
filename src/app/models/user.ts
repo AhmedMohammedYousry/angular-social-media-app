@@ -1,3 +1,4 @@
+import { Chat } from './chat';
 import { Pagelike } from './pagelike';
 import { Post } from "./post";
 import { Comment } from "./comment";
@@ -24,6 +25,7 @@ export class User{
 
     page_likes: any;
     pages:Page[]=[];
+    chats:Chat[]=[];
 
 
     profilePic:string="";

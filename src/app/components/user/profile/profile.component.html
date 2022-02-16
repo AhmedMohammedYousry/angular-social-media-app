@@ -27,7 +27,7 @@
             <img src="{{storageURL}}/profiles/{{user.profilePic}}" class="pd-image">
 
             <div>
-             
+
 
               <h3>{{user.name}}</h3>
               <p> {{user.friend.length+user.friends.length}} Friends</p>
@@ -40,7 +40,8 @@
           </div>
         </div>
         <div class="pd-right">
-          <button type="button" style="background-color: #a41702;color:white"><i class="fas fa-edit"></i> Edit Profile</button>
+          <button type="button" style="background-color: #a41702;color:white"><i class="fas fa-edit"></i> Edit
+            Profile</button>
           <!-- <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button> -->
         </div>
       </div>
@@ -81,22 +82,24 @@
               <a class="ms-3">Friends</a>
             </div>
             <div class="row">
-            <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
-              <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
-                <!-- <p>{{i+1}}(10 Mutual)</p> -->
-                <img style="height: 50px; width: 50px;" class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
-                <figcaption class="small">{{friend.firstname}}</figcaption>
-              </figure>
-            </div>
-            <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
-              <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
-                <!-- <p>{{i+1}}(10 Mutual)</p> -->
-                <img style="height: 50px;" class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
-                <figcaption class="small">{{friend.firstname}}</figcaption>
-              </figure>
+              <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
+                <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
+                  <!-- <p>{{i+1}}(10 Mutual)</p> -->
+                  <img style="height: 50px; width: 50px;" class="img-fluid"
+                    src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
+                  <figcaption class="small">{{friend.firstname}}</figcaption>
+                </figure>
+              </div>
+              <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
+                <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
+                  <!-- <p>{{i+1}}(10 Mutual)</p> -->
+                  <img style="height: 50px;" class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}"
+                    alt="">
+                  <figcaption class="small">{{friend.firstname}}</figcaption>
+                </figure>
+              </div>
             </div>
           </div>
-        </div>
 
           <!-- pages part -->
 
@@ -104,8 +107,8 @@
             <div class="title-box">
               <h3>Pages</h3>
               <a href="">Pages</a>
-  
-              
+
+
             </div>
             <div class="col-md-4" *ngFor="let page of user.pages; index as i">
               <figure (click)="goToPage(page.id)">
@@ -129,7 +132,7 @@
           </div> -->
 
 
-            <!-- <h6 >Liked Pages</h6>
+          <!-- <h6 >Liked Pages</h6>
             <div class="col-md-4" *ngFor="let page of user.page_likes;index as i">
               <figure (click)="goToPage(page.page.id)">
                 <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo">
@@ -145,7 +148,7 @@
               </figure>
             </div> -->
 
-          
+
 
 
         </div>
@@ -157,36 +160,32 @@
               <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper">
                 <div class="row">
                   <div>
-                    
+
 
                     <app-create-post></app-create-post>
                     <div *ngFor='let post of user.posts ;let i = index' class="postdiv">
-                    <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
-                     [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
-                     [post_id]="post.id" 
-                     [post_likes_number]="post.post_likes.length" [profilePic]="user.profilePic"
-                     [hasPic]="post.hasPic"
-                     [postPic]="post.postPic"
-                     ></app-show-post>
-                     
-                    
-                    <!-- create comment here -->
-                    <app-create-comment [post_id]="post.id"></app-create-comment>
-                    <!-- display comments here -->
-                    
-                        <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                          Show comments
-                        </a>
-                        
+                      <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
+                        [created_at]="user.posts[i].created_at"
+                        [comments_number]="post.comments.length==0? '' : post.comments.length" [post_id]="post.id"
+                        [post_likes_number]="post.post_likes.length" [profilePic]="user.profilePic"
+                        [hasPic]="post.hasPic" [postPic]="post.postPic"></app-show-post>
+                      <!-- create comment here -->
+                      <app-create-comment [post_id]="post.id"></app-create-comment>
+                      <!-- display comments here -->
+                      <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}"
+                        role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Show comments
+                      </a>
                       <div class="collapse" id="allposts{{i}}">
                         <div *ngFor='let comment of post.comments ;let j = index'>
-    
-                            <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content" [comment_created_at]="comment.created_at"></app-show-comment>
-                            </div>
+
+                          <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content"
+                            [comment_created_at]="comment.created_at"></app-show-comment>
+                        </div>
                       </div>
-                    
+
                     </div>
-        
+
                   </div>
 
                 </div>
@@ -201,7 +200,7 @@
     </div>
   </div>
 
- 
+
 </body>
 
 </html>

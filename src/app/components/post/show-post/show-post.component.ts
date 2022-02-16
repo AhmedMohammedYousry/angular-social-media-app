@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class ShowPostComponent implements OnInit {
 
   @Input() postOwner:string="";
+  @Input() postOwnerId:any;
   @Input() profilePic:string="";
   storageURL = environment.storage_URL
   @Input() postContent:string="";
