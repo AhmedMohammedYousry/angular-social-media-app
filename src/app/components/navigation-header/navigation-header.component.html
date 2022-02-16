@@ -1,40 +1,45 @@
 <!-- new nav -->
 <nav *ngIf="isLogged">
   <div class="nav-left">
-    <a  class=" logo"routerLink="/dashboard">
-      <h2  class=" logo">FireClub</h2>
+    <a class=" logo" routerLink="/dashboard">
+      <h2 class=" logo">FireClub</h2>
     </a>
     <ul>
       <li>
         <i class="fas fa-bell icon"></i>
       </li>
- 
+
       <li>
-        <a [routerLink]="['/chat']" >
-        <i class="fab fa-facebook-messenger icon">  </i>
-         </a>
-       
+        <a [routerLink]="['/chat']">
+          <i class="fab fa-facebook-messenger icon"> </i>
+        </a>
+
       </li>
       <li>
-        <a [routerLink]="['/users']" >
-        <i class="fas fa-user-plus icon"></i>
-      </a>
+        <a [routerLink]="['/users']">
+          <i class="fas fa-user-plus icon"></i>
+        </a>
       </li>
     </ul>
   </div>
-  <div class="nav-right">
-    <div class="search-box">
-      <i class="fas fa-search icon"></i>
-      <input type="text" placeholder="Search" />
+
+    <div class="nav-right" [formGroup]="formsearch">
+      <div class="search-box">
+        <i class="fas fa-search icon"></i>
+        <input type="text" (keyup)="search()"formControlName="search" placeholder="Search" />
+      </div>
+
+
     </div>
-  </div>
+
+  
   <div class="nav-right">
     <div class="nav-user-icon online" onclick="settingsMenuToggle()">
       <img src="{{storageURL}}/profiles/{{user.profilePic}}" (click)="visitProfile()" />
     </div>
-    
+
     <i class="fa-solid fa-arrow-right-from-bracket text-white ms-4 logout" (click)="signOut()"></i>
-    
+
   </div>
 
   <!----------------Settings Menu"----------------------->
@@ -60,45 +65,23 @@
       </div>
       <hr />
       <div class="settings-links">
-        <img
-          src="https://i.postimg.cc/QCcPNYRV/setting.png"
-          class="settings-icon"
-        />
-        <a href="#"
-          >Settings & Privacy
-          <img src="https://i.postimg.cc/RF1dBMWr/arrow.png" width="10px"
-        /></a>
+        <img src="https://i.postimg.cc/QCcPNYRV/setting.png" class="settings-icon" />
+        <a href="#">Settings & Privacy
+          <img src="https://i.postimg.cc/RF1dBMWr/arrow.png" width="10px" /></a>
       </div>
       <div class="settings-links">
-        <img
-          src="https://i.postimg.cc/C5tydfK6/help.png"
-          class="settings-icon"
-        />
-        <a href="#"
-          >Help & Support<img
-            src="https://i.postimg.cc/RF1dBMWr/arrow.png"
-            width="10px"
-        /></a>
+        <img src="https://i.postimg.cc/C5tydfK6/help.png" class="settings-icon" />
+        <a href="#">Help & Support<img src="https://i.postimg.cc/RF1dBMWr/arrow.png" width="10px" /></a>
       </div>
       <div class="settings-links">
-        <img
-          src="https://i.postimg.cc/5yt1XVSj/display.png"
-          class="settings-icon"
-        />
-        <a href="#"
-          >Display & Accessibility
-          <img src="https://i.postimg.cc/RF1dBMWr/arrow.png" width="10px"
-        /></a>
+        <img src="https://i.postimg.cc/5yt1XVSj/display.png" class="settings-icon" />
+        <a href="#">Display & Accessibility
+          <img src="https://i.postimg.cc/RF1dBMWr/arrow.png" width="10px" /></a>
       </div>
       <div class="settings-links">
-        <img
-          src="https://i.postimg.cc/PJC9GrMb/logout.png"
-          class="settings-icon"
-        />
-        <a href="#"
-          >Logout
-          <img src="https://i.postimg.cc/RF1dBMWr/arrow.png" width="10px"
-        /></a>
+        <img src="https://i.postimg.cc/PJC9GrMb/logout.png" class="settings-icon" />
+        <a href="#">Logout
+          <img src="https://i.postimg.cc/RF1dBMWr/arrow.png" width="10px" /></a>
       </div>
     </div>
   </div>

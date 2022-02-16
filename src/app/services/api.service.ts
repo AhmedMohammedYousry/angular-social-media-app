@@ -12,6 +12,11 @@ export class ApiService {
   get(url:string,options={}){
     return this._httpClient.get(`${environment.api_URL}/${url}`,options);
    }
+
+   getName(url:string,name:any,options={}){
+    return this._httpClient.get(`${environment.api_URL}/${url}/${name}`,options);
+   }
+
    getOne(url:string,id:any,options={}){
     return this._httpClient.get(`${environment.api_URL}/${url}/${id}`,options);
    }
