@@ -1,0 +1,81 @@
+body{
+    margin-top:20px;
+    background:#eee;
+}
+
+
+.name{
+    margin-top: 10px;
+}
+.photo{
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    border-radius: 50%;
+
+}
+.btn{
+    background: #868484;
+    padding: 5px 9px;
+    border-radius: 5px;
+     margin-right: 5px; 
+    cursor: pointer;
+
+
+  
+}
+.btn a{
+    text-decoration: none;
+    color: white;
+}
+.btn1{
+    background: #6d0606;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 6px; 
+
+
+}
+.btn1 a{
+    text-decoration: none;
+    color: white;
+
+}
+.card {
+    background-color: #fff;
+    border: 0 solid #eee;
+    border-radius: 0;
+
+}
+.card {
+    margin-bottom:30px;
+    margin-top: 20px;
+    -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.1), -3px 0 3px rgba(0,0,0,0.05);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1), -3px 0 3px rgba(0,0,0,0.05);
+}
+
+
+@media (max-width:991px){
+    .responsive {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+.responsive {
+margin:10px auto;
+position: absolute;
+right: 5px;
+bottom: 3%;
+
+}
+
+/* @media (max-width:991px){
+    .responsive {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+} */

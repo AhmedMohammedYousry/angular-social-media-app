@@ -158,11 +158,12 @@ body{
     bottom: 5px;
 
 }
-
-/*----------------- Media Query For Home Page -----------------*/
-
 @media (max-width: 900px){
     .right-sidebar{
         display: none;
     }
 }
+
+  
+    
+    

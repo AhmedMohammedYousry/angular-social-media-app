@@ -15,6 +15,9 @@ import { CommonModule } from '@angular/common';
 import { ChatComponent } from './components/chat/chat.component';
 import { PagesComponent } from './components/pages/pages.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { FriendsComponent } from './components/friends/friends.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { PhotosComponent } from './components/photos/photos.component';
 
 
 @NgModule({
@@ -28,6 +31,10 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     ChatComponent,
     PagesComponent,
     UserProfileComponent,
+    FriendsComponent,
+    EditProfileComponent,
+
+    PhotosComponent,
     
   ],
   imports: [

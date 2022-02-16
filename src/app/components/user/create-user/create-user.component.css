@@ -1,149 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-
-*{
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-}
-.icon{
-    margin-top: 5px;
-    margin-left: 2px;
+.gradient-custom-2 {
+  background: linear-gradient(109deg, #ff2403, #000000);
 }
 
-.login-register-content{
-  width: 100%;
-  height: 100vh;
-  /* background: linear-gradient( 109deg , #ff2403, #000000); */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media (min-width: 768px) {
+  .gradient-form {
+    height: 100vh !important;
+  }
+}
+@media (min-width: 769px) {
+  .gradient-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+  }
 }
 
-.card-content{
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-}
-
-.card-header{
-  width: 100%;
-  heigth: auto;
-  padding: 15px;
-  background: linear-gradient( 109deg , #ff2403, #000000);
-}
-.card-header h2{
-  color: #fff;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.card-header p{
-  color: #fff;
-}
-
-.card-body{
-  width: 100%;
-  height: auto;
-  background-color: #fff;
-}
-.card-body .form{
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.card-body .form input{
-  padding: 15px 50px;
-  border-radius: 50px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-}
-.card-body .form i{
-  width: 42px;
-  height: 42px;
-  background: linear-gradient( 109deg , #ff2403, #000000);
-  position: relative;
-  top: -55px;
-  left: 3px;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  margin-bottom: -42px;
-}
-.card-body .form #password{
-  top: -65px;
-  left: 425px;
-  margin-bottom: -60px;
-}
-.card-body .form button{
-  padding: 15px;
-  border-radius: 30px;
-  background: linear-gradient( 109deg , #ff2403, #000000);
-  color: #fff;
-  font-weight: 400;
-  font-size: 18px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-}
-.custom-radio-wrap {
-  padding: 20px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: flex-start;
-}
-.form-group {
-  margin-bottom: 10px;
-}
-.form-group:last-child {
-  margin-bottom: 0;
-}
-.form-group label {
-  -webkit-appearance: none;
-    background-color: #fafafa;
-    border: 1px solid #cacece;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-    padding: 8px;
-    border-radius: 50px;
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
-    cursor: pointer;
-    margin-left: 30px;
-}
-.label-text {
-  vertical-align: middle;
-  cursor: pointer;
-    padding-left: 10px;
-    margin-left: -5px;
-}
-.custom-radio-wrap input {
-  display: none;
-  cursor: pointer;
-
-}
-input:checked + label {
-  background-color: #e9ecee;
-  color: #99a1a7;
-  border: 1px solid #720404;  
-}
-
-input:checked ~ .label-text {
-  color: #720404;
-  font-weight: 700;
-}
-
- input:checked + label:after {
-  content: '';
-  width: 14px;
-  height: 14px;
-  border-radius: 50px;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  background: #720404;
-  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
-  text-shadow: none;
-  font-size: 32px;
+.neon {
+  color: #b22914;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.726), 0 0 10px #fff, 0 0 20px #fff,
+    0 0 40px rgb(165, 51, 51), 0 0 80px rgb(211, 106, 106),
+    0 0 90px rgb(255, 0, 0), 0 0 100px rgb(255, 251, 0),
+    0 0 150px rgb(196, 199, 19);
+  text-decoration: none;
+  margin-left: 50px;
+  font-size: 30px;
+  margin-right: 50px;
 }

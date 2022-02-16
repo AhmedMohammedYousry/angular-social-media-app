@@ -8,6 +8,9 @@ import { AuthGuard } from '../guards/auth.guard';
 import { ChatComponent } from "../components/chat/chat.component";
 import { PagesComponent } from "../components/pages/pages.component";
 import {  UserProfileComponent } from "../components/user-profile/user-profile.component";
+import {  FriendsComponent} from "../components/friends/friends.component";
+import { EditProfileComponent } from "../components/edit-profile/edit-profile.component";
+import { PhotosComponent } from "../components/photos/photos.component";
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
@@ -29,6 +32,18 @@ const routes: Routes = [
         component: PagesComponent,
     },
     {path: 'users/:id',component: UserProfileComponent, canActivate:[AuthGuard]},
+    {
+        path: 'friends',
+        component:  FriendsComponent,
+    },
+    {
+        path: 'edit-profile',
+        component: EditProfileComponent,
+    },
+    {
+        path: 'photos',
+        component: PhotosComponent,
+    },
 
     // {
     // path: '',

@@ -263,3 +263,10 @@ nav{
     background: #0a0a0a;
 
 }
+@media (max-width:450px){
+    .logo{
+        font-size: 16px;
+
+    }
+    
+}
