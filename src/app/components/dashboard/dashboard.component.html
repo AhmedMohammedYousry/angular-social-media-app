@@ -14,7 +14,6 @@
         <div class="col-md-6">
             
             <div class="col-md-12">
-                        <button mat-raised-button (click)="openDialog()" >DIALOG</button>
                 <app-create-post></app-create-post>
                  <div *ngFor='let post of posts ;let i = index'>
                    <div class="postdiv">
@@ -25,6 +24,7 @@
                      [profilePic]="post.user_id.profilePic"
                      [hasPic]="post.hasPic"
                      [postPic]="post.postPic"
+                     [showDeleteButton]="false"
                      ></app-show-post>     
                  
                     <app-create-comment [post_id]="post.id"></app-create-comment>

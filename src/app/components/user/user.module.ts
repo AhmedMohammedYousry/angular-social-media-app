@@ -15,6 +15,7 @@ import { ImageFormComponent } from './image-form/image-form.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FriendsComponent } from './friends/friends.component';
 import { PhotosComponent } from './photos/photos.component';
+import { ImageFormProfilepicComponent } from './image-form-profilepic/image-form-profilepic.component';
 
 
 const routes: Routes = [
@@ -59,7 +60,8 @@ const routes: Routes = [
   ImageFormComponent,
   EditProfileComponent,
   FriendsComponent,
-  PhotosComponent],
+  PhotosComponent,
+  ImageFormProfilepicComponent],
   imports: [
     CommonModule,FormsModule , ReactiveFormsModule,HttpClientModule,
     RouterModule.forChild(routes),

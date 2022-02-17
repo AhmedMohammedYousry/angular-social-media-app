@@ -18,11 +18,13 @@
     <!----------------Porfile page----------------------->
     <div class="pofile-container">
       <!-- cover src="https://i.postimg.cc/sfQS7fj3/cover.png"  -->
-      <!-- '{{storageURL}}/covers/{{user.coverPic}}' -->
       <div class="cover-img" 
-      style="width: 100%; height: 300px; background-color: rgb(202, 202, 202);"
-      ><img *ngIf="user.hasCover" src="{{storageURL}}/covers/{{user.coverPic}}" class="cover-img"></div>
+      style="width: 100%; height: 300px; background-color: rgb(202, 202, 202);">
+      <img *ngIf="user.hasCover" src="{{storageURL}}/covers/{{user.coverPic}}" class="cover-img">
+    </div>
+    <div class="d-flex justify-content-end">
       <app-image-form [apiEndpoint]="'coverpicture'"></app-image-form>
+    </div>
       <div class="profile-details">
         <div class="pd-left">
           <div class="pd-row" style="
@@ -40,7 +42,7 @@
               <img src="https://i.postimg.cc/9Fs7J6fy/member-2.png">
               <img src="https://i.postimg.cc/L8fZ7xqw/member-3.png">
               <img src="https://i.postimg.cc/xd3Njq3P/member-5.png"> -->
-              <app-image-form></app-image-form>
+              <app-image-form-profilepic [apiEndpoint]="'profilepicture'"></app-image-form-profilepic>
             </div>
           </div>
         </div>
@@ -177,6 +179,7 @@
                      [post_likes_number]="post.post_likes.length" [profilePic]="user.profilePic"
                      [hasPic]="post.hasPic"
                      [postPic]="post.postPic"
+                     [showDeleteButton]="true"
                      ></app-show-post>
                      
                     

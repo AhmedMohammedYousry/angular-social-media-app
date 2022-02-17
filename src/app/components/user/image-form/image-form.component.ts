@@ -36,6 +36,7 @@ export class ImageFormComponent implements OnInit {
     .subscribe((response:any)=>{
       this.data = response;
       this.imageForm.get('image').reset();
+      window.location.reload();
     })
   }
 

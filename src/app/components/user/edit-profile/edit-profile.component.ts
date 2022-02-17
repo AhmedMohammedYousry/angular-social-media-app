@@ -46,19 +46,19 @@ export class EditProfileComponent implements OnInit {
 
 
 
-  isValidControl(name:string):boolean
-  {
-    return this.formUpdate.controls[name].valid;
-  }
+  // isValidControl(name:string):boolean
+  // {
+  //   return this.formUpdate.controls[name].valid;
+  // }
 
-  isInValidAndTouched(name:string):boolean
-  {
-    return  this.formUpdate.controls[name].invalid && (this.formUpdate.controls[name].dirty || this.formUpdate.controls[name].touched);
-  }
+  // isInValidAndTouched(name:string):boolean
+  // {
+  //   return  this.formUpdate.controls[name].invalid && (this.formUpdate.controls[name].dirty || this.formUpdate.controls[name].touched);
+  // }
 
-  isControlHasError(name:string,error:string):boolean
-  {
-    return  this.formUpdate.controls[name].invalid && this.formUpdate.controls[name].errors?.[error];
-  }
+  // isControlHasError(name:string,error:string):boolean
+  // {
+  //   return  this.formUpdate.controls[name].invalid && this.formUpdate.controls[name].errors?.[error];
+  // }
 
 }
