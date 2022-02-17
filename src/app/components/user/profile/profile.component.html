@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="pd-right">
-          <button type="button" style="background-color: #a41702;color:white"><i class="fas fa-edit"></i> Edit Profile</button>
+          <button type="button" style="background-color: #a41702;color:white" (click)="goToEditProfile()"><i class="fas fa-edit"></i> Edit Profile</button>
           <!-- <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button> -->
         </div>
       </div>
@@ -64,7 +64,7 @@
           <div class="profile-intro">
             <div class="title-box">
               <h3>Photos</h3>
-              <a href="">Photos</a>
+              <a routerLink="/profile/photos">Photos</a>
             </div>
             <div class="photo-box">
               <div><img src="https://i.postimg.cc/pdCyb4PG/photo1.png"></div>
@@ -78,7 +78,7 @@
           <div class="profile-intro  ">
             <div class="title-box">
               <h3>Friends</h3>
-              <a class="ms-3">Friends</a>
+              <a class="ms-3" routerLink="/profile/friends">Friends</a>
             </div>
             <div class="row">
             <div class="col-md-4" *ngFor="let friend of user.friends;index as i">

@@ -29,7 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["../node_modules/pusher-js/dist/web/pusher.min.js"]
+            "scripts": ["./node_modules/pusher-js/dist/web/pusher.min.js"]
           },
           "configurations": {
             "production": {

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit-profile</title>
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="row gutters">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+        <div class="card h-100">
+            <div class="card-body ">
+                <div class="account-settings ">
+                    <div class="user-profile  ">
+                        <div class="user-avatar">
+                            <img  class="photo  mb-4 ms-4" src="{{storageURL}}/profiles/{{user.profilePic}}">
+                        </div>
+                        <h5 class="user-name px-3">{{user.name}}</h5>
+                        <h6 class="user-email px-3">{{user.email}}</h6>
+                    </div>
+                    <div class="about px-3">
+                        <h5>About</h5>
+                        <p>I'm user. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" >
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="row gutters" [formGroup]="formUpdate">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h6 class="mb-2 btn"> Edit Personal Details</h6>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                        <div class="form-group">
+                            <label for="firstname">firstname</label>
+                            <input formControlName="firstname" type="text" class="form-control" id="firstname" value="{{user.firstname}}">
+                        </div>
+                    </div>
+
+                   
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="form-group">
+                            <label for="lasttname">lastname</label>
+                            <input formControlName="lasttname" type="text" class="form-control" id="lasttname" value="{{user.lasttname}}">
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input formControlName="email" type="email" class="form-control" id="email" value="{{user.email}}">
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                        <div class="form-group">
+                            <label for="password">New Password</label>
+                            <input formControlName="password" type="password" class="form-control" id="password" placeholder="new password">
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                        <div class="form-group">
+                            <label for="date_of_birth">date-of-birth</label>
+                            <input formControlName="date_of_birth" type="date" class="form-control" id="date_of_birth" value="{{user.date_of_birth}}">
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                        <div class="form-group">
+                            <label for="mobile">mobile</label>
+                            <input formControlName="mobile" type="text" class="form-control" id="mobile" value="{{user.mobile}}">
+                        </div>
+                    </div>
+
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                        <div class="form-group">
+                            <label for="location">location</label>
+                            <input type="text" class="form-control" id="location" value="{{user.location}}">
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                        <div class="form-group ">
+                            <label for="address">address</label>
+                            <input type="text" class="form-control text-light" id="address" placeholder="address">
+                        </div>
+                    </div> -->
+
+
+                </div>
+                <div class="row gutters">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="text-right">
+                            <button type="button"  class="btn btn-secondary m-2" > <a [routerLink]="['/profile']" >
+                               Cancle
+                              </a></button>
+                            <button type="submit" id="submit" name="submit" class="btn" (click)="update()">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+</body>
+</html>

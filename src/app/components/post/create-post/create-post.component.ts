@@ -58,6 +58,7 @@ export class CreatePostComponent implements OnInit {
 
   addPicToPost(){
     const formData = new FormData();
+    
     formData.append('image', this.files, this.files.name)
     this._apiService.post(`postpicture/${this.post_id}`, formData)
     .subscribe((response:any)=>{

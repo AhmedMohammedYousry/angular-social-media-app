@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
 import { Post } from '../../models/post';
 
 import { ApiService } from '../../services/api.service';
+import { FullImageComponent } from '../full-image/full-image.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +14,7 @@ import { ApiService } from '../../services/api.service';
 export class DashboardComponent implements OnInit {
 
   posts:Post[] = []
-  constructor(private _apiService:ApiService, private _userService:UserService) { }
+  constructor(private _apiService:ApiService, private _userService:UserService,private _matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this._apiService.get('posts')
@@ -27,5 +29,11 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
-
+  openDialog(): void {
+    const dialogRef = this._matDialog.open(FullImageComponent
+      , {
+        height: '450px',
+        width: '650px',
+    });
+  }
 }

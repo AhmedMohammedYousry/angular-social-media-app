@@ -9,7 +9,7 @@ export class User{
     name:string="";
     email:string="";
     firstname:string="";
-    lastname:string="";
+    lasttname:string="";
     date_of_birth:string="";
     created_at:string="";
     mobile:string="";
@@ -24,7 +24,7 @@ export class User{
     pages:Page[]=[];
     chat_lines:Chat[]=[];
     profilePic:string="";
-
+    location:string="";
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();

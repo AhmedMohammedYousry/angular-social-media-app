@@ -9,7 +9,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { CommentcontentPipe } from 'src/app/pipes/commentcontent.pipe';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-
+import { MatDialog } from '@angular/material/dialog';
+import { ImageFormComponent } from '../image-form/image-form.component';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +21,8 @@ export class ProfileComponent implements OnInit {
   
   user:User = new User();
   storageURL = environment.storage_URL
-  constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router) { 
+  constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,
+    private _apiService:ApiService,private _router:Router) { 
     
   }
 
@@ -58,5 +60,9 @@ export class ProfileComponent implements OnInit {
   goToPage(page_id:number){
     this._router.navigateByUrl (`pages/${page_id}`);
   }
+  goToEditProfile(){
+    this._router.navigateByUrl (`profile/edit`);
+  }
+  
   
 }

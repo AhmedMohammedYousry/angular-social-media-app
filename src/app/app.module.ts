@@ -19,7 +19,9 @@ import {ShowUserComponent} from './components/dashboard/show-user/show-user.comp
 import {ShowUsersComponent} from './components/dashboard/show-users/show-users.component'
 import {MatCardModule} from '@angular/material/card';
 import { PusherService } from './services/pusher.service';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FullImageComponent } from './components/full-image/full-image.component';
 
 
 @NgModule({
@@ -37,12 +39,14 @@ import { PusherService } from './services/pusher.service';
     PagesComponent,
 
     ShowUserComponent,
-    ShowUsersComponent
+    ShowUsersComponent,
+    FullImageComponent
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,UserModule,PostModule,ReactiveFormsModule,MatCardModule
+    AppRoutingModule,UserModule,PostModule,ReactiveFormsModule,MatCardModule,
+    MatDialogModule,BrowserAnimationsModule
   ],
   exports: [NavigationHeaderComponent,CommonModule],
   providers: [PusherService],
