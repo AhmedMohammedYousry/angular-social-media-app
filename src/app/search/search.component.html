@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="nav-right" [formGroup]="formsearch">
+            <div class="search-box">
+
+                <input type="text" class="search-input" (keyup.enter)="search()" formControlName="search"
+                    placeholder="Search" />
+                <button class="search-button" (click)="search()">
+
+                    <i class="fas fa-search icon"></i>
+                </button>
+            </div>
+
+
+        </div>
+
+    </div>
+
+        <div class="col-md-6 col-xl-4" *ngFor="let userName of userName">
+            <h1>others </h1>
+            <div class="card ">
+              <div class="card-body">
+                <div class="media align-items-center text-center">
+                  <div class="media-body overflow-hidden">
+                    <h5 class="card-text mb-0 name">{{userName.name}}</h5>
+                    <p class="card-text text-muted">{{userName.email}}</p>
+                    <!-- <p class="card-text">
+                      Lola@gmail.com<br>
+                    </p> --><br>
+                  </div>
+                  <a href="#" class="tile-link"></a>
+                  <div class=" responsive">
+                    <button type="button" class="btn" (click)="unfriend(userName.id)"> 
+                      <a routerLink="/users/{{userName.id}}">
+                        <i class="fa-solid fa-user-group"></i> Friends
+                    </a>
+                      </button>
+                    <button type="button" class="btn1  ">
+                      <a [routerLink]="['/chat']">
+                        <i class="fab fa-facebook-messenger icon">  </i>  Message
+                      </a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+
+    
+        <div class="profile-intro  ">
+            <div class="title-box">
+                <h3>Pages</h3>
+                <a href="">Pages</a>
+
+
+            </div>
+            <div class="col-md-4" *ngFor="let userName of userName; index as i">
+                <figure>
+                    <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png"
+                        alt="page-photo">
+                    <figcaption class="small text-center">{{userName.name}}</figcaption>
+                </figure>
+            </div>
+        </div>
+
+
+</body>
+
+</html>

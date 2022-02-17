@@ -20,19 +20,16 @@
           <i class="fas fa-user-plus icon"></i>
         </a>
       </li>
+
+      <li>
+        <a [routerLink]="['/search']">
+          <i class="fas fa-search icon"></i>
+        </a>
+      </li>
     </ul>
   </div>
 
-    <div class="nav-right" [formGroup]="formsearch">
-      <div class="search-box">
-        <i class="fas fa-search icon"></i>
-        <input type="text" (keyup)="search()"formControlName="search" placeholder="Search" />
-      </div>
 
-
-    </div>
-
-  
   <div class="nav-right">
     <div class="nav-user-icon online" onclick="settingsMenuToggle()">
       <img src="{{storageURL}}/profiles/{{user.profilePic}}" (click)="visitProfile()" />
