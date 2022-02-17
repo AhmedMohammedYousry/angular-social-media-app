@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { MatDialog } from '@angular/material/dialog';
 import { ImageFormComponent } from '../image-form/image-form.component';
+import { ProfilePicture } from 'src/app/models/profilepicture';
+import { FullImageComponent } from '../../full-image/full-image.component';
 
 @Component({
   selector: 'app-profile',
@@ -20,9 +22,10 @@ import { ImageFormComponent } from '../image-form/image-form.component';
 export class ProfileComponent implements OnInit {
   
   user:User = new User();
+  profilepictures:ProfilePicture[] = [];
   storageURL = environment.storage_URL
   constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,
-    private _apiService:ApiService,private _router:Router) { 
+    private _apiService:ApiService,private _router:Router,private _matDialog:MatDialog) { 
     
   }
 
@@ -46,6 +49,10 @@ export class ProfileComponent implements OnInit {
 
 
         // [parseInt(`${localStorage.getItem('id')}`)-1]
+        this._apiService.get('profilepics').subscribe((pics:any)=> {
+          pics = pics.filter((pic:any) => pic.user_id == this.user.id)
+          this.profilepictures = pics
+        })
         
       },
       (error:any)=> {}
@@ -62,6 +69,14 @@ export class ProfileComponent implements OnInit {
   }
   goToEditProfile(){
     this._router.navigateByUrl (`profile/edit`);
+  }
+  expandPic(data:string){
+    const dialogRef = this._matDialog.open(FullImageComponent
+      , {
+        data: data,
+        height: '450px',
+        width: '650px',
+    });
   }
   
   

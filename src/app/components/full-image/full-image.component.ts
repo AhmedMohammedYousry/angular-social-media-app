@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-full-image',
   templateUrl: './full-image.component.html',
@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FullImageComponent implements OnInit {
 
-  constructor() { }
+  
+  constructor( @Inject(MAT_DIALOG_DATA) public data:string ) { }
 
   ngOnInit(): void {
   }

@@ -17,7 +17,12 @@
   <div>
     <!----------------Porfile page----------------------->
     <div class="pofile-container">
-      <img src="https://i.postimg.cc/sfQS7fj3/cover.png" class="cover-img">
+      <!-- cover src="https://i.postimg.cc/sfQS7fj3/cover.png"  -->
+      <!-- '{{storageURL}}/covers/{{user.coverPic}}' -->
+      <div class="cover-img" 
+      style="width: 100%; height: 300px; background-color: rgb(202, 202, 202);"
+      ><img *ngIf="user.hasCover" src="{{storageURL}}/covers/{{user.coverPic}}" class="cover-img"></div>
+      <app-image-form [apiEndpoint]="'coverpicture'"></app-image-form>
       <div class="profile-details">
         <div class="pd-left">
           <div class="pd-row" style="
@@ -67,12 +72,17 @@
               <a routerLink="/profile/photos">Photos</a>
             </div>
             <div class="photo-box">
+              <div *ngFor="let profilepicture of profilepictures">
+                  <img src="{{storageURL}}/profiles/{{profilepicture.profilePic}}"
+                   mat-raised-button (click)="expandPic(storageURL+'/profiles/'+profilepicture.profilePic)">
+              </div>
+              <!-- 
               <div><img src="https://i.postimg.cc/pdCyb4PG/photo1.png"></div>
               <div><img src="https://i.postimg.cc/LX0XhPYj/photo2.png"></div>
               <div><img src="https://i.postimg.cc/kG65S5Kz/photo3.png"></div>
               <div><img src="https://i.postimg.cc/xCd805C0/photo4.png"></div>
               <div><img src="https://i.postimg.cc/FzMHVQxR/photo5.png"></div>
-              <div><img src="https://i.postimg.cc/QNwC3pr3/photo6.png"></div>
+              <div><img src="https://i.postimg.cc/QNwC3pr3/photo6.png"></div> -->
             </div>
           </div>
           <div class="profile-intro  ">

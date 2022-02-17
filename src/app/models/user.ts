@@ -25,6 +25,9 @@ export class User{
     chat_lines:Chat[]=[];
     profilePic:string="";
     location:string="";
+    coverPic:string="";
+    hasCover:boolean=false;
+    intro:string="";
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();
