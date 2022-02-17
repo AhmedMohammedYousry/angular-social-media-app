@@ -6,16 +6,18 @@ export class Message {
     to_user_id:number=0;
     chat_id:number=0;
     content:string='';
-    user:User=new User;
-    created_at:string='';
-    other_message:boolean =true;
+    to_user:User=new User;
+    from_user:User=new User;
 
-    toMe(){
-        if(this.from_user_id!=this.user.id){
-            this.other_message= true;
-        }
-        else{
-            this.other_message=false;
-        }      
-    }
+    created_at:string='';
+    other:boolean =false;
+
+    // public type(){
+    //     if(this.from_user_id != this.user.id){
+    //         this.other=false;
+    //     }
+    //     else if(this.from_user_id ==this.user.id ){
+    //         this.other=true;
+    //     }
+    // }
 }
