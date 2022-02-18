@@ -44,7 +44,7 @@ export class SearchComponent implements OnInit {
     this._apiService.getName(`search`,this.formsearch.value.search)
     .subscribe(
       (response: any) => {
-        alert(JSON.stringify(response));
+        //alert(JSON.stringify(response));
        // this.userName.emit(this.userName); 
         this.userName=response.resultUser;
         this.post=response.resultPost;
@@ -56,19 +56,6 @@ export class SearchComponent implements OnInit {
       }
       );
   }
-  unfriend(friendId){
-    this._apiService.get('friends')
-    .subscribe((friends:any)=>
-    {
-      let friendship_id = friends.filter((friendship:any)=> 
-      {return (friendship.user_id==parseInt(localStorage.getItem('id')) && friendship.friend_id==friendId)
-              || (friendship.friend_id==parseInt(localStorage.getItem('id')) && friendship.user_id==friendId)
-    })[0].id
-    // delete friendship
-    // this._apiService.delete('friends',friendship_id).subscribe((response:any)=>{
-    //   this.ngOnInit()
-    // },(error:any)=>{})
-    })
-  }
+
 
 }

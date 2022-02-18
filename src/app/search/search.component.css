@@ -1,5 +1,5 @@
 body{
-    background-color: #f2f2f2;
+    background-color: rgba(255, 255, 255, 0.849);
     font-family: sans-serif;
   }
   .search-box{
@@ -7,6 +7,11 @@ body{
     position: relative;
     display: flex;
   
+  }
+
+
+  h3{
+    color: tomato;
   }
   .search-input{
     width: 100%;
@@ -34,11 +39,206 @@ body{
   
   
   }
-  .container{
-    width: 35%;
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    transform: translate(-50% , -50%);
+
+  h1{
+
+    color: #491006;
   }
-  
+
+  .name{
+    margin-top: 10px;
+}
+.photo{
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    border-radius: 50%;
+
+}
+.btn{
+    background: #868484;
+    padding: 5px 9px;
+    border-radius: 5px;
+     margin-right: 5px; 
+    cursor: pointer;
+
+
+
+}
+.btn a{
+    text-decoration: none;
+    color: white;
+}
+.btn1{
+    background: #6d0606;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 6px; 
+
+
+}
+.btn1 a{
+    text-decoration: none;
+    color: white;
+
+}
+.card {
+    background-color: #fff;
+    border: 0 solid #eee;
+    border-radius: 0;
+
+}
+.card {
+    margin-bottom:30px;
+    margin-top: 20px;
+    -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.1), -3px 0 3px rgba(0,0,0,0.05);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1), -3px 0 3px rgba(0,0,0,0.05);
+}
+
+
+@media (max-width:991px){
+    .responsive {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+.responsive {
+margin:5px auto;
+/* position: absolute; */
+right: 5px;
+bottom: 3%;
+
+}
+
+/* Profile_page */
+ .profile-cover {
+     position: relative;
+     z-index: 0;
+ }
+ .container{
+  padding: 20px;
+ }
+ .button{
+    background: #6d0606;
+    color:white;
+
+ }
+ 
+ .panel {
+     margin-bottom: 30px;
+     color: #696969;
+     background-color: #fff;
+     border-radius: 5px;
+     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+ }
+ 
+ .profile-cover__action {
+     display: -ms-flexbox;
+     display: -webkit-box;
+     display: flex;
+     padding: 120px 30px 10px 153px;
+     border-radius: 5px 5px 0 0;
+     -ms-flex-wrap: wrap;
+     flex-wrap: wrap;
+     -ms-flex-pack: end;
+     -webkit-box-pack: end;
+     justify-content: flex-end;
+     overflow: hidden;
+     background: url(../../assets/images/page.jpeg) no-repeat;
+     background-size: cover;
+ }
+ 
+ .profile-cover__action > .btn {
+     margin-left: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ .profile-cover__img {
+     position: absolute;
+     top: 120px;
+     left: 30px;
+     text-align: center;
+     z-index: 1;
+ }
+ 
+ .profile-cover__img > img {
+     max-width: 120px;
+     border: 5px solid #fff;
+     border-radius: 50%;
+ }
+ 
+ .profile-cover__img > .h3 {
+     color: #393939;
+     font-size: 20px;
+     line-height: 30px;
+ }
+ 
+ .profile-cover__img > img + .h3 {
+     margin-top: 6px;
+ }
+ 
+ .profile-cover__info .nav {
+     margin-right: 28px;
+     padding: 15px 0 10px 170px;
+     color: #999;
+     font-size: 16px;
+     line-height: 26px;
+     font-weight: 300;
+     text-align: center;
+     text-transform: uppercase;
+     -ms-flex-pack: end;
+     -webkit-box-pack: end;
+     justify-content: flex-end;
+ }
+ 
+ .profile-cover__info .nav li {
+     margin-top: 13px;
+     margin-bottom: 13px;
+ }
+ 
+ .profile-cover__info .nav li:not(:first-child) {
+     margin-left: 30px;
+     padding-left: 30px;
+     border-left: 1px solid #eee;
+ }
+ 
+ .profile-cover__info .nav strong {
+     display: block;
+     margin-bottom: 10px;
+     color: #e16123;
+     font-size: 34px;
+ }
+ .btn{
+   margin-left: 10px;
+ }
+ @media (min-width: 481px) {
+     .profile-cover__action > .btn {
+         min-width: 125px;
+     }
+ 
+     .profile-cover__action > .btn > span {
+         display: inline-block;
+     }
+ }
+ 
+ @media (max-width: 600px) {
+     .profile-cover__info .nav {
+         display: block;
+         margin: 90px auto 0;
+         padding-left: 30px;
+         padding-right: 30px;
+     }
+ 
+     .profile-cover__info .nav li:not(:first-child) {
+         margin-top: 8px;
+         margin-left: 0;
+         padding-top: 18px;
+         padding-left: 0;
+         border-top: 1px solid #eee;
+         border-left-width: 0;
+     }
+ }
+ 
