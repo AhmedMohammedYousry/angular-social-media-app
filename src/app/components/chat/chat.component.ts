@@ -67,15 +67,22 @@ export class ChatComponent implements OnInit {
     
     Pusher.logToConsole = true;
 
-    const pusher = new Pusher('473d6c2ef580e2c7c5d8', {
-      cluster: 'eu'
-    });
+    // const pusher = new Pusher('473d6c2ef580e2c7c5d8', {
+    //   cluster: 'eu',
+    //   authEndpoint: 'http://localhost:8000/api/messages',
+    // });
 
-    const data=this.message;
+    // const data=this.message;
 
-    const channel = pusher.subscribe('my-channel');
-    channel.bind('my-event',(data)=> {
-      this.messages.push(data);
+    // const channel = pusher.subscribe('my-channel');
+    // channel.bind('my-event',(data)=> {
+    //   this.messages.push(data);
+    // });
+
+    this.pusherService.channel.bind('client-event', (message) => {
+      console.log(message);
+      
+      this.messages.push(message);
     });
   }
   getChat(chat_id:number,name:string,photo:string,to_user:number){
@@ -116,6 +123,8 @@ export class ChatComponent implements OnInit {
       (error:any)=>{}
     )
     console.log(this.middelRequiredData);
+    this.pusherService.channel.trigger('client-event', this.message);
+    this.messages.push(this.message);
   }
   
 }

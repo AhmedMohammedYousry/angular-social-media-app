@@ -24,7 +24,7 @@
       <div class="col-lg-12">
         <div class="card chat-app">
           <div id="plist" class="people-list">
-            <div class="input-group">
+            <div class="input-group ">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-search search"></i></span>
               </div>
@@ -73,13 +73,13 @@
                       <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
                     </div>
                   </div> -->
-                  <div class="message my-message" *ngIf="message.to_user.name!=middelRequiredData.chatUserName">{{message.content}}
+                  <div class="message my-message" *ngIf="message.to_user_id!=middelRequiredData.toUserId">{{message.content}}
                     <div>
                       <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
                     </div>
                   </div>
 
-                  <div class="message float-right other-message" *ngIf="message.to_user.name==middelRequiredData.chatUserName">{{message.content}}
+                  <div class="message float-right other-message" *ngIf="message.to_user_id==middelRequiredData.toUserId">{{message.content}}
                     <div>
                       <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
                     </div>
@@ -93,7 +93,7 @@
                 <div class="input-group-prepend" (click)="sendMessage()">
                   <span class="input-group-text"><i class="fa fa-send send"></i></span>
                 </div>
-                <input type="text" formControlName="message" class="form-control" placeholder="Enter text here..." >
+                <input type="text" formControlName="message" class="form-control" placeholder="Enter text here...">
               </div>
             </div>
           </div>
