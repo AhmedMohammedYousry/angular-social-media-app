@@ -47,10 +47,10 @@
               <div class="row">
                 <div class="col-lg-6">
                   <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
-                    <img src="{{storageURL}}/profiles/{{middelRequiredData.photo}}" alt="avatar">
+                    <img src="{{storageURL}}/profiles/{{middelRequiredData.chatUserPhoto}}" alt="avatar">
                   </a>
                   <div class="chat-about">
-                    <h6 class="m-b-0">{{middelRequiredData.name}}</h6>
+                    <h6 class="m-b-0">{{middelRequiredData.chatUserName}}</h6>
                     <small>Last seen: 2 hours ago</small>
                   </div>
                 </div>
@@ -66,10 +66,25 @@
               <ul class="m-b-0">
                 <li class="clearfix" *ngFor="let message of messages">
                   <div class="message-data text-right">
-                    <span class="message-data-time">{{message.created_at|date}}</span>
                     <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar"> -->
                   </div>
-                  <div class="message" [ngClass]="{'my-message': !message.other_message ,'text-right': message.other_message,'other-message':message.other_message}">{{message.content}}</div>
+                  <!-- <div class="message" [ngClass]="{'my-message':!message.type ,'float-right':message.type,'other-message':message.type}">{{message.content}}
+                    <div>
+                      <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
+                    </div>
+                  </div> -->
+                  <div class="message my-message" *ngIf="message.to_user.name!=middelRequiredData.chatUserName">{{message.content}}
+                    <div>
+                      <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
+                    </div>
+                  </div>
+
+                  <div class="message float-right other-message" *ngIf="message.to_user.name==middelRequiredData.chatUserName">{{message.content}}
+                    <div>
+                      <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
+                    </div>
+                  </div>
+
                 </li>
               </ul>
             </div>

@@ -28,8 +28,8 @@ export class ChatComponent implements OnInit {
   storageURL = environment.storage_URL;
 
   middelRequiredData:any={
-    chatUserName:any,
-    chatUserPhoto:any,
+    chatUserName:string,
+    chatUserPhoto:string,
     toUserId:number,
     chatId:number,
   };
@@ -76,12 +76,11 @@ export class ChatComponent implements OnInit {
     const channel = pusher.subscribe('my-channel');
     channel.bind('my-event',(data)=> {
       this.messages.push(data);
-      alert(JSON.stringify(data));
     });
   }
   getChat(chat_id:number,name:string,photo:string,to_user:number){
 
-    this.middelRequiredData={
+     this.middelRequiredData={
       chatUserName:name,
       chatUserPhoto:photo,
       toUserId:to_user,
@@ -116,6 +115,7 @@ export class ChatComponent implements OnInit {
       },
       (error:any)=>{}
     )
+    console.log(this.middelRequiredData);
   }
   
 }
