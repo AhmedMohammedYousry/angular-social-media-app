@@ -20,6 +20,8 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { PhotosComponent } from './components/photos/photos.component';
 import { AllpagesComponent } from './components/allpages/allpages.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { CreatPageComponent } from './components/creat-page/creat-page.component';
+import { SavedPostsComponent } from './components/saved-posts/saved-posts.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { NotificationsComponent } from './components/notifications/notifications
     PhotosComponent,
      AllpagesComponent,
      NotificationsComponent,
+     CreatPageComponent,
+     SavedPostsComponent,
     
   ],
   imports: [

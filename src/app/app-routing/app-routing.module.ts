@@ -13,6 +13,8 @@ import { EditProfileComponent } from "../components/edit-profile/edit-profile.co
 import { PhotosComponent } from "../components/photos/photos.component";
 import { AllpagesComponent } from "../components/allpages/allpages.component";
 import { NotificationsComponent } from "../components/notifications/notifications.component";
+import { CreatPageComponent } from "../components/creat-page/creat-page.component";
+import {  SavedPostsComponent} from "../components/saved-posts/saved-posts.component";
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
 
@@ -53,6 +55,14 @@ const routes: Routes = [
     {
         path: 'notifications',
         component: NotificationsComponent,
+    },
+    {
+        path: 'create-page',
+        component: CreatPageComponent,
+    },
+    {
+        path: 'saved-posts',
+        component: SavedPostsComponent,
     },
 
     // {
