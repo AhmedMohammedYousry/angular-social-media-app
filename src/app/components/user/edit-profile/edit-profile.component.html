@@ -1,5 +1,3 @@
-
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,11 +22,11 @@
                             <img  class="photo  mb-4 ms-4" src="{{storageURL}}/profiles/{{user.profilePic}}">
                         </div>
                         <h5 class="user-name px-3">{{user.name}}</h5>
-                        <h6 class="user-email px-3">{{user.email}}</h6>
+                        <p class="user-email px-3">{{user.email}}</p>
                     </div>
                     <div class="about px-3">
                         <h5>About</h5>
-                        <p>I'm user. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
+                        <p>{{user.intro}}</p>
                     </div>
                 </div>
             </div>
@@ -37,7 +35,7 @@
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" >
         <div class="card h-100">
             <div class="card-body">
-                <div class="row gutters" [formGroup]="formUpdate">
+                <form class="row gutters" [formGroup]="formUpdate" (ngSubmit)="onSubmit()">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <h6 class="mb-2 btn"> Edit Personal Details</h6>
                     </div>
@@ -61,12 +59,12 @@
                             <input formControlName="email" type="email" class="form-control" id="email" value="{{user.email}}">
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
                         <div class="form-group">
                             <label for="password">New Password</label>
                             <input formControlName="password" type="password" class="form-control" id="password" placeholder="new password">
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
                         <div class="form-group">
@@ -86,12 +84,17 @@
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
                         <div class="form-group">
                             <label for="location">location</label>
-                            <input type="text" class="form-control" id="location" value="{{user.location}}">
+                            <input formControlName="location" type="text" class="form-control" id="location" value="{{user.location}}">
                         </div>
                     </div>
 
 
-
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
+                        <div class="form-group">
+                            <label for="intro">Intro</label>
+                            <input formControlName="intro" type="text" class="form-control" id="intro" value="{{user.intro}}">
+                        </div>
+                    </div>
 
                     <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mt-3">
                         <div class="form-group ">
@@ -99,19 +102,19 @@
                             <input type="text" class="form-control text-light" id="address" placeholder="address">
                         </div>
                     </div> -->
-
-
-                </div>
-                <div class="row gutters">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="text-right">
-                            <button type="button"  class="btn btn-secondary m-2" > <a [routerLink]="['/profile']" >
-                               Cancle
-                              </a></button>
-                            <button type="submit" id="submit" name="submit" class="btn" (click)="update()">Update</button>
+                    <div class="row gutters">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="text-right">
+                                <button type="button"  class="btn btn-secondary m-2" > <a [routerLink]="['/profile']" >
+                                   Cancle
+                                  </a></button>
+                                <button type="submit" id="submit" name="submit" class="btn" >Update</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                </form>
+                
             </div>
         </div>
         </div>

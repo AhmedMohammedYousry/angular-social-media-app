@@ -25,19 +25,22 @@
           <i class="fas fa-search icon"></i>
         </a>
       </li>
+      
     </ul>
   </div>
-  <div class="nav-right">
+  <!-- <div class="nav-right">
     <div class="search-box">
       <i class="fas fa-search icon"></i>
       <input type="text" placeholder="Search" />
     </div>
-  </div>
+  </div> -->
   <div class="nav-right">
-    <div class="nav-user-icon online" onclick="settingsMenuToggle()">
-      <img src="{{storageURL}}/profiles/{{user.profilePic}}" (click)="visitProfile()" />
-    </div>
-    
+    <span class="username-profilepic" (click)="visitProfile()">
+      {{user.firstname}}
+    <span class="nav-user-icon " onclick="settingsMenuToggle()">
+      <img src="{{storageURL}}/profiles/{{user.profilePic}}" />
+    </span>
+  </span>
     <i class="fa-solid fa-arrow-right-from-bracket text-white ms-4 logout" (click)="signOut()"></i>
     
   </div>

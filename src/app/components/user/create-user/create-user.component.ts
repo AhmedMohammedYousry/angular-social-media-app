@@ -22,7 +22,7 @@ export class CreateUserComponent implements OnInit {
       password:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
       firstname:['',[Validators.required,Validators.minLength(4),Validators.maxLength(20)]],
       lastname:['',[Validators.required,Validators.minLength(4),Validators.maxLength(20)]],
-      Address:['',[Validators.required]],
+      location:['',[Validators.required]],
       date_of_birth: ['',[Validators.required]],
       gender: ['',[Validators.required]],
 
