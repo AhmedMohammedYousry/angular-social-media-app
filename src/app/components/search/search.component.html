@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <div class="container mt-4">
+    <div class="nav-right" [formGroup]="formsearch">
+      <div class="search-box">
+
+        <input type="text" class="search-input" (keyup.enter)="search()" formControlName="search"
+          placeholder="Search" />
+        <button class="search-button" (click)="search()">
+
+          <i class="fas fa-search icon"></i>
+        </button>
+      </div>
+
+
+    </div>
+    <div class=" text-center p-4" *ngIf="userName.length==0&&post.length==0&&page.length==0">
+      <h3>Go to search now
+      </h3>
+    </div>
+    <div *ngIf="userName.length>0||post.length>0||page.length>0">
+
+      <h1 class=" p-4">People</h1>
+      <div class=" text-center p-4" *ngIf="userName.length==0">
+        <h3>No results
+        </h3>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-12 p-4" *ngFor="let userName of userName">
+        <div class="card  shadow">
+          <div class="card-body">
+            <div class="media align-items-center text-center">
+              <img class="photo" src="{{storageURL}}/profiles/{{userName.profilePic}}">
+              <div class="media-body overflow-hidden">
+                <h5 class="card-text mb-0 name">{{userName.name}}</h5>
+                <p class="card-text text-muted">{{userName.email}}</p>
+                <p class="card-text text-muted">{{userName.mobile}}</p>
+                <br>
+              </div>
+              <a href="#" class="tile-link"></a>
+              <div class=" responsive">
+                <button type="button" class="btn">
+                  <a routerLink="/users/{{userName.id}}">
+                    <i class="fa-solid fa-user-group"></i> Go to profile
+                  </a>
+                </button>
+                <button type="button" class="btn1  ">
+                  <a [routerLink]="['/chat']">
+                    <i class="fab fa-facebook-messenger icon"> </i> Message
+                  </a></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="post-input-container p-4 ">
+        <h1 class="mt-4 ">Posts</h1>
+        <div class="text-center" *ngIf="post.length==0">
+          <h3>No results
+          </h3>
+        </div>
+        <div class="test">
+          <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper ">
+            <div class="row">
+              <div>
+                <div *ngFor='let post of post ;let i = index' class="postdiv shadow mb-4 py-4 mt-4">
+                  <app-show-post [postOwner]="post.user.name" [postContent]="post.content"
+                    [created_at]="post.created_at"
+                    [comments_number]="post.comments.length==0? '' : post.comments.length" [post_id]="post.id"
+                    [post_likes_number]="post.post_likes.length" [profilePic]="post.user.profilePic"
+                    [hasPic]="post.hasPic" [postPic]="post.postPic"></app-show-post>
+                  <!-- create comment here -->
+                  <app-create-comment [post_id]="post.id"></app-create-comment>
+                  <!-- display comments here -->
+                  <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}"
+                    role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Show comments
+                  </a>
+                  <div class="collapse" id="allposts{{i}}">
+                    <div *ngFor='let comment of post.comments ;let j = index'>
+
+                      <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content"
+                        [comment_created_at]="comment.created_at"></app-show-comment>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+      <h1 class="  p-4">Pages</h1>
+      <div class=" text-center p-4" *ngIf="page.length==0">
+        <h3>No results
+        </h3>
+      </div>
+      <div class="row"*ngFor="let page of page">
+        <div class="col-lg-12">
+          <div class="panel profile-cover ">
+            <div class="profile-cover__img">
+              <img class="rounded-circle" src="{{storageURL}}/profiles/{{page.profile_image}}">
+              <h3 class="h3 text-muted">{{page.page_name}}</h3>
+            </div>
+            <div class="profile-cover__action " data-overlay="0.3">
+              <button class="btn btn-rounded button"routerLink="/pages/{{page.id}}">
+                <i class="fa-solid fa-circle-arrow-right"></i>                
+                <span>Go to page</span>
+              </button>
+              <button class="btn btn-rounded button">
+                <i class="fa fa-comment"></i>
+                <span>Message</span>
+              </button>
+            </div>
+            <div class="profile-cover__info">
+              <ul class="nav">
+                <li><strong>33</strong>Followers</li>
+                <li><strong>136</strong>Following</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html> 

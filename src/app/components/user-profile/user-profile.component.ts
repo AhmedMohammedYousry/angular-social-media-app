@@ -68,9 +68,10 @@ export class UserProfileComponent implements OnInit {
   }
   
   addFriend(){
-    this._apiService.post('friends',{
+    this._apiService.post('friendship',{
       user_id: parseInt(this.logged_user_id),
-      friend_id: this.user.id
+      friend_id: this.user.id,
+      id: 3
     }).subscribe((response:any)=>{
       this.ngOnInit()
     },(error:any)=>{})

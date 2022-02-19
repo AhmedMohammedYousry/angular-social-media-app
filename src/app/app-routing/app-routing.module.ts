@@ -1,3 +1,5 @@
+import { CreatePageComponent } from './../components/pages/create-page/create-page.component';
+import { AllpagesComponent } from './../components/allpages/allpages.component';
 import { Comment } from './../models/comment';
 import { LeftSidebarComponent } from './../components/dashboard/left-sidebar/left-sidebar.component';
 import { NgModule, Component } from '@angular/core';
@@ -9,6 +11,7 @@ import { ChatComponent } from "../components/chat/chat.component";
 import { PagesComponent } from "../components/pages/pages.component";
 import {  UserProfileComponent } from "../components/user-profile/user-profile.component";
 import { ShowUsersComponent } from '../components/dashboard/show-users/show-users.component';
+import { SearchComponent } from '../components/search/search.component';
 
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -26,13 +29,22 @@ const routes: Routes = [
         path: 'pages',
         component: PagesComponent,canActivate:[AuthGuard]
     },
+    {
+        path: 'createpage',
+        component: CreatePageComponent,canActivate:[AuthGuard]
+    },
 
     { path: 'pages/:id', component: PagesComponent, canActivate: [AuthGuard] },
+    { path: 'allpages', component: AllpagesComponent, canActivate: [AuthGuard] },
 
     {path: 'users',component: ShowUsersComponent, canActivate:[AuthGuard]},
 
 
     {path: 'users/:id',component: UserProfileComponent, canActivate:[AuthGuard]},
+    {
+        path: 'search',
+        component:SearchComponent, canActivate:[AuthGuard]
+        },
 
     {
     path: '',

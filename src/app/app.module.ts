@@ -22,6 +22,9 @@ import { PusherService } from './services/pusher.service';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FullImageComponent } from './components/full-image/full-image.component';
+import { AllpagesComponent } from './components/allpages/allpages.component';
+import { CreatePageComponent } from './components/pages/create-page/create-page.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { FullImageComponent } from './components/full-image/full-image.component
 
     ShowUserComponent,
     ShowUsersComponent,
-    FullImageComponent
+    FullImageComponent,
+    AllpagesComponent,
+    CreatePageComponent,
+    SearchComponent
 
   ],
   imports: [
