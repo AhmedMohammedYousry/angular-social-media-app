@@ -15,7 +15,17 @@
                <span>{{ created_at| date:'medium'}}</span>
             </div>
         </div>
-        <a href="#"><i class="fas fa-ellipsis-v"></i></a>
+        <!-- three dots icon to delete a post -->
+        <div class="dropdown" *ngIf="showDeleteButton">
+           
+                <i class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="fas fa-ellipsis-v"></i>
+              
+         
+            <ul class="dropdown-menu p-1" aria-labelledby="dropdownMenuButton1">
+                <li style="cursor: pointer;" (click)="deletePost()">delete post</li>
+            </ul>
+          </div>
+        
     </div>
     <p class="post-text">{{postContent}}</p>
     <img *ngIf="hasPic" src="{{storageURL}}/posts/{{postPic}}" class="post-img">

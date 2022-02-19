@@ -13,8 +13,8 @@ import { ApiPostService } from 'src/app/services/post/api-post.service';
 export class CreatePostComponent implements OnInit {
 
   formPost=new FormGroup({});
-  files:any;
-  data:any;
+  filesPost:any;
+  dataPost:any;
   post_id:any;
   constructor(private _router:Router, private _apiPostService:ApiPostService,
     private _formBuilder:FormBuilder,private _apiService:ApiService) { }
@@ -41,7 +41,9 @@ export class CreatePostComponent implements OnInit {
       (response:any)=>{
         // this._router.navigateByUrl('post')
         this.post_id=response.id;
-        this.addPicToPost();
+        if(this.filesPost){
+          this.addPicToPost();
+        }
         location.reload(); 
       },(error:any)=>{console.log(error);
       }
@@ -50,18 +52,19 @@ export class CreatePostComponent implements OnInit {
     
   }
 
-  uploadImage(event){
-    this.files = event.target.files[0]
+  uploadImagePost(event){
+    this.filesPost = event.target.files[0]
     // console.log(this.files);
     
   }
 
   addPicToPost(){
-    const formData = new FormData();
-    formData.append('image', this.files, this.files.name)
-    this._apiService.post(`postpicture/${this.post_id}`, formData)
+    const formDataPost = new FormData();
+    
+    formDataPost.append('image', this.filesPost, this.filesPost.name)
+    this._apiService.post(`postpicture/${this.post_id}`, formDataPost)
     .subscribe((response:any)=>{
-      this.data = response;
+      this.dataPost = response;
       this.formPost.get('image').reset();
     })
   }

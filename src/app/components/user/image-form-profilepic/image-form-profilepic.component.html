@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmitProfile()" [formGroup]="imageFormProfile">
+    <label for="file-uploadProfile" class="custom-file-upload">
+        <i class="fa-solid fa-camera"></i>
+    </label> 
+    <input id="file-uploadProfile" type="file" name="image" formControlName="image" class="form-control"
+    (change)="uploadImageProfile($event)">
+
+    <button type="submit" class="btn"><i class="fa-solid fa-upload"></i></button>
+  </form>

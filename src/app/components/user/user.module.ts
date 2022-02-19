@@ -12,7 +12,10 @@ import { PostModule } from '../post/post.module';
 import { CommentcontentPipe } from 'src/app/pipes/commentcontent.pipe';
 import { NavigationHeaderComponent } from '../navigation-header/navigation-header.component';
 import { ImageFormComponent } from './image-form/image-form.component';
-
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { FriendsComponent } from './friends/friends.component';
+import { PhotosComponent } from './photos/photos.component';
+import { ImageFormProfilepicComponent } from './image-form-profilepic/image-form-profilepic.component';
 
 
 const routes: Routes = [
@@ -22,6 +25,21 @@ const routes: Routes = [
   {
     path:'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'profile/edit',
+    component: EditProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'profile/friends',
+    component: FriendsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:'profile/photos',
+    component: PhotosComponent,
     canActivate: [AuthGuard]
   },
   {path:'imageform',component:ImageFormComponent},
@@ -39,7 +57,11 @@ const routes: Routes = [
   ProfileComponent,
   LogoutComponent,
   CommentcontentPipe,
-  ImageFormComponent],
+  ImageFormComponent,
+  EditProfileComponent,
+  FriendsComponent,
+  PhotosComponent,
+  ImageFormProfilepicComponent],
   imports: [
     CommonModule,FormsModule , ReactiveFormsModule,HttpClientModule,
     RouterModule.forChild(routes),

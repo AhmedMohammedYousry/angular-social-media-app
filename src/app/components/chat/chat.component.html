@@ -24,7 +24,7 @@
       <div class="col-lg-12">
         <div class="card chat-app">
           <div id="plist" class="people-list">
-            <div class="input-group">
+            <div class="input-group ">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-search search"></i></span>
               </div>
@@ -32,10 +32,10 @@
             </div>
             <ul class="list-unstyled chat-list mt-2 mb-0">
               <!-- //loop for chats -->
-              <li class="clearfix" *ngFor="let chat of chats" (click)="getChat(chat.id)">
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="user image">
+              <li class="clearfix" *ngFor="let chat of chats" (click)="getChat(chat.chat_id,chat.to_user.name,chat.to_user.profilePic,chat.to_user_id)">
+                <img src="{{storageURL}}/profiles/{{chat.to_user.profilePic}}" alt="user image">
                 <div class="about">
-                  <div class="name">{{chat.user.name}}</div>
+                  <div class="name">{{chat.to_user.name}}</div>
                   <div class="status"> <i class="fa fa-circle online"></i> online </div>
                 </div>
               </li>
@@ -47,11 +47,10 @@
               <div class="row">
                 <div class="col-lg-6">
                   <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar8.png" alt="avatar">
-
+                    <img src="{{storageURL}}/profiles/{{middelRequiredData.chatUserPhoto}}" alt="avatar">
                   </a>
                   <div class="chat-about">
-                    <h6 class="m-b-0">{{chat.user.name}}</h6>
+                    <h6 class="m-b-0">{{middelRequiredData.chatUserName}}</h6>
                     <small>Last seen: 2 hours ago</small>
                   </div>
                 </div>
@@ -67,10 +66,25 @@
               <ul class="m-b-0">
                 <li class="clearfix" *ngFor="let message of messages">
                   <div class="message-data text-right">
-                    <span class="message-data-time">{{message.created_at|date}}</span>
                     <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar"> -->
                   </div>
-                  <div class="message" [ngClass]="{'my-message': !message.other_message ,'text-right': message.other_message,'other-message':message.other_message}">{{message.content}}</div>
+                  <!-- <div class="message" [ngClass]="{'my-message':!message.type ,'float-right':message.type,'other-message':message.type}">{{message.content}}
+                    <div>
+                      <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
+                    </div>
+                  </div> -->
+                  <div class="message my-message" *ngIf="message.to_user_id!=middelRequiredData.toUserId">{{message.content}}
+                    <div>
+                      <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
+                    </div>
+                  </div>
+
+                  <div class="message float-right other-message" *ngIf="message.to_user_id==middelRequiredData.toUserId">{{message.content}}
+                    <div>
+                      <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
+                    </div>
+                  </div>
+
                 </li>
               </ul>
             </div>

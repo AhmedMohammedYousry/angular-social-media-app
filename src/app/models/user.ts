@@ -9,12 +9,10 @@ export class User{
     name:string="";
     email:string="";
     firstname:string="";
-    lastname:string="";
+    lasttname:string="";
     date_of_birth:string="";
     created_at:string="";
     mobile:string="";
-
-
     address:string="";
     posts:Post[]=[];
     comments:Comment[]=[];
@@ -22,14 +20,14 @@ export class User{
     friend:User[]=[];
     isAdmin:number=0;
     school:string="";
-
     page_likes: any;
     pages:Page[]=[];
-    chats:Chat[]=[];
-
-
+    chat_lines:Chat[]=[];
     profilePic:string="";
-
+    location:string="";
+    coverPic:string="";
+    hasCover:boolean=false;
+    intro:string="";
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();

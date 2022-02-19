@@ -20,7 +20,9 @@ import {ShowUsersComponent} from './components/dashboard/show-users/show-users.c
 import {MatCardModule} from '@angular/material/card';
 import { PusherService } from './services/pusher.service';
 import { SearchComponent } from './search/search.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FullImageComponent } from './components/full-image/full-image.component';
 
 
 @NgModule({
@@ -39,12 +41,13 @@ import { SearchComponent } from './search/search.component';
 
     ShowUserComponent,
     ShowUsersComponent,
-    SearchComponent
-
+    SearchComponent,
+    FullImageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,UserModule,PostModule,ReactiveFormsModule,MatCardModule
+    AppRoutingModule,UserModule,PostModule,ReactiveFormsModule,MatCardModule,
+    MatDialogModule,BrowserAnimationsModule
   ],
   exports: [NavigationHeaderComponent,CommonModule],
   providers: [PusherService],

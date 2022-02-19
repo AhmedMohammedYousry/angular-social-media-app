@@ -17,7 +17,14 @@
   <div>
     <!----------------Porfile page----------------------->
     <div class="pofile-container">
-      <img src="https://i.postimg.cc/sfQS7fj3/cover.png" class="cover-img">
+      <!-- cover src="https://i.postimg.cc/sfQS7fj3/cover.png"  -->
+      <div class="cover-img" 
+      style="width: 100%; height: 300px; background-color: rgb(202, 202, 202);">
+      <img *ngIf="user.hasCover" src="{{storageURL}}/covers/{{user.coverPic}}" class="cover-img">
+    </div>
+    <div class="d-flex justify-content-end">
+      <app-image-form [apiEndpoint]="'coverpicture'"></app-image-form>
+    </div>
       <div class="profile-details">
         <div class="pd-left">
           <div class="pd-row" style="
@@ -35,13 +42,13 @@
               <img src="https://i.postimg.cc/9Fs7J6fy/member-2.png">
               <img src="https://i.postimg.cc/L8fZ7xqw/member-3.png">
               <img src="https://i.postimg.cc/xd3Njq3P/member-5.png"> -->
-              <app-image-form></app-image-form>
+              <app-image-form-profilepic [apiEndpoint]="'profilepicture'"></app-image-form-profilepic>
             </div>
           </div>
         </div>
         <div class="pd-right">
-          <button type="button" style="background-color: #a41702;color:white"><i class="fas fa-edit"></i> Edit
-            Profile</button>
+      
+          <button type="button" style="background-color: #a41702;color:white" (click)="goToEditProfile()"><i class="fas fa-edit"></i> Edit Profile</button>
           <!-- <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button> -->
         </div>
       </div>
@@ -65,21 +72,26 @@
           <div class="profile-intro">
             <div class="title-box">
               <h3>Photos</h3>
-              <a href="">Photos</a>
+              <a routerLink="/profile/photos">Photos</a>
             </div>
             <div class="photo-box">
+              <div *ngFor="let profilepicture of profilepictures">
+                  <img src="{{storageURL}}/profiles/{{profilepicture.profilePic}}"
+                   mat-raised-button (click)="expandPic(storageURL+'/profiles/'+profilepicture.profilePic)">
+              </div>
+              <!-- 
               <div><img src="https://i.postimg.cc/pdCyb4PG/photo1.png"></div>
               <div><img src="https://i.postimg.cc/LX0XhPYj/photo2.png"></div>
               <div><img src="https://i.postimg.cc/kG65S5Kz/photo3.png"></div>
               <div><img src="https://i.postimg.cc/xCd805C0/photo4.png"></div>
               <div><img src="https://i.postimg.cc/FzMHVQxR/photo5.png"></div>
-              <div><img src="https://i.postimg.cc/QNwC3pr3/photo6.png"></div>
+              <div><img src="https://i.postimg.cc/QNwC3pr3/photo6.png"></div> -->
             </div>
           </div>
           <div class="profile-intro  ">
             <div class="title-box">
               <h3>Friends</h3>
-              <a class="ms-3">Friends</a>
+              <a class="ms-3" routerLink="/profile/friends">Friends</a>
             </div>
             <div class="row">
               <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
@@ -176,6 +188,24 @@
                         role="button" aria-expanded="false" aria-controls="collapseExample">
                         Show comments
                       </a>
+                    <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
+                     [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
+                     [post_id]="post.id" 
+                     [post_likes_number]="post.post_likes.length" [profilePic]="user.profilePic"
+                     [hasPic]="post.hasPic"
+                     [postPic]="post.postPic"
+                     [showDeleteButton]="true"
+                     ></app-show-post>
+                     
+                    
+                    <!-- create comment here -->
+                    <app-create-comment [post_id]="post.id"></app-create-comment>
+                    <!-- display comments here -->
+                    
+                        <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          Show comments
+                        </a>
+                        
                       <div class="collapse" id="allposts{{i}}">
                         <div *ngFor='let comment of post.comments ;let j = index'>
 

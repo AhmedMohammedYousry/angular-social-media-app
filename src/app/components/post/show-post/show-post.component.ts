@@ -21,9 +21,11 @@ export class ShowPostComponent implements OnInit {
   @Input() post_shares_number:any;
   @Input() like: number = 0;
   @Input() post_id: number = 100;
+  loggedInUserId=parseInt(localStorage.getItem('id'));
   postlike_id:any;
   @Input() hasPic:boolean=false;
   @Input() postPic:any;
+  @Input() showDeleteButton:boolean=false;
   likebtn(){
 
     if(this.like == 0){
@@ -66,4 +68,10 @@ export class ShowPostComponent implements OnInit {
    
   }
 
+  deletePost(){
+    this._apiService.delete('posts',this.post_id)
+    .subscribe((response:any)=>{
+      window.location.reload();
+    },(error:any)=>{JSON.stringify(error)})
+  }
 }
