@@ -7,11 +7,12 @@ import Pusher from "pusher-js"
 })
 export class PusherService {
   pusher: any;
-  messagesChannel: any;
+  channel: any;
   constructor() { 
     this.pusher = new Pusher(environment.pusher.key,{
-      authEndpoint: 'http://localhost:8000/api/messages',
+      authEndpoint: 'http://localhost:8000/api/pusher/auth',
+      cluster:'eu',
     });
-    this.messagesChannel = this.pusher.subscribe('private-messages');
+    this.channel = this.pusher.subscribe('private-messages');
   }
 }

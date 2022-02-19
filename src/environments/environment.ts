@@ -7,8 +7,8 @@ export const environment = {
   api_URL: 'http://localhost:8000/api',
 
   pusher: {
-    // key: '473d6c2ef580e2c7c5d8',
-    key: 'b8dd19d436b6a0402060',
+    key: '473d6c2ef580e2c7c5d8',
+    // key: 'b8dd19d436b6a0402060',
   },
   
   storage_URL: 'http://127.0.0.1:8000/storage'

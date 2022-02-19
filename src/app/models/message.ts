@@ -11,13 +11,4 @@ export class Message {
 
     created_at:string='';
     other:boolean =false;
-
-    // public type(){
-    //     if(this.from_user_id != this.user.id){
-    //         this.other=false;
-    //     }
-    //     else if(this.from_user_id ==this.user.id ){
-    //         this.other=true;
-    //     }
-    // }
 }
