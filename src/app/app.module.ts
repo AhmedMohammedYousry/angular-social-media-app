@@ -19,10 +19,12 @@ import {ShowUserComponent} from './components/dashboard/show-user/show-user.comp
 import {ShowUsersComponent} from './components/dashboard/show-users/show-users.component'
 import {MatCardModule} from '@angular/material/card';
 import { PusherService } from './services/pusher.service';
-import { SearchComponent } from './search/search.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FullImageComponent } from './components/full-image/full-image.component';
+import { AllpagesComponent } from './components/allpages/allpages.component';
+import { CreatePageComponent } from './components/pages/create-page/create-page.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -42,7 +44,11 @@ import { FullImageComponent } from './components/full-image/full-image.component
     ShowUserComponent,
     ShowUsersComponent,
     SearchComponent,
-    FullImageComponent
+    FullImageComponent,
+    AllpagesComponent,
+    CreatePageComponent,
+    SearchComponent
+
   ],
   imports: [
     BrowserModule,

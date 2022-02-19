@@ -103,8 +103,7 @@ nav{
 .nav-user-icon img{
     width: 40px;
             height: 40px;
-            border-radius: 50%; 
-            
+            border-radius: 50%;        
             background-position: center center;
             background-size: cover;
     cursor: pointer;
@@ -171,7 +170,17 @@ nav{
     .nav-left ul li {
        
         padding: 8px;
+        padding-left: 2px;
+        padding-right: 2px;
+        font-size: 10px;
     }
+    .nav-left ul li i {
+       
+        font-size: 18px;
+    }
+
+
+    
     .nav-left {
         
        justify-content: start;
@@ -180,12 +189,15 @@ nav{
     .logo {
         width: 51px;
         margin-right: 0px;
+        font-size: 20px;
     }
     .nav-user-icon {
-        margin-left: 0px;
+        margin-left: 0;
+
     }
-
-
+i{
+font-size: 6px;
+}
 }
 .settings-menu{
     position: absolute;

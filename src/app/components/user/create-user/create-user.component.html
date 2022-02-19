@@ -2,104 +2,121 @@
 
 <head>
   <title>Register To FireClub</title>
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 </head>
 
 <body>
-  <section class="login-register-content">
- <div class="card-content">
-      <div class="card-header">
-        <h2>Register FireClub</h2>
-      </div>
-      <div class="card-body">
-        <div class="form" [formGroup]="formRegister">
-        <div  class="container">
-          <!-- <label for="firstname">First Name</label> -->
-          <input formControlName="firstname" type="text" class="form-control" aria-describedby="emailHelp"
-            placeholder="Enter first name">
-            <i class="fas fa-user icon"></i>
-            <div *ngIf="isInValidAndTouched('firstname')">
-            <small class="form-text text-danger" *ngIf="isControlHasError('firstname','required')">*required firstname</small>
-            <small class="form-text text-danger" *ngIf="isControlHasError('firstname','minlength')">*min length is 4</small>
-            <small class="form-text text-danger" *ngIf="isControlHasError('firstname','maxlength')">*max length is 20</small>
-          </div>
-        </div>
-        <div class="form-group">
-          <!-- <label for="lastname">Last Name</label> -->
-          <input formControlName="lastname" type="text" class="form-control" aria-describedby="emailHelp"
-            placeholder="Enter last name">
-            <i class="fas fa-user-edit icon"></i>
+  <section class="h-100 gradient-form" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
 
-          <div *ngIf="isInValidAndTouched('lastname')">
-            <small class="form-text text-danger" *ngIf="isControlHasError('lastname','required')">*required lastname</small>
-            <small class="form-text text-danger" *ngIf="isControlHasError('lastname','minlength')">*min length is 4</small>
-            <small class="form-text text-danger" *ngIf="isControlHasError('lastname','maxlength')">*max length is 20</small>
-          </div>
-        </div>
+                  <div class="text-center">
+                    <h1 class="mt-1 mb-5 pb-1 neon">FireClub</h1>
+                  </div>
+                  <div class="form" [formGroup]="formRegister">
 
-        <div class="form-group">
-          <!-- <label for="exampleInputemail1">email address</label> -->
-          <input formControlName="email" type="email" class="form-control"
-            [class.is-invalid]="isInValidAndTouched('email')" [class.is-valid]="isValidControl('email')"
-            aria-describedby="emailHelp" placeholder="Enter email">
-            <i class="fas fa-envelope icon"></i>
-          <div *ngIf="isInValidAndTouched('email')">
-            <small class="form-text text-danger" *ngIf="isControlHasError('email','required')">*required email</small>
-            <small class="form-text text-danger" *ngIf="isControlHasError('email','pattern')">*you should add @ and .com</small>
-          </div>
+                    <label for="firstname">First Name</label>
+                    <input formControlName="firstname" id="firstname" type="text" class="form-control"
+                      aria-describedby="emailHelp" placeholder="Enter first name">
 
-        </div>
-        <div class="form-group">
-          <!-- <label for="exampleInputpassword1">password</label> -->
-          <input formControlName="password" type="password" class="form-control" placeholder="password">
-          <i class="fas fa-key icon"></i>
-          <div *ngIf="isInValidAndTouched('password')">
-            <i class="fas fa-unlock-alt"></i>
-            <small class="form-text text-danger" *ngIf="isControlHasError('password','required')">*required
-              password</small>
-              <small class="form-text text-danger" *ngIf="isControlHasError('password','pattern')">*At least 8 characters in length
-                Lowercase letters
-                Uppercase letters
-                Numbers
-                Special characters
-               </small>
-              
-          </div>
-        </div>
-        <div class="form-group">
-          <!-- <label for="Address">Address</label> -->
-          <input formControlName="Address" type="text" class="form-control" aria-describedby="emailHelp"
-            placeholder="Enter your address">
-            <i class="fas fa-address-card icon"></i>
-          <div *ngIf="isInValidAndTouched('Address')">
-            <small class="form-text text-danger" *ngIf="isControlHasError('Address','required')">*required Address</small>
-          </div>
-        </div>
-        <div class="form-group">
-          <!-- <label for="date_of_birth">Date_of_Birth</label> -->
-          <input formControlName="date_of_birth" type="date" class="form-control" aria-describedby="emailHelp"
-            placeholder="Enter date">
-            <i class="fas fa-calendar-week icon"></i>
-            <div *ngIf="isInValidAndTouched('date_of_birth')">
-              <small class="form-text text-danger" *ngIf="isControlHasError('date_of_birth','required')">*date required </small>
-            </div>
-  
-        </div>
- 
-        <div class="custom-radio-wrap">
-          <div class="form-group ">
-            <input id="male" type="radio" name="gender" formControlName="gender" value="male" />
-            <label class="custom-radio" for="male"></label>
-            <span class="label-text">male</span>
-          </div>
-          <div class="form-group">
-            <input id="female" type="radio" formControlName="gender" name="gender" value="female" />
-            <label class="custom-radio" for="female"></label>
-            <span class="label-text">female</span>
-          </div>
-          </div>
-        <!-- <div class="form-group">
+                    <div *ngIf="isInValidAndTouched('firstname')">
+                      <small class="form-text text-danger" *ngIf="isControlHasError('firstname','required')">*required
+                        firstname</small>
+                      <small class="form-text text-danger" *ngIf="isControlHasError('firstname','minlength')">*min
+                        length is 4</small>
+                      <small class="form-text text-danger" *ngIf="isControlHasError('firstname','maxlength')">*max
+                        length is 20</small>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <label for="lastname">Last Name</label>
+                      <input formControlName="lastname" id="lastname" type="text" class="form-control"
+                        aria-describedby="emailHelp" placeholder="Enter last name">
+
+
+                      <div *ngIf="isInValidAndTouched('lastname')">
+                        <small class="form-text text-danger" *ngIf="isControlHasError('lastname','required')">*required
+                          lastname</small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('lastname','minlength')">*min
+                          length is 4</small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('lastname','maxlength')">*max
+                          length is 20</small>
+                      </div>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <label for="email">email address</label>
+                      <input formControlName="email" id="email" type="email" class="form-control"
+                        [class.is-invalid]="isInValidAndTouched('email')" [class.is-valid]="isValidControl('email')"
+                        aria-describedby="emailHelp" placeholder="Enter email">
+
+                      <div *ngIf="isInValidAndTouched('email')">
+                        <small class="form-text text-danger" *ngIf="isControlHasError('email','required')">*required
+                          email</small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('email','pattern')">*you should
+                          add @ and .com</small>
+                      </div>
+
+                    </div>
+                    <div class="form-outline mb-4">
+                      <label for="password">password</label>
+                      <input formControlName="password" id="password" type="password" class="form-control"
+                        placeholder="password">
+
+                      <div *ngIf="isInValidAndTouched('password')">
+                        <i class="fas fa-unlock-alt"></i>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('password','required')">*required
+                          password</small>
+                        <small class="form-text text-danger" *ngIf="isControlHasError('password','pattern')">*At least 8
+                          characters in length
+                          Lowercase letters
+                          Uppercase letters
+                          Numbers
+                          Special characters
+                        </small>
+
+                      </div>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <label for="Address">Address</label>
+                      <input formControlName="Address" id="Address" type="text" class="form-control"
+                        aria-describedby="emailHelp" placeholder="Enter your address">
+
+                      <div *ngIf="isInValidAndTouched('Address')">
+                        <small class="form-text text-danger" *ngIf="isControlHasError('Address','required')">*required
+                          Address</small>
+                      </div>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <label for="date_of_birth">Date_of_Birth</label>
+                      <input formControlName="date_of_birth" id="date_of_birth" type="date" class="form-control"
+                        aria-describedby="emailHelp" placeholder="Enter date">
+                      <div *ngIf="isInValidAndTouched('date_of_birth')">
+                        <small class="form-text text-danger" *ngIf="isControlHasError('date_of_birth','required')">*date
+                          required </small>
+                      </div>
+
+                    </div>
+
+                    <div class="form-outline ">
+                      <input id="male" type="radio" name="gender" formControlName="gender" value="male" />
+                      <label class="custom-radio" for="male"></label>
+                      <span class="label-text">male</span>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input id="female" type="radio" formControlName="gender" name="gender" value="female" />
+                      <label class="custom-radio" for="female"></label>
+                      <span class="label-text">female</span>
+                    </div>
+
+                    <!--  <div class="form-outline mb-4">
           <input formControlName="gender" type="text" class="form-control" aria-describedby="emailHelp"
             placeholder="Enter gender">
             <i class="fas fa-calendar-week icon"></i>
@@ -107,7 +124,7 @@
               <small class="form-text text-danger" *ngIf="isControlHasError('gender','required')">*gender required </small>
             </div>
         </div> -->
-        <button [disabled]="formRegister.invalid" (click)="register()" type="button"
+                    <!-- <button [disabled]="formRegister.invalid" (click)="register()" type="button"
           class="btn btn-primary">Submit</button>
           <a [routerLink]="['/login']" class="btn btn-light text-center text-secondary "  >
              Already exist ? 
@@ -115,7 +132,38 @@
       </div>
     </div>
     </div>
+  </section> -->
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="btn  fa-lg gradient-custom-2 mb-3 p-3 me-2 text-white"
+                        [disabled]="formRegister.invalid" (click)="register()" type="button">Submit</button>
+
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2">Already exist ?</p>
+                      <a [routerLink]="['/login']">
+                        <button type="button" class="btn btn-outline-danger">login now</button>
+                      </a>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">We are more than just a social network on the Internet</h4>
+                  <p class="small mb-0">Join now with people around the world and connect with them </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
 
 
 </body>

@@ -5,14 +5,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiUserService } from 'src/app/services/api-user.service';
 import { ApiService } from 'src/app/services/api.service';
-
+import { User } from 'src/app/models/user';
 @Component({
   selector: 'app-pages',
-  templateUrl: './pages.component.html',
+  templateUrl:'./pages.component.html',
   styleUrls: ['./pages.component.css']
 })
 export class PagesComponent implements OnInit {
   page_id:number=0;
+  user:User = new User();
 
   page:Page=new Page();
   list:Post[]=[];

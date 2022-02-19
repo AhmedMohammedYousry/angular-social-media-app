@@ -1,7 +1,7 @@
-import { Page } from './../../models/page';
-import { Post } from './../../models/post';
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { Page } from 'src/app/models/page';
+import { Post } from 'src/app/models/post';
 import { User } from 'src/app/models/user';
 import { ApiService } from 'src/app/services/api.service';
 import { UserService } from 'src/app/services/user.service';
@@ -43,24 +43,6 @@ export class NavigationHeaderComponent implements OnInit {
 
   }
 
-  search(): void {
-    //alert(JSON.stringify(this.formRegister.value));
-    //Call API to create user    
-    this._apiService.getName(`search`,this.formsearch.value.search)
-    .subscribe(
-      (response: any) => {
-        alert(JSON.stringify(response));
-       // this.userName.emit(this.userName); 
-        this.userName=response.resultUser;
-        this.post=response.resultPost;
-        this.page=response.resultPage;
-        this._router.navigateByUrl (`search`);
-      },
-      (error: any) => {
-        alert(error)
-      }
-      );
-  }
 
   isValidControl(name: string): boolean {
     return this.formsearch.controls[name].valid;
@@ -74,7 +56,8 @@ export class NavigationHeaderComponent implements OnInit {
     return this.formsearch.controls[name].invalid && this.formsearch.controls[name].errors?.[error];
   }
 
-  signOut() {
+
+  signOut(){
     this._router.navigateByUrl('/logout')
   }
   visitProfile() {
