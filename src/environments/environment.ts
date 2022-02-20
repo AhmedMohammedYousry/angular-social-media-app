@@ -7,7 +7,7 @@ export const environment = {
   api_URL: 'http://localhost:8000/api',
 
   pusher: {
-    key: '473d6c2ef580e2c7c5d8',
+    key: '3c95d65a39edfb26bfff',
     // key: 'b8dd19d436b6a0402060',
   },
   

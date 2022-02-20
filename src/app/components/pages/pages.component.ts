@@ -5,6 +5,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiUserService } from 'src/app/services/api-user.service';
 import { ApiService } from 'src/app/services/api.service';
+import { ApiPostService } from 'src/app/services/post/api-post.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pages',
@@ -13,12 +15,13 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class PagesComponent implements OnInit {
   page_id:number=0;
-
+  post_id:number=0;
   page:Page=new Page();
   list:Post[]=[];
   now:Date=new Date();
+  formPost=new FormGroup({});
 
-  constructor(private route:ActivatedRoute, private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router) { }
+  constructor(private route:ActivatedRoute, private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router,private _apiPostService:ApiPostService) { }
 
   ngOnInit(): void {
     this.page_id = this.route.snapshot.params['id']
@@ -30,5 +33,35 @@ export class PagesComponent implements OnInit {
         
       }
     )
+  }
+
+
+
+// this._apiService.getone(page.)
+
+  create_post(){
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('Token')}`
+    });
+    let options = {
+      'headers': headers
+    }
+    this._apiPostService.post('posts',{
+      content: this.formPost.value.content,
+      user_id: localStorage.getItem('id'),
+      page_id:this.page_id
+    },options).subscribe(
+      (response:any)=>{
+        // this._router.navigateByUrl('post')
+        this.post_id=response.id;
+        // if(this.filesPost){
+        //   this.addPicToPost();
+        // }
+        location.reload(); 
+      },(error:any)=>{console.log(error);
+      }
+    )
+
+    
   }
 }

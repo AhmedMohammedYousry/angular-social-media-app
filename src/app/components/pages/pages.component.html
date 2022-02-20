@@ -50,9 +50,9 @@
           </div>
           <div class="panel-content panel-activity">
             <div class="row">
-              <form action="#" class="panel-activity__status">
+              <form action="#" class="panel-activity__status " [formGroup]="formPost">
                 <textarea name="user_activity" placeholder="Share what you've been up to..."
-                  class="form-control"></textarea>
+                  class="form-control"  formControlName="content"></textarea>
                 <div class="actions">
                   <div class="btn-group">
                     <button type="button" class="btn-link" title="" data-toggle="tooltip"
@@ -72,7 +72,7 @@
                       <i class="fa fa-question-circle-o"></i>
                     </button>
                   </div>
-                  <button type="submit" class="btn btn-sm btn-rounded button">
+                  <button type="submit" class="btn btn-sm btn-rounded button " (click)="create_post()">
                     Post
                   </button>
                 </div>

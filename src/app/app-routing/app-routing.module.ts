@@ -15,6 +15,7 @@ import { SearchComponent } from '../components/search/search.component';
 
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+ 
     // {
     //     path: 'user', 
 

@@ -27,4 +27,5 @@ export class ApiService {
    getName(url:string,name:any,options={}){
     return this._httpClient.get(`${environment.api_URL}/${url}/${name}`,options);
    }
+   
 }
