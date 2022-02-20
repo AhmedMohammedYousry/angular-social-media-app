@@ -15,17 +15,21 @@ export class CreatePageComponent implements OnInit {
 
   constructor(private _FormBuilder: FormBuilder, private _apiUserService: ApiUserService, private _router: Router) { }
   formCreatePage = new FormGroup({})
-  user_id:number=0;
-  page:Page = new Page();
+  
+ 
+page:Page = new Page();
  user:User=new User();
+ user_id=parseInt(`${localStorage.getItem('id')}`);
+
+
   ngOnInit(): void {
 
     this.formCreatePage = this._FormBuilder.group({
-      user_id: ['', [Validators.required]],
-      page_name: ['', [Validators.required]],
+      user_id: ['',[Validators.required]],
+      page_name: ['',[Validators.required]],
       about: ['', [Validators.required]],
-      profile_image: ['', [Validators.required]],
-      cover_image: ['', [Validators.required]],
+      profile_image: ['',[Validators.required]],
+      cover_image: ['',[Validators.required]],
 
 
     })
@@ -36,7 +40,6 @@ export class CreatePageComponent implements OnInit {
         this.user = response
         // [parseInt(`${localStorage.getItem('id')}`)-1]
         // alert(JSON.stringify(response))
-        
       },
       (error:any)=> {
         console.log(error)
@@ -52,6 +55,7 @@ export class CreatePageComponent implements OnInit {
 
     //alert(JSON.stringify(this.formCreatePage.value));
       //Call API to create page    
+      console.log(this.formCreatePage.value);
         this._apiUserService.post(`pages`,this.formCreatePage.value)
         .subscribe(
           (response:any)=>{

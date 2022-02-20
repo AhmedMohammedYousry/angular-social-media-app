@@ -37,8 +37,8 @@
                 </div>
               </div>
               <div class="mb-3">
-                <input type="text"  [ngModel]="user.id"  formControlName="user_id" name="user_id"   > 
-              </div>{{user.name}}
+                <input type="hidden"  [ngModel]="user_id"  formControlName="user_id" name="user_id"   > 
+              </div>
               <div class="mb-3">
                 <textarea formControlName="about" class="form-control" rows="3"
                   placeholder="about"></textarea>
