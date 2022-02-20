@@ -6,7 +6,7 @@
 }
 :root{
     --body-color:#efefef;
-    --nav-color: #1876f2;
+    --nav-color: #c72121;
     --bg-color: #fff;
 
 }
@@ -22,9 +22,17 @@ body{
 
 
 }
+.see {
+    color:#c72121
+}
+.see a{
+    color:#c72121
+}
 
 
 .right-sidebar{
+    -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.1), -3px 0 3px rgba(0,0,0,0.05);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.1), -3px 0 3px rgba(0,0,0,0.05);
     flex-basis: 25%;
     position: sticky;
     top: 70px;
@@ -33,6 +41,7 @@ body{
     padding: 20px;
     border-radius: 4px;
     color: #626262;
+    margin-top: 30px;
 
 }
 .main-content{
@@ -55,7 +64,7 @@ body{
 
 }
 .imp-links a:last-child{
-    color:#1876f2;
+    color:#c72121;
 
 }
 .imp-links{
@@ -87,7 +96,7 @@ body{
 }
 .sidebar-title a{
     text-decoration: none;
-    color: #1876f2;
+    color: #c72121;
     font-size: 12px;
 
 }
@@ -116,7 +125,7 @@ body{
 .event a{
     font-size: 12px;
     text-decoration: none;
-    color: #1876f2;
+    color: #c72121;
 
 }
 .left-event span{
@@ -124,7 +133,7 @@ body{
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #1876f2;
+    background: #c72121;
     color: #fff;
     font-size: 10px;
     padding: 4px 0;
@@ -158,11 +167,9 @@ body{
     bottom: 5px;
 
 }
-
-/*----------------- Media Query For Home Page -----------------*/
-
 @media (max-width: 900px){
     .right-sidebar{
-        display: none;
     }
 }
+
+  
