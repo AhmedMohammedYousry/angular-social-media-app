@@ -97,6 +97,15 @@ export class ShowPostComponent implements OnInit {
       data: "You have shared this post on your profile!"
     });
   
-    })
+    });
+    
+    this._apiService.post('notifications',{
+      from_user_id:localStorage.getItem('id'),
+      post_id:this.post_id,
+      type:'shared',
+    }).subscribe((response:any)=>{
+
+    },
+    (error:any)=>{});
   }
 }
