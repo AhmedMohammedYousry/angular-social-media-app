@@ -30,18 +30,27 @@ export class ShowPostComponent implements OnInit {
   @Input() showDeleteButton:boolean=false;
   @Input() showShareButton:boolean=false;
   likebtn(){
-
+    
     if(this.like == 0){
       this._apiService.post('postslikes',{
         post_id: this.post_id,
-        user_id: localStorage.getItem('id')
+        user_id: localStorage.getItem('id'),
       }).subscribe((res:any)=>{
         this.like = 1-this.like;
         this.post_likes_number++;
         this.ngOnInit();
-             
-
+        
       })
+      // to post notification when like
+      this._apiService.post('notifications',{
+        from_user_id:localStorage.getItem('id'),
+        post_id:this.post_id,
+        type:'liked',
+      }).subscribe((response:any)=>{
+  
+      },
+      (error:any)=>{});
+
     } else{
       this._apiService.delete('postslikes', this.postlike_id)
       .subscribe((res:any)=>{
