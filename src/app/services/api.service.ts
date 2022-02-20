@@ -21,4 +21,6 @@ export class ApiService {
    delete(url:string,id:number,options={}){
     return this._httpClient.delete(`${environment.api_URL}/${url}/${id}`,options);
    }
+   
+
 }

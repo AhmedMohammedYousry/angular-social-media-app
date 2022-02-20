@@ -5,4 +5,5 @@ export class Post{
     user_id:number=0;
     created_at:string="";
     comments:Comment[]=[];
+    
 }
