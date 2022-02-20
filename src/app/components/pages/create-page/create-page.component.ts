@@ -47,15 +47,12 @@ page:Page = new Page();
     )
 
 
-
-
   }
 
   post():void{
-
     //alert(JSON.stringify(this.formCreatePage.value));
       //Call API to create page    
-      console.log(this.formCreatePage.value);
+      //console.log(this.formCreatePage.value);
         this._apiUserService.post(`pages`,this.formCreatePage.value)
         .subscribe(
           (response:any)=>{
@@ -65,8 +62,6 @@ page:Page = new Page();
             console.log(error)
           }
         );
-        
-      
     }
     isValidControl(name:string):boolean
   {

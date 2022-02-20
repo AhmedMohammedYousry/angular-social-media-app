@@ -35,7 +35,11 @@ export class User{
     // $table->string('password');
     // $table->rememberToken();
     // $table->timestamps();
-
+    postPic:string="";
+    hasPic:boolean=false;
+    post_likes:any;
+    save_post:any=0;
+    content:string="";
 
 
     // $table->string('firstname');

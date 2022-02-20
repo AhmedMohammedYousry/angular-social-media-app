@@ -12,6 +12,7 @@ import { PagesComponent } from "../components/pages/pages.component";
 import {  UserProfileComponent } from "../components/user-profile/user-profile.component";
 import { ShowUsersComponent } from '../components/dashboard/show-users/show-users.component';
 import { SearchComponent } from '../components/search/search.component';
+import { ShowSavePostComponent } from '../show-save-post/show-save-post.component';
 
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -39,6 +40,7 @@ const routes: Routes = [
 
     {path: 'users',component: ShowUsersComponent, canActivate:[AuthGuard]},
 
+    {path: 'savepost',component: ShowSavePostComponent, canActivate:[AuthGuard]},
 
     {path: 'users/:id',component: UserProfileComponent, canActivate:[AuthGuard]},
     {

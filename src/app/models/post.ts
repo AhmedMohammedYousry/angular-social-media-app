@@ -11,4 +11,5 @@ export class Post{
     created_at:string="";
     comments:Comment[]=[];
     post_likes:any;
+    save_post:any=0;
 }

@@ -85,7 +85,8 @@ export class UserProfileComponent implements OnInit {
               || (friendship.friend_id==parseInt(localStorage.getItem('id')) && friendship.user_id==this.user.id)
     })[0].id
     // delete friendship
-    this._apiService.delete('friends',friendship_id).subscribe((response:any)=>{
+    this._apiService.delete('friends',friendship_id)
+    .subscribe((response:any)=>{
       this.ngOnInit()
     },(error:any)=>{})
     })

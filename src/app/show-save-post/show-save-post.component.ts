@@ -1,0 +1,61 @@
+import { SavePost } from './../models/savepost';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/post';
+import { User } from 'src/app/models/user';
+
+import { ApiUserService } from 'src/app/services/api-user.service';
+import { ApiService } from 'src/app/services/api.service';
+import { CommentcontentPipe } from 'src/app/pipes/commentcontent.pipe';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { MatDialog } from '@angular/material/dialog';
+import { ProfilePicture } from 'src/app/models/profilepicture';
+import { FullImageComponent } from '../components/full-image/full-image.component';
+
+@Component({
+  selector: 'app-show-save-post',
+  templateUrl: './show-save-post.component.html',
+  styleUrls: ['./show-save-post.component.css']
+})
+export class ShowSavePostComponent implements OnInit {
+
+  user:User = new User();
+  saveposts:SavePost[] =[];
+
+  post:Post = new Post();
+
+  posts:Post[]=[];
+  profilepictures:ProfilePicture[] = [];
+  storageURL = environment.storage_URL
+  constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,
+    private _apiService:ApiService,private _router:Router,private _matDialog:MatDialog) { 
+    
+  }
+
+  ngOnInit(): void {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('Token')}`
+    });
+    let options = {
+      'headers': headers
+    }
+    this._apiService.get('saveposts')
+    .subscribe(
+      (response:any)=>{
+       // alert(JSON.stringify(response))
+        this.saveposts= response
+      },
+      (error:any)=> {}
+    )   
+  }
+
+  goToProfile(user_id:number){
+    this._router.navigateByUrl(`users/${user_id}`);
+
+  }
+
+
+  
+  
+}
