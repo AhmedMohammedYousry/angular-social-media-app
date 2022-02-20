@@ -36,7 +36,7 @@
                 [ngClass]="like ? 'text-primary' : 'text-normal'"></i>
                 <span class="ms-2">{{post_likes_number}}</span></div>
             <div><i class="fas fa-comment-alt"></i><span class="ms-2">{{comments_number}}</span></div>
-            <div><i class="fas fa-share"></i><span class="ms-2"></span></div>
+            <div *ngIf="showShareButton" (click)="sharePost()"><i class="fas fa-share"></i><span class="ms-2"></span></div>
         </div>
         
         <!-- <div class="post-porfile-icon">

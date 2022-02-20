@@ -1,3 +1,5 @@
+import { DialogMessageComponent } from './../../dialog-message/dialog-message.component';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
@@ -26,6 +28,7 @@ export class ShowPostComponent implements OnInit {
   @Input() hasPic:boolean=false;
   @Input() postPic:any;
   @Input() showDeleteButton:boolean=false;
+  @Input() showShareButton:boolean=false;
   likebtn(){
 
     if(this.like == 0){
@@ -50,7 +53,7 @@ export class ShowPostComponent implements OnInit {
   }
 }
   
-  constructor(private _apiService:ApiService,private _router:Router) { }
+  constructor(private _apiService:ApiService,private _router:Router,private _matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this._apiService.get('postslikes')
@@ -73,5 +76,18 @@ export class ShowPostComponent implements OnInit {
     .subscribe((response:any)=>{
       window.location.reload();
     },(error:any)=>{JSON.stringify(error)})
+  }
+  
+  sharePost(){
+    this._apiService.post("shares",{
+      user_id: localStorage.getItem('id'),
+      post_id: this.post_id
+    }).subscribe((response:any)=>{
+      
+    const dialogRef = this._matDialog.open(DialogMessageComponent,{
+      data: "You have shared this post on your profile!"
+    });
+  
+    })
   }
 }

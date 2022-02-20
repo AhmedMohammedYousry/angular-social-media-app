@@ -25,6 +25,7 @@ import { FullImageComponent } from './components/full-image/full-image.component
 import { AllpagesComponent } from './components/allpages/allpages.component';
 import { CreatePageComponent } from './components/pages/create-page/create-page.component';
 import { SearchComponent } from './components/search/search.component';
+import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { SearchComponent } from './components/search/search.component';
     FullImageComponent,
     AllpagesComponent,
     CreatePageComponent,
-    SearchComponent
+    SearchComponent,
+    DialogMessageComponent
 
   ],
   imports: [

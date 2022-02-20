@@ -13,7 +13,7 @@
             <div *ngFor="let user of users; let i as index">
                 <app-show-user class="m-2"
                 [user_name]="user.name" [user_id]="user.id" [friends_number]="user.friends.length+user.friend.length"
-                
+                [user_intro]="user.intro"
                 ></app-show-user>
             </div>
               
