@@ -11,7 +11,7 @@ import { Post } from 'src/app/models/post';
   styleUrls: ['./show-post.component.css']
 })
 export class ShowPostComponent implements OnInit {
-   @Input() saveposts:SavePost =new SavePost();
+  @Input() saveposts: SavePost = new SavePost();
   @Input() postOwner: string = "";
   @Input() postOwnerId: any;
   @Input() profilePic: string = "";
@@ -81,19 +81,31 @@ export class ShowPostComponent implements OnInit {
 
 
   savePost() {
-    
-    this._apiService.post('saveposts',{
-     user_id: parseInt(this.logged_user_id),
-    post_id: this.post_id,
-    }).subscribe((response:any)=>{
+
+    this._apiService.post('saveposts', {
+      user_id: parseInt(this.logged_user_id),
+      post_id: this.post_id,
+    }).subscribe((response: any) => {
       window.location.reload()
       this.ngOnInit()
 
-    },(error:any)=>{})
+    }, (error: any) => { })
   }
 
-  unsave(){
-
-}
+  unsave() {
+    this._apiService.get('saveposts')
+      .subscribe((saveposts: any) => {
+        let saveposts_id = saveposts.filter((SavePost: any) => {
+          return (SavePost.user_id == parseInt(localStorage.getItem('id')))
+            || (SavePost.post_id == parseInt(localStorage.getItem('id')))
+        })[0].id
+        // delete friendship
+        this._apiService.delete('saveposts', saveposts_id)
+          .subscribe((response: any) => {
+            window.location.reload()
+            this.ngOnInit()
+          }, (error: any) => { })
+      })
+  }
 
 }
