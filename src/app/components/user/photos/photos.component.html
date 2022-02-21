@@ -55,13 +55,13 @@
                     <tr>
                       <th scope="col">photo</th>
                       <th scope="col">Time</th>
-                      <th scope="col">Edit</th>
+                      <th scope="col">Caption</th>
                       <th class="text-center" scope="col">Delete</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr class="inner-box" *ngFor="let profilepicture of profilepictures">
-              
+
                       <td>
                         <div class="event-img">
                           <img src="{{storageURL}}/profiles/{{profilepicture.profilePic}}" mat-raised-button
@@ -79,7 +79,7 @@
                       </td>
                       <td>
                         <div class="v-no">
-                          <a class="btn " href="#"><i class="fa-solid fa-pen-to-square me-2 "></i>Edit</a>
+                          <h6 class="text-muted"> this is caption !</h6>
                         </div>
                       </td>
                       <td>
