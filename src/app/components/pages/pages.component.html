@@ -56,7 +56,7 @@
                 <div class="actions">
                   <div class="btn-group">
                     <button type="button" class="btn-link" title="" data-toggle="tooltip"
-                      data-original-title="Post an Image" formControlName="image"  (change)="uploadImagePost($event)">
+                      data-original-title="Post an Image" formControlName="image"  >
                       <i class="fa fa-image"></i>
                     </button>
                     <button type="button" class="btn-link" title="" data-toggle="tooltip"
@@ -330,7 +330,7 @@
 
       <div class="col-lg-8">
         <ul class="panel-activity__list ">
-          <li *ngFor="let post of page.posts">
+          <li *ngFor="let post of page.posts ;let i = index">
             <i class="activity__list__icon fa fa-question-circle-o"></i>
             <div class="activity__list__header">
               <img src="https://i.postimg.cc/WbdZmNs2/member-1.png" alt="" />
@@ -344,7 +344,9 @@
             </div>
             <div class="activity__list__footer">
               <a href="#"> <i class="fa fa-thumbs-up"></i></a>
-              <a href="#"> <i class="fa fa-comments"></i></a>
+              
+              <a href="#">  <i class="fa fa-comments"></i></a>
+           
               <span> <i class="fa fa-clock"></i></span>
             </div>
           </li>

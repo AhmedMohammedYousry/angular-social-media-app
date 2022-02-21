@@ -28,6 +28,7 @@ import { SearchComponent } from './components/search/search.component';
 import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { DialogMessageComponent } from './components/dialog-message/dialog-messa
     AllpagesComponent,
     CreatePageComponent,
     SearchComponent,
-    DialogMessageComponent
+    DialogMessageComponent,
+   
 
   ],
   imports: [

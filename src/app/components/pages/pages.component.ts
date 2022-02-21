@@ -31,6 +31,7 @@ export class PagesComponent implements OnInit {
     .subscribe(
       (response:any)=>{
         this.page= response
+        this.page.posts=this.page.posts.reverse();
         console.log(response);
         
       }
@@ -38,7 +39,7 @@ export class PagesComponent implements OnInit {
 
     this.formPost=this._formBuilder.group({
       content:['' , [Validators.required,Validators.maxLength(120),Validators.minLength(10)]],
-      image: [null]
+      // image: [null]
     
     });
   }
@@ -58,51 +59,43 @@ export class PagesComponent implements OnInit {
     this._apiPostService.post('posts',{
       content: this.formPost.value.content,
       user_id: localStorage.getItem('id'),
-      // page_id:this.page_id
-      // page_id:1
+      page_id: this.page.id
      
     },options).subscribe(
       (response:any)=>{
         // this._router.navigateByUrl('post')
         this.post_id=response.id;
         this.page_id=response.id;
-        if(this.filesPost){
-          this.addPicToPost();
-        }
-        location.reload(); 
+        // if(this.filesPost){
+        //   this.addPicToPost();
+        // }
+        // location.reload(); 
       },(error:any)=>{console.log(error);
       }
     )
-    // const formDataPost = new FormData();
-    // formDataPost.append('page_id', this.page_id);
-    // this._apiService.getOne(`pages/${this.page_id}`,formDataPost)
-    // .subscribe((response:any)=>{
-    //   this.page_id = response;
-     
-    // })
 
     
   }
 
 
 
-  uploadImagePost(event){
-    this.filesPost = event.target.files[0]
-    // console.log(this.files);
+  // uploadImagePost(event){
+  //   this.filesPost = event.target.files[0]
+  //   // console.log(this.files);
     
-  }
+  // }
 
 
 
-  addPicToPost(){
-    const formDataPost = new FormData();
+  // addPicToPost(){
+  //   const formDataPost = new FormData();
     
-    formDataPost.append('image', this.filesPost, this.filesPost.name)
-    this._apiService.post(`postpicture/${this.post_id}`, formDataPost)
-    .subscribe((response:any)=>{
-      this.dataPost = response;
-      this.formPost.get('image').reset();
-    })
-  }
+  //   formDataPost.append('image', this.filesPost, this.filesPost.name)
+  //   this._apiService.post(`postpicture/${this.post_id}`, formDataPost)
+  //   .subscribe((response:any)=>{
+  //     this.dataPost = response;
+  //     this.formPost.get('image').reset();
+  //   })
+  // }
 
 }
