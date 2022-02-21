@@ -1,3 +1,4 @@
+import { NotificationsComponent } from './../components/notifications/notifications.component';
 import { CreatePageComponent } from './../components/pages/create-page/create-page.component';
 import { AllpagesComponent } from './../components/allpages/allpages.component';
 import { Comment } from './../models/comment';
@@ -12,6 +13,7 @@ import { PagesComponent } from "../components/pages/pages.component";
 import {  UserProfileComponent } from "../components/user-profile/user-profile.component";
 import { ShowUsersComponent } from '../components/dashboard/show-users/show-users.component';
 import { SearchComponent } from '../components/search/search.component';
+import { ShowSavePostComponent } from '../components/show-save-post/show-save-post.component';
 
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -44,8 +46,9 @@ const routes: Routes = [
     {
         path: 'search',
         component:SearchComponent, canActivate:[AuthGuard]
-        },
-
+    },
+    {path: 'savepost',component: ShowSavePostComponent, canActivate:[AuthGuard]},
+    {path: 'notifications',component: NotificationsComponent, canActivate:[AuthGuard]},
     {
     path: '',
     component: DashboardComponent,

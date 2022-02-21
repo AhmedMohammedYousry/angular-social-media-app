@@ -26,6 +26,8 @@ import { AllpagesComponent } from './components/allpages/allpages.component';
 import { CreatePageComponent } from './components/pages/create-page/create-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
+import { ShowSavePostComponent } from './components/show-save-post/show-save-post.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { DialogMessageComponent } from './components/dialog-message/dialog-messa
     AllpagesComponent,
     CreatePageComponent,
     SearchComponent,
-    DialogMessageComponent
+    DialogMessageComponent,
+    ShowSavePostComponent,
+    NotificationsComponent
 
   ],
   imports: [

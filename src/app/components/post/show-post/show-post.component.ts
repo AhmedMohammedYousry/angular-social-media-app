@@ -4,6 +4,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
+import { SavePost } from 'src/app/models/savepost';
+import { User } from 'src/app/models/user';
+import { Post } from 'src/app/models/post';
 
 @Component({
   selector: 'app-show-post',
@@ -29,6 +32,7 @@ export class ShowPostComponent implements OnInit {
   @Input() postPic:any;
   @Input() showDeleteButton:boolean=false;
   @Input() showShareButton:boolean=false;
+  @Input() saveposts: SavePost = new SavePost();
   likebtn(){
     
     if(this.like == 0){
@@ -108,4 +112,31 @@ export class ShowPostComponent implements OnInit {
     },
     (error:any)=>{});
   }
+
+  savePost() {
+
+    this._apiService.post('saveposts', {
+      user_id: this.loggedInUserId,
+      post_id: this.post_id,
+    }).subscribe((response: any) => {
+      window.location.reload()
+      this.ngOnInit()
+
+    }, (error: any) => { })
+  }
+
+  unsave() {
+    this._apiService.get('saveposts')
+      .subscribe((saveposts: any) => {
+        let saveposts_id = saveposts.filter((SavePost: any) => {
+          return (SavePost.user_id == parseInt(localStorage.getItem('id')))
+            || (SavePost.post_id == parseInt(localStorage.getItem('id')))
+        })[0].id
+        // delete friendship
+        this._apiService.delete('saveposts', saveposts_id)
+          .subscribe((response: any) => {
+            window.location.reload()
+            this.ngOnInit()
+          }, (error: any) => { })
+      })}
 }

@@ -15,48 +15,72 @@
 
 <body>
 
-    <div class="container-xl px-4 mt-4 ">
+  <div class="container-xl px-4 mt-4 ">
+    <div class="row ">
+      <div class="col-xl-8 mx-auto mt-4">
+        <div class="card mb-4">
+          <div class="card-header text-danger">Create Page</div>
+          <div class="card-body">
+            <div [formGroup]="formCreatePage">
 
-        <div class="row ">
-
-            <div class="col-xl-8 mx-auto mt-4">
-
-                <div class="card mb-4">
-                    <div class="card-header text-danger">Create Page</div>
-                    <div class="card-body">
-                        <form>
-
-                            <div class="mb-3">
-                                <label class="small mb-1" for="inputUsername">Page information</label>
-                                <input class="form-control" id="inputUsername" type="text" placeholder="page name (required)" >
-                            </div>
-                            <div class="mb-3">
-
-                                <input class="form-control" type="text" placeholder="Category (required)" >
-                            </div>
-
-
-                            <div class="mb-3">
-
-                                <textarea class="form-control"  rows="3" placeholder="Description"></textarea>
-                            </div>
-
-                            <div class="mb-3">
-
-                                <input class="form-control" type="media" placeholder="profile image" >
-                            </div>
-                            <div class="mb-3">
-
-                                <input class="form-control" type="text" placeholder="cover image" >
-                            </div>
-
-                        </form>
-                    </div>
+              <div class="mb-3">
+                <label class="small mb-1" for="inputUsername">Page information</label>
+                <input formControlName="page_name"  class="form-control" id="inputUsername" type="text"
+                  placeholder="page name ">
+                <div *ngIf="isInValidAndTouched('page_name')">
+                  <small class="form-text text-danger" *ngIf="isControlHasError('page_name','required')">*required
+                    page_name</small>
+                  <small class="form-text text-danger" *ngIf="isControlHasError('page_name','minlength')">*min
+                    length is 4</small>
+                  <small class="form-text text-danger" *ngIf="isControlHasError('page_name','maxlength')">*max
+                    length is 20</small>
                 </div>
-            </div>
+              </div>
+              <div class="mb-3">
+                <input type="hidden"  [ngModel]="user_id"  formControlName="user_id" name="user_id"   > 
+              </div>
+              <div class="mb-3">
+                <textarea formControlName="about" class="form-control" rows="3"
+                  placeholder="about"></textarea>
+                <div *ngIf="isInValidAndTouched('about')">
+                  <small class="form-text text-danger" *ngIf="isControlHasError('about','required')">*required
+                    about</small>
+                  <small class="form-text text-danger" *ngIf="isControlHasError('about','minlength')">*min
+                    length is 4</small>
+                  <small class="form-text text-danger" *ngIf="isControlHasError('about','maxlength')">*max
+                    length is 20</small>
+                </div>
+              </div>
+              <div class="mb-3">
+                <input formControlName="profile_image" class="form-control" type="media" placeholder="profile image">
+                <div *ngIf="isInValidAndTouched('profile_image')">
+                  <small class="form-text text-danger" *ngIf="isControlHasError('profile_image','required')">*required
+                    profile_image</small>
+                </div>
 
+              </div>
+              <div class="mb-3">
+
+                <input formControlName="cover_image" class="form-control" type="text" placeholder="cover image">
+                <div *ngIf="isInValidAndTouched('cover_image')">
+                  <small class="form-text text-danger" *ngIf="isControlHasError('cover_image','required')">*required
+                    cover_image</small>
+
+                </div>
+              </div>
+
+              <div class="text-center pt-1 mb-5 pb-1">
+                <button class="btn  fa-lg gradient-custom-2 mb-3 p-3 me-2 "
+              (click)="post()" type="button">Submit</button>
+
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+
     </div>
+  </div>
 
 </body>
 

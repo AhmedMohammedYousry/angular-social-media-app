@@ -13,4 +13,5 @@ export class Post{
     post_likes:any;
     isShared:boolean=false;
     shared_at:string="";
+    save_post:any=0;
 }

@@ -28,6 +28,7 @@ export class User{
     coverPic:string="";
     hasCover:boolean=false;
     intro:string="";
+    save_post:any=0;
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();

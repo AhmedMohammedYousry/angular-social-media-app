@@ -1,6 +1,7 @@
 body{
-    background-color: rgba(255, 255, 255, 0.849);
+    background-color: rgba(255, 255, 255, 0.678);
     font-family: sans-serif;
+    height: 1000px;
   }
   .search-box{
     width: 100%;
@@ -241,4 +242,3 @@ bottom: 3%;
          border-left-width: 0;
      }
  }
-
