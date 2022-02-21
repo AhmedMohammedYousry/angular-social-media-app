@@ -9,6 +9,13 @@
     box-sizing: border-box;
 }
 
+.username-profilepic{
+    /* background-color: gray; */
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
 .dark-theme{
     --body-color:#0a0a0a;
     --nav-color: #000;

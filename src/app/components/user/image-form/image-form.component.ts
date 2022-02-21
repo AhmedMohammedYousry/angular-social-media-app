@@ -23,7 +23,7 @@ export class ImageFormComponent implements OnInit {
   
   uploadImage(event){
     this.files = event.target.files[0]
-    console.log(this.files);
+    // console.log(this.files);
     
   }
 

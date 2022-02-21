@@ -1,6 +1,6 @@
+
 import { Post } from "./post";
 import { User } from "./user";
-
 export class SavePost {
     id:number=0;
     user_id:number=0;

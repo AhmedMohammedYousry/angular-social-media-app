@@ -1,3 +1,4 @@
+import { Post } from 'src/app/models/post';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,7 +14,6 @@ export class CreateCommentComponent implements OnInit {
   formComment=new FormGroup({});
   @Input() post_id:number=0;
 
-
   constructor(private _apiService:ApiService,private _formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
@@ -21,6 +21,8 @@ export class CreateCommentComponent implements OnInit {
       content:['' , [Validators.required]]
     
     });
+
+
   }
   enter(){
     this._apiService.post('comments',{
@@ -33,6 +35,15 @@ export class CreateCommentComponent implements OnInit {
       },(error:any)=>{
       }
     )
+      //to post notification when comment
+    this._apiService.post('notifications',{
+      from_user_id:localStorage.getItem('id'),
+      post_id:this.post_id,
+      type:'commented',
+    }).subscribe((response:any)=>{
+
+    },
+    (error:any)=>{});
   }
 
 }

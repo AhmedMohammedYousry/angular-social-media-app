@@ -22,6 +22,8 @@ import { FullImageComponent } from '../../full-image/full-image.component';
 export class ProfileComponent implements OnInit {
   
   user:User = new User();
+  sharedPosts:Post[]=[];
+  profilePosts:Post[]=[];
   profilepictures:ProfilePicture[] = [];
   storageURL = environment.storage_URL
   constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,
@@ -41,7 +43,38 @@ export class ProfileComponent implements OnInit {
       (response:any)=>{
         // alert(JSON.stringify(response))
         this.user = response
-
+        // alert(JSON.stringify(this.user.posts))
+        // get shared posts by user
+        this._apiService.get("shares").subscribe((res:any)=>{
+          let shares=res
+          shares=shares.filter((share:any)=>{return share.user_id==this.user.id})
+          shares.forEach((share:any)=>{
+          this._apiService.getOne("posts",share.post_id)
+          .subscribe((resp:any)=> {
+            this.sharedPosts.push(resp.data)
+            let post:Post = resp.data
+            post.isShared=true
+            post.shared_at=share.created_at
+            // alert(JSON.stringify(post))
+            this.profilePosts.push(post)
+          });
+        })
+        setTimeout(() => {
+          
+          this.profilePosts =this.profilePosts.concat(this.user.posts)
+            this.profilePosts.sort(function(a,b):any{
+              // Turn your strings into dates, and then subtract them
+              // to get a value that is either negative, positive, or zero.
+              let b_timestamp:any = b.shared_at? b.shared_at: b.created_at;
+              let a_timestamp:any = a.shared_at? a.shared_at: a.created_at;
+              return new Date(b_timestamp).getTime() - new Date(a_timestamp).getTime()
+            });
+         },  500)
+            
+    
+        
+          
+        })
 
         
 

@@ -8,11 +8,13 @@ import Pusher from "pusher-js"
 export class PusherService {
   pusher: any;
   channel: any;
+  notificationChannel:any;
   constructor() { 
     this.pusher = new Pusher(environment.pusher.key,{
       authEndpoint: 'http://localhost:8000/api/pusher/auth',
       cluster:'eu',
     });
     this.channel = this.pusher.subscribe('private-messages');
+    this.notificationChannel = this.pusher.subscribe('notification');
   }
 }

@@ -16,6 +16,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FriendsComponent } from './friends/friends.component';
 import { PhotosComponent } from './photos/photos.component';
 import { ImageFormProfilepicComponent } from './image-form-profilepic/image-form-profilepic.component';
+import { SavedPostsComponent } from './saved-posts/saved-posts.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,11 @@ const routes: Routes = [
     component: PhotosComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path:'profile/saved',
+    component: SavedPostsComponent,
+    canActivate: [AuthGuard]
+  },
   {path:'imageform',component:ImageFormComponent},
 
   
@@ -61,7 +67,8 @@ const routes: Routes = [
   EditProfileComponent,
   FriendsComponent,
   PhotosComponent,
-  ImageFormProfilepicComponent],
+  ImageFormProfilepicComponent,
+  SavedPostsComponent],
   imports: [
     CommonModule,FormsModule , ReactiveFormsModule,HttpClientModule,
     RouterModule.forChild(routes),

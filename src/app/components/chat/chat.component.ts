@@ -85,6 +85,7 @@ export class ChatComponent implements OnInit {
       
       this.messages.push(message);
     });
+    
   }
   getChat(chat_id:number,name:string,photo:string,to_user:number){
 

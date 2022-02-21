@@ -21,7 +21,11 @@
         <div class="card mb-4">
           <div class="card-header text-danger">Create Page</div>
           <div class="card-body">
+<<<<<<< HEAD
             <div [formGroup]="formCreatePage">
+=======
+            <form [formGroup]="formCreatePage" (ngSubmit)="onSubmit()">
+>>>>>>> 069f9a336cecde318933d35bf818407ca3a27bf9
 
               <div class="mb-3">
                 <label class="small mb-1" for="inputUsername">Page information</label>
@@ -52,29 +56,61 @@
                 </div>
               </div>
               <div class="mb-3">
+<<<<<<< HEAD
                 <input formControlName="profile_image" class="form-control" type="media" placeholder="profile image">
                 <div *ngIf="isInValidAndTouched('profile_image')">
                   <small class="form-text text-danger" *ngIf="isControlHasError('profile_image','required')">*required
                     profile_image</small>
                 </div>
+=======
+                <label for="file-upload" class="custom-file-upload">
+                    Page Image
+                </label> 
+                <input id="file-upload" type="file" name="image" formControlName="image" class="form-control"
+                (change)="uploadImage($event)">
+                <!-- <div *ngIf="isInValidAndTouched('profile_image')">
+                  <small class="form-text text-danger" *ngIf="isControlHasError('profile_image','required')">*required
+                    profile_image</small>
+                </div> -->
+>>>>>>> 069f9a336cecde318933d35bf818407ca3a27bf9
 
               </div>
               <div class="mb-3">
 
+<<<<<<< HEAD
                 <input formControlName="cover_image" class="form-control" type="text" placeholder="cover image">
                 <div *ngIf="isInValidAndTouched('cover_image')">
                   <small class="form-text text-danger" *ngIf="isControlHasError('cover_image','required')">*required
                     cover_image</small>
 
                 </div>
+=======
+                <label for="file-upload2" class="custom-file-upload">
+                    Cover Image
+                </label> 
+                <input id="file-upload2" type="file" name="imageCover" formControlName="imageCover" class="form-control"
+                (change)="uploadImageCover($event)">
+                <!-- <div *ngIf="isInValidAndTouched('cover_image')">
+                  <small class="form-text text-danger" *ngIf="isControlHasError('cover_image','required')">*required
+                    cover_image</small>
+
+                </div> -->
+>>>>>>> 069f9a336cecde318933d35bf818407ca3a27bf9
               </div>
 
               <div class="text-center pt-1 mb-5 pb-1">
                 <button class="btn  fa-lg gradient-custom-2 mb-3 p-3 me-2 "
+<<<<<<< HEAD
               (click)="post()" type="button">Submit</button>
 
               </div>
             </div>
+=======
+               type="submit">Submit</button>
+
+              </div>
+            </form>
+>>>>>>> 069f9a336cecde318933d35bf818407ca3a27bf9
           </div>
         </div>
       </div>

@@ -5,8 +5,15 @@
       <h2 class=" logo">FireClub</h2>
     </a>
     <ul>
+<<<<<<< HEAD
       <li class="ms-3">
         <i class="fas fa-bell icon"></i>
+=======
+      <li>
+       <a routerLink="/notifications">
+        <i class="fas fa-bell icon"></i> 
+        </a>
+>>>>>>> 069f9a336cecde318933d35bf818407ca3a27bf9
       </li>
 
       <li>
@@ -16,9 +23,15 @@
 
       </li>
       <li>
+<<<<<<< HEAD
         <a [routerLink]="['/users']">
           <i class="fas fa-user-plus icon"></i>
         </a>
+=======
+        <a href="/users" >
+        <i class="fas fa-user-plus icon"></i>
+      </a>
+>>>>>>> 069f9a336cecde318933d35bf818407ca3a27bf9
       </li>
 
       <li class="me-3">
@@ -26,8 +39,10 @@
           <i class="fas fa-search icon"></i>
         </a>
       </li>
+      
     </ul>
   </div>
+<<<<<<< HEAD
 
 
   <div class="nav-right">
@@ -35,6 +50,21 @@
       <img src="{{storageURL}}/profiles/{{user.profilePic}}" (click)="visitProfile()" />
     </div>
 
+=======
+  <!-- <div class="nav-right">
+    <div class="search-box">
+      <i class="fas fa-search icon"></i>
+      <input type="text" placeholder="Search" />
+    </div>
+  </div> -->
+  <div class="nav-right">
+    <span class="username-profilepic" (click)="visitProfile()">
+      {{user.firstname}}
+    <span class="nav-user-icon " onclick="settingsMenuToggle()">
+      <img src="{{storageURL}}/profiles/{{user.profilePic}}" />
+    </span>
+  </span>
+>>>>>>> 069f9a336cecde318933d35bf818407ca3a27bf9
     <i class="fa-solid fa-arrow-right-from-bracket text-white ms-4 logout" (click)="signOut()"></i>
 
   </div>

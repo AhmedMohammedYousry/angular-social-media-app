@@ -16,12 +16,23 @@
             </div>
         </div>
         <!-- three dots icon to delete a post -->
+<<<<<<< HEAD
         <div class="dropdown" *ngIf="showDeleteButton">
 
             <i class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                 aria-expanded="false" class="fas fa-ellipsis-v"></i>
             <ul class="dropdown-menu p-1" aria-labelledby="dropdownMenuButton1">
                 <li style="cursor: pointer;" (click)="deletePost()"><i class="fa-solid fa-trash-can pe-2"></i> delete post</li>
+=======
+        <div class="dropdown">
+           
+                <i class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="fas fa-ellipsis-v"></i>
+                
+
+         
+            <ul class="dropdown-menu p-1" aria-labelledby="dropdownMenuButton1">
+                <li *ngIf="showDeleteButton" style="cursor: pointer;" (click)="deletePost()">delete post</li>
+>>>>>>> 069f9a336cecde318933d35bf818407ca3a27bf9
                 <li style="cursor: pointer;" (click)="savePost()"><i class="fa-solid fa-bookmark pe-2" style="color:rgb(82, 3, 3)"></i>save post</li>
                 <li style="cursor: pointer;" (click)="unsave()"><i class="fa-solid fa-bookmark pe-2" style="color:black"></i>unsave post</li>
             </ul>
@@ -41,7 +52,7 @@
                 <span class="ms-2">{{post_likes_number}}</span>
             </div>
             <div><i class="fas fa-comment-alt"></i><span class="ms-2">{{comments_number}}</span></div>
-            <div><i class="fas fa-share"></i><span class="ms-2"></span></div>
+            <div *ngIf="showShareButton" (click)="sharePost()"><i class="fas fa-share"></i><span class="ms-2"></span></div>
         </div>
 
         <!-- <div class="post-porfile-icon">
