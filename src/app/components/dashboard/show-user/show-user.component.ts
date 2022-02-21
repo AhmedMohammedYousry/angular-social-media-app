@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ShowUserComponent implements OnInit {
 
   @Input() user_name:string="";
+  @Input() user_intro:string="";
   @Input() user_id:number=0;
   @Input() friends_number:number=0;
   // @Input() is_friend:boolean=true;

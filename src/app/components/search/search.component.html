@@ -20,7 +20,6 @@
         <input type="text" class="search-input" (keyup.enter)="search()" formControlName="search"
           placeholder="Search" />
         <button class="search-button" (click)="search()">
-
           <i class="fas fa-search icon"></i>
         </button>
       </div>
@@ -32,41 +31,6 @@
       </h3>
     </div>
     <div *ngIf="userName.length>0||post.length>0||page.length>0">
-
-      <h1 class=" p-4">People</h1>
-      <div class=" text-center p-4" *ngIf="userName.length==0">
-        <h3>No results
-        </h3>
-      </div>
-
-      <div class="col-lg-4 col-md-4 col-12 p-4" *ngFor="let userName of userName">
-        <div class="card  shadow">
-          <div class="card-body">
-            <div class="media align-items-center text-center">
-              <img class="photo" src="{{storageURL}}/profiles/{{userName.profilePic}}">
-              <div class="media-body overflow-hidden">
-                <h5 class="card-text mb-0 name">{{userName.name}}</h5>
-                <p class="card-text text-muted">{{userName.email}}</p>
-                <p class="card-text text-muted">{{userName.mobile}}</p>
-                <br>
-              </div>
-              <a href="#" class="tile-link"></a>
-              <div class=" responsive">
-                <button type="button" class="btn">
-                  <a routerLink="/users/{{userName.id}}">
-                    <i class="fa-solid fa-user-group"></i> Go to profile
-                  </a>
-                </button>
-                <button type="button" class="btn1  ">
-                  <a [routerLink]="['/chat']">
-                    <i class="fab fa-facebook-messenger icon"> </i> Message
-                  </a></button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
 
       <div class="post-input-container p-4 ">
         <h1 class="mt-4 ">Posts</h1>
@@ -143,7 +107,39 @@
 
         </div>
       </div>
+      <div class="row">
+        <h1 class="  p-4">Others</h1>
 
+        <div class="col-lg-4 col-md-4 col-12 p-4" *ngFor="let userName of userName">
+          <div class="card  shadow">
+            <div class="card-body">
+              <div class="media align-items-center text-center">
+                <img class="photo" src="{{storageURL}}/profiles/{{userName.profilePic}}">
+                <div class="media-body overflow-hidden">
+                  <h5 class="card-text mb-0 name">{{userName.name}}</h5>
+                  <p class="card-text text-muted">{{userName.email}}</p>
+                  <p class="card-text text-muted">{{userName.mobile}}</p>
+                  <br>
+                </div>
+                <a href="#" class="tile-link"></a>
+                <div class=" responsive">
+                  <button type="button" class="btn">
+                    <a routerLink="/users/{{userName.id}}">
+                      <i class="fa-solid fa-user-group"></i> Go to profile
+                    </a>
+                  </button>
+                  <button type="button" class="btn1  ">
+                    <a [routerLink]="['/chat']">
+                      <i class="fab fa-facebook-messenger icon"> </i> Message
+                    </a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
     </div>
 
   </div>

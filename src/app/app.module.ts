@@ -25,6 +25,9 @@ import { FullImageComponent } from './components/full-image/full-image.component
 import { AllpagesComponent } from './components/allpages/allpages.component';
 import { CreatePageComponent } from './components/pages/create-page/create-page.component';
 import { SearchComponent } from './components/search/search.component';
+import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
+import { ShowSavePostComponent } from './components/show-save-post/show-save-post.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 
 @NgModule({
@@ -46,7 +49,10 @@ import { SearchComponent } from './components/search/search.component';
     FullImageComponent,
     AllpagesComponent,
     CreatePageComponent,
-    SearchComponent
+    SearchComponent,
+    DialogMessageComponent,
+    ShowSavePostComponent,
+    NotificationsComponent
 
   ],
   imports: [

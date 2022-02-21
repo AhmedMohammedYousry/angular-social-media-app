@@ -163,46 +163,59 @@
 
 
         </div>
-        <div class="write-post-container">
+        <div class="write-post-container" style="background-color: #f0f2f5">
 
           <div class="post-input-container">
 
             <div class="test">
-              <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper">
+
+              <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper" >
                 <div class="row">
                   <div>
-                    
-
                     <app-create-post></app-create-post>
-                    <div *ngFor='let post of user.posts ;let i = index' class="postdiv">
-                    <app-show-post [postOwner]="user.name" [postContent]="user.posts[i].content"
-                     [created_at]="user.posts[i].created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
-                     [post_id]="post.id" 
-                     [post_likes_number]="post.post_likes.length" [profilePic]="user.profilePic"
-                     [hasPic]="post.hasPic"
-                     [postPic]="post.postPic"
-                     [showDeleteButton]="true"
-                     ></app-show-post>
-                     
-                    
-                    <!-- create comment here -->
-                    <app-create-comment [post_id]="post.id"></app-create-comment>
-                    <!-- display comments here -->
-                    
-                        <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                          Show comments
-                        </a>
-                        
-                      <div class="collapse" id="allposts{{i}}">
-                        <div *ngFor='let comment of post.comments ;let j = index'>
-    
-                            <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content" [comment_created_at]="comment.created_at"></app-show-comment>
-                            </div>
+                    <!-- start of post -->
+                    <div *ngFor='let post of profilePosts ;let i = index' class="postdiv">
+                        <!-- if user shared a post -->
+                        <div class="user-profile m-2" *ngIf="post.isShared">
+                          <img src="{{storageURL}}/profiles/{{user.profilePic}}">
+                          <div>
+                              <p>
+                                  {{user.name}} shared {{post.user_id.name}}'s post</p>
+                             <span>{{ post.shared_at| date:'medium'}}</span>
+                          </div>
                       </div>
-                    
-                    </div>
-        
+
+                        <!-- post content -->
+                      <div [ngStyle]="post.isShared?{'border': '1px solid #ced0d4'} : {'border': 'none'}" class="m-2 p-2">
+                      <app-show-post [postOwner]="post.user_id.name || post.user.name" [postContent]="post.content"
+                       [created_at]="post.created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
+                       [post_id]="post.id" 
+                       [post_likes_number]="post.post_likes.length" [profilePic]="post.user_id.profilePic || post.user.profilePic"
+                       [hasPic]="post.hasPic"
+                       [postPic]="post.postPic"
+                       [showDeleteButton]="!post.isShared"
+                       ></app-show-post>
+                      
+                      
+                      <!-- create comment here -->
+                      <app-create-comment *ngIf="!post.isShared" [post_id]="post.id"></app-create-comment>
+                      <!-- display comments here -->
+                      
+                          <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Show comments
+                          </a>
+                          
+                        <div class="collapse" id="allposts{{i}}">
+                          <div *ngFor='let comment of post.comments ;let j = index'>
+      
+                              <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content" [comment_created_at]="comment.created_at"></app-show-comment>
+                              </div>
+                        </div>
+                      </div>
+                      </div>      
+                  <!-- end of post -->
                   </div>
+                  
 
                 </div>
               </div>

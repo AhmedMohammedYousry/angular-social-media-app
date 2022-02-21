@@ -4,6 +4,35 @@
     font-family: 'poppins',sans-serif;
     box-sizing: border-box;
   }
+  .postdiv{
+    background-color: #fff;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #fff;
+  }
+  .user-profile{
+    display: flex;
+    align-items: center;
+  
+  }
+  .user-profile img{
+     width: 47px;
+            height: 47px;
+            border-radius: 50%; 
+            
+            background-position: center center;
+            background-size: cover;
+    margin-right: 10px;
+  }
+  .user-profile p{
+    margin-bottom: -5px;
+    font-weight: 500;
+    color: #626262;
+  
+  }
   
   
   .container{
@@ -254,6 +283,10 @@
     width: 100%;
     border-radius: 6px;
     margin-bottom: 14px;
+    height:300px;
+    /* background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat; */
   
   }
   .profile-details{
@@ -406,7 +439,8 @@
   
   }
   .photo-box div img{
-    width: 100%;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
   
   }
