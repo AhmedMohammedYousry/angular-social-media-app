@@ -1,3 +1,4 @@
+import { ShowPostComponent } from './../components/post/show-post/show-post.component';
 import { NotificationsComponent } from './../components/notifications/notifications.component';
 import { CreatePageComponent } from './../components/pages/create-page/create-page.component';
 import { AllpagesComponent } from './../components/allpages/allpages.component';
@@ -53,7 +54,6 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
     },
-
 ];
 
 @NgModule({

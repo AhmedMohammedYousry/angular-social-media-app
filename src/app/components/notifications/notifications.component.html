@@ -13,11 +13,8 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+
 <body>
-
-
-
-
 
 
 <link rel="stylesheet"
@@ -46,16 +43,24 @@
           <h6 class="m-0">Recent</h6>
         </div>
         <div class="box-body p-0">
-          <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header">
+          <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header" *ngFor="let notification of notifications" (click)="getPost(notification.post_id)" >
             <div class="dropdown-list-image mr-3">
-              <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="" />
+              <img class="rounded-circle" 
+              src="{{storageURL}}/profiles/{{notification.from_user.profilePic}}" alt="" />
             </div>
             <div class="font-weight-bold mr-3 ms-3">
-              <div class="text-truncate">DAILY RUNDOWN: WEDNESDAY</div>
-              <div class="small">Income tax sops on the cards, The bias in VC funding, and other top news for you</div>
+              <div class="text-truncate">
+                <strong>{{notification.from_user.name}}: </strong>
+                <span>{{notification.type}}</span> 
+                <span *ngIf="notification.type=='commented'"> on </span> Your Post
+              </div>
+              <div class="small">
+                your post:
+                {{notification.post.content}}
+              </div>
             </div>
           </div>
-          <div class="p-3 d-flex align-items-center osahan-post-header">
+          <!-- <div class="p-3 d-flex align-items-center osahan-post-header">
             <div class="dropdown-list-image mr-3">
               <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
             </div>
@@ -64,7 +69,7 @@
                 venenatis est...</div>
               <button type="button" class="btn ms-3">View Jobs</button>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="box shadow-sm rounded bg-white mb-3">
