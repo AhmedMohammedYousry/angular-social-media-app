@@ -11,4 +11,6 @@ export class Post{
     created_at:string="";
     comments:Comment[]=[];
     post_likes:any;
+    isShared:boolean=false;
+    shared_at:string="";
 }

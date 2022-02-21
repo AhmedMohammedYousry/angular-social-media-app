@@ -1,3 +1,5 @@
+import { DialogMessageComponent } from './../../dialog-message/dialog-message.component';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
@@ -26,19 +28,29 @@ export class ShowPostComponent implements OnInit {
   @Input() hasPic:boolean=false;
   @Input() postPic:any;
   @Input() showDeleteButton:boolean=false;
+  @Input() showShareButton:boolean=false;
   likebtn(){
-
+    
     if(this.like == 0){
       this._apiService.post('postslikes',{
         post_id: this.post_id,
-        user_id: localStorage.getItem('id')
+        user_id: localStorage.getItem('id'),
       }).subscribe((res:any)=>{
         this.like = 1-this.like;
         this.post_likes_number++;
         this.ngOnInit();
-             
-
+        
       })
+      // to post notification when like
+      this._apiService.post('notifications',{
+        from_user_id:localStorage.getItem('id'),
+        post_id:this.post_id,
+        type:'liked',
+      }).subscribe((response:any)=>{
+  
+      },
+      (error:any)=>{});
+
     } else{
       this._apiService.delete('postslikes', this.postlike_id)
       .subscribe((res:any)=>{
@@ -50,7 +62,7 @@ export class ShowPostComponent implements OnInit {
   }
 }
   
-  constructor(private _apiService:ApiService,private _router:Router) { }
+  constructor(private _apiService:ApiService,private _router:Router,private _matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this._apiService.get('postslikes')
@@ -73,5 +85,27 @@ export class ShowPostComponent implements OnInit {
     .subscribe((response:any)=>{
       window.location.reload();
     },(error:any)=>{JSON.stringify(error)})
+  }
+  
+  sharePost(){
+    this._apiService.post("shares",{
+      user_id: localStorage.getItem('id'),
+      post_id: this.post_id
+    }).subscribe((response:any)=>{
+      
+    const dialogRef = this._matDialog.open(DialogMessageComponent,{
+      data: "You have shared this post on your profile!"
+    });
+  
+    });
+    
+    this._apiService.post('notifications',{
+      from_user_id:localStorage.getItem('id'),
+      post_id:this.post_id,
+      type:'shared',
+    }).subscribe((response:any)=>{
+
+    },
+    (error:any)=>{});
   }
 }

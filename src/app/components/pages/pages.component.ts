@@ -20,8 +20,10 @@ export class PagesComponent implements OnInit {
   list:Post[]=[];
   now:Date=new Date();
   formPost=new FormGroup({});
+  filesPost:any;
+  dataPost:any;
 
-  constructor(private route:ActivatedRoute, private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router,private _apiPostService:ApiPostService) { }
+  constructor(private route:ActivatedRoute, private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router,private _apiPostService:ApiPostService,private _formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
     this.page_id = this.route.snapshot.params['id']
@@ -33,6 +35,12 @@ export class PagesComponent implements OnInit {
         
       }
     )
+
+    this.formPost=this._formBuilder.group({
+      content:['' , [Validators.required,Validators.maxLength(120),Validators.minLength(10)]],
+      image: [null]
+    
+    });
   }
 
 
@@ -46,22 +54,55 @@ export class PagesComponent implements OnInit {
     let options = {
       'headers': headers
     }
+    console.log(this.page_id);
     this._apiPostService.post('posts',{
       content: this.formPost.value.content,
       user_id: localStorage.getItem('id'),
-      page_id:this.page_id
+      // page_id:this.page_id
+      // page_id:1
+     
     },options).subscribe(
       (response:any)=>{
         // this._router.navigateByUrl('post')
         this.post_id=response.id;
-        // if(this.filesPost){
-        //   this.addPicToPost();
-        // }
+        this.page_id=response.id;
+        if(this.filesPost){
+          this.addPicToPost();
+        }
         location.reload(); 
       },(error:any)=>{console.log(error);
       }
     )
+    // const formDataPost = new FormData();
+    // formDataPost.append('page_id', this.page_id);
+    // this._apiService.getOne(`pages/${this.page_id}`,formDataPost)
+    // .subscribe((response:any)=>{
+    //   this.page_id = response;
+     
+    // })
 
     
   }
+
+
+
+  uploadImagePost(event){
+    this.filesPost = event.target.files[0]
+    // console.log(this.files);
+    
+  }
+
+
+
+  addPicToPost(){
+    const formDataPost = new FormData();
+    
+    formDataPost.append('image', this.filesPost, this.filesPost.name)
+    this._apiService.post(`postpicture/${this.post_id}`, formDataPost)
+    .subscribe((response:any)=>{
+      this.dataPost = response;
+      this.formPost.get('image').reset();
+    })
+  }
+
 }

@@ -27,6 +27,7 @@ export class CreatePostComponent implements OnInit {
     });
   }
 
+  
   post(){
     const headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('Token')}`
