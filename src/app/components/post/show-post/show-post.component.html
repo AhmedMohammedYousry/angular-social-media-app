@@ -16,14 +16,16 @@
             </div>
         </div>
         <!-- three dots icon to delete a post -->
-        <div class="dropdown" *ngIf="showDeleteButton">
+        <div class="dropdown">
            
                 <i class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" class="fas fa-ellipsis-v"></i>
-           
+                
 
          
             <ul class="dropdown-menu p-1" aria-labelledby="dropdownMenuButton1">
-                <li style="cursor: pointer;" (click)="deletePost()">delete post</li>
+                <li *ngIf="showDeleteButton" style="cursor: pointer;" (click)="deletePost()">delete post</li>
+                <li style="cursor: pointer;" (click)="savePost()"><i class="fa-solid fa-bookmark pe-2" style="color:rgb(82, 3, 3)"></i>save post</li>
+                <li style="cursor: pointer;" (click)="unsave()"><i class="fa-solid fa-bookmark pe-2" style="color:black"></i>unsave post</li>
             </ul>
           </div>
         
