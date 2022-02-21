@@ -29,6 +29,7 @@ export class User{
     hasCover:boolean=false;
     intro:string="";
     save_post:any=0;
+    notifications:Notification[]=[];
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();
