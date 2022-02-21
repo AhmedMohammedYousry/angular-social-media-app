@@ -33,17 +33,11 @@ export class PagesComponent implements OnInit {
     .subscribe(
       (response:any)=>{
         this.page= response
-        if(this.page.pageslike.some(pagelike => pagelike.page_id ==parseInt(this.logged_user_id))){
+        if(this.page.pageslike.some(pagelike => pagelike.user_id ==parseInt(this.logged_user_id))){
           this.islike=true;
-        } else if (this.page.pageslike.some((pagelike) => pagelike.page_id ==parseInt(this.logged_user_id))){
-          this.islike=true;
-
         }else{
           this.islike=false;
         }
-        
-        
-
       }
       
     )
@@ -72,7 +66,6 @@ export class PagesComponent implements OnInit {
   }
   goToPage(page_id: number) {
     this._router.navigateByUrl(`pages/${page_id}`);
-
   }
   addLike(){
     this._apiService.post('pagelikes',{
