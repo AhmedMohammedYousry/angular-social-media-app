@@ -27,6 +27,7 @@ export class NotificationsComponent implements OnInit {
         this.user = response;
         console.log(this.user);
         this.notifications = response.notifications;
+        this.notifications =this.notifications.reverse();
         console.log(this.notifications);
       },
       (error:any)=>{}

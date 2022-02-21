@@ -23,7 +23,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-3 left">
+    <!-- <div class="col-lg-3 left">
       <div class="box shadow-sm mb-3 rounded bg-white ads-box text-center">
         <img class="photo"
         src="https://images.unsplash.com/photo-1522228115018-d838bcce5c3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHVzZXIlMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60">
@@ -36,14 +36,15 @@
         </div>
       </div>
 
-    </div>
-    <div class="col-lg-9 right">
+    </div> -->
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 ">
       <div class="box shadow-sm rounded bg-white mb-3">
         <div class="box-title border-bottom p-3">
           <h6 class="m-0">Recent</h6>
         </div>
         <div class="box-body p-0">
-          <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header" *ngFor="let notification of notifications" (click)="getPost(notification.post_id)" >
+          <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header " *ngFor="let notification of notifications" (click)="getPost(notification.post_id)" >
             <div class="dropdown-list-image mr-3">
               <img class="rounded-circle" 
               src="{{storageURL}}/profiles/{{notification.from_user.profilePic}}" alt="" />
@@ -57,6 +58,9 @@
               <div class="small">
                 your post:
                 {{notification.post.content}}
+              </div>
+              <div class="small text-secondary">
+                at: {{notification.created_at|date:'medium'}}
               </div>
             </div>
           </div>
@@ -72,7 +76,7 @@
           </div> -->
         </div>
       </div>
-      <div class="box shadow-sm rounded bg-white mb-3">
+      <!-- <div class="box shadow-sm rounded bg-white mb-3">
         <div class="box-title border-bottom p-3">
           <h6 class="m-0">Earlier</h6>
         </div>
@@ -171,10 +175,12 @@
 
               <br />
             </span>
-          </div>
-        </div>
-      </div>
+          </div> -->
+        <!-- </div>
+      </div> -->
     </div>
+    <div class="col-lg-2"></div>
+
   </div>
 </div>
 </body>
