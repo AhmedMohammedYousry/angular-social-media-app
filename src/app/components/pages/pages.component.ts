@@ -8,6 +8,8 @@ import { ApiService } from 'src/app/services/api.service';
 import { ApiPostService } from 'src/app/services/post/api-post.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { User } from 'src/app/models/user';
+import { Pagelike } from 'src/app/models/pagelike';
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
@@ -24,6 +26,17 @@ export class PagesComponent implements OnInit {
   dataPost:any;
 
   constructor(private route:ActivatedRoute, private _apiUserService:ApiUserService, private _httpClient:HttpClient,private _apiService:ApiService,private _router:Router,private _apiPostService:ApiPostService,private _formBuilder:FormBuilder) { }
+ 
+  user: User = new User();
+  listlikes: Pagelike[] = [];
+  pagelike:Pagelike= new Pagelike();
+  listpages: Page[] = [];
+
+  islike:boolean=false;
+
+  logged_user_id = localStorage.getItem('id')
+
+  // constructor(private route: ActivatedRoute, private _apiUserService: ApiUserService, private _httpClient: HttpClient, private _apiService: ApiService, private _router: Router) { }
 
   ngOnInit(): void {
     this.page_id = this.route.snapshot.params['id']
@@ -34,7 +47,13 @@ export class PagesComponent implements OnInit {
         this.page.posts=this.page.posts.reverse();
         console.log(response);
         
+        if(this.page.pageslike.some(pagelike => pagelike.user_id ==parseInt(this.logged_user_id))){
+          this.islike=true;
+        }else{
+          this.islike=false;
+        }
       }
+      
     )
 
     this.formPost=this._formBuilder.group({
@@ -79,23 +98,54 @@ export class PagesComponent implements OnInit {
 
 
 
-  // uploadImagePost(event){
-  //   this.filesPost = event.target.files[0]
-  //   // console.log(this.files);
-    
-  // }
+    // this.page_id = this.route.snapshot.params['id']
+    // this._apiService.getOne('pages', this.page_id)
+    //   .subscribe(
+    //     (response: any) => {
+    //       this.page = response
+    //       console.log(response);
 
+    //     }
+    //   )
 
+//     this._apiService.get('pages')
+//       .subscribe(
+//         (response: any) => {
+//           this.listpages = response
+//           console.log(response);
 
-  // addPicToPost(){
-  //   const formDataPost = new FormData();
-    
-  //   formDataPost.append('image', this.filesPost, this.filesPost.name)
-  //   this._apiService.post(`postpicture/${this.post_id}`, formDataPost)
-  //   .subscribe((response:any)=>{
-  //     this.dataPost = response;
-  //     this.formPost.get('image').reset();
-  //   })
-  // }
+//         }
+//       )
 
+//   }
+//   goToPage(page_id: number) {
+//     this._router.navigateByUrl(`pages/${page_id}`);
+//   }
+//   addLike(){
+//     this._apiService.post('pagelikes',{
+//       user_id: parseInt(this.logged_user_id),
+//       page_id:this.page.id,
+//     }).subscribe((response:any)=>{
+//       window.location.reload()
+//       this.ngOnInit()
+//     },(error:any)=>{})
+//   }
+
+//   deleteLike(){
+//     this._apiService.get('pagelikes')
+//     .subscribe((pagelikes:any)=>
+//     {
+//       let pagelike_id = pagelikes.filter((Pagelike:any)=> 
+//       {return (Pagelike.user_id==parseInt(localStorage.getItem('id')))
+//               || (Pagelike.page_id==parseInt(localStorage.getItem('id')))
+//     })[0].id
+//     // delete friendship
+//     this._apiService.delete('pagelikes',pagelike_id)
+//     .subscribe((response:any)=>{
+//       window.location.reload()
+//       this.ngOnInit()
+//     },(error:any)=>{})
+//     })
+//   }
+// //change
 }

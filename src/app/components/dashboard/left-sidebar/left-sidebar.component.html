@@ -22,12 +22,23 @@
 
 </html>
 <div class="left-sidebar">
-    <div class="imp-links">
-        <a href="#"><i class="fa-solid fa-flag "></i>Pages</a>
-        <a href="#"><i class="fa-solid fa-user-group"></i>Friends</a>
-        <a href="#"><i class="fa-solid fa-users"></i>savepost</a>
+    <div class="imp-links " >
+        <a href="#" *ngFor="let listpages of listpages;index as i"><i class="fa-solid fa-flag "></i>Pages</a>
+        <a href="#" *ngFor="let listfriends of listfriends;index as i"><i class="fa-solid fa-user-group"></i>Friends</a>
+        <a href="#" *ngFor="let listsaveposts of listsaveposts;index as i"><i class="fa-solid fa-users"></i>savepost</a>
     </div>
+
+  
     <hr>
+    <div class="ml-2">
+      <p>{{listpages}} </p>
+    </div>
+    <div class="ml-2">
+      <p>{{listfriends}} </p>
+    </div>
+    <div class="ml-2">
+      <p>{{listsaveposts} </p>
+    </div>
     <div class="shortcut-link">
         <p class="text-muted ms-4 mt-4">Your Shortcuts</p>
         <a href="#" class="ms-4 text-muted"><img  class="rounded-circle "src="https://i.postimg.cc/3JHVf7vG/shortcut-1.png"><span class="ms-1">Develope</span></a>
