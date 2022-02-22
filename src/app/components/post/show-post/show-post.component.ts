@@ -55,7 +55,7 @@ export class ShowPostComponent implements OnInit {
       this._apiService.post('notifications', {
         from_user_id: localStorage.getItem('id'),
         post_id: this.post_id,
-        type: 'liked',
+        type: 'liked your post',
       }).subscribe((response: any) => {
         this.notificationLike = response;
       },
@@ -121,7 +121,7 @@ export class ShowPostComponent implements OnInit {
     this._apiService.post('notifications', {
       from_user_id: localStorage.getItem('id'),
       post_id: this.post_id,
-      type: 'shared',
+      type: 'shared your post',
     }).subscribe((response: any) => {
         this.notificationShare=response;
     },

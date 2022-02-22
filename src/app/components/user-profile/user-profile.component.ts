@@ -1,3 +1,4 @@
+import { Friendrequest } from './../../models/friendrequest';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -24,6 +25,11 @@ export class UserProfileComponent implements OnInit {
   profilepictures:ProfilePicture[] = [];
   storageURL = environment.storage_URL
   isfriend:boolean=false;
+
+  isSent:boolean=false;
+  friendRequests:Friendrequest[]=[];
+  friendRequest:Friendrequest;
+
    logged_user_id = localStorage.getItem('id')
 
   constructor(private route:ActivatedRoute, private _apiUserService:ApiUserService, 
@@ -54,12 +60,7 @@ export class UserProfileComponent implements OnInit {
           pics = pics.filter((pic:any) => pic.user_id == this.user.id)
           this.profilepictures = pics
         })
-        
-        
-
-      }
-      
-    )
+      })
 
     
     this._apiService.getOne('users',this.user_id)
@@ -92,23 +93,32 @@ export class UserProfileComponent implements OnInit {
               let a_timestamp:any = a.shared_at? a.shared_at: a.created_at;
               return new Date(b_timestamp).getTime() - new Date(a_timestamp).getTime()
             });
-         },  500)
-            
-    
-        
-          
+         },  500)        
         })
 
-
-
         this.user.posts=this.user.posts.reverse()
-
         // [parseInt(`${localStorage.getItem('id')}`)-1]
         // alert(JSON.stringify(response))
         
       },
       (error:any)=> {}
     )
+      //to see if friend request sent or not 
+      this._apiService.get('friendrequests').subscribe(
+        (response:any)=>{
+          this.friendRequests=response;
+          this.friendRequest = this.friendRequests.find(
+            i=> i.user_id==parseInt(this.logged_user_id) && i.friend_id==this.user_id
+          );
+          if (this.friendRequest==undefined){
+            this.isSent = false;
+          }
+          else if(this.friendRequest!=undefined){
+            this.isSent =true;
+          }
+          
+        }
+      )
   }
   goToProfile(user_id:number){
     this._router.navigateByUrl(`users/${user_id}`)
@@ -120,10 +130,12 @@ export class UserProfileComponent implements OnInit {
       user_id: parseInt(this.logged_user_id),
       friend_id: this.user.id,
     }).subscribe((response:any)=>{
-      // window.location.reload()
+      window.location.reload()
       console.log(response);
-      this.isfriend=true; 
-    },(error:any)=>{})
+      this.isSent=true; 
+    },(error:any)=>{
+      alert('friend request already sent !!');
+    })
   }
 
   deleteFriendRequest(){
@@ -139,6 +151,23 @@ export class UserProfileComponent implements OnInit {
       this.ngOnInit()
     },(error:any)=>{})
     })
+  }
+
+  deleteFriend(){
+
+    this._apiService.get('friends')
+    .subscribe((friends:any)=>
+    {
+      let friendship_id = friends.filter((friendship:any)=> 
+      {return (friendship.user_id==parseInt(localStorage.getItem('id')) && friendship.friend_id==this.user.id)
+              || (friendship.friend_id==parseInt(localStorage.getItem('id')) && friendship.user_id==this.user.id)
+    })[0].id
+    // delete friendship
+    this._apiService.delete('friendship',friendship_id).subscribe((response:any)=>{
+      this.ngOnInit()
+    },(error:any)=>{})
+    })
+
   }
 
   expandPic(data:string){

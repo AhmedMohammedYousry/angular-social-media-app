@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-8 main-section">
       <div class="h4 text-secondary" *ngIf="has_friend_request"> Friend Requests </div>
-      <div *ngFor="let friend_request of friend_requests; let i as index">
+      <div>
 
         <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header " *ngFor="let friend_request of friend_requests" >
           <div class="dropdown-list-image mr-3 row" >
@@ -27,8 +27,8 @@
               at: {{friend_request.created_at|date:'medium'}}
             </div>
             <div class="float-right">
-              <a class="btn btn-success " (click)="accept(friend_request.user.id)">Accept</a>
-              <a class="btn btn-danger " (click)="ignore()">Ignore</a>
+              <a class="btn btn-outline-success btn-light m-2" (click)="accept(friend_request.user.id,friend_request.id)">Accept</a>
+              <a class="btn btn-outline-danger btn-light m-2" (click)="delete(friend_request.id)">Ignore</a>
 
             </div>
           </div>

@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user';
 import { ApiUserService } from 'src/app/services/api-user.service';
 import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
+import { number } from 'joi';
 
 @Component({
   selector: 'app-show-users',
@@ -46,19 +47,46 @@ export class ShowUsersComponent implements OnInit {
     
   }
 
-  accept(friend_id:number){
+  accept(friend_id:number,id:number){
+    //make friends
     this._apiService.post('friendship',{
-      user_id:localStorage.getItem('id'),
+      user_id:parseInt(localStorage.getItem('id')),
       friend_id:friend_id,
     }).subscribe((response:any)=>{
+      alert('we are now friends');
     },
     (error:any)=>{
     });
+    //delete friend request
+    this._apiService.delete('friendrequests',id).subscribe((response:any)=>{
+      this.ngOnInit()
+    },(error:any)=>{
+
+    });
+
+    this._apiService.post('notifications', {
+      from_user_id: parseInt(localStorage.getItem('id')),
+      to_user_id:friend_id,
+      type: 'accepted your friend request',
+      post_id:null,
+    }).subscribe((response: any) => {
+       
+    },
+      (error: any) => { });
+      // this.pusherService.notificationChannel.trigger('client-event', this.notificationShare);
+
 
   }
 
-  ignore(){
-
+  delete(id:number){
+     //delete friend request
+     this._apiService.delete('friendrequests',id).subscribe((response:any)=>{
+      this.ngOnInit()
+    },(error:any)=>{
+      
+    });
+     
+   
   }
 
   // friend(currentUser:User){

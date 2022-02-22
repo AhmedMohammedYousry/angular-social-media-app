@@ -39,14 +39,23 @@
                 </div>
                 
                 <div class="pd-right">
-                    <button type="button" *ngIf="!isfriend" (click)="sendFriendRequest()"> <i class="fas fa-user-plus icon"></i>ِAdd to Friends</button>
+                    <button type="button" *ngIf="!isSent && !isfriend" (click)="sendFriendRequest()"> <i class="fas fa-user-plus icon"></i>ِAdd to Friends</button>
                     <!-- <button type="button" *ngIf="isfriend"><i class="fas fa-user-friends"></i>Friends</button> -->
-                    <div class="dropdown" *ngIf="isfriend">
+                    <div class="dropdown" *ngIf="isSent && !isfriend">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                           Pending ... 
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                           <li class="dropdown-item" style="cursor: pointer;" (click)="deleteFriendRequest()">Delete friend request</li>
+                        </ul>
+                      </div>
+
+                      <div class="dropdown" *ngIf="isfriend">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Friends
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li class="dropdown-item" style="cursor: pointer;" (click)="deleteFriend()">Unfriend</li>
                         </ul>
                       </div>
                     <!-- <button type="button"><img src="https://i.postimg.cc/NMG9KYNv/message.png"> Messages</button> -->
