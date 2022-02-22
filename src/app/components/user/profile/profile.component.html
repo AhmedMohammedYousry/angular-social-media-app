@@ -118,13 +118,11 @@
             <div class="title-box">
               <h3>Pages</h3>
               <a href="">Pages</a>
-  
-              
             </div>
             <div class="col-md-4" *ngFor="let page of user.pages; index as i">
               <figure (click)="goToPage(page.id)">
-                <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo">
-                <figcaption class="small text-center">{{page.page_name}}</figcaption>
+                <img class="img-fluid w-25 h-25"  src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo"><br>
+                <figcaption class="small ">{{page.page_name}}</figcaption>
               </figure>
             </div>
           </div>

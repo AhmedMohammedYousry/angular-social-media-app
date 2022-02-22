@@ -5,7 +5,7 @@ body{
  }
  .profile-cover {
      position: relative;
-     z-index: 0;
+     /* z-index: 0; */
  }
  .container{
   padding: 20px;
@@ -15,29 +15,29 @@ body{
     color:white;
 
  }
- 
+/*  
  .panel {
-     margin-bottom: 30px;
+     margin-bottom: 10px;
      color: #696969;
      background-color: #fff;
      border-radius: 5px;
      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
- }
+ } */
  
  .profile-cover__action {
-     display: -ms-flexbox;
-     display: -webkit-box;
-     display: flex;
+    display: -ms-flexbox;
+     display: -webkit-box; 
+      display: flex; 
      padding: 120px 30px 10px 153px;
-     border-radius: 5px 5px 0 0;
-     -ms-flex-wrap: wrap;
+      border-radius: 5px 5px 0 0; 
+      -ms-flex-wrap: wrap;
      flex-wrap: wrap;
      -ms-flex-pack: end;
      -webkit-box-pack: end;
      justify-content: flex-end;
-     overflow: hidden;
-     background: url(../../../assets/images/page.jpeg) no-repeat;
-     background-size: cover;
+     /* overflow: hidden; */
+     background: url(../../../assets/images/page.jpeg) no-repeat; 
+     background-size: cover;  
  }
  
  .profile-cover__action > .btn {
@@ -51,6 +51,8 @@ body{
      left: 30px;
      text-align: center;
      z-index: 1;
+     max-height: 300px;
+
  }
  
  .profile-cover__img > img {
@@ -66,7 +68,7 @@ body{
  }
  
  .profile-cover__img > img + .h3 {
-     margin-top: 6px;
+     /* margin-top: 6px; */
  }
  
  .profile-cover__info .nav {
@@ -84,28 +86,28 @@ body{
  }
  
  .profile-cover__info .nav li {
-     margin-top: 13px;
-     margin-bottom: 13px;
+     /* margin-top: 13px;
+     margin-bottom: 13px; */
  }
  
  .profile-cover__info .nav li:not(:first-child) {
-     margin-left: 30px;
+     /* margin-left: 30px;
      padding-left: 30px;
-     border-left: 1px solid #eee;
+     border-left: 1px solid #eee; */
  }
  
  .profile-cover__info .nav strong {
-     display: block;
+     /* display: block;
      margin-bottom: 10px;
      color: #e16123;
-     font-size: 34px;
+     font-size: 34px; */
  }
  .btn{
    margin-left: 10px;
  }
  @media (min-width: 481px) {
      .profile-cover__action > .btn {
-         min-width: 125px;
+         min-width: 200px;
      }
  
      .profile-cover__action > .btn > span {
@@ -114,18 +116,18 @@ body{
  }
  
  @media (max-width: 600px) {
-     .profile-cover__info .nav {
+     .profile-cover__img {
          display: block;
          margin: 90px auto 0;
          padding-left: 30px;
          padding-right: 30px;
      }
  
-     .profile-cover__info .nav li:not(:first-child) {
-         margin-top: 8px;
-         margin-left: 0;
-         padding-top: 18px;
-         padding-left: 0;
+     .profile-cover__info  {
+         margin-top: 8px; 
+         margin-left: 0; 
+         padding-top: 18px; 
+         padding-left: 0; 
          border-top: 1px solid #eee;
          border-left-width: 0;
      }
