@@ -45,6 +45,7 @@ export class ProfileComponent implements OnInit {
         this.user = response
         // alert(JSON.stringify(this.user.posts))
         // get shared posts by user
+        this.user.posts=this.user.posts.filter((post:any)=> post.page_id == null)
         this._apiService.get("shares").subscribe((res:any)=>{
           let shares=res
           shares=shares.filter((share:any)=>{return share.user_id==this.user.id})

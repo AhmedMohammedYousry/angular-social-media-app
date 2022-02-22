@@ -8,9 +8,9 @@
   <div class="post-container">
     <div class="post-row">
         <div class="user-profile">
-            <img src="{{storageURL}}/profiles/{{profilePic}}">
+            <img src="{{storageURL}}/{{imageFolder}}/{{profilePic}}">
             <div>
-                <p><a routerLink="/users/{{postOwnerId}}" style="text-decoration: none;color: gray;font-size: large;"
+                <p><a routerLink="/{{nameLink}}/{{postOwnerId}}" style="text-decoration: none;color: gray;font-size: large;"
                     >{{postOwner}}</a></p>
                <span>{{ created_at| date:'medium'}}</span>
             </div>

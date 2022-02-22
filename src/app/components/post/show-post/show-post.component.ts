@@ -37,7 +37,8 @@ export class ShowPostComponent implements OnInit {
   @Input() saveposts: SavePost = new SavePost();
   notificationLike:Notification=new Notification();
   notificationShare:Notification=new Notification();
-
+  @Input() imageFolder: string = "profiles";
+  @Input() nameLink: string = "users";
 
   likebtn() {
 

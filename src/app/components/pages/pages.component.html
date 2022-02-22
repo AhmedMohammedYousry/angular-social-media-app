@@ -21,19 +21,20 @@
 
     <div class="row">
       <div class="col-lg-12">
+        
         <div class="panel profile-cover ">
           <div class="profile-cover__img">
-            <img class="rounded-circle" src="https://i.postimg.cc/WbdZmNs2/member-1.png">
+            <img class="rounded-circle page-photo" src="{{storageURL}}/pages/{{page.profile_image}}">
             <h3 class="h3 text-muted">{{page.page_name}}</h3>
           </div>
-          <div class="profile-cover__action " data-overlay="0.3">
+          <div class="profile-cover__action " data-overlay="0.3" style="background: url({{storageURL}}/pages/covers/{{page.cover_image}});">
             <button class="btn btn-rounded button" *ngIf="!islike"(click)="addLike()">
               <i class="fa fa-plus pe-2"></i>
               <span>Like</span>
             </button>
             <div class="dropdown" *ngIf="islike">
               <button class="btn btn-rounded button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-               Like me
+               Liked
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li class="dropdown-item" style="cursor: pointer;" (click)="deleteLike()">un like</li>
@@ -47,33 +48,26 @@
             </ul>
           </div>
         </div>
-        <div class="panel">
+        <div class="panel" *ngIf="isPageOwner">
           <div class="panel-heading">
             <h3 class="panel-title">Activity Feed</h3>
           </div>
           <div class="panel-content panel-activity">
             <div class="row">
-              <form action="#" class="panel-activity__status">
+              <form class="panel-activity__status" [formGroup]="formPost" (ngSubmit)="create_post()">
                 <textarea name="user_activity" placeholder="Share what you've been up to..."
-                  class="form-control"></textarea>
+                  class="form-control" formControlName="content"></textarea>
                 <div class="actions">
                   <div class="btn-group">
                     <button type="button" class="btn-link" title="" data-toggle="tooltip"
                       data-original-title="Post an Image">
-                      <i class="fa fa-image"></i>
+                      <label for="file-uploadPost" class="custom-file-upload">
+                        <i class="fa fa-image"></i>
+                    </label> 
+                    <input id="file-uploadPost" type="file" name="image" formControlName="image" class="form-control"
+                    (change)="uploadImagePost($event)">
                     </button>
-                    <button type="button" class="btn-link" title="" data-toggle="tooltip"
-                      data-original-title="Post an Video">
-                      <i class="fa fa-video-camera"></i>
-                    </button>
-                    <button type="button" class="btn-link" title="" data-toggle="tooltip"
-                      data-original-title="Post an Idea">
-                      <i class="fa fa-lightbulb-o"></i>
-                    </button>
-                    <button type="button" class="btn-link" title="" data-toggle="tooltip"
-                      data-original-title="Post an Question">
-                      <i class="fa fa-question-circle-o"></i>
-                    </button>
+                    
                   </div>
                   <button type="submit" class="btn btn-sm btn-rounded button">
                     Post
@@ -112,13 +106,13 @@
           <div class="card rounded">
             <div class="card-body">
               <h6 class="card-title">suggestions Pages for you</h6>
-              <div class="d-flex justify-content-between mb-2 pb-2 border-bottom " (click)="goToPage(listpages.id)" *ngFor="let listpages of listpages;index as i" >
-                <div style="cursor: pointer;"class="d-flex align-items-center hover-pointer  ">
-                  <img class="rounded-circle me-3" src="https://i.postimg.cc/WbdZmNs2/member-1.png">
+              <div class="d-flex justify-content-between mb-2 pb-2 border-bottom "  *ngFor="let listpages of listpages;index as i" >
+                <div class="d-flex align-items-center hover-pointer  ">
+                  <img class="rounded-circle me-3 page-photo" src="{{storageURL}}/pages/{{listpages.profile_image}}">
                                   <!-- {{listpages.profile_image}} -->
-
+                                  <!-- "https://i.postimg.cc/WbdZmNs2/member-1.png" -->
                   <div class="ml-2">
-                    <p>{{listpages.page_name}} </p>
+                    <p><a class="pageslist-names" href="/pages/{{listpages.id}}">{{listpages.page_name}}</a> </p>
                   </div>
                 </div>
               </div>
@@ -140,8 +134,8 @@
 
       <div class="col-lg-8">
         <ul class="panel-activity__list ">
-          <li *ngFor="let post of page.posts">
-            <i class="activity__list__icon fa fa-question-circle-o"></i>
+          <li *ngFor="let post of page.posts.reverse();let i = index">
+            <!-- <i class="activity__list__icon fa fa-question-circle-o"></i>
             <div class="activity__list__header">
               <img src="https://i.postimg.cc/WbdZmNs2/member-1.png" alt="" />
               <a href="#" class="h5">{{page.page_name}}</a>
@@ -156,7 +150,29 @@
               <a href="#"> <i class="fa fa-thumbs-up"></i></a>
               <a href="#"> <i class="fa fa-comments"></i></a>
               <span> <i class="fa fa-clock"></i></span>
-            </div>
+            </div> -->
+            <app-show-post [postOwner]="page.page_name" [postOwnerId]="page.id"
+                     [postContent]="post.content"
+                     [created_at]="post.created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
+                     [post_id]="post.id" [post_likes_number]="post.post_likes.length"
+                     [profilePic]="page.profile_image" [imageFolder]="'pages'"
+                     [hasPic]="post.hasPic"
+                     [postPic]="post.postPic"
+                     [showDeleteButton]="false"
+                     
+                     ></app-show-post> 
+                     <app-create-comment [post_id]="post.id"></app-create-comment>
+                    
+                        <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          Show comments
+                        </a>   
+                      <div class="collapse" id="allposts{{i}}">
+                        <div *ngFor='let comment of post.comments ;let j = index'>
+                            <app-show-comment [commentOwner]="comment.user.name" [commentContent]="comment.content"
+                             [comment_created_at]="comment.created_at" [commentOwnerPic]="comment.user.profilePic"
+                             [commentOwnerId]="comment.user.id"></app-show-comment>
+                            </div>
+                      </div>
           </li>
         </ul> 
 
