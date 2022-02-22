@@ -30,6 +30,7 @@ export class User{
     intro:string="";
     save_post:any=0;
     notifications:Notification[]=[];
+    friend_requests:any[]=[];
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();
