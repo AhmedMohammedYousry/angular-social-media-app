@@ -115,24 +115,27 @@ export class UserProfileComponent implements OnInit {
 
   }
   
-  addFriend(){
-    this._apiService.post('friendship',{
+  sendFriendRequest(){
+    this._apiService.post('friendrequests',{
       user_id: parseInt(this.logged_user_id),
       friend_id: this.user.id,
     }).subscribe((response:any)=>{
-      window.location.reload()
+      // window.location.reload()
+      console.log(response);
+      this.isfriend=true; 
     },(error:any)=>{})
   }
-  unfriend(){
-    this._apiService.get('friends')
+
+  deleteFriendRequest(){
+    this._apiService.get('friendrequests')
     .subscribe((friends:any)=>
     {
       let friendship_id = friends.filter((friendship:any)=> 
       {return (friendship.user_id==parseInt(localStorage.getItem('id')) && friendship.friend_id==this.user.id)
-              || (friendship.friend_id==parseInt(localStorage.getItem('id')) && friendship.user_id==this.user.id)
+              // || (friendship.friend_id==parseInt(localStorage.getItem('id')) && friendship.user_id==this.user.id)
     })[0].id
     // delete friendship
-    this._apiService.delete('friends',friendship_id).subscribe((response:any)=>{
+    this._apiService.delete('friendrequests',friendship_id).subscribe((response:any)=>{
       this.ngOnInit()
     },(error:any)=>{})
     })

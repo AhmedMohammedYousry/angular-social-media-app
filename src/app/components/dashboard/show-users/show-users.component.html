@@ -1,22 +1,61 @@
 <head>
-    
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-  
-  </head>
-  <div class="container">
-      <div class="row">
-          <div class="col-md-4">
-            <app-left-sidebar></app-left-sidebar>
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+</head>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 main-section">
+      <div class="h4 text-secondary" *ngIf="has_friend_request"> Friend Requests </div>
+      <div *ngFor="let friend_request of friend_requests; let i as index">
+
+        <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header " *ngFor="let friend_request of friend_requests" >
+          <div class="dropdown-list-image mr-3 row" >
+            <img class="rounded-circle col-md-4" 
+            src="{{storageURL}}/profiles/{{friend_request.user.profilePic}}" alt="" />
           </div>
-          <div class="col-md-8 main-section">
-            
-            <div *ngFor="let user of users; let i as index">
-                <app-show-user class="m-2"
-                [user_name]="user.name" [user_id]="user.id" [friends_number]="user.friends.length+user.friend.length"
-                [user_intro]="user.intro"
-                ></app-show-user>
+          <div class="font-weight-bold mr-3 ms-3">
+            <div class="text-truncate">
+              <strong class="h5">{{friend_request.user.name}}: </strong>
+              <span>sent you a friend request.  </span> 
             </div>
-              
+            <div class="small text-secondary">
+              at: {{friend_request.created_at|date:'medium'}}
+            </div>
+            <div class="float-right">
+              <a class="btn btn-success " (click)="accept(friend_request.user.id)">Accept</a>
+              <a class="btn btn-danger " (click)="ignore()">Ignore</a>
+
+            </div>
           </div>
+        </div>
+        <!-- <app-show-user class="m-2" [user_name]="user.name" [user_id]="user.id"
+          [friends_number]="user.friends.length+user.friend.length" [user_intro]="user.intro"></app-show-user> -->
       </div>
+
+    </div>
+    <div class="col-md-2">
+    </div>
   </div>
+  <br>
+  <br>
+  <div class="row">  </div>
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 main-section">
+      <div class="h4 text-secondary"> Other users </div>
+      <div *ngFor="let user of users; let i as index">
+        <app-show-user class="m-2" [user_name]="user.name" [user_id]="user.id"
+          [friends_number]="user.friends.length+user.friend.length" [user_intro]="user.intro"></app-show-user>
+      </div>
+
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>
