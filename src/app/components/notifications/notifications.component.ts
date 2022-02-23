@@ -1,7 +1,7 @@
 import { PusherService } from './../../services/pusher.service';
 import { Notification } from './../../models/notification';
 import { User } from 'src/app/models/user';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
@@ -20,6 +20,7 @@ export class NotificationsComponent implements OnInit {
   @Input() comment: Notification;
   @Input() share: Notification;
   @Input() accept: Notification;
+  @Output() hasNewNotification = new EventEmitter<boolean>();;
 
 
   user: User;
@@ -52,23 +53,28 @@ export class NotificationsComponent implements OnInit {
     if (this.like != undefined) {
       this.pusherService.channel.trigger('client-event', this.like);
       this.notifications.push(this.like);
+      this.setHasNewNotification(true);
     }
 
     if (this.comment != undefined){
       this.pusherService.channel.trigger('client-event', this.comment);
       this.notifications.push(this.comment);
-
+      this.setHasNewNotification(true);
     }
 
     if (this.share != undefined){
       this.pusherService.channel.trigger('client-event', this.share);
       this.notifications.push(this.share);
+      this.setHasNewNotification(true);
+
 
     }
 
     if (this.accept != undefined){
       this.pusherService.channel.trigger('client-event', this.accept);
       this.notifications.push(this.accept);
+      this.setHasNewNotification(true);
+
 
     }
   }
@@ -76,6 +82,10 @@ export class NotificationsComponent implements OnInit {
   getPost(post_id: number) {
     //we need to make post component 
     this._router.navigateByUrl(`posts/${post_id}`);
+  }
+
+  setHasNewNotification(para:boolean){
+    this.hasNewNotification.emit(para);
   }
 
 }

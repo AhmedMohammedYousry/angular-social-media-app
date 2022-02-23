@@ -22,7 +22,8 @@ export class NavigationHeaderComponent implements OnInit {
   page:Page[]=[];
   /// @Output() userName: EventEmitter<any> = new EventEmitter<any>(); 
   formsearch = new FormGroup({});
-  storageURL = environment.storage_URL
+  storageURL = environment.storage_URL;
+  isBadgeHidden:boolean=false;
   constructor(private _userService: UserService, private _router: Router, private _apiService: ApiService, private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
