@@ -1,3 +1,4 @@
+import { Notification } from './../../../models/notification';
 import { Post } from 'src/app/models/post';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,6 +13,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class CreateCommentComponent implements OnInit {
 
   formComment=new FormGroup({});
+  notificationComment:Notification;
   @Input() post_id:number=0;
 
   constructor(private _apiService:ApiService,private _formBuilder:FormBuilder) { }
@@ -39,9 +41,9 @@ export class CreateCommentComponent implements OnInit {
     this._apiService.post('notifications',{
       from_user_id:localStorage.getItem('id'),
       post_id:this.post_id,
-      type:'commented',
+      type:'commented on your post',
     }).subscribe((response:any)=>{
-
+      this.notificationComment =response;
     },
     (error:any)=>{});
   }

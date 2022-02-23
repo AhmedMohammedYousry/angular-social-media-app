@@ -54,12 +54,12 @@
                 <strong>{{notification.from_user.name}}: </strong>
                 <span>{{notification.type}}</span> 
               </div>
-              <div class="small">
+              <!-- <div class="small">
                 your post:
                 {{notification.post.content}}
-              </div>
+              </div> -->
               <div class="small text-secondary">
-                at: {{notification.created_at|date:'medium'}}
+                at: {{notification.created_at|dateAgo}}
               </div>
             </div>
           </div>

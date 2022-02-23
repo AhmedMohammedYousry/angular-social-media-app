@@ -37,8 +37,8 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient( 109deg , #ff2403, #000000);
-
+    /* background: linear-gradient( 109deg , #ff2403, #000000); */
+    background-color: #0a0a0a;
     padding: 5px 5%;
     position: sticky;
     top: 0;

@@ -120,15 +120,13 @@ export class ShowPostComponent implements OnInit {
     });
 
     this._apiService.post('notifications', {
-      from_user_id: localStorage.getItem('id'),
+      from_user_id: parseInt(localStorage.getItem('id')),
       post_id: this.post_id,
       type: 'shared your post',
     }).subscribe((response: any) => {
         this.notificationShare=response;
     },
       (error: any) => { });
-      this.pusherService.notificationChannel.trigger('client-event', this.notificationShare);
-
   }
 
   savePost() {

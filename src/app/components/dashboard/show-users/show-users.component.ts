@@ -5,6 +5,7 @@ import { ApiUserService } from 'src/app/services/api-user.service';
 import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
 import { number } from 'joi';
+import {Notification} from '../../../models/notification';
 
 @Component({
   selector: 'app-show-users',
@@ -19,6 +20,7 @@ export class ShowUsersComponent implements OnInit {
   is_friend:any;
   has_friend_request:boolean=false;
   storageURL = environment.storage_URL;
+  notificationAccept:Notification;
 
   constructor(private _apiService:ApiService, private _apiUserService:ApiUserService) { }
 
@@ -70,6 +72,7 @@ export class ShowUsersComponent implements OnInit {
       type: 'accepted your friend request',
       post_id:null,
     }).subscribe((response: any) => {
+      this.notificationAccept = response
        
     },
       (error: any) => { });
