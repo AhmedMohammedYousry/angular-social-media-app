@@ -10,7 +10,8 @@
         <i class="fas fa-bell icon position-relative" matBadge="."
         mat-raised-button matBadgeColor="warn"
         [matBadgeHidden]="isBadgeHidden"
-        (click)="isBadgeHidden = !isBadgeHidden"
+        (click)="toggle()"
+        matBadgeSize="small"
         >         
         </i> 
         </a>

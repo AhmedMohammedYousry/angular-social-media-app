@@ -1,3 +1,4 @@
+import { NotificationService } from './../../services/notification.service';
 import { PusherService } from './../../services/pusher.service';
 import { Notification } from './../../models/notification';
 import { User } from 'src/app/models/user';
@@ -20,7 +21,6 @@ export class NotificationsComponent implements OnInit {
   @Input() comment: Notification;
   @Input() share: Notification;
   @Input() accept: Notification;
-  @Output() hasNewNotification = new EventEmitter<boolean>();;
 
 
   user: User;
@@ -29,7 +29,9 @@ export class NotificationsComponent implements OnInit {
   constructor(
     private _apiService: ApiService,
     private _router: Router,
-    private pusherService: PusherService) { }
+    private pusherService: PusherService,
+    private notify:NotificationService,
+    ) { }
 
   ngOnInit(): void {
 
@@ -53,29 +55,26 @@ export class NotificationsComponent implements OnInit {
     if (this.like != undefined) {
       this.pusherService.channel.trigger('client-event', this.like);
       this.notifications.push(this.like);
-      this.setHasNewNotification(true);
+      this.notify.changeValue(false);
     }
 
     if (this.comment != undefined){
       this.pusherService.channel.trigger('client-event', this.comment);
       this.notifications.push(this.comment);
-      this.setHasNewNotification(true);
+      this.notify.changeValue(false);
+
     }
 
     if (this.share != undefined){
       this.pusherService.channel.trigger('client-event', this.share);
       this.notifications.push(this.share);
-      this.setHasNewNotification(true);
-
-
+      this.notify.changeValue(false);
     }
 
     if (this.accept != undefined){
       this.pusherService.channel.trigger('client-event', this.accept);
       this.notifications.push(this.accept);
-      this.setHasNewNotification(true);
-
-
+      this.notify.changeValue(false);
     }
   }
 
@@ -84,8 +83,6 @@ export class NotificationsComponent implements OnInit {
     this._router.navigateByUrl(`posts/${post_id}`);
   }
 
-  setHasNewNotification(para:boolean){
-    this.hasNewNotification.emit(para);
-  }
+  
 
 }
