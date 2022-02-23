@@ -30,6 +30,8 @@ body{
 }
 
 
+
+
 .right-sidebar{
     -webkit-box-shadow: 3px 3px 3px rgba(0,0,0,0.1), -3px 0 3px rgba(0,0,0,0.05);
     box-shadow: 3px 3px 3px rgba(0,0,0,0.1), -3px 0 3px rgba(0,0,0,0.05);
@@ -200,6 +202,22 @@ body{
 	width: 8px;
 }
 
+
+.name h4:before {
+	background: #1a8a34;
+	border-radius: 50%;
+	content: "";
+	display: inline-block;
+	height: 8px;
+	margin: 0 8px 0 0;
+	width: 8px;
+}
+
+.name h4{
+font-size: 12px;
+margin-top: 4px;
+margin-bottom: 4px;
+}
 #live-chat h4 {
 	font-size: 12px;
 }
@@ -256,7 +274,7 @@ body{
 }
 
 .chat-history {
-	height: 252px;
+	height: 300px;
 	padding: 8px 24px;
 	overflow-y: scroll;
 }
@@ -270,16 +288,19 @@ body{
 	float: left;
 }
 
-.chat-message-content {
-	margin-left: 56px;
+.chat-message-content-right {
+    float: right;
 }
 
+
 .chat-time {
-	float: right;
 	font-size: 10px;
+    color: #626262;
 }
 
 .chat-feedback {
 	font-style: italic;	
 	margin: 0 0 0 80px;
 }
+
+/******************************chat*******************/

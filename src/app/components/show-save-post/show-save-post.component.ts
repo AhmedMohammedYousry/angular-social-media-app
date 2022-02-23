@@ -20,16 +20,16 @@ import { SavePost } from 'src/app/models/savepost';
 })
 export class ShowSavePostComponent implements OnInit {
 
-  user:User = new User();
-  saveposts:SavePost[] =[];
-
-  post:Post = new Post();
-
-  posts:Post[]=[];
-  profilepictures:ProfilePicture[] = [];
+  user: User = new User();
+  saveposts: SavePost[] = [];
+  savepost:SavePost=new SavePost();
+  post: Post = new Post();
+  logged_user_id = localStorage.getItem('id')
+  posts: Post[] = [];
+  profilepictures: ProfilePicture[] = [];
   storageURL = environment.storage_URL
-  constructor(private _apiUserService:ApiUserService, private _httpClient:HttpClient,
-    private _apiService:ApiService,private _router:Router,private _matDialog:MatDialog) { 
+  constructor(private _apiUserService: ApiUserService, private _httpClient: HttpClient,
+    private _apiService: ApiService, private _router: Router, private _matDialog: MatDialog) {
 
   }
 
@@ -40,17 +40,31 @@ export class ShowSavePostComponent implements OnInit {
     let options = {
       'headers': headers
     }
-    this._apiService.get('saveposts')
-    .subscribe(
-      (response:any)=>{
-       // alert(JSON.stringify(response))
-        this.saveposts= response
-      },
-      (error:any)=> {}
-    )   
+ /*   this._apiService.get('saveposts')
+      .subscribe(
+        (response: any) => {
+          // alert(JSON.stringify(response))
+            this.saveposts = response
+        },
+        (error: any) => { }
+      )*/
+
+  this._apiService.getOne('users',parseInt(`${localStorage.getItem('id')}`))
+      .subscribe(
+        (response: any) => {
+            this.user = response;
+            this.saveposts=this.user.save_post;
+            console.log(this.user)
+        },
+
+  
+        (error: any) => { }
+      )
+
+
   }
 
-  goToProfile(user_id:number){
+  goToProfile(user_id: number) {
     this._router.navigateByUrl(`users/${user_id}`);
 
   }

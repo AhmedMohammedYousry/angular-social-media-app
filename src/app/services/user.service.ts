@@ -58,5 +58,13 @@ export class UserService {
       return false;  
   }
 
+  isPageLiked(userOne:User,pageId:any){
+    
+    if(userOne.page_likes.some(page => page.page_id == pageId)){
+      return true;
+    } 
+      return false;  
+  }
+
 
 }

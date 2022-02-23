@@ -103,8 +103,8 @@ created_page_id:any;
                 const formDataCover = new FormData();
               formDataCover.append('imageCover', this.coverFile, this.coverFile.name)
               this._apiService.post(`pagecover/${this.created_page_id}`, formDataCover)
-              .subscribe((response:any)=>{
-                this.coverData = response;
+              .subscribe((resp:any)=>{
+                this.coverData = resp;
                 this.formCreatePage.get('imageCover').reset();
                 this._router.navigateByUrl('/pages');
               })

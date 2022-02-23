@@ -1,137 +1,104 @@
 <div class="right-sidebar">
-    <div class="sidebar-title">
-      <h4>Events</h4>
-      <a href="#" class="see">See All</a>
+  <div class="sidebar-title">
+    <h4>Events</h4>
+    <a href="#" class="see">See All</a>
+  </div>
+  <div class="event">
+    <div class="left-event">
+      <h3>18</h3>
+      <span>March</span>
     </div>
-    <div class="event">
-      <div class="left-event">
-        <h3>18</h3>
-        <span>March</span>
-      </div>
-      <div class="right-event">
-        <h4>Social Media</h4>
-        <p><i class="fas fa-map-marker-alt"></i> Willson Tech Park</p>
-        <a href="#">More Info</a>
-      </div>
+    <div class="right-event">
+      <h4>Social Media</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Willson Tech Park</p>
+      <a href="#">More Info</a>
     </div>
-    <div class="event">
-      <div class="left-event">
-        <h3>22</h3>
-        <span>June</span>
-      </div>
-      <div class="right-event">
-        <h4>Mobile Marketing</h4>
-        <p><i class="fas fa-map-marker-alt"></i> Willson Tech Park</p>
-        <a href="#">More Info</a>
-      </div>
+  </div>
+  <div class="event">
+    <div class="left-event">
+      <h3>22</h3>
+      <span>June</span>
     </div>
-    <div class="sidebar-title">
-      <h4>Advertisement</h4>
-      <a href="#" class="see">close</a>
+    <div class="right-event">
+      <h4>Mobile Marketing</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Willson Tech Park</p>
+      <a href="#">More Info</a>
     </div>
-    <img src="https://i.postimg.cc/CLXYx9BL/advertisement.png" class="siderbar-ads">
-    <div class="sidebar-title">
-      <h4  **ngIf="expression">Conversation</h4>
-      <a href="#" class="see"  (click)="clickEvent()" >Hide Chat</a>
-    </div>
-    <div class="online-list">
-      <ul class="list-unstyled chat-list mt-2 mb-0">
-        <!-- //loop for chats -->
-        <li class="clearfix" *ngFor="let chat of chats" (click)="getChat(chat.chat_id,chat.to_user.name,chat.to_user.profilePic,chat.to_user_id)">
-          <img src="{{storageURL}}/profiles/{{chat.to_user.profilePic}}" alt="user image">
-          <div class="about">
-            <div class="name">{{chat.to_user.name}}</div>
-            <div class="status"> <i class="fa fa-circle online"></i> online </div>
+  </div>
+  <div class="sidebar-title">
+    <h4>Advertisement</h4>
+    <a href="#" class="see">close</a>
+  </div>
+  <img src="https://i.postimg.cc/CLXYx9BL/advertisement.png" class="siderbar-ads">
+  <div class="sidebar-title">
+    <h4>Conversation</h4>
+    <a href="#" class="see" (click)="clickEvent()">Hide Chat</a>
+  </div>
+  <div class="online-list">
+    <ul class="list-unstyled chat-list mt-2 mb-0">
+      <!-- //loop for chats -->
+      <li class="clearfix"  (click)="clickEvent()" *ngFor="let chat of chats"
+        (click)="getChat(chat.chat_id,chat.to_user.name,chat.to_user.profilePic,chat.to_user_id)">
+        <img class="clearfix    rounded-circle" src="{{storageURL}}/profiles/{{chat.to_user.profilePic}}"
+          alt="user image" width="70"  height="70">
+        <div class="about">
+          <div class="name">
+            <h4>{{chat.to_user.name}}</h4>
           </div>
-        </li>
-      </ul>
-    </div>
-    <div id="live-chat"   
-    [ngClass]="status ? 'd-none' : 'd-block' ">
-		
-      <header class="clearfix">
-        
-        <a href="#" class="chat-close">x</a>
-  
-        <h4>Mehmet Mert</h4>
-  
-        <span class="chat-message-counter">3</span>
-  
-      </header>
-  
-      <div class="chat">
-        
-        <div class="chat-history">
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="live-chat" [ngClass]="status ? 'd-block' : 'd-none' ">
+
+
+    <div>
+    <header class="clearfix">
+
+
+      <h4>{{middelRequiredData.chatUserName}}</h4>
+
+      <span class="chat-message-counter">3</span>
+
+    </header>
+
+    <div class="chat">
+
+      <div class="chat-history">
+
+        <div class="chat-message clearfix" *ngFor="let message of messages">
+
+          <div class="chat-message-content-right clearfix text-danger text-right 
+
+          " *ngIf="message.to_user_id!=middelRequiredData.toUserId">
+            <h6>{{message.content}} </h6>
+            <span class="chat-time">{{message.created_at|date:'medium'}}</span>
+          </div> <!-- end chat-message-content -->
+
           
-          <div class="chat-message clearfix">
-            
-            <img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
-  
-            <div class="chat-message-content clearfix">
-              
-              <span class="chat-time">13:35</span>
-  
-              <h5>John Doe</h5>
-  
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, explicabo quasi ratione odio dolorum harum.</p>
-  
-            </div> <!-- end chat-message-content -->
-  
-          </div> <!-- end chat-message -->
-  
-          <hr>
-  
-          <div class="chat-message clearfix">
-            
-            <img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
-  
-            <div class="chat-message-content clearfix">
-              
-              <span class="chat-time">13:37</span>
-  
-              <h5>Marco Biedermann</h5>
-  
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni vel debitis numquam qui tempora rem voluptatem delectus!</p>
-  
-            </div> <!-- end chat-message-content -->
-  
-          </div> <!-- end chat-message -->
-  
-          <hr>
-  
-          <div class="chat-message clearfix">
-            
-            <img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
-  
-            <div class="chat-message-content clearfix">
-              
-              <span class="chat-time">13:38</span>
-  
-              <h5>John Doe</h5>
-  
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-  
-            </div> <!-- end chat-message-content -->
-  
-          </div> <!-- end chat-message -->
-  
-          <hr>
-  
-        </div> <!-- end chat-history -->
-  
-        <p class="chat-feedback">Yazıyor..</p>
-  
-        <form action="#" method="post">
-  
-          <fieldset>
-            
-            <input type="text" placeholder="Mesajınızı Yazın" autofocus>
-            <input type="hidden">
-  
-          </fieldset>
-  
-        </form>
-  
-      </div> <!-- end chat -->
-  
-    </div> <!-- end live-chat -->
+          <div class="chat-message-content-left clearfix text-primary  " 
+            *ngIf="message.to_user_id==middelRequiredData.toUserId">
+            <h6>{{message.content}} </h6>
+            <span class="chat-time">{{message.created_at|date:'medium'}}</span>
+          </div> <!-- end chat-message-content -->
+        </div> <!-- end chat-message -->
+
+
+        <hr>
+
+
+
+        <fieldset>
+          <div class="chat-message clearfix ">
+            <div class="input-group chat-input"  [formGroup]="formMessage">
+                <input type="text" class="w-25" (keyup.enter)="sendMessage()"formControlName="message" class="form-control" placeholder="Enter your massage...">
+          
+            </div>
+          </div>
+      </fieldset>
+
+    </div> <!-- end chat -->
+
+  </div> <!-- end live-chat -->
+
+</div>

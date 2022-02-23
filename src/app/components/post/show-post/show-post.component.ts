@@ -37,7 +37,8 @@ export class ShowPostComponent implements OnInit {
   @Input() saveposts: SavePost = new SavePost();
   notificationLike:Notification=new Notification();
   notificationShare:Notification=new Notification();
-
+  @Input() imageFolder: string = "profiles";
+  @Input() nameLink: string = "users";
 
   likebtn() {
 
@@ -55,7 +56,7 @@ export class ShowPostComponent implements OnInit {
       this._apiService.post('notifications', {
         from_user_id: localStorage.getItem('id'),
         post_id: this.post_id,
-        type: 'liked',
+        type: 'liked your post',
       }).subscribe((response: any) => {
         this.notificationLike = response;
       },
@@ -121,7 +122,7 @@ export class ShowPostComponent implements OnInit {
     this._apiService.post('notifications', {
       from_user_id: localStorage.getItem('id'),
       post_id: this.post_id,
-      type: 'shared',
+      type: 'shared your post',
     }).subscribe((response: any) => {
         this.notificationShare=response;
     },
@@ -146,7 +147,7 @@ export class ShowPostComponent implements OnInit {
     this._apiService.get('saveposts')
       .subscribe((saveposts: any) => {
         let saveposts_id = saveposts.filter((SavePost: any) => {
-          return (SavePost.user_id == parseInt(localStorage.getItem('id')))
+          return (SavePost.user_id == parseInt(localStorage.getItem('user_id')))
             || (SavePost.post_id == parseInt(localStorage.getItem('id')))
         })[0].id
         // delete friendship

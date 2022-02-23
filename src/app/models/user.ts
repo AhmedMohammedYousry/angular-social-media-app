@@ -1,3 +1,4 @@
+import { SavePost } from 'src/app/models/savepost';
 import { Chat } from './chat';
 import { Pagelike } from './pagelike';
 import { Post } from "./post";
@@ -22,14 +23,15 @@ export class User{
     school:string="";
     page_likes: any;
     pages:Page[]=[];
+    save_post:SavePost[]=[];
     chat_lines:Chat[]=[];
     profilePic:string="";
     location:string="";
     coverPic:string="";
     hasCover:boolean=false;
     intro:string="";
-    save_post:any=0;
     notifications:Notification[]=[];
+    friend_requests:any[]=[];
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();

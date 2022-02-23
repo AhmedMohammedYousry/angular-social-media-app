@@ -1,3 +1,4 @@
+import { Page } from 'src/app/models/page';
 import { NULL_EXPR } from "@angular/compiler/src/output/output_ast";
 import { Comment } from "./comment";
 import { User } from "./user";
@@ -14,4 +15,5 @@ export class Post{
     isShared:boolean=false;
     shared_at:string="";
     save_post:any=0;
+    page:Page=new Page;
 }
