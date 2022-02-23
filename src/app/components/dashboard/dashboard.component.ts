@@ -4,9 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
 import { Post } from '../../models/post';
-
 import { ApiService } from '../../services/api.service';
 import { FullImageComponent } from '../full-image/full-image.component';
+declare var chatjs: any;
+
 
 @Component({
   selector: 'app-dashboard',
@@ -28,6 +29,7 @@ export class DashboardComponent implements OnInit {
         this.posts=this.posts.filter((post:any)=>post.user_id.id != localStorage.getItem('id'))
         this.posts=this.posts.reverse()
         this.posts=this.posts.filter((post:any)=>this._userService.isFriend(post.user_id))
+        new chatjs();
 
         // alert(JSON.stringify(this.posts))
       }
