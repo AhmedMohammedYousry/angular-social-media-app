@@ -1,11 +1,12 @@
 /* Profile_page */
 body{
   background:#dcdcdc;
-   margin-top:20px; 
+   /* margin-top:20px;  */
  }
  .profile-cover {
      position: relative;
      /* z-index: 0; */
+
  }
  .container{
   padding: 20px;
@@ -13,21 +14,18 @@ body{
  .button{
     background: #6d0606;
     color:white;
+    position: absolute;
+    top: 460px;
+    right: 170px;
+    width: 150px;
+
 
  }
-/*  
- .panel {
-     margin-bottom: 10px;
-     color: #696969;
-     background-color: #fff;
-     border-radius: 5px;
-     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
- } */
- 
+
  .profile-cover__action {
     display: -ms-flexbox;
      display: -webkit-box; 
-      display: flex; 
+      /* display: flex;  */
      padding: 120px 30px 10px 153px;
       border-radius: 5px 5px 0 0; 
       -ms-flex-wrap: wrap;
@@ -38,6 +36,7 @@ body{
      /* overflow: hidden; */
      background: url(../../../assets/images/page.jpeg) no-repeat; 
      background-size: cover;  
+     height: 400px;
  }
  
  .profile-cover__action > .btn {
@@ -47,12 +46,11 @@ body{
  
  .profile-cover__img {
      position: absolute;
-     top: 120px;
+     top: 350px;
      left: 30px;
      text-align: center;
      z-index: 1;
-     max-height: 300px;
-
+     /* max-width:200px ; */
  }
  
  .profile-cover__img > img {
@@ -68,7 +66,7 @@ body{
  }
  
  .profile-cover__img > img + .h3 {
-     /* margin-top: 6px; */
+     margin-top: 6px;
  }
  
  .profile-cover__info .nav {
@@ -85,29 +83,12 @@ body{
      justify-content: flex-end;
  }
  
- .profile-cover__info .nav li {
-     /* margin-top: 13px;
-     margin-bottom: 13px; */
- }
- 
- .profile-cover__info .nav li:not(:first-child) {
-     /* margin-left: 30px;
-     padding-left: 30px;
-     border-left: 1px solid #eee; */
- }
- 
- .profile-cover__info .nav strong {
-     /* display: block;
-     margin-bottom: 10px;
-     color: #e16123;
-     font-size: 34px; */
- }
- .btn{
-   margin-left: 10px;
- }
+/* 
+
  @media (min-width: 481px) {
      .profile-cover__action > .btn {
-         min-width: 200px;
+         min-width: 150px;
+         right: 200px;
      }
  
      .profile-cover__action > .btn > span {
@@ -118,7 +99,6 @@ body{
  @media (max-width: 600px) {
      .profile-cover__img {
          display: block;
-         margin: 90px auto 0;
          padding-left: 30px;
          padding-right: 30px;
      }
@@ -131,7 +111,7 @@ body{
          border-top: 1px solid #eee;
          border-left-width: 0;
      }
- }
+ } */
  
  .panel {
      margin-bottom: 30px;
@@ -822,7 +802,7 @@ body{
   margin-bottom: 0;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .profile-page .profile-header .cover figure {
       height: 110px;
       overflow: hidden;
@@ -853,7 +833,7 @@ body{
   .profile-page .profile-header .cover figure img {
       margin-top: -55px;
   }
-}
+} */
 
 .profile-page .profile-header .cover .gray-shade {
   position: absolute;
@@ -879,7 +859,7 @@ body{
   width: 100px;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .profile-page .profile-header .cover .cover-body .profile-pic {
       width: 70px;
   }
@@ -899,7 +879,7 @@ body{
   justify-content: center;
   background: #fff;
   border-radius: 0 0 .25rem .25rem;
-}
+} */
 
 .profile-page .profile-header .header-links ul {
   list-style-type: none;
@@ -964,10 +944,10 @@ body{
 .rounded-circle {
   border-radius: 50% !important;
 }
-img {
+/* img {
   vertical-align: middle;
   border-style: none;
-}
+} */
 
 .card-header:first-child {
   border-radius: 0 0 0 0;
@@ -1012,3 +992,62 @@ img {
   border: 1px solid #f2f4f9;
   border-radius: 0.25rem;
 }
+@media (max-width:320px) {
+    .button{
+      right: 27px;
+      width: 78px;
+      top: 80px;
+  
+    } 
+    .profile-cover__action{
+      background-size: contain;
+      height: 200px;  
+  
+    }  
+    .rounded-circle{
+      top: 129px;
+      left: 7px;
+      max-width: 33px;
+    } 
+ 
+  }
+@media (max-width:425px) {
+  .button{
+    right: 27px;
+    width: 78px;
+    top: 256px;
+
+  } 
+  .profile-cover__action{
+    background-size: contain;
+    height: 200px;  
+  
+
+  }  
+  .profile-cover__img {
+    top: 129px;
+    left: 7px;
+    max-width: 90px;
+  } 
+
+}
+
+  @media (max-width:375px) {
+    .button{
+      right: 27px;
+      width: 78px;
+      top: 215px;
+  
+    } 
+    .profile-cover__action{
+      background-size: contain;  
+      height: 200px;  
+
+  
+    }  
+    .rounded-circle{
+      top: 129px;
+      left: 7px;
+      max-width: 44px;
+    } 
+  }

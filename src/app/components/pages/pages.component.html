@@ -18,16 +18,16 @@
 <body>
 
   <div class="container">
-
     <div class="row">
       <div class="col-lg-12">
         <div class="panel profile-cover ">
           <div class="profile-cover__img">
-            <img class="rounded-circle" src="https://i.postimg.cc/WbdZmNs2/member-1.png">
+            <img class="rounded-circle image" src="https://i.postimg.cc/WbdZmNs2/member-1.png">
             <h3 class="h3 text-muted">{{page.page_name}}</h3>
           </div>
+        </div>
           <div class="profile-cover__action " data-overlay="0.3">
-            <button class="btn btn-rounded button" *ngIf="!islike"(click)="addLike()">
+            <button class="btn btn-rounded button " *ngIf="!islike"(click)="addLike()">
               <i class="fa fa-plus pe-2"></i>
               <span>Like</span>
             </button>
@@ -46,7 +46,7 @@
               <li><strong>{{page.pageslike.length}}</strong>Likes</li>
             </ul>
           </div>
-        </div>
+       
         <div class="panel">
           <div class="panel-heading">
             <h3 class="panel-title">Activity Feed</h3>
