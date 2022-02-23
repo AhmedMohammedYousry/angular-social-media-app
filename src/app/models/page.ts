@@ -13,4 +13,5 @@ export class Page {
     user:User=new User();
     posts:Post[]=[];
     pageslike:Pagelike[]=[];
+    isLiked:boolean=false;
 }

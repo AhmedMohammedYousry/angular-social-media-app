@@ -3,6 +3,10 @@ body {
     color: #28384d;
 
 }
+.page-name{
+    text-decoration: none;
+    color: black;
+}
 /*social */
 .card-one {
     position: relative;

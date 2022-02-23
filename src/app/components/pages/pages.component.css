@@ -3,6 +3,15 @@ body{
   background:#dcdcdc;
    margin-top:20px; 
  }
+ .postdiv{
+    background-color: #fff;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #fff;
+}
  .page-photo{
     width: 100px;
     height: 100px;
