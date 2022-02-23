@@ -20,18 +20,18 @@ body{
     position: relative;
     width: 100%;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+
+
 }
 .chat-app .people-list {
-    width: 280px;
-    position: absolute;
-    left: 0;
-    top: 0;
+    width: 200px;
+    position: fixed;
     padding: 20px;
-    z-index: 7
+
 }
 
 .chat-app .chat {
-    margin-left: 280px;
+    /* margin-left: 280px; */
     border-left: 1px solid #eaeaea
 }
 
@@ -40,12 +40,18 @@ body{
     -o-transition: .5s;
     -webkit-transition: .5s;
     transition: .5s
+    
+}
+.people-list ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .people-list .chat-list li {
     padding: 10px 15px;
     list-style: none;
-    border-radius: 3px
+    border-radius: 3px;
 }
 
 .people-list .chat-list li:hover {
@@ -63,7 +69,8 @@ body{
 
 .people-list .chat-list img {
     width: 45px;
-    border-radius: 50%
+    border-radius: 50%;
+    margin-left:40px;
 }
 
 .people-list img {
@@ -218,15 +225,31 @@ body{
     clear: both;
     height: 0
 }
+/* @media  (max-width:400px) {
+    .input-group{
+        display: none;
+    }
+    .people-list{
+        width: 100px;
 
-@media only screen and (max-width: 767px) {
+    }
+} */
+
+/* @media only screen and (max-width: 767px) {
     .chat-app .people-list {
         height: 465px;
         width: 100%;
-        overflow-x: auto;
-        background: #fff;
-        left: -400px;
-        display: none;
+        
+    }
+} 
+
+ @media only screen and (max-width: 767px) {
+    .chat-app .people-list {
+        margin-bottom: 100px;
+        height: 465px;
+        width: 50%;
+        
+        
     }
     .chat-app .people-list.open {
         left: 0
@@ -263,4 +286,5 @@ body{
         height: calc(100vh - 350px);
         overflow-x: auto
     }
-}
+} */
+
