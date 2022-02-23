@@ -23,27 +23,29 @@
 </html>
 <div class="left-sidebar">
     <div class="imp-links " >
-        <a href="#" *ngFor="let listpages of listpages;index as i"><i class="fa-solid fa-flag "></i>Pages</a>
-        <a href="#" *ngFor="let listfriends of listfriends;index as i"><i class="fa-solid fa-user-group"></i>Friends</a>
-        <a href="#" *ngFor="let listsaveposts of listsaveposts;index as i"><i class="fa-solid fa-users"></i>savepost</a>
+        <a href="#" ><i class="fa-solid fa-flag "></i>Pages</a>
+        <a href="#" ><i class="fa-solid fa-user-group"></i>Friends</a>
+        <a href="#"><i class="fa-solid fa-users"></i>savepost</a>
+      
     </div>
-
   
     <hr>
-    <div class="ml-2">
-      <p>{{listpages}} </p>
-    </div>
-    <div class="ml-2">
-      <p>{{listfriends}} </p>
-    </div>
-    <div class="ml-2">
-      <p>{{listsaveposts} </p>
-    </div>
+  
+
     <div class="shortcut-link">
-        <p class="text-muted ms-4 mt-4">Your Shortcuts</p>
-        <a href="#" class="ms-4 text-muted"><img  class="rounded-circle "src="https://i.postimg.cc/3JHVf7vG/shortcut-1.png"><span class="ms-1">Develope</span></a>
-        <a href="#" class="ms-3 text-muted"><img class="rounded-circle"src="https://i.postimg.cc/rFCbvb1P/shortcut-2.png"><span class="ms-3"> Web Design course</span></a>
-        <a href="#" class="ms-3 text-muted"><img class="rounded-circle"src="https://i.postimg.cc/0yk3xfZ2/shortcut-3.png"><span class="ms-3">Full Strack</span></a>
-        <a href="#"class="ms-3 text-muted"><img class="rounded-circle" src="https://i.postimg.cc/Z5wQqdDP/shortcut-3.png"><span class="ms-4">Website Experts</span></a>
+         <p class="text-muted ms-4 mt-4">Your Information</p>
+        <div href="#" class="ms-4 text-muted" (click)=" goToPage(page.id)" *ngFor="let page of listpages;index as i"><img  class="rounded-circle "src="https://i.postimg.cc/3JHVf7vG/shortcut-1.png"><div class="ms-1">  
+    <br>
+       {{page.page_name}}<br>
+          <br></div></div>
+      
+          <div  href="#" class="ms-3 text-muted"  (click)=" goToFriend(friend.id)" *ngFor="let friend of listfriends;index as i"><img class="rounded-circle"src="https://i.postimg.cc/rFCbvb1P/shortcut-2.png"><div class="ms-3">
+            <br> {{friend.name}}<br>
+        
+      <br></div></div>
+        <a href="#" class="ms-3 text-muted"  (click)=" goToSavepost(savepost.id)" *ngFor="let savepost of listsaveposts;index as i"><img class="rounded-circle"src="https://i.postimg.cc/0yk3xfZ2/shortcut-3.png"><div class="ms-3">
+           {{savepost.post_id}}
+        </div></a>
+       
     </div>
 </div>

@@ -61,6 +61,19 @@ export class PagesComponent implements OnInit {
       // image: [null]
     
     });
+
+
+
+    this._apiService.get('pages')
+      .subscribe(
+        (response: any) => {
+          this.listpages = response
+          console.log(response);
+
+        }
+      )
+
+  
   }
 
 
@@ -118,34 +131,34 @@ export class PagesComponent implements OnInit {
 //       )
 
 //   }
-//   goToPage(page_id: number) {
-//     this._router.navigateByUrl(`pages/${page_id}`);
-//   }
-//   addLike(){
-//     this._apiService.post('pagelikes',{
-//       user_id: parseInt(this.logged_user_id),
-//       page_id:this.page.id,
-//     }).subscribe((response:any)=>{
-//       window.location.reload()
-//       this.ngOnInit()
-//     },(error:any)=>{})
-//   }
+  goToPage(page_id: number) {
+    this._router.navigateByUrl(`pages/${page_id}`);
+  }
+  addLike(){
+    this._apiService.post('pagelikes',{
+      user_id: parseInt(this.logged_user_id),
+      page_id:this.page.id,
+    }).subscribe((response:any)=>{
+      window.location.reload()
+      this.ngOnInit()
+    },(error:any)=>{})
+  }
 
-//   deleteLike(){
-//     this._apiService.get('pagelikes')
-//     .subscribe((pagelikes:any)=>
-//     {
-//       let pagelike_id = pagelikes.filter((Pagelike:any)=> 
-//       {return (Pagelike.user_id==parseInt(localStorage.getItem('id')))
-//               || (Pagelike.page_id==parseInt(localStorage.getItem('id')))
-//     })[0].id
-//     // delete friendship
-//     this._apiService.delete('pagelikes',pagelike_id)
-//     .subscribe((response:any)=>{
-//       window.location.reload()
-//       this.ngOnInit()
-//     },(error:any)=>{})
-//     })
-//   }
+  deleteLike(){
+    this._apiService.get('pagelikes')
+    .subscribe((pagelikes:any)=>
+    {
+      let pagelike_id = pagelikes.filter((Pagelike:any)=> 
+      {return (Pagelike.user_id==parseInt(localStorage.getItem('id')))
+              || (Pagelike.page_id==parseInt(localStorage.getItem('id')))
+    })[0].id
+    // delete friendship
+    this._apiService.delete('pagelikes',pagelike_id)
+    .subscribe((response:any)=>{
+      window.location.reload()
+      this.ngOnInit()
+    },(error:any)=>{})
+    })
+  }
 // //change
 }
