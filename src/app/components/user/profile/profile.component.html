@@ -117,14 +117,14 @@
           <div class="profile-intro  ">
             <div class="title-box">
               <h3>Pages</h3>
-              <a href="">Pages</a>
+              <a routerLink="/allpages">Pages</a>
   
               
             </div>
-            <div class="col-md-4" *ngFor="let page of user.pages; index as i">
-              <figure (click)="goToPage(page.id)">
-                <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo">
-                <figcaption class="small text-center">{{page.page_name}}</figcaption>
+            <div class="col-md-4" *ngFor="let likedpage of user.page_likes; index as i">
+              <figure (click)="goToPage(likedpage.id)" style="cursor: pointer;">
+                <img class="img-fluid rounded-circle" src="{{storageURL}}/pages/{{likedpage.page.profile_image}}" alt="page-photo">
+                <figcaption class="small text-center">{{likedpage.page.page_name}}</figcaption>
               </figure>
             </div>
           </div>
@@ -208,7 +208,10 @@
                         <div class="collapse" id="allposts{{i}}">
                           <div *ngFor='let comment of post.comments ;let j = index'>
       
-                              <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content" [comment_created_at]="comment.created_at"></app-show-comment>
+                              <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content"
+                               [comment_created_at]="comment.created_at"
+                               [commentOwnerPic]="comment.user.profilePic"
+                               [commentOwnerId]="comment.user.id"></app-show-comment>
                               </div>
                         </div>
                       </div>

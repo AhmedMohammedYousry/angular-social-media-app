@@ -25,6 +25,7 @@ export class UserProfileComponent implements OnInit {
   profilepictures:ProfilePicture[] = [];
   storageURL = environment.storage_URL
   isfriend:boolean=false;
+  isMyProfile:boolean=false;
 
   isSent:boolean=false;
   friendRequests:Friendrequest[]=[];
@@ -42,7 +43,8 @@ export class UserProfileComponent implements OnInit {
     .subscribe(
       (response:any)=>{
         this.user= response
-        
+        if(this.user.id == parseInt(this.logged_user_id))
+          this.isMyProfile = true;
         // alert(JSON.stringify(this.user.friend))
         // this.user.friend.forEach((person)=>{alert(person.id==parseInt(this.logged_user_id))})
         // alert(this.logged_user_id)
@@ -68,6 +70,7 @@ export class UserProfileComponent implements OnInit {
       (response:any)=>{
         // alert(JSON.stringify(response))
         this.user = response
+        this.user.posts=this.user.posts.filter((post:any)=> post.page_id == null)
         // get shared posts by this user
         this._apiService.get("shares").subscribe((res:any)=>{
           let shares=res

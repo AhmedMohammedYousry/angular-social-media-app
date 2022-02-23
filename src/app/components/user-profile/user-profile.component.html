@@ -39,9 +39,9 @@
                 </div>
                 
                 <div class="pd-right">
-                    <button type="button" *ngIf="!isSent && !isfriend" (click)="sendFriendRequest()"> <i class="fas fa-user-plus icon"></i>ِAdd to Friends</button>
+                    <button type="button" *ngIf="!isSent && !isfriend && !isMyProfile" (click)="sendFriendRequest()"> <i class="fas fa-user-plus icon"></i>ِAdd to Friends</button>
                     <!-- <button type="button" *ngIf="isfriend"><i class="fas fa-user-friends"></i>Friends</button> -->
-                    <div class="dropdown" *ngIf="isSent && !isfriend">
+                    <div class="dropdown" *ngIf="isSent && !isfriend && !isMyProfile">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                           Pending ... 
                         </button>
@@ -50,7 +50,7 @@
                         </ul>
                       </div>
 
-                      <div class="dropdown" *ngIf="isfriend">
+                      <div class="dropdown" *ngIf="isfriend && !isMyProfile">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                           Friends
                         </button>
@@ -97,15 +97,24 @@
                     <div class="profile-intro  " >
                         <div class="title-box">
                             <h3>Friends</h3>
-                            <a href="">Friends</a>
-                        </div>
-                        <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
-                            <figure (click)="goToProfile(friend.id)">
-                                <p>{{i+1}}(10 Mutual)</p>
-                                <img class="img-fluid" src="https://therichpost.com/wp-content/uploads/2021/03/avatar1.png" alt="">
-                                <figcaption class="small">{{friend.firstname}}</figcaption>
+                            <a class="ms-3" routerLink="/profile/friends">Friends</a>
+                          </div>
+                          <div class="row">
+                          <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
+                            <figure>
+                              <!-- <p>{{i+1}}(10 Mutual)</p> -->
+                              <img style="height: 50px; width: 50px;" class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
+                              <figcaption class="small"><a style="text-decoration: none;color: gray;" href="/users/{{friend.id}}">{{friend.firstname}}</a></figcaption>
                             </figure>
-                        </div> 
+                          </div>
+                          <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
+                            <figure>
+                              <!-- <p>{{i+1}}(10 Mutual)</p> -->
+                              <img style="height: 50px; width: 50px;" class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
+                              <figcaption class="small"><a style="text-decoration: none;color: gray;" href="/users/{{friend.id}}">{{friend.firstname}}</a></figcaption>
+                            </figure>
+                          </div>
+                          </div>
                     </div>
                 </div>
                 <div class="write-post-container">
@@ -152,7 +161,10 @@
                         <div class="collapse" id="allposts{{i}}">
                           <div *ngFor='let comment of post.comments ;let j = index'>
       
-                              <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content" [comment_created_at]="comment.created_at"></app-show-comment>
+                              <app-show-comment [commentOwner]="comment.user.firstname" [commentContent]="comment.content"
+                               [comment_created_at]="comment.created_at"
+                               [commentOwnerPic]="comment.user.profilePic"
+                               [commentOwnerId]="comment.user.id"></app-show-comment>
                               </div>
                         </div>
                       </div>

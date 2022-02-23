@@ -99,7 +99,7 @@ export class PagesComponent implements OnInit {
     .subscribe((pagelikes:any)=>
     {
       let pagelike_id = pagelikes.filter((Pagelike:any)=> 
-      {return (Pagelike.user_id==parseInt(localStorage.getItem('id')))
+      {return (Pagelike.user_id==parseInt(localStorage.getItem('id')) && Pagelike.page_id == this.page.id)
     })[0].id
     // delete like
     this._apiService.delete('pagelikes',pagelike_id)
