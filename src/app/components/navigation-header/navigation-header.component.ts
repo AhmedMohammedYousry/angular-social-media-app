@@ -1,3 +1,4 @@
+import { NotificationService } from './../../services/notification.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,6 +8,7 @@ import { User } from 'src/app/models/user';
 import { ApiService } from 'src/app/services/api.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
+import { valid } from 'joi';
 
 @Component({
   selector: 'app-navigation-header',
@@ -22,8 +24,15 @@ export class NavigationHeaderComponent implements OnInit {
   page:Page[]=[];
   /// @Output() userName: EventEmitter<any> = new EventEmitter<any>(); 
   formsearch = new FormGroup({});
-  storageURL = environment.storage_URL
-  constructor(private _userService: UserService, private _router: Router, private _apiService: ApiService, private _formBuilder: FormBuilder) { }
+  storageURL = environment.storage_URL;
+  isBadgeHidden:boolean;
+
+  constructor(private _userService: UserService, 
+    private _router: Router, 
+    private _apiService: ApiService, 
+    private _formBuilder: FormBuilder,
+    private notify:NotificationService,
+    ) { }
 
   ngOnInit(): void {
 
@@ -41,6 +50,9 @@ export class NavigationHeaderComponent implements OnInit {
 
 
     });
+
+    this.notify.current.subscribe(value=> this.isBadgeHidden=value);
+    console.log(this.isBadgeHidden);
     
   }
 
@@ -68,6 +80,12 @@ export class NavigationHeaderComponent implements OnInit {
   }
   visitProfile(){
     this._router.navigateByUrl('/profile')
+  }
+
+  toggle(){
+    this.isBadgeHidden = !this.isBadgeHidden;
+    this.notify.changeValue(true);
+
   }
 
 }

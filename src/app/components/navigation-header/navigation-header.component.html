@@ -7,7 +7,13 @@
     <ul>
       <li>
        <a routerLink="/notifications">
-        <i class="fas fa-bell icon"></i> 
+        <i class="fas fa-bell icon position-relative" matBadge="."
+        mat-raised-button matBadgeColor="warn"
+        [matBadgeHidden]="isBadgeHidden"
+        (click)="toggle()"
+        matBadgeSize="small"
+        >         
+        </i> 
         </a>
       </li>
  

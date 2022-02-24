@@ -27,8 +27,7 @@ import { CreatePageComponent } from './components/pages/create-page/create-page.
 import { SearchComponent } from './components/search/search.component';
 import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
 import { ShowSavePostComponent } from './components/show-save-post/show-save-post.component';
-import { NotificationsComponent } from './components/notifications/notifications.component';
-
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -52,13 +51,12 @@ import { NotificationsComponent } from './components/notifications/notifications
     SearchComponent,
     DialogMessageComponent,
     ShowSavePostComponent,
-    NotificationsComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,UserModule,PostModule,ReactiveFormsModule,MatCardModule,
-    MatDialogModule,BrowserAnimationsModule
+    MatDialogModule,BrowserAnimationsModule, MatBadgeModule
   ],
   exports: [NavigationHeaderComponent,CommonModule],
   providers: [PusherService],
