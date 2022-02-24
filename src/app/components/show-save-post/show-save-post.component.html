@@ -23,10 +23,11 @@
                 <div class="test">
                     <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper">
                         <div class="row">
-                            <div>
+                            <div >
                                 <h3 class="mt-4 ">Save Posts</h3>
                                 <hr>
                                 <div *ngFor='let saveposts  of saveposts ;let i = index' class="postdiv">
+                                    <div >
                                     <app-show-post [postOwner]="saveposts.user.name"
                                         [postContent]="saveposts.post.content" [created_at]="saveposts.post.created_at"
                                         [comments_number]="saveposts.post.comments.length==0? '' : saveposts.post.comments.length"
@@ -52,7 +53,7 @@
                                             </app-show-comment>
                                         </div>
                                     </div>
-
+                                    </div>
                                 </div>
 
                             </div>

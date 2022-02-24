@@ -145,7 +145,7 @@ export class ShowPostComponent implements OnInit {
     this._apiService.get('saveposts')
       .subscribe((saveposts: any) => {
         let saveposts_id = saveposts.filter((SavePost: any) => {
-          return (SavePost.user_id == parseInt(localStorage.getItem('id')))
+          return (SavePost.user_id == parseInt(localStorage.getItem('user_id')))
             || (SavePost.post_id == parseInt(localStorage.getItem('id')))
         })[0].id
         // delete friendship

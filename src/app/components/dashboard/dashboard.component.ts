@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
 import { Post } from '../../models/post';
-import { Page } from '../../models/page';
-
 import { ApiService } from '../../services/api.service';
 import { FullImageComponent } from '../full-image/full-image.component';
+declare var chatjs: any;
+
 
 @Component({
   selector: 'app-dashboard',
