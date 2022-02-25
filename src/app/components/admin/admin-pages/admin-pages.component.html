@@ -1,37 +1,35 @@
 <div class="card-header">
-    <h5 class="mb-0 fs-5">Pages</h5>
-  </div>
-  <div class="table-responsive">
-    <table class="table table-hover table-nowrap table-dark table-striped">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">id</th>
-          <th scope="col">page-name</th>
-          <th scope="col">user_id</th>
-          <th scope="col">action</th>
-       
-       
-        </tr>
-      </thead>
-      <tbody>
-         <tr >
-          <td>
-           1
-          </td>
-          <td>
-           hager
-          </td>
-          <td>
-           hager@gmail
-          </td>
-          <td>
-            <button class="btn  m-2 button" >Delete</button>
-          </td>
-         
-         
-           
-           
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h5 class="mb-0 fs-5">Pages</h5>
+</div>
+<div class="table-responsive">
+  <table class="table table-hover table-nowrap table-dark table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Page Name</th>
+        <th scope="col">Creator</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let page of pages">
+        <td>
+          {{page.id}}
+        </td>
+        <td (click)="goToPage(page.id)">
+          <img class="p-1 rounded-circle image" src="{{storageURL}}/pages/{{page.profile_image}}" alt="page-photo">
+          {{page.page_name}}
+        </td>
+        <td (click)="goToUser(page.user.id)">
+          <img class="p-1 rounded-circle image" src="{{storageURL}}/profiles/{{page.user.profilePic}}">
+          {{page.user.name}}
+        </td>
+        <td>
+          <button (click)="deletePage(page.id)" class="btn btn-outline-danger btn-dark m-1">Delete</button>
+          <button (click)="reportPage(page.user.id,page.id)" class="btn btn-outline-warning btn-dark m-1 ">Report</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

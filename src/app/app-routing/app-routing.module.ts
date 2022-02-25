@@ -12,7 +12,7 @@ import { CreateUserComponent } from '../components/user/create-user/create-user.
 import { AuthGuard } from '../guards/auth.guard';
 import { ChatComponent } from "../components/chat/chat.component";
 import { PagesComponent } from "../components/pages/pages.component";
-import {  UserProfileComponent } from "../components/user-profile/user-profile.component";
+import { UserProfileComponent } from "../components/user-profile/user-profile.component";
 import { ShowUsersComponent } from '../components/dashboard/show-users/show-users.component';
 import { SearchComponent } from '../components/search/search.component';
 import { ShowSavePostComponent } from '../components/show-save-post/show-save-post.component';
@@ -29,49 +29,54 @@ const routes: Routes = [
 
     //     loadChildren: () => import('../components/user/user.module').then(m => m.UserModule)
     //   },
-    
+
     {
         path: 'chat',
-        component: ChatComponent,canActivate:[AuthGuard]
+        component: ChatComponent, canActivate: [AuthGuard]
     },
+    //admin routes
     {
         path: 'admin-panle',
-        component: AdminPanelComponent,canActivate:[AuthGuard],
-        children :[
-            {  path: 'admin-pages',
-            component: AdminPagesComponent,canActivate:[AuthGuard],},
-            {  path: 'admin-posts',
-            component: AdminPostsComponent,canActivate:[AuthGuard],},
-            {  path: 'admin-users',
-            component: AdminUsersComponent,canActivate:[AuthGuard],}
-        ]
+        component: AdminPanelComponent, canActivate: [AuthGuard],
+    },
+    {
+        path: 'admin-panle/admin-pages',
+        component: AdminPagesComponent, canActivate: [AuthGuard],
+    },
+    {
+        path: 'admin-panle/admin-posts',
+        component: AdminPostsComponent, canActivate: [AuthGuard],
+    },
+    {
+        path: 'admin-panle/admin-users',
+        component: AdminUsersComponent, canActivate: [AuthGuard],
     },
     {
         path: 'pages',
-        component: PagesComponent,canActivate:[AuthGuard]
+        component: PagesComponent, canActivate: [AuthGuard]
     },
     {
         path: 'createpage',
-        component: CreatePageComponent,canActivate:[AuthGuard]
+        component: CreatePageComponent, canActivate: [AuthGuard]
     },
 
     { path: 'pages/:id', component: PagesComponent, canActivate: [AuthGuard] },
     { path: 'allpages', component: AllpagesComponent, canActivate: [AuthGuard] },
 
-    {path: 'users',component: ShowUsersComponent, canActivate:[AuthGuard]},
+    { path: 'users', component: ShowUsersComponent, canActivate: [AuthGuard] },
 
-    {path:'posts/:id',component:ShowPostFromNotificationComponent ,canActivate:[AuthGuard]},
-    
-    {path: 'users/:id',component: UserProfileComponent, canActivate:[AuthGuard]},
+    { path: 'posts/:id', component: ShowPostFromNotificationComponent, canActivate: [AuthGuard] },
+
+    { path: 'users/:id', component: UserProfileComponent, canActivate: [AuthGuard] },
     {
         path: 'search',
-        component:SearchComponent, canActivate:[AuthGuard]
+        component: SearchComponent, canActivate: [AuthGuard]
     },
-    {path: 'savepost',component: ShowSavePostComponent, canActivate:[AuthGuard]},
-    {path: 'notifications',component: NotificationsComponent, canActivate:[AuthGuard]},
+    { path: 'savepost', component: ShowSavePostComponent, canActivate: [AuthGuard] },
+    { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
     {
-    path: '',
-    component: DashboardComponent,
+        path: '',
+        component: DashboardComponent,
     },
 ];
 

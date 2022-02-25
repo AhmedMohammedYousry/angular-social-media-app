@@ -14,4 +14,5 @@ export class Page {
     posts:Post[]=[];
     pageslike:Pagelike[]=[];
     isLiked:boolean=false;
+    is_reported:boolean=false;
 }

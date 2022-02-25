@@ -26,6 +26,8 @@ export class NavigationHeaderComponent implements OnInit {
   formsearch = new FormGroup({});
   storageURL = environment.storage_URL;
   isBadgeHidden:boolean;
+  isAdmin:boolean=false;
+  loggedUser:number= parseInt(localStorage.getItem("id"));
 
   constructor(private _userService: UserService, 
     private _router: Router, 
@@ -42,7 +44,15 @@ export class NavigationHeaderComponent implements OnInit {
     })
 
     this._apiService.getOne('users', parseInt(localStorage.getItem("id")))
-    .subscribe((response:any) => this.user=response )
+    .subscribe((response:any) => {
+      this.user=response;
+      
+      if (this.user.isAdmin){
+        this.isAdmin = true;
+      }
+    }
+    
+    )
     this.formsearch = this._formBuilder.group({
 
 
