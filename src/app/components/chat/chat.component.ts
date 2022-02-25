@@ -45,6 +45,9 @@ export class ChatComponent implements OnInit {
     ){}
 
   ngOnInit(): void {
+    this.formMessage=this._formBuilder.group({
+      message:['',[Validators.required]],
+    });
     const headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('Token')}`
     });
@@ -60,11 +63,7 @@ export class ChatComponent implements OnInit {
         console.log(this.chats); 
       },
       (error:any)=> {}
-    ) 
-    this.formMessage=this._formBuilder.group({
-      message:['' ,[Validators.required,Validators.maxLength(120),Validators.minLength(2)]],
-    }); 
-    
+    )   
     Pusher.logToConsole = true;
 
     // const pusher = new Pusher('473d6c2ef580e2c7c5d8', {
@@ -128,4 +127,18 @@ export class ChatComponent implements OnInit {
     this.messages.push(this.message);
   }
   
+  isValidControl(name:string):boolean
+  {
+    return this.formMessage.controls[name].valid;
+  }
+
+  isInValidAndTouched(name:string):boolean
+  {
+    return  this.formMessage.controls[name].invalid && (this.formMessage.controls[name].dirty || this.formMessage.controls[name].touched);
+  }
+
+  isControlHasError(name:string,error:string):boolean
+  {
+    return  this.formMessage.controls[name].invalid && this.formMessage.controls[name].errors?.[error];
+  }
 }

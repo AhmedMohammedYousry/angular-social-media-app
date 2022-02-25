@@ -95,6 +95,11 @@
                   <span class="input-group-text"><i class="fa fa-send send"></i></span>
                 </div>
                 <input type="text" formControlName="message" class="form-control" placeholder="Enter text here...">
+                <div *ngIf="isInValidAndTouched('message')">
+                  <small class="form-text text-danger" *ngIf="isControlHasError('message','required')">required
+                  </small>
+
+                </div>
               </div>
             </div>
           </div>

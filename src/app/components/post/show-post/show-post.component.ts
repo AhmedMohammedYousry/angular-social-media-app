@@ -132,7 +132,7 @@ export class ShowPostComponent implements OnInit {
   savePost() {
 
     this._apiService.post('saveposts', {
-      user_id: this.loggedInUserId,
+      user_id: parseInt(localStorage.getItem('id')),
       post_id: this.post_id,
     }).subscribe((response: any) => {
       window.location.reload()

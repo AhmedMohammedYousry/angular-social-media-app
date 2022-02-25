@@ -57,7 +57,6 @@ export class ShowSavePostComponent implements OnInit {
             console.log(this.user)
         },
 
-  
         (error: any) => { }
       )
 
