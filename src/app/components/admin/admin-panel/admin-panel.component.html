@@ -1,0 +1,57 @@
+<html>
+
+<head>
+  <title>Register To FireClub</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 side">
+        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+          <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-5 d-none d-sm-inline ">Dashboard</span>
+          </a>
+          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text" id="menu">
+            <li class="nav-item">
+              <a href="#" class="nav-link align-middle px-0">
+                <i class="fa-solid fa-house"></i>
+                <span class="ms-1 d-none d-sm-inline">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/admin-panel/app-admin-pages']" class="nav-link align-middle px-0">
+                <i class="fa-solid fa-flag"></i>
+                <span class="ms-1 d-none d-sm-inline">pages</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/admin-panel/app-admin-posts']" class="nav-link align-middle px-0">
+                <i class="fa-regular fa-newspaper"></i>
+                <span class="ms-1 d-none d-sm-inline">posts</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['admin-panel/app-admin-users']" routerLinkActive="active"
+                class="nav-link align-middle px-0">
+                <i class="fa-solid fa-users"></i>
+                <span class="ms-1 d-none d-sm-inline">Allusers</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col py-3">
+        <div class="card shadow border-0 mb-7">
+          <!-- content -->
+          <router-outlet></router-outlet>
+          <app-admin-posts></app-admin-posts>
+        <app-admin-pages></app-admin-pages>
+        <app-admin-users></app-admin-users>
+
+        </div>

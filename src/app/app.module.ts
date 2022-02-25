@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { UserModule } from './components/user/user.module';
@@ -29,6 +28,11 @@ import { DialogMessageComponent } from './components/dialog-message/dialog-messa
 import { ShowSavePostComponent } from './components/show-save-post/show-save-post.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { ShowPostFromNotificationComponent } from './components/show-post-from-notification/show-post-from-notification.component';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
+import { AdminPostsComponent } from './components/admin/admin-posts/admin-posts.component';
+import { AdminPagesComponent } from './components/admin/admin-pages/admin-pages.component';
+import { AdminPanelComponent } from "../app/components/admin/admin-panel/admin-panel.component";
+
 
 @NgModule({
   declarations: [
@@ -53,6 +57,10 @@ import { ShowPostFromNotificationComponent } from './components/show-post-from-n
     DialogMessageComponent,
     ShowSavePostComponent,
     ShowPostFromNotificationComponent,
+    AdminPanelComponent,
+    AdminUsersComponent,
+    AdminPostsComponent,
+    AdminPagesComponent,
 
   ],
   imports: [
