@@ -21,13 +21,90 @@
           {{user.name}}
         </td>
         <td>
-          <button *ngIf="!user.isAdmin" (click)="makeAdmin(user.id)" class="btn btn-outline-primary btn-dark m-1 ">Admin</button>
+          <button *ngIf="!user.isAdmin" (click)="makeAdmin(user.id)" class="btn btn-outline-primary btn-dark m-1 ms-4">Admin</button>
           <button *ngIf="user.isAdmin" (click)="unAdmin(user.id)" class="btn btn-outline-secondary btn-dark m-1 ">Unadmin</button>
-          <button (click)="banUser(user.id)" class="btn btn-outline-light btn-dark m-1 ">Ban</button>
+          <button *ngIf="!user.is_banned" (click)="banUser(user.id)" class="btn btn-outline-light btn-dark m-1 ">Ban</button>
+          <button *ngIf="user.is_banned" (click)="unbanUser(user.id)" class="btn btn-outline-success btn-dark m-1 ">Unban</button>
+          <button *ngIf="!user.is_reported" (click)="reportUser(user.id)" class="btn btn-outline-warning btn-dark m-1 ">Report</button>
+          <button *ngIf="user.is_reported" (click)="unreportUser(user.id)" class="btn btn-outline-success btn-dark m-1 ">Unreport</button>
           <button (click)="deleteUser(user.id)" class="btn btn-outline-danger btn-dark m-1">Delete</button>
-          <button (click)="reportUser(user.id)" class="btn btn-outline-warning btn-dark m-1 ">Report</button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<div class="card-header">
+  <h5 class="mb-0 fs-5  ">Admins</h5>
+</div>
+<div class="table-responsive">
+  <table class="table table-hover table-nowrap  table-dark table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Admin</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of admins">
+        <td >  
+          {{user.id}}
+        </td>
+        <td (click)="goToUser(user.id)">
+          <img class="p-1 rounded-circle image" src="{{storageURL}}/profiles/{{user.profilePic}}">
+          {{user.name}}
+        </td>
+        <td>
+          <button *ngIf="!user.isAdmin" (click)="makeAdmin(user.id)" class="btn btn-outline-primary btn-dark m-1 ms-4">Admin</button>
+          <button *ngIf="user.isAdmin" (click)="unAdmin(user.id)" class="btn btn-outline-secondary btn-dark m-1 ">Unadmin</button>
+          <button *ngIf="!user.is_banned" (click)="banUser(user.id)" class="btn btn-outline-light btn-dark m-1 ">Ban</button>
+          <button *ngIf="user.is_banned" (click)="unbanUser(user.id)" class="btn btn-outline-success btn-dark m-1 ">Unban</button>
+          <button *ngIf="!user.is_reported" (click)="reportUser(user.id)" class="btn btn-outline-warning btn-dark m-1 ">Report</button>
+          <button *ngIf="user.is_reported" (click)="unreportUser(user.id)" class="btn btn-outline-success btn-dark m-1 ">Unreport</button>
+          <button (click)="deleteUser(user.id)" class="btn btn-outline-danger btn-dark m-1">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card-header">
+  <h5 class="mb-0 fs-5  ">Reported Users</h5>
+</div>
+<div class="table-responsive">
+  <table class="table table-hover table-nowrap  table-dark table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">User</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of reported_users">
+        <td >  
+          {{user.id}}
+        </td>
+        <td (click)="goToUser(user.id)">
+          <img class="p-1 rounded-circle image" src="{{storageURL}}/profiles/{{user.profilePic}}">
+          {{user.name}}
+        </td>
+        <td>
+          <button *ngIf="!user.isAdmin" (click)="makeAdmin(user.id)" class="btn btn-outline-primary btn-dark m-1 ms-4">Admin</button>
+          <button *ngIf="user.isAdmin" (click)="unAdmin(user.id)" class="btn btn-outline-secondary btn-dark m-1 ">Unadmin</button>
+          <button *ngIf="!user.is_banned" (click)="banUser(user.id)" class="btn btn-outline-light btn-dark m-1 ">Ban</button>
+          <button *ngIf="user.is_banned" (click)="unbanUser(user.id)" class="btn btn-outline-success btn-dark m-1 ">Unban</button>
+          <button *ngIf="!user.is_reported" (click)="reportUser(user.id)" class="btn btn-outline-warning btn-dark m-1 ">Report</button>
+          <button *ngIf="user.is_reported" (click)="unreportUser(user.id)" class="btn btn-outline-success btn-dark m-1 ">Unreport</button>
+          <button (click)="deleteUser(user.id)" class="btn btn-outline-danger btn-dark m-1">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
