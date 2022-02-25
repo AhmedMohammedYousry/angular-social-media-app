@@ -15,6 +15,10 @@ import {  UserProfileComponent } from "../components/user-profile/user-profile.c
 import { ShowUsersComponent } from '../components/dashboard/show-users/show-users.component';
 import { SearchComponent } from '../components/search/search.component';
 import { ShowSavePostComponent } from '../components/show-save-post/show-save-post.component';
+import { AdminPanelComponent } from '../components/admin/admin-panel/admin-panel.component';
+import { AdminPagesComponent } from '../components/admin/admin-pages/admin-pages.component';
+import { AdminPostsComponent } from '../components/admin/admin-posts/admin-posts.component';
+import { AdminUsersComponent } from '../components/admin/admin-users/admin-users.component';
 
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -28,6 +32,18 @@ const routes: Routes = [
     {
         path: 'chat',
         component: ChatComponent,canActivate:[AuthGuard]
+    },
+    {
+        path: 'admin-panle',
+        component: AdminPanelComponent,canActivate:[AuthGuard],
+        children :[
+            {  path: 'admin-pages',
+            component: AdminPagesComponent,canActivate:[AuthGuard],},
+            {  path: 'admin-posts',
+            component: AdminPostsComponent,canActivate:[AuthGuard],},
+            {  path: 'admin-users',
+            component: AdminUsersComponent,canActivate:[AuthGuard],}
+        ]
     },
     {
         path: 'pages',
