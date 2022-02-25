@@ -1,3 +1,4 @@
+import { ShowPostFromNotificationComponent } from './../components/show-post-from-notification/show-post-from-notification.component';
 import { ShowPostComponent } from './../components/post/show-post/show-post.component';
 import { NotificationsComponent } from './../components/notifications/notifications.component';
 import { CreatePageComponent } from './../components/pages/create-page/create-page.component';
@@ -43,7 +44,8 @@ const routes: Routes = [
 
     {path: 'users',component: ShowUsersComponent, canActivate:[AuthGuard]},
 
-
+    {path:'posts/:id',component:ShowPostFromNotificationComponent ,canActivate:[AuthGuard]},
+    
     {path: 'users/:id',component: UserProfileComponent, canActivate:[AuthGuard]},
     {
         path: 'search',

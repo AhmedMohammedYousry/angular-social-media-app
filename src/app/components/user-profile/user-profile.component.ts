@@ -38,6 +38,7 @@ export class UserProfileComponent implements OnInit {
     private _router: Router, private _userService: UserService, private _matDialog: MatDialog) { }
 
   ngOnInit(): void {
+    
     this.user_id = this.route.snapshot.params['id']
     this._apiService.getOne('users', this.user_id)
       .subscribe(

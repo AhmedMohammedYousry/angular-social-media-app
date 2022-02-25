@@ -28,6 +28,7 @@ import { SearchComponent } from './components/search/search.component';
 import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
 import { ShowSavePostComponent } from './components/show-save-post/show-save-post.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { ShowPostFromNotificationComponent } from './components/show-post-from-notification/show-post-from-notification.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     SearchComponent,
     DialogMessageComponent,
     ShowSavePostComponent,
+    ShowPostFromNotificationComponent,
 
   ],
   imports: [
