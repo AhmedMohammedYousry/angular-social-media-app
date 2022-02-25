@@ -39,7 +39,7 @@ export class CreateCommentComponent implements OnInit {
     )
       //to post notification when comment
     this._apiService.post('notifications',{
-      from_user_id:localStorage.getItem('id'),
+      from_user_id: parseInt(localStorage.getItem('id')),
       post_id:this.post_id,
       type:'commented on your post',
     }).subscribe((response:any)=>{

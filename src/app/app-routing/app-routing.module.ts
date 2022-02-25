@@ -18,6 +18,7 @@ import { ShowSavePostComponent } from '../components/show-save-post/show-save-po
 
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+
     // {
     //     path: 'user', 
 
