@@ -78,9 +78,15 @@ export class NotificationsComponent implements OnInit {
     }
   }
 
-  getPost(post_id: number) {
-    //we need to make post component 
-    this._router.navigateByUrl(`posts/${post_id}`);
+  getNotify(post_id:number,user_id:number){
+  
+    if (post_id == null ){
+      this._router.navigateByUrl(`users/${user_id}`);
+    }
+
+    else {
+      this._router.navigateByUrl(`posts/${post_id}`);
+    }
   }
 
   

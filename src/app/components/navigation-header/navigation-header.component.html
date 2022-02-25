@@ -33,7 +33,13 @@
           <i class="fas fa-search icon"></i>
         </a>
       </li>
-      
+
+      <li *ngIf="isAdmin">
+        <a [routerLink]="['/admin-panle']">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+        </a>
+      </li>
+
     </ul>
   </div>
   <!-- <div class="nav-right">

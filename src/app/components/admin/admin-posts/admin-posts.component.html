@@ -5,31 +5,29 @@
     <table class="table table-hover table-nowrap  table-dark table-striped">
       <thead class="thead-light">
         <tr>
-          <th scope="col">id</th>
-          <th scope="col">post-content</th>
-          <th scope="col">user_id</th>
-          <th scope="col">action</th>
+          <th scope="col">ID</th>
+          <th scope="col">Post Content</th>
+          <th scope="col">Creator</th>
+          <th scope="col">Actions</th>
+  
         </tr>
       </thead>
       <tbody>
-         <tr >
-          <td>
-           1
+        <tr *ngFor="let post of posts">
+          <td >  
+            {{post.id}}
+          </td>
+          <td (click)="goToPost(post.id)">
+            {{post.content}}
+          </td>
+          <td (click)="goToUser(post.user.id)">
+            <img class="p-1 rounded-circle image" src="{{storageURL}}/profiles/{{post.user.profilePic}}">
+            {{post.user.name}}
           </td>
           <td>
-           hager
+            <button (click)="deletePost(post.id)" class="btn btn-outline-danger btn-dark m-1">Delete</button>
+            <button (click)="reportUser(post.user.id)" class="btn btn-outline-warning btn-dark m-1 ">Report</button>
           </td>
-          <td>
-           hager@gmail
-          </td>
-          <td>
-            <button class="btn  m-2 button" >Delete</button>
-
-         </td>
-         
-         
-           
-           
         </tr>
       </tbody>
     </table>

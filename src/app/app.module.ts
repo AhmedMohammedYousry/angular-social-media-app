@@ -27,6 +27,7 @@ import { SearchComponent } from './components/search/search.component';
 import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
 import { ShowSavePostComponent } from './components/show-save-post/show-save-post.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { ShowPostFromNotificationComponent } from './components/show-post-from-notification/show-post-from-notification.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { AdminPostsComponent } from './components/admin/admin-posts/admin-posts.component';
 import { AdminPagesComponent } from './components/admin/admin-pages/admin-pages.component';
@@ -55,6 +56,7 @@ import { AdminPanelComponent } from "../app/components/admin/admin-panel/admin-p
     SearchComponent,
     DialogMessageComponent,
     ShowSavePostComponent,
+    ShowPostFromNotificationComponent,
     AdminPanelComponent,
     AdminUsersComponent,
     AdminPostsComponent,
