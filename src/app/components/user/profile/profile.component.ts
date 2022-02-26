@@ -32,13 +32,14 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('Token')}`
-    });
-    let options = {
-      'headers': headers
-    }
-    this._apiService.getOne('users',parseInt(`${localStorage.getItem('id')}`),options)
+    // const headers = new HttpHeaders({
+    //   Authorization: `Bearer ${localStorage.getItem('Token')}`,
+    //   id: `${localStorage.getItem('id')}`
+    // });
+    // let options = {
+    //   'headers': headers
+    // }
+    this._apiService.getOne('users',parseInt(`${localStorage.getItem('id')}`))
     .subscribe(
       (response:any)=>{
         // alert(JSON.stringify(response))
@@ -89,7 +90,10 @@ export class ProfileComponent implements OnInit {
         })
         
       },
-      (error:any)=> {}
+      (error:any)=> {
+        // unauthorized
+        this._router.navigateByUrl('/login')
+      }
     )   
   }
 

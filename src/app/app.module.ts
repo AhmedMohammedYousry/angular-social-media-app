@@ -32,6 +32,8 @@ import { AdminUsersComponent } from './components/admin/admin-users/admin-users.
 import { AdminPostsComponent } from './components/admin/admin-posts/admin-posts.component';
 import { AdminPagesComponent } from './components/admin/admin-pages/admin-pages.component';
 import { AdminPanelComponent } from "../app/components/admin/admin-panel/admin-panel.component";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './token.interceptor';
 
 
 @NgModule({
@@ -69,7 +71,12 @@ import { AdminPanelComponent } from "../app/components/admin/admin-panel/admin-p
     MatDialogModule,BrowserAnimationsModule, MatBadgeModule
   ],
   exports: [NavigationHeaderComponent,CommonModule],
-  providers: [PusherService],
+  providers: [PusherService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
