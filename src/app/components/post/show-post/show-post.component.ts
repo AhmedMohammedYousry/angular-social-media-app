@@ -62,7 +62,7 @@ export class ShowPostComponent implements OnInit {
       },
         (error: any) => { });
 
-      this.pusherService.notificationChannel.trigger('client-event', this.notificationLike);
+      // this.pusherService.notificationChannel.trigger('client-event', this.notificationLike);
 
     } else {
       this._apiService.delete('postslikes', this.postlike_id)
@@ -95,9 +95,9 @@ export class ShowPostComponent implements OnInit {
 
       })
 
-    this.pusherService.notificationChannel.bind('client-event', (Notification) => {
-      console.log(Notification);
-    });
+    // this.pusherService.notificationChannel.bind('client-event', (Notification) => {
+    //   console.log(Notification);
+    // });
   }
 
   deletePost() {

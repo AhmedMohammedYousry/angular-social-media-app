@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { environment } from 'src/environments/environment';
 import Pusher from 'pusher-js';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class NotificationsComponent implements OnInit {
   @Input() share: Notification;
   @Input() accept: Notification;
 
+  private feedSubscription: Subscription;
 
   user: User;
   storageURL = environment.storage_URL;
@@ -30,8 +32,13 @@ export class NotificationsComponent implements OnInit {
     private _apiService: ApiService,
     private _router: Router,
     private pusherService: PusherService,
-    private notify:NotificationService,
-    ) { }
+    private notify: NotificationService,
+  ) {
+
+    this.feedSubscription = notify.getFeedItems().subscribe((feed: Notification) => {
+        this.notifications.push(feed);
+      });
+  }
 
   ngOnInit(): void {
 
@@ -50,37 +57,35 @@ export class NotificationsComponent implements OnInit {
       this.notifications.push(notification);
     });
 
-    console.log(this.like);
+    // if (this.like != undefined) {
+    //   this.pusherService.channel.trigger('client-event', this.like);
+    //   this.notifications.push(this.like);
+    //   this.notify.changeValue(false);
+    // }
 
-    if (this.like != undefined) {
-      this.pusherService.channel.trigger('client-event', this.like);
-      this.notifications.push(this.like);
-      this.notify.changeValue(false);
-    }
+    // if (this.comment != undefined) {
+    //   this.pusherService.channel.trigger('client-event', this.comment);
+    //   this.notifications.push(this.comment);
+    //   this.notify.changeValue(false);
 
-    if (this.comment != undefined){
-      this.pusherService.channel.trigger('client-event', this.comment);
-      this.notifications.push(this.comment);
-      this.notify.changeValue(false);
+    // }
 
-    }
+    // if (this.share != undefined) {
+    //   this.pusherService.channel.trigger('client-event', this.share);
+    //   this.notifications.push(this.share);
+    //   this.notify.changeValue(false);
+    // }
 
-    if (this.share != undefined){
-      this.pusherService.channel.trigger('client-event', this.share);
-      this.notifications.push(this.share);
-      this.notify.changeValue(false);
-    }
-
-    if (this.accept != undefined){
-      this.pusherService.channel.trigger('client-event', this.accept);
-      this.notifications.push(this.accept);
-      this.notify.changeValue(false);
-    }
+    // if (this.accept != undefined) {
+    //   this.pusherService.channel.trigger('client-event', this.accept);
+    //   this.notifications.push(this.accept);
+    //   this.notify.changeValue(false);
+    // }
   }
 
-  getNotify(post_id:number,user_id:number){
-  
-    if (post_id == null ){
+  getNotify(post_id: number, user_id: number) {
+
+    if (post_id == null) {
       this._router.navigateByUrl(`users/${user_id}`);
     }
 
@@ -89,6 +94,6 @@ export class NotificationsComponent implements OnInit {
     }
   }
 
-  
+
 
 }
