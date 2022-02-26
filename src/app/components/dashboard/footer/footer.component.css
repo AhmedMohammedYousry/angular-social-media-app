@@ -1,0 +1,88 @@
+
+
+
+.team {
+  position: relative;
+  /* margin-bottom: 10px; */
+}
+.row{
+    background-color:#212529 ;
+}
+
+.team .team-content {
+  position: absolute;
+  bottom: 10px;
+  margin: 0 20px;
+  left: 0;
+  right: 0;
+  text-decoration: none;
+  color: white;
+}
+
+.team .team-content-inner {
+  background-color: #212529;
+  padding: 4px 20px;
+  width: 60%;
+  margin-left: 100px;
+  margin-top: 50px;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.team .team-content-inner .team-social {
+  margin-left: auto;
+}
+
+.team .team-content-inner .team-social .nav .nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+  text-decoration: none;
+
+  color: white;
+}
+
+
+.team .team-content-inner .team-contact {
+  opacity: 0;
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.team:hover .team-content-inner {
+
+  background-color: #9b0000;
+  color: #212529;
+  padding: 10px 10px 50px;
+}
+a{
+     text-decoration: none;
+     color: white;
+}
+.alaa{
+    width: 100px;
+    height: 100px;
+}
+
+
+
+@media (max-width: 575.98px) {
+  .team .team-content {
+    margin: 0 15px;
+  }
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}

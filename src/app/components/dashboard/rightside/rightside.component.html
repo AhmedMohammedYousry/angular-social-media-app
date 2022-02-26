@@ -1,104 +1,48 @@
-<div class="right-sidebar">
-  <div class="sidebar-title">
-    <h4>Events</h4>
-    <a href="#" class="see">See All</a>
-  </div>
-  <div class="event">
-    <div class="left-event">
-      <h3>18</h3>
-      <span>March</span>
-    </div>
-    <div class="right-event">
-      <h4>Social Media</h4>
-      <p><i class="fas fa-map-marker-alt"></i> Willson Tech Park</p>
-      <a href="#">More Info</a>
-    </div>
-  </div>
-  <div class="event">
-    <div class="left-event">
-      <h3>22</h3>
-      <span>June</span>
-    </div>
-    <div class="right-event">
-      <h4>Mobile Marketing</h4>
-      <p><i class="fas fa-map-marker-alt"></i> Willson Tech Park</p>
-      <a href="#">More Info</a>
-    </div>
-  </div>
-  <div class="sidebar-title">
-    <h4>Advertisement</h4>
-    <a href="#" class="see">close</a>
-  </div>
-  <img src="https://i.postimg.cc/CLXYx9BL/advertisement.png" class="siderbar-ads">
-  <div class="sidebar-title">
-    <h4>Conversation</h4>
-    <a href="#" class="see" (click)="clickEvent()">Hide Chat</a>
-  </div>
-  <div class="online-list">
-    <ul class="list-unstyled chat-list mt-2 mb-0">
-      <!-- //loop for chats -->
-      <li class="clearfix"  (click)="clickEvent()" *ngFor="let chat of chats"
-        (click)="getChat(chat.chat_id,chat.to_user.name,chat.to_user.profilePic,chat.to_user_id)">
-        <img class="clearfix    rounded-circle" src="{{storageURL}}/profiles/{{chat.to_user.profilePic}}"
-          alt="user image" width="70"  height="70">
-        <div class="about">
-          <div class="name">
-            <h4>{{chat.to_user.name}}</h4>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
+
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <div class="section-title title-left text-center text-lg-left">
+                      <h3 class="top-sep">Useful Links ..</h3>
+                      <p> No caption is needed !</p>
+                  </div>
+              </div>
           </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div id="live-chat" [ngClass]="status ? 'd-block' : 'd-none' ">
+          <div class="row justify-content-center">
+              <div class="col-md-6 col-lg-4 mb-30">
+                  <div class="team-item">
+                      <div class="mb-30 position-relative d-flex align-items-center">
+                              <span class="">
+                                  <a href="#" class="zmdi zmdi-facebook"></a>
+                                  <a href="#" class="zmdi zmdi-twitter"></a>
+                                  <a href="#" class="zmdi zmdi-google"></a>
+                                  <a href="#" class="zmdi zmdi-yahoo"></a>
+                                  <a href="#" class="zmdi zmdi-github"></a>
+                                
 
-
-    <div>
-    <header class="clearfix">
-
-
-      <h4>{{middelRequiredData.chatUserName}}</h4>
-
-      <span class="chat-message-counter">3</span>
-
-    </header>
-
-    <div class="chat">
-
-      <div class="chat-history">
-
-        <div class="chat-message clearfix" *ngFor="let message of messages">
-
-          <div class="chat-message-content-right clearfix text-danger text-right 
-
-          " *ngIf="message.to_user_id!=middelRequiredData.toUserId">
-            <h6>{{message.content}} </h6>
-            <span class="chat-time">{{message.created_at|date:'medium'}}</span>
-          </div> <!-- end chat-message-content -->
-
-          
-          <div class="chat-message-content-left clearfix text-primary  " 
-            *ngIf="message.to_user_id==middelRequiredData.toUserId">
-            <h6>{{message.content}} </h6>
-            <span class="chat-time">{{message.created_at|date:'medium'}}</span>
-          </div> <!-- end chat-message-content -->
-        </div> <!-- end chat-message -->
-
-
-        <hr>
-
-
-
-        <fieldset>
-          <div class="chat-message clearfix ">
-            <div class="input-group chat-input"  [formGroup]="formMessage">
-                <input type="text" class="w-25" (keyup.enter)="sendMessage()"formControlName="message" class="form-control" placeholder="Enter your massage...">
-          
-            </div>
+                              </span>
+                          <span class="img-holder d-inline-block">
+                            <img class="w-100 img" src="../../../../assets/images/WhatsApp Image 2022-01-22 at 6.51.06 PM.jpeg" alt="">
+                          </span>
+                      </div>
+                      <div class="team-content">
+                          <p class="text-uppercase mb-0">Alaa Abdelrazk</p>
+                      </div>
+                  </div>
+        
           </div>
-      </fieldset>
-
-    </div> <!-- end chat -->
-
-  </div> <!-- end live-chat -->
-
-</div>
+      </div>
+      </div>
+  
+</body>
+</html>

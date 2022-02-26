@@ -1,8 +1,8 @@
+import { Component, OnInit } from '@angular/core';
 import { PusherService } from '../../../services/pusher.service';
 import { Message } from './../../../models/message';
 import { Chat } from './../../../models/chat';
 import { User } from 'src/app/models/user';
-import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiUserService } from 'src/app/services/api-user.service';
@@ -12,11 +12,12 @@ import Pusher from 'pusher-js';
 import { any, number, string } from 'joi';
 import { environment } from 'src/environments/environment';
 @Component({
-  selector: 'app-rightside',
-  templateUrl: './rightside.component.html',
-  styleUrls: ['./rightside.component.css']
+  selector: 'app-online',
+  templateUrl: './online.component.html',
+  styleUrls: ['./online.component.css']
 })
-export class RightsideComponent implements OnInit {
+export class OnlineComponent implements OnInit {
+
   status: boolean = false;
 
   user: User = new User();
@@ -118,7 +119,7 @@ export class RightsideComponent implements OnInit {
     this.pusherService.channel.trigger('client-event', this.message);
     this.messages.push(this.message);
   }
-  
 
 
 }
+
