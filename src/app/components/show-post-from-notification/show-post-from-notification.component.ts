@@ -29,8 +29,6 @@ export class ShowPostFromNotificationComponent implements OnInit {
         console.log(this.post);
         console.log(this.post.id);
 
-        
-
       },
       (error:any)=>{}
     );
