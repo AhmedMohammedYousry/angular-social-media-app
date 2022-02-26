@@ -17,11 +17,11 @@
         <div class="col-lg-12">
           <div class="section-title text-center">
             <div class="title-text">
-              <h2 class="text-muted">Your photos</h2>
+              <h2 class="text-muted">Your Photos</h2>
             </div>
-            <p>
+            <!-- <p>
               photo of you and pictures you have been tagged in.
-            </p>
+            </p> -->
           </div>
         </div>
         <!-- /.col end-->
@@ -31,36 +31,37 @@
         <div class="col-lg-12">
           <ul class="nav custom-tab" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-                aria-selected="false">Profiles</a>
+              <a class="nav-link" id="profile-tab" data-toggle="tab" role="tab" aria-controls="profile" style="cursor: pointer;"
+                aria-selected="false" (click)="showProfilesTab()">Profiles</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-                aria-selected="false">Covers</a>
+              <a class="nav-link" id="contact-tab" data-toggle="tab" role="tab" aria-controls="contact" style="cursor: pointer;"
+                aria-selected="false" (click)="showCoversTab()">Covers</a>
             </li>
-            <li class="nav-item d-none d-lg-block">
+            <!-- <li class="nav-item d-none d-lg-block">
               <a class="nav-link" id="sunday-tab" data-toggle="tab" href="#sunday" role="tab" aria-controls="sunday"
                 aria-selected="false">Tagged </a>
             </li>
             <li class="nav-item mr-0 d-none d-lg-block">
               <a class="nav-link" id="monday-tab" data-toggle="tab" href="#monday" role="tab" aria-controls="monday"
                 aria-selected="false">Albums</a>
-            </li>
+            </li> -->
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade active show" id="home" role="tabpanel">
               <div class="table-responsive">
-                <table class="table">
+                <!-- profile picture table -->
+                <table class="table" *ngIf="profilesTab">
                   <thead>
                     <tr>
                       <th scope="col">photo</th>
                       <th scope="col">Time</th>
-                      <th scope="col">Edit</th>
-                      <th class="text-center" scope="col">Delete</th>
+                      <!-- <th scope="col">Edit</th> -->
+                      <th class="text-center" scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="inner-box" *ngFor="let profilepicture of profilepictures">
+                    <tr class="inner-box" *ngFor="let profilepicture of profilepictures.reverse()">
               
                       <td>
                         <div class="event-img">
@@ -72,20 +73,69 @@
                         <div class="event-wrap">
                           <div class="meta">
                             <div class="time">
-                              <span>05:35 AM - 08:00 AM 2h 25'</span>
+                              <span>{{profilepicture.created_at | date:'medium'}}</span>
                             </div>
                           </div>
                         </div>
                       </td>
-                      <td>
+                      <!-- <td>
                         <div class="v-no">
                           <a class="btn " href="#"><i class="fa-solid fa-pen-to-square me-2 "></i>Edit</a>
                         </div>
-                      </td>
+                      </td> -->
                       <td>
 
-                        <div class="primary-btn">
-                          <a class="btn" href="#"><i class="fa-solid fa-trash-can me-2"></i>Delete</a>
+                        <!-- <div class="primary-btn">
+                          <a class="btn"><i class="fa-solid fa-trash-can me-2"></i>Delete</a>
+                        </div> -->
+                        <div class="primary-btn" (click)="setProfile(profilepicture.profilePic)">
+                          <a class="btn">Set as Profile</a>
+                        </div>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+                <!-- cover pictures table -->
+                <table class="table" *ngIf="coversTab">
+                  <thead>
+                    <tr>
+                      <th scope="col">photo</th>
+                      <th scope="col">Time</th>
+                      <!-- <th scope="col">Edit</th> -->
+                      <th class="text-center" scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="inner-box" *ngFor="let coverpicture of coverpictures.reverse()">
+              
+                      <td>
+                        <div class="event-img">
+                          <img src="{{storageURL}}/covers/{{coverpicture.coverPic}}" mat-raised-button
+                            (click)="expandPic(storageURL+'/covers/'+coverpicture.coverPic)">
+                        </div>
+                      </td>
+                      <td>
+                        <div class="event-wrap">
+                          <div class="meta">
+                            <div class="time">
+                              <span>{{coverpicture.created_at | date:'medium'}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <!-- <td>
+                        <div class="v-no">
+                          <a class="btn " href="#"><i class="fa-solid fa-pen-to-square me-2 "></i>Edit</a>
+                        </div>
+                      </td> -->
+                      <td>
+
+                        <!-- <div class="primary-btn">
+                          <a class="btn"><i class="fa-solid fa-trash-can me-2"></i>Delete</a>
+                        </div> -->
+                        <div class="primary-btn" (click)="setCover(coverpicture.coverPic)">
+                          <a class="btn">Set as Cover</a>
                         </div>
                       </td>
                     </tr>
@@ -94,9 +144,9 @@
                 </table>
               </div>
             </div>
-            <div class="primary-btn text-center">
-              <a href="#" class="btn "> <i class="fa-solid fa-upload me-2"></i>Upload Photo</a>
-            </div>
+            <!-- <div class="primary-btn text-center m-3">
+              <a class="btn"> <i class="fa-solid fa-upload me-2"></i>Upload Photo</a>
+            </div> -->
           </div>
           <!-- /col end-->
         </div>
