@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Social Media</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container">
+        <!----------------Porfile page----------------------->
+        <div class="write-post-container">
+
+            <div class="post-input-container">
+
+                <div class="test">
+                    <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper">
+                        <div class="row">
+                            <div >
+                                <h3 class="mt-4 ">Your Post</h3>
+                                <hr>
+                                <div class="postdiv">
+                                    <div >
+                                    <app-show-post [postOwner]="post.user_id.name"
+                                        [postContent]="post.content" [created_at]="post.created_at"
+                                        [comments_number]="post.comments.length==0? '' : post.comments.length"
+                                        [post_id]="post.id"
+                                        [post_likes_number]="post.post_likes.length"
+                                        [profilePic]="post.user.profilePic" [hasPic]="post.hasPic"
+                                        [postPic]="post.postPic" [showDeleteButton]="true"></app-show-post>
+                                    <!-- create comment here -->
+                                    <app-create-comment [post_id]="post.id"></app-create-comment>
+                                    <!-- display comments here -->
+                                    <a class="link-secondary text-decoration-none" data-bs-toggle="collapse"
+                                        href="#allcomments" role="button" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        Show comments
+                                    </a>
+
+                                    <div class="collapse" id="allcomments">
+                                        <div *ngFor='let comment of post.comments ;let j = index'>
+
+                                            <app-show-comment [commentOwner]="comment.user.firstname"
+                                                [commentContent]="comment.content"
+                                                [comment_created_at]="comment.created_at">
+                                            </app-show-comment>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

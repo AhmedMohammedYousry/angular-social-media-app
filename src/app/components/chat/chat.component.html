@@ -88,16 +88,7 @@
                 <div class="input-group-prepend" (click)="sendMessage()">
                   <span class="input-group-text"><i class="fa fa-send send"></i></span>
                 </div>
-<<<<<<< HEAD
-                <input type="text" formControlName="message" class="form-control" placeholder="Enter text here...">
-                <div *ngIf="isInValidAndTouched('message')">
-                  <small class="form-text text-danger" *ngIf="isControlHasError('message','required')">required
-                  </small>
-
-                </div>
-=======
                 <input type="text"(keyup.enter)="sendMessage()" formControlName="message" class="form-control" placeholder="Enter text here...">
->>>>>>> 1f093027ae60066aafb821aee0cc4ce1ee000ba4
               </div>
             </div>
           </div>

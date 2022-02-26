@@ -32,6 +32,8 @@ export class User{
     intro:string="";
     notifications:Notification[]=[];
     friend_requests:any[]=[];
+    is_banned:boolean=false;
+    is_reported:boolean=false;
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();

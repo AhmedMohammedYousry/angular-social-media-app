@@ -27,10 +27,13 @@ import { SearchComponent } from './components/search/search.component';
 import { DialogMessageComponent } from './components/dialog-message/dialog-message.component';
 import { ShowSavePostComponent } from './components/show-save-post/show-save-post.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { ShowPostFromNotificationComponent } from './components/show-post-from-notification/show-post-from-notification.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { AdminPostsComponent } from './components/admin/admin-posts/admin-posts.component';
 import { AdminPagesComponent } from './components/admin/admin-pages/admin-pages.component';
 import { AdminPanelComponent } from "../app/components/admin/admin-panel/admin-panel.component";
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './token.interceptor';
 
 
 @NgModule({
@@ -55,6 +58,7 @@ import { AdminPanelComponent } from "../app/components/admin/admin-panel/admin-p
     SearchComponent,
     DialogMessageComponent,
     ShowSavePostComponent,
+    ShowPostFromNotificationComponent,
     AdminPanelComponent,
     AdminUsersComponent,
     AdminPostsComponent,
@@ -67,7 +71,12 @@ import { AdminPanelComponent } from "../app/components/admin/admin-panel/admin-p
     MatDialogModule,BrowserAnimationsModule, MatBadgeModule
   ],
   exports: [NavigationHeaderComponent,CommonModule],
-  providers: [PusherService],
+  providers: [PusherService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

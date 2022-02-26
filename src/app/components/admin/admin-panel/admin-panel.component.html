@@ -25,19 +25,19 @@
               </a>
             </li>
             <li class="nav-item">
-              <a [routerLink]="['/admin-panel/app-admin-pages']" class="nav-link align-middle px-0">
+              <a (click)="pages()" class="nav-link align-middle px-0">
                 <i class="fa-solid fa-flag"></i>
                 <span class="ms-1 d-none d-sm-inline">pages</span>
               </a>
             </li>
             <li class="nav-item">
-              <a [routerLink]="['/admin-panel/app-admin-posts']" class="nav-link align-middle px-0">
+              <a (click)="posts()" class="nav-link align-middle px-0">
                 <i class="fa-regular fa-newspaper"></i>
                 <span class="ms-1 d-none d-sm-inline">posts</span>
               </a>
             </li>
             <li class="nav-item">
-              <a [routerLink]="['admin-panel/app-admin-users']" routerLinkActive="active"
+              <a (click)="users()" 
                 class="nav-link align-middle px-0">
                 <i class="fa-solid fa-users"></i>
                 <span class="ms-1 d-none d-sm-inline">Allusers</span>
@@ -49,9 +49,9 @@
       <div class="col py-3">
         <div class="card shadow border-0 mb-7">
           <!-- content -->
-          <router-outlet></router-outlet>
-          <app-admin-posts></app-admin-posts>
-        <app-admin-pages></app-admin-pages>
-        <app-admin-users></app-admin-users>
+          
+          <app-admin-posts *ngIf="postsPressed"></app-admin-posts>
+          <app-admin-pages *ngIf="pagesPressed"></app-admin-pages>
+          <app-admin-users *ngIf="usersPressed"></app-admin-users>
 
         </div>

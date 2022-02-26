@@ -54,31 +54,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     let options = {
       'headers': headers
     }
-<<<<<<< HEAD
-    this._apiService.getOne('users',parseInt(`${localStorage.getItem('id')}`),options)
-    .subscribe(
-      (response:any)=>{
-        this.user = response;
-        this.chats=this.user.chat_lines; 
-        console.log(this.user); 
-        console.log(this.chats); 
-      },
-      (error:any)=> {}
-    )   
-    Pusher.logToConsole = true;
-
-    // const pusher = new Pusher('473d6c2ef580e2c7c5d8', {
-    //   cluster: 'eu',
-    //   authEndpoint: 'http://localhost:8000/api/messages',
-    // });
-
-    // const data=this.message;
-
-    // const channel = pusher.subscribe('my-channel');
-    // channel.bind('my-event',(data)=> {
-    //   this.messages.push(data);
-    // });
-=======
     this._apiService.getOne('users', parseInt(`${localStorage.getItem('id')}`), options)
       .subscribe(
         (response: any) => {
@@ -92,7 +67,6 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     this.formMessage = this._formBuilder.group({
       message: ['', [Validators.required, Validators.maxLength(120), Validators.minLength(2)]],
     });
->>>>>>> 1f093027ae60066aafb821aee0cc4ce1ee000ba4
 
     Pusher.logToConsole = true;
     this.pusherService.channel.bind('client-event', (message) => {
@@ -160,23 +134,4 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     this.formMessage.reset();  
     // this.scrollToBottom();
   }
-<<<<<<< HEAD
-  
-  isValidControl(name:string):boolean
-  {
-    return this.formMessage.controls[name].valid;
-  }
-
-  isInValidAndTouched(name:string):boolean
-  {
-    return  this.formMessage.controls[name].invalid && (this.formMessage.controls[name].dirty || this.formMessage.controls[name].touched);
-  }
-
-  isControlHasError(name:string,error:string):boolean
-  {
-    return  this.formMessage.controls[name].invalid && this.formMessage.controls[name].errors?.[error];
-  }
-=======
-
->>>>>>> 1f093027ae60066aafb821aee0cc4ce1ee000ba4
 }
