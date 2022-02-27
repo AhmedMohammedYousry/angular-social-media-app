@@ -10,22 +10,22 @@ import { environment } from 'src/environments/environment';
 })
 export class AllpagesComponent implements OnInit {
 
-  listPages:Page[]=[];
-  storageURL=environment.storage_URL
-  isLiked:boolean=false;
-  constructor(private _apiService:ApiService) { }
+  listPages: Page[] = [];
+  storageURL = environment.storage_URL
+  isLiked: boolean = false;
+  constructor(private _apiService: ApiService) { }
 
   ngOnInit(): void {
     this._apiService.get("pages")
-    .subscribe((response:any)=>{
-      this.listPages=response
-      this.listPages.forEach((page:any)=>{
-        if(page.pageslike.some((p:any)=>p.user_id == localStorage.getItem('id')))
-          page.isLiked = true
+      .subscribe((response: any) => {
+        this.listPages = response
+        this.listPages.forEach((page: any) => {
+          if (page.pageslike.some((p: any) => p.user_id == localStorage.getItem('id')))
+            page.isLiked = true
+        })
+        console.log(response);
+
       })
-      console.log(response);
-      
-    })
   }
 
 }

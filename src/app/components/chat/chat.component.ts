@@ -45,6 +45,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   ) { }
 
   ngOnInit(): void {
+    this.formMessage=this._formBuilder.group({
+      message:['',[Validators.required]],
+    });
     const headers = new HttpHeaders({
       Authorization: `Bearer ${localStorage.getItem('Token')}`
     });
@@ -131,5 +134,4 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     this.formMessage.reset();  
     // this.scrollToBottom();
   }
-
 }
