@@ -34,6 +34,7 @@ export class User{
     friend_requests:any[]=[];
     is_banned:boolean=false;
     is_reported:boolean=false;
+    permission:number=0;
     // $table->id();
     // $table->string('name');
     // $table->string('email')->unique();
