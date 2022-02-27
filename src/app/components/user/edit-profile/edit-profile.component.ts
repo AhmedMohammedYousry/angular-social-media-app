@@ -29,7 +29,8 @@ export class EditProfileComponent implements OnInit {
       this.formUpdate.value.mobile=this.user.mobile
       this.formUpdate.value.date_of_birth=this.user.date_of_birth
       this.formUpdate.value.intro=this.user.intro
-      
+      this.formUpdate.value.school=this.user.school
+
     })
   // initialize form values
   this.formUpdate =this._formBuilder.group({
@@ -41,6 +42,7 @@ export class EditProfileComponent implements OnInit {
         mobile: [this.user.mobile ,[Validators.required]],
         date_of_birth: [this.user.date_of_birth ,[Validators.required]],
         intro: [this.user.intro ,[Validators.required]],
+        school:[this.user.school ,[Validators.required]],
     })
     
   }
