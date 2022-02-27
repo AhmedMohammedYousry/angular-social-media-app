@@ -1,3 +1,4 @@
+import { CoverPicture } from './../../../models/coverpicture';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Post } from 'src/app/models/post';
@@ -22,8 +23,10 @@ import { FullImageComponent } from '../../full-image/full-image.component';
 export class PhotosComponent implements OnInit {
   user: User = new User();
   profilepictures: ProfilePicture[] = [];
+  coverpictures: CoverPicture[] = [];
   storageURL = environment.storage_URL
-
+  profilesTab:boolean = true;
+  coversTab:boolean = false;
 
 
   constructor(private _apiUserService: ApiUserService, private _httpClient: HttpClient,
@@ -32,13 +35,8 @@ export class PhotosComponent implements OnInit {
   }
   ngOnInit(): void {
     
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('Token')}`
-    });
-    let options = {
-      'headers': headers
-    }
-    this._apiService.getOne('users',parseInt(`${localStorage.getItem('id')}`),options)
+    
+    this._apiService.getOne('users',parseInt(`${localStorage.getItem('id')}`))
     .subscribe(
       (response:any)=>{
         // alert(JSON.stringify(response))
@@ -47,13 +45,18 @@ export class PhotosComponent implements OnInit {
 
         
 
-        this.user.posts=this.user.posts.reverse()
+        // this.user.posts=this.user.posts.reverse()
 
 
         // [parseInt(`${localStorage.getItem('id')}`)-1]
         this._apiService.get('profilepics').subscribe((pics:any)=> {
           pics = pics.filter((pic:any) => pic.user_id == this.user.id)
           this.profilepictures = pics
+        })
+
+        this._apiService.get('coverpics').subscribe((pics:any)=> {
+          pics = pics.filter((pic:any) => pic.user_id == this.user.id)
+          this.coverpictures = pics
         })
         
       },
@@ -67,6 +70,37 @@ export class PhotosComponent implements OnInit {
         height: '450px',
         width: '650px',
     });
+  }
+
+  setProfile(profilePic:any){
+    this._apiService.update("users", this.user.id,{
+      profilePic: profilePic
+    } )
+    .subscribe((response:any)=>{
+      this._router.navigate(['/profile'])
+      .then(() => {
+        window.location.reload();
+      });
+    })
+
+  }
+  setCover(coverPic:any){
+    this._apiService.update("users", this.user.id,{
+      coverPic
+    } )
+    .subscribe((response:any)=>{
+      
+      this._router.navigate(['/profile']);
+    })
+
+  }
+  showProfilesTab(){
+    this.profilesTab=true;
+    this.coversTab=false;
+  }
+  showCoversTab(){
+    this.profilesTab=false;
+    this.coversTab=true;
   }
 
   }

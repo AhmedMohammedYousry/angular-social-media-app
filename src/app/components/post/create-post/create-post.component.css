@@ -20,3 +20,55 @@ input[type="file"] {
     padding: 6px 12px;
     cursor: pointer;
 }
+
+.people-list {
+    -moz-transition: .5s;
+    -o-transition: .5s;
+    -webkit-transition: .5s;
+    transition: .5s;
+    
+}
+.people-list ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.people-list .chat-list li {
+    padding: 10px 15px;
+    list-style: none;
+    border-radius: 3px;
+}
+
+.people-list .chat-list li:hover {
+    background: #c8c4c4;
+    cursor: pointer
+}
+
+.people-list .chat-list li.active {
+    background: #efefef
+}
+
+.people-list .chat-list li .name {
+    font-size: 15px;
+
+}
+
+
+img{
+    height: 77px;
+    border-radius: 3%;
+
+}
+.people-list li  img {
+    float: left;
+
+
+
+    
+}
+.clearfix {
+    font-size: 10px;
+    width: 160px;
+}
+

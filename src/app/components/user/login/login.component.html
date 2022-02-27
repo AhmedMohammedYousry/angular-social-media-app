@@ -1,80 +1,71 @@
-<html>
-  <head>
-    <title>Login To FireClub</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<head>
+  <title>Login To FireClub</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-  </head>
-  <body>
+</head>
 
-    <section class="h-100 gradient-form" style="background-color: #eee;">
-      <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-xl-10">
-            <div class="card rounded-3 text-black">
-              <div class="row g-0">
-                <div class="col-lg-6">
-                  <div class="card-body p-md-5 mx-md-4">
-    
-                    <div class="text-center">
-                     <h1 class="mt-1 mb-5 pb-1 neon">FireClub</h1>
-                    </div>
-    
-                    <div [formGroup]="formLogin" class="container form" >
-                      <p>Please login to your account</p>
-    
-                      <div class="form-outline mb-4">
-                        <input type="email" id="form2Example11" formControlName="Email" class="form-control" placeholder=" email address"/>
-                        <label class="form-label" for="form2Example11">Email</label>
-                         <div *ngIf="isInValidAndTouched('Email')">
-            <small class="form-text text-danger" *ngIf="isControlHasError('Email','required')">required email</small>
-            <small class="form-text text-danger" *ngIf="isControlHasError('Email','pattern')">*you should add @ and .com</small>
+<body>
+  <div class="d-lg-flex half">
+    <div class="bg order-1 order-md-2" style="background-image: url('../../../../assets/images/login.jpeg');"></div>
+    <div class="contents order-2 order-md-1 ">
 
-          </div> 
-                      </div>
-    
-                      <div class="form-outline mb-4">
-                        <input type="password" id="form2Example22" formControlName="Password" class="form-control" />
-                        <label class="form-label" for="form2Example22">Password</label>
-                       <div *ngIf="isInValidAndTouched('Password')">
-            <small class="form-text text-danger" *ngIf="isControlHasError('Password','required')">*required
-              password</small>
-              <small class="form-text text-danger" *ngIf="isControlHasError('Password','pattern')">*At least 8 characters in length
-                Lowercase letters
-                Uppercase letters
-                Numbers
-                Special characters
-               </small>
-            </div>  
-                      </div>
-    
-                      <div class="text-center pt-1 mb-5 pb-1 ">
-                        <button class="btn  fa-lg gradient-custom-2 mb-3 p-3 me-2 text-white" type="button"(click)="login()">Login</button>
-                        <!-- <a class="text-muted" href="#">Forgot password?</a> -->
-                      </div>
-    
-                      <div class="d-flex align-items-center justify-content-center pb-4">
-                        <p class="mb-0 me-2">Don't have an account?</p>
-                        <a [routerLink]="['/register']">
-                        <button type="button" class="btn btn-outline-danger">Create new</button>
-                      </a>
-                      </div>
-    
-                  </div>
-    
-                  </div>
-                </div>
-                <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-                  <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                    <h4 class="mb-4">We are more than just a social network on the Internet</h4>
-                    <p class="small mb-0"></p>
-                  </div>
-                </div>
+      <div class="container">
+        <div class="row align-items-center justify-content-center ">
+          <div class="col-md-7 test  p-5">
+            <div class="hit-the-floor pb-5">
+              <h1>FireClub</h1>
+            </div>
+            <div [formGroup]="formLogin">
+              <div class="form-field d-flex align-items-center mb-5"> <span class="far fa-user"></span> 
+                <input formControlName="Email" type="text" name="userName" id="userName" placeholder="Username"> 
               </div>
+
+              <div *ngIf="isInValidAndTouched('Email')">
+                <small class="form-text text-danger" *ngIf="isControlHasError('Email','required')">required
+                  email</small>
+                <small class="form-text text-danger" *ngIf="isControlHasError('Email','pattern')">*you should add @ and
+                  .com</small>
+
+              </div>
+              <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input formControlName="Password" type="password" name="password" id="pwd" placeholder="Password">
+              </div> 
+
+              <div *ngIf="isInValidAndTouched('Password')">
+                <small class="form-text text-danger" *ngIf="isControlHasError('Password','required')">*required
+                  password</small>
+                <small class="form-text text-danger" *ngIf="isControlHasError('Password','pattern')">*At least 8
+                  characters in length
+                  Lowercase letters
+                  Uppercase letters
+                  Numbers
+                  Special characters
+                </small>
+              </div>
+            
+
+            <div class="text-center pt-1 mb-5 pb-1">
+              <button class="btn btn-block btn-primary pl-3 pr-3" type="button" (click)="login()">Login</button>
+
+            </div>
+
+            <div class="d-flex align-items-center justify-content-center pb-4">
+              <p class="mb-0 me-2">Don't have an account?</p>
+              <a [routerLink]="['/register']">
+                <button type="button" class="btn btn-outline-danger">Create new</button>
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-  </body>
-</html>
+
+  </div>
+
+
+</body>
+
