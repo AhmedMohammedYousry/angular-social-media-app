@@ -39,7 +39,8 @@ export class ShowPostComponent implements OnInit {
   notificationShare:Notification=new Notification();
   @Input() imageFolder: string = "profiles";
   @Input() nameLink: string = "users";
-
+  banned:boolean=false;
+  banMsg:string='';
   likebtn() {
 
     if (this.like == 0) {
@@ -51,6 +52,14 @@ export class ShowPostComponent implements OnInit {
         this.post_likes_number++;
         this.ngOnInit();
 
+      },(error:any)=>{
+        if(error.status == 403){
+          this.banned=true;
+          this.banMsg=error.error.message;
+        }
+        const dialogLikeError = this._matDialog.open(DialogMessageComponent, {
+          data: this.banMsg
+        });
       })
       // to post notification when like
       this._apiService.post('notifications', {
@@ -71,7 +80,15 @@ export class ShowPostComponent implements OnInit {
           this.like = 1 - this.like
 
         }
-        )
+        ,(error:any)=>{
+          if(error.status == 403){
+            this.banned=true;
+            this.banMsg=error.error.message;
+          }
+          const dialogLikeError = this._matDialog.open(DialogMessageComponent, {
+            data: this.banMsg
+          });
+        } )
     }
   }
 
@@ -104,7 +121,15 @@ export class ShowPostComponent implements OnInit {
     this._apiService.delete('posts', this.post_id)
       .subscribe((response: any) => {
         window.location.reload();
-      }, (error: any) => { JSON.stringify(error) })
+      },(error:any)=>{
+        if(error.status == 403){
+          this.banned=true;
+          this.banMsg=error.error.message;
+        }
+        const dialogLikeError = this._matDialog.open(DialogMessageComponent, {
+          data: this.banMsg
+        });
+      })
   }
 
   sharePost() {
@@ -117,7 +142,15 @@ export class ShowPostComponent implements OnInit {
         data: "You have shared this post on your profile!"
       });
 
-    });
+    },(error:any)=>{
+      if(error.status == 403){
+        this.banned=true;
+        this.banMsg=error.error.message;
+      }
+      const dialogLikeError = this._matDialog.open(DialogMessageComponent, {
+        data: this.banMsg
+      });
+    } );
 
     this._apiService.post('notifications', {
       from_user_id: parseInt(localStorage.getItem('id')),
