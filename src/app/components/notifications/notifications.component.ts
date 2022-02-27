@@ -48,14 +48,14 @@ export class NotificationsComponent implements OnInit {
         console.log(this.user);
         this.notifications = response.notifications;
         this.notifications = this.notifications.reverse();
-        console.log(this.notifications);
+        console.log(this.notifications);    
       },
       (error: any) => { }
     )
     Pusher.logToConsole = true;
-    this.pusherService.notificationChannel.bind('client-event', (notification) => {
-      this.notifications.push(notification);
-    });
+    // this.pusherService.notificationChannel.bind('client-event', (notification) => {
+    //   this.notifications.push(notification);
+    // });
 
     // if (this.like != undefined) {
     //   this.pusherService.channel.trigger('client-event', this.like);
