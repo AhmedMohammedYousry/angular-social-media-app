@@ -1,59 +1,60 @@
 <head>
     
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
- 
+
 
 <div class="container-fluid" style="background-color: hsl(0, 0%, 91%);">
-    <div class="row">
-        <div class="col-md-3 fixed-left">
-            <app-left-sidebar></app-left-sidebar>
-        </div>
-        <div class="col-md-6">
-            
-            <div class="col-md-12">
-                <app-create-post></app-create-post>
-                 <div *ngFor='let post of dashboardPosts ;let i = index'>
-                   <div class="postdiv">
-                    <app-show-post [postOwner]="post.page?post.page.page_name:post.user.name" 
-                    [postOwnerId]="post.page? post.page.id :post.user.id"
-                     [postContent]="post.content"
-                     [created_at]="post.created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
-                     [post_id]="post.id" [post_likes_number]="post.post_likes.length"
-                     [profilePic]="post.page? post.page.profile_image: post.user.profilePic"
-                     [hasPic]="post.hasPic"
-                     [postPic]="post.postPic"
-                     [showDeleteButton]="false"
-                     [showShareButton]="!post.page"
-                     [imageFolder]="post.page? 'pages':'profiles'"
-                     [nameLink]="post.page? 'pages': 'users'"
-                     ></app-show-post>
-                    <app-create-comment [post_id]="post.id"></app-create-comment>
-                    
-                        <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                          Show comments
-                        </a>   
-                      <div class="collapse" id="allposts{{i}}">
-                        <div *ngFor='let comment of post.comments ;let j = index'>
-                            <app-show-comment [commentOwner]="comment.user.name" [commentContent]="comment.content"
-                             [comment_created_at]="comment.created_at" [commentOwnerPic]="comment.user.profilePic"
-                             [commentOwnerId]="comment.user.id"></app-show-comment>
-                            </div>
-                      </div>
-                    
+  <div class="row">
+      <div class="col-md-3 fixed-left">
+          <app-left-sidebar></app-left-sidebar>
+      </div>
+      <div class="col-md-6">
+        <app-online></app-online>
+          
+          <div class="col-md-12">
+              <app-create-post></app-create-post>
+               <div *ngFor='let post of dashboardPosts ;let i = index'>
+                 <div class="postdiv">
+                  <app-show-post [postOwner]="post.page?post.page.page_name:post.user.name" 
+                  [postOwnerId]="post.page? post.page.id :post.user.id"
+                   [postContent]="post.content"
+                   [created_at]="post.created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"
+                   [post_id]="post.id" [post_likes_number]="post.post_likes.length"
+                   [profilePic]="post.page? post.page.profile_image: post.user.profilePic"
+                   [hasPic]="post.hasPic"
+                   [postPic]="post.postPic"
+                   [showDeleteButton]="false"
+                   [showShareButton]="!post.page"
+                   [imageFolder]="post.page? 'pages':'profiles'"
+                   [nameLink]="post.page? 'pages': 'users'"
+                   ></app-show-post>
+                  <app-create-comment [post_id]="post.id"></app-create-comment>
+                  
+                      <a class="link-secondary text-decoration-none" data-bs-toggle="collapse" href="#allposts{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Show comments
+                      </a>   
+                    <div class="collapse" id="allposts{{i}}">
+                      <div *ngFor='let comment of post.comments ;let j = index'>
+                          <app-show-comment [commentOwner]="comment.user.name" [commentContent]="comment.content"
+                           [comment_created_at]="comment.created_at" [commentOwnerPic]="comment.user.profilePic"
+                           [commentOwnerId]="comment.user.id"></app-show-comment>
+                          </div>
                     </div>
+                  
                   </div>
-            </div> 
-        </div>
-        <div class="col-md-3 fixed-right">
-            <app-rightside></app-rightside>
+                </div>
+          </div> 
+      </div>
+      <div class="col-md-3 fixed-right">
+          <app-rightside></app-rightside>
 
-         
-        </div>
-    </div>
+       
+      </div>
+  </div>
 </div>
-
+<app-footer></app-footer>

@@ -1,29 +1,105 @@
-.gradient-custom-2 {
-  background: linear-gradient(109deg, #ff2403, #000000);
-}
+body {
+  font-family: "Roboto", sans-serif;
+  background: #ecf0f3}
 
-@media (min-width: 768px) {
-  .gradient-form {
-    height: 100vh !important;
+p {
+  color: #b3b3b3;
+  font-weight: 300; }
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Roboto", sans-serif; }
+
+a {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease; }
+  a:hover {
+    text-decoration: none !important; }
+
+.content {
+  padding: 7rem 0; }
+  .test{
+  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+ 
   }
+  .hit-the-floor h1{
+    font-weight:900;}
+  .hit-the-floor {
+    color: rgb(219, 31, 31);
+    font-size: 12em;
+    text-align: center;
+    font-family: Helvetica;
+    text-shadow: 0 1px 0 #ccc,
+     0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+    }
+    
+    
+    
+  
+
+h2 {
+  font-size: 20px; }
+
+.half, .half .container > .row {
+  height: 100vh;
+  min-height: 700px; }
+
+@media (max-width: 991.98px) {
+  .half, .half .container > .row {
+  
+    min-height: 570px; }
+  .half .bg {
+    height: 200px; } }
+
+.half .contents {
+  background: #f6f7fc; }
+
+.half .contents, .half .bg {
+  width: 50%; }
+  @media (max-width: 1199.98px) {
+    .half .contents, .half .bg {
+      width: 100%; } }
+  
+   
+
+.half .bg {
+  background-size: cover;
+  background-position: center; }
+
+
+
+/* .half .btn {
+  height: 54px;
+  padding-left: 30px;
+  padding-right: 30px; } */
+
+
+
+  .btn-primary {
+    color: #fff;
+    background: linear-gradient(109deg, #ff2403, #000000);
+    border: none;
 }
-@media (min-width: 769px) {
-  .gradient-custom-2 {
-    border-top-right-radius: .3rem;
-    border-bottom-right-radius: .3rem;
-  }
+/* fg */
+ .form-field input {
+  width: 60%;
+  display: block;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 10px 15px 10px 10px
 }
 
-.neon {
-  color: #b22914;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.726), 0 0 10px #fff, 0 0 20px #fff,
-    0 0 40px rgb(165, 51, 51), 0 0 80px rgb(211, 106, 106),
-    0 0 90px rgb(255, 0, 0), 0 0 100px rgb(255, 251, 0),
-    0 0 150px rgb(196, 199, 19);
-  text-decoration: none;
-  margin-left: 50px;
-  font-size: 30px;
-  margin-right: 50px;
+.form-field {
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff
 }
-
+.form-field .fas {
+  color: #555
+}
 
