@@ -19,28 +19,34 @@
           </a>
           <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text" id="menu">
             <li class="nav-item">
-              <a href="#" class="nav-link align-middle px-0">
+              <a (click)="home()" class="nav-link align-middle px-0">
                 <i class="fa-solid fa-house"></i>
                 <span class="ms-1 d-none d-sm-inline">Home</span>
               </a>
             </li>
             <li class="nav-item">
+              <a (click)="users()" class="nav-link align-middle px-0">
+                <i class="fa-solid fa-user-group"></i>
+                <span class="ms-1 d-none d-sm-inline">Users</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a (click)="pages()" class="nav-link align-middle px-0">
                 <i class="fa-solid fa-flag"></i>
-                <span class="ms-1 d-none d-sm-inline">pages</span>
+                <span class="ms-1 d-none d-sm-inline">Pages</span>
               </a>
             </li>
             <li class="nav-item">
               <a (click)="posts()" class="nav-link align-middle px-0">
                 <i class="fa-regular fa-newspaper"></i>
-                <span class="ms-1 d-none d-sm-inline">posts</span>
+                <span class="ms-1 d-none d-sm-inline">Posts</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a (click)="users()" 
+            <li class="nav-item" *ngIf="superAdmin">
+              <a (click)="allUsers()" 
                 class="nav-link align-middle px-0">
                 <i class="fa-solid fa-users"></i>
-                <span class="ms-1 d-none d-sm-inline">Allusers</span>
+                <span class="ms-1 d-none d-sm-inline">All Users</span>
               </a>
             </li>
           </ul>
@@ -49,7 +55,13 @@
       <div class="col py-3">
         <div class="card shadow border-0 mb-7">
           <!-- content -->
-          
+          <div *ngIf="homePressed">
+            <h3 >
+              Hello in admin panel, <span class="text-primary">{{user.firstname}}.</span> 
+            </h3>
+            <img src="../../../../assets/images/Man engineer working on computer server rack switchboard.jpg" class="admin" alt="admin-home">
+          </div>
+          <app-admin-normal-users *ngIf="normalPressed"></app-admin-normal-users>
           <app-admin-posts *ngIf="postsPressed"></app-admin-posts>
           <app-admin-pages *ngIf="pagesPressed"></app-admin-pages>
           <app-admin-users *ngIf="usersPressed"></app-admin-users>

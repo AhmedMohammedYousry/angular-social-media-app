@@ -1,3 +1,4 @@
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiUserService } from 'src/app/services/api-user.service';
@@ -5,6 +6,7 @@ import { Router } from '@angular/router';
 import { Page } from 'src/app/models/page';
 import { User } from 'src/app/models/user';
 import { ApiService } from 'src/app/services/api.service';
+import { DialogMessageComponent } from '../../dialog-message/dialog-message.component';
 
 @Component({
   selector: 'app-create-page',
@@ -14,7 +16,8 @@ import { ApiService } from 'src/app/services/api.service';
 export class CreatePageComponent implements OnInit {
   
 
-  constructor(private _FormBuilder: FormBuilder, private _apiUserService: ApiUserService, private _router: Router,private _apiService:ApiService) { }
+  constructor(private _FormBuilder: FormBuilder, private _apiUserService: ApiUserService,
+     private _router: Router,private _apiService:ApiService, private _matDialog:MatDialog) { }
   formCreatePage = new FormGroup({})
   
  
@@ -26,6 +29,8 @@ coverFile:any;
 imageData:any;
 coverData:any;
 created_page_id:any;
+banned:boolean=false;
+  banMsg:string='';
   ngOnInit(): void {
 
     this.formCreatePage = this._FormBuilder.group({
@@ -111,10 +116,15 @@ created_page_id:any;
           
         })
         
-      },
-      (error:any)=>{
-        console.log(error)
-      }
+      },(error:any)=>{
+        if(error.status == 403){
+          this.banned=true;
+          this.banMsg=error.error.message;
+        }
+        const dialogLikeError = this._matDialog.open(DialogMessageComponent, {
+          data: this.banMsg
+        });
+      } 
     );
 
     

@@ -16,6 +16,8 @@ export class CreatePostComponent implements OnInit {
   filesPost:any;
   dataPost:any;
   post_id:any;
+  banned:boolean=false;
+  banMsg:string='';
   constructor(private _router:Router, private _apiPostService:ApiPostService,
     private _formBuilder:FormBuilder,private _apiService:ApiService) { }
 
@@ -28,16 +30,10 @@ export class CreatePostComponent implements OnInit {
   }
 
   post(){
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('Token')}`
-    });
-    let options = {
-      'headers': headers
-    }
     this._apiPostService.post('posts',{
       content: this.formPost.value.content,
       user_id: localStorage.getItem('id')
-    },options).subscribe(
+    }).subscribe(
       (response:any)=>{
         // this._router.navigateByUrl('post')
         this.post_id=response.id;
@@ -45,7 +41,11 @@ export class CreatePostComponent implements OnInit {
           this.addPicToPost();
         }
         location.reload(); 
-      },(error:any)=>{console.log(error);
+      },(error:any)=>{
+        if(error.status == 403){
+          this.banned=true;
+          this.banMsg=error.error.message;
+        }
       }
     )
 

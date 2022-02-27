@@ -36,6 +36,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
 import { OnlineComponent } from './components/dashboard/online/online.component';
 import { FooterComponent } from './components/dashboard/footer/footer.component';
+import { AdminNormalUsersComponent } from './components/admin/admin-normal-users/admin-normal-users.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { FooterComponent } from './components/dashboard/footer/footer.component'
     AdminUsersComponent,
     AdminPostsComponent,
     AdminPagesComponent,
+    AdminNormalUsersComponent,
     OnlineComponent,
     FooterComponent,
 

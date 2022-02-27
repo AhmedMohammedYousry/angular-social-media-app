@@ -1,9 +1,11 @@
+import { MatDialog } from '@angular/material/dialog';
 import { Notification } from './../../../models/notification';
 import { Post } from 'src/app/models/post';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
+import { DialogMessageComponent } from '../../dialog-message/dialog-message.component';
 
 @Component({
   selector: 'app-create-comment',
@@ -15,8 +17,9 @@ export class CreateCommentComponent implements OnInit {
   formComment=new FormGroup({});
   notificationComment:Notification;
   @Input() post_id:number=0;
-
-  constructor(private _apiService:ApiService,private _formBuilder:FormBuilder) { }
+  banned:boolean=false;
+  banMsg:string='';
+  constructor(private _apiService:ApiService,private _formBuilder:FormBuilder, private _matDialog:MatDialog) { }
 
   ngOnInit(): void {
     this.formComment=this._formBuilder.group({
@@ -35,7 +38,14 @@ export class CreateCommentComponent implements OnInit {
       (response:any)=>{
         window.location.reload();
       },(error:any)=>{
-      }
+        if(error.status == 403){
+          this.banned=true;
+          this.banMsg=error.error.message;
+        }
+        const dialogLikeError = this._matDialog.open(DialogMessageComponent, {
+          data: this.banMsg
+        });
+      } 
     )
       //to post notification when comment
     this._apiService.post('notifications',{
