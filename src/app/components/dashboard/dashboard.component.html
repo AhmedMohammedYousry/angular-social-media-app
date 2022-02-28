@@ -30,6 +30,7 @@
                    [postPic]="post.postPic"
                    [showDeleteButton]="false"
                    [showShareButton]="!post.page"
+                   [showDots]="!post.page"
                    [imageFolder]="post.page? 'pages':'profiles'"
                    [nameLink]="post.page? 'pages': 'users'"
                    ></app-show-post>

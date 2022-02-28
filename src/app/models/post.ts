@@ -16,4 +16,5 @@ export class Post{
     shared_at:string="";
     save_post:any=0;
     page:Page=new Page;
+    page_id:any;
 }

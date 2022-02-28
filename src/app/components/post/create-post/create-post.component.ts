@@ -40,7 +40,7 @@ export class CreatePostComponent implements OnInit {
         if(this.filesPost){
           this.addPicToPost();
         }
-        location.reload(); 
+        
       },(error:any)=>{
         if(error.status == 403){
           this.banned=true;
@@ -66,6 +66,7 @@ export class CreatePostComponent implements OnInit {
     .subscribe((response:any)=>{
       this.dataPost = response;
       this.formPost.get('image').reset();
+      location.reload(); 
     })
   }
 

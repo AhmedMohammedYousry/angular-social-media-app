@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <title>Document</title>
@@ -43,6 +47,7 @@
             <div class="row">
               <div>
                 <div *ngFor='let post of post ;let i = index' class="postdiv shadow mb-4 py-4 mt-4">
+                  <div *ngIf="post.page_id == null">
                   <app-show-post [postOwner]="post.user.name" [postContent]="post.content"
                     [created_at]="post.created_at"
                     [comments_number]="post.comments.length==0? '' : post.comments.length" [post_id]="post.id"
@@ -62,7 +67,7 @@
                         [comment_created_at]="comment.created_at"></app-show-comment>
                     </div>
                   </div>
-
+                </div>
                 </div>
 
               </div>
@@ -80,28 +85,31 @@
         <h3>No results
         </h3>
       </div>
-      <div class="row"*ngFor="let page of page">
-        <div class="col-lg-12">
-          <div class="panel profile-cover ">
-            <div class="profile-cover__img">
-              <img class="rounded-circle" src="{{storageURL}}/profiles/{{page.profile_image}}">
-              <h3 class="h3 text-muted">{{page.page_name}}</h3>
-            </div>
-            <div class="profile-cover__action " data-overlay="0.3">
-              <button class="btn btn-rounded button"routerLink="/pages/{{page.id}}">
-                <i class="fa-solid fa-circle-arrow-right"></i>                
-                <span>Go to page</span>
-              </button>
-              <button class="btn btn-rounded button">
-                <i class="fa fa-comment"></i>
-                <span>Message</span>
-              </button>
-            </div>
-            <div class="profile-cover__info">
-              <ul class="nav">
-                <li><strong>33</strong>Followers</li>
-                <li><strong>136</strong>Following</li>
-              </ul>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-12 p-4" *ngFor="let page of page">
+          <div class="card  shadow">
+            <div class="card-body">
+              <div class="media align-items-center text-center">
+                <img class="photo" src="{{storageURL}}/pages/{{page.profile_image}}">
+                <div class="media-body overflow-hidden">
+                  <h5 class="card-text mb-0 name">{{page.page_name}}</h5>
+                  <!-- <p class="card-text text-muted">{{userName.email}}</p>
+                  <p class="card-text text-muted">{{userName.mobile}}</p> -->
+                  <br>
+                </div>
+                <a href="#" class="tile-link"></a>
+                <div class=" responsive">
+                  <button type="button" class="btn1">
+                    <a routerLink="/pages/{{page.id}}">
+                      <i class="fa-solid fa-user-group"></i> Go to page
+                    </a>
+                  </button>
+                  <!-- <button type="button" class="btn1  ">
+                    <a [routerLink]="['/chat']">
+                      <i class="fab fa-facebook-messenger icon"> </i> Message
+                    </a></button> -->
+                </div>
+              </div>
             </div>
           </div>
 
