@@ -26,7 +26,8 @@
           </td>
           <td>
             <button (click)="deletePost(post.id)" class="btn btn-outline-danger btn-dark m-1">Delete</button>
-            <button (click)="reportUser(post.user.id)" class="btn btn-outline-warning btn-dark m-1 ">Report</button>
+            <button *ngIf="!post.is_reported" (click)="reportUser(post.id,post.user.id)" class="btn btn-outline-warning btn-dark m-1 ">Report</button>
+            <button *ngIf="post.is_reported" (click)="unreportUser(post.id,post.user.id)" class="btn btn-outline-success btn-dark m-1 ">un-Report</button>
           </td>
         </tr>
       </tbody>
