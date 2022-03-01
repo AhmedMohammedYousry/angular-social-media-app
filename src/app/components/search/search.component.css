@@ -4,7 +4,7 @@ body{
     height: 1000px;
   }
   .search-box{
-    width: 100%;
+    width: 70%;
     position: relative;
     display: flex;
 
@@ -12,18 +12,20 @@ body{
 
 
   h3{
-    color: tomato;
+    color: #7a7d7f;
+    font-size: 20px;
   }
   .search-input{
     width: 100%;
     padding: 10px;
-    border: 4px solid #491006;
-    border-radius:10px 0 0 10px ;
+    border: 1px solid #7a7d7f;
+    /* border-radius:10px 0 0 10px ; */
     border-right: none;
     outline: none;
     font-size: 20px;
-    color: tomato;
+    color: #212529;
     background: none;
+    margin-left: 350px;
   }
   .search-button{
    text-align: center;
@@ -31,19 +33,22 @@ body{
   width: 40px;
   outline: none;
   cursor: pointer;
-  border: 4px solid #491006;
-   border-radius: 0 10px 10px 0 ;
+  border: 1px solid #7a7d7f;
+   /* border-radius: 0 10px 10px 0 ; */
   border-left: none;
   background: none;
   font-size: 20px;
-  border-left: 4px solid #491006;
+  border-left: 4px solid #7a7d7f;
 
 
+  }
+  .icon{
+    color:#7a7d7f;
   }
 
   h1{
 
-    color: #491006;
+    color: #7a7d7f;
   }
 
   .name{
@@ -70,15 +75,7 @@ body{
     text-decoration: none;
     color: white;
 }
-.btn1{
-    background: #6d0606;
-    padding: 6px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-right: 6px; 
 
-
-}
 .btn1 a{
     text-decoration: none;
     color: white;

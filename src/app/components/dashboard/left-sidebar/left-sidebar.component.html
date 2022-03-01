@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,15 +13,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+ 
 </head>
-
+ 
 <body>
-
+ 
   <div class="card mb-4">
     <div class="card-header with-elements">
-      <span class="card-header-title">Friends
-      </span>
+      <span class="card-header-title">Friends</span>
       <div class="card-header-elements ml-md-auto see">
         <a href="javascript:void(0)">see more</a>
       </div>
@@ -33,57 +32,39 @@
         <img src="{{storageURL}}/profiles/{{user.profilePic}}" alt="" class="d-block ui-w-40 rounded-circle mb-2">
         <div class="text-center small">{{user.name}}</div>
       </a>
-
-
+ 
     </div>
   </div>
   <!-- / Side info -->
-
+ 
   <div class="card mb-4">
     <div class="card-header with-elements">
-      <span class="card-header-title">Pages
+      <span class="card-header-title"><a routerLink="/allpages">Pages</a>
       </span>
       <div class="card-header-elements ml-md-auto see">
-        <a href="javascript:void(0)">see more</a>
+        <a routerLink="/createpage" >New page</a>
       </div>
     </div>
     <div class="row no-gutters row-bordered row-border-light">
-      <a href="javascript:void(0)"
+      <a 
         class="d-flex col-4 col-sm-3 col-md-4 flex-column align-items-center text-body py-3 px-2"
         *ngFor="let page of listPages;let i=index">
         <img src="{{storageURL}}/{{'pages'}}/{{page.profile_image}}" routerLink="/pages/{{page.id}}" alt="" class="d-block ui-w-40 rounded-circle mb-2">
         <div class="text-center small" routerLink="/pages/{{page.id}}">{{page.page_name}}</div>
       </a>
-
-
+ 
     </div>
   </div>
-
-
-
-  <!-- Photos -->
+ 
+ <!-- Save Post -->
   <div class="card mb-4">
     <div class="card-header with-elements">
-      <span class="card-header-title">Photos</span>
-      <div class="card-header-elements ml-2">
-      </div>
-      <div class="card-header-elements ml-md-auto see">
-        <a href="javascript:void(0)">see more</a>
-      </div>
+      <i class="fa-solid fa-bookmark"></i> <span class="card-header-title ms-1"><a routerLink="/savepost" >Save Post</a></span>
+     
     </div>
-    <div class="row no-gutters align-items-start pt-1 pl-1" *ngFor="let profilepicture of profilepictures">
-
-      <a href="javascript:void(0)" class="d-block col-3 col-sm-2 col-lg-3 pr-1 pb-1 ms-3">
-        <img src="{{storageURL}}/profiles/{{profilepicture.profilePic}}" mat-raised-button
-          (click)="expandPic(storageURL+'/profiles/'+profilepicture.profilePic)" alt=""
-          class="d-block ui-w-40 rounded-circle mb-2">
-      </a> -->
-
-
-
-    </div>
-
+   
   </div>
 
 
+ 
 </body>
