@@ -46,10 +46,10 @@ export class LoginComponent implements OnInit {
             
             localStorage.setItem("userid",res);
             this._userService.login(response);
-            this._router.navigate(['/profile'])
-              .then(() => {
-                // window.location.reload();
-              });
+            // this._router.navigate(['/profile'])
+            //   .then(() => {
+            //     window.location.reload();
+            //   });
           },(error:any)=>{
 
           }
