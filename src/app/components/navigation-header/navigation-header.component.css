@@ -41,6 +41,7 @@ flex-wrap: nowrap;
     position: fixed;
     top: 0;
     z-index: 100;
+    height: 50px;
   
 }
 .logo{
@@ -68,15 +69,15 @@ flex-wrap: nowrap;
     padding: 0;
     justify-content: center;  
 }
- .nav-left ul li{
+  ul li{
     list-style: none;
     display: inline-block;
      -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    padding: 10px 22px 10px 22px;
+    padding: 22px;
     color: #f3eeee;
 }
-.nav-left ul li i {
+ ul li i {
     font-size: 24px;
     margin-left: 20px;
 }
@@ -116,26 +117,25 @@ flex-wrap: nowrap;
 
 
  
-/*----------------------- Media Query ------------------------*/
  
  @media (max-width:650px){
     
-    .nav-left ul li {
+    ul li {
         padding: 6px;
         padding-left: 15px;
     }
-    .nav-left ul li i {
+    ul li i {
         font-size: 23px;
         margin-left: 15px;
     }
   
 }
 @media (max-width: 570px){
-    .nav-left ul li {
+     ul li {
        
         padding: 5px;
     }
-    .nav-left ul li i {
+ ul li i {
         font-size: 20px;
         margin-left: 15px;
     }
@@ -152,12 +152,12 @@ flex-wrap: nowrap;
    }
  
 }
-@media (max-width: 400px){
-    .nav-left ul li {
+@media (max-width: 460px){
+    ul li {
        
         padding: 5px;
     }
-    .nav-left ul li i {
+     ul li i {
         font-size: 14px;
         margin-left: 5px;
     }
@@ -167,8 +167,12 @@ flex-wrap: nowrap;
        padding-left: 2px;
     }
    
-.user-inf{
-    display: none;
-}
+
  
+}
+@media (max-width:340px) {
+    .user-inf{
+        display: none !important;
+    }
+    
 }

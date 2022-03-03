@@ -14,7 +14,79 @@
 </head>
 
 <body>
-  <div class="container">
+  <main class="content">
+   
+
+		<!-- <div class="card">
+			<div class="row g-0"> -->
+        <div class="row">
+				<div class="col-xl-3 col-lg-3 col-md-3 col-sm-12  users border-right">
+
+
+					<a  class="list-group-item list-group-item-action border-0" *ngFor="let chat of chats" (click)="getChat(chat.chat_id,chat.to_user.name,chat.to_user.profilePic,chat.to_user_id)">
+					
+						<div class="d-flex align-items-start">
+							<img src="{{storageURL}}/profiles/{{chat.to_user.profilePic}}"  class="rounded-circle mr-1"  width="40" height="40">
+							<div class="flex-grow-1 ms-3 ml-3 nameuser">
+								{{chat.to_user.name}}
+							
+							</div>
+						</div>
+					</a>
+					
+
+					<hr class="d-block d-lg-none mt-1 mb-0">
+				</div>
+        
+				<div class=" col-lg-7 col-xl-7" *ngIf="chatPressed">
+					<div class="py-2 px-4 border-bottom  ">
+						<div class="d-flex align-items-center py-1">
+							<div class="position-relative"  data-toggle="modal" data-target="#view_info">
+								<img src="{{storageURL}}/profiles/{{middelRequiredData.chatUserPhoto}}" width="40" height="40">
+							</div>
+							<div class="flex-grow-1 pl-3">
+								<strong>{{middelRequiredData.chatUserName}}</strong>
+							
+							</div>
+						
+						</div>
+					</div>
+
+					<div class="position-relative">
+						<div class="chat-messages p-4" *ngFor="let message of messages">
+
+						
+
+							<div class=" pb-4"[ngClass]=" message.to_user_id==middelRequiredData.toUserId ? 'chat-message-left' : 'chat-message-right'">
+							
+								<div class="flex-shrink-1 bg-light rounded py-2 px-3 ml-3">
+								
+                  {{message.content}}
+								</div>
+                <div class="message-data">
+                  <span class="message-data-time">{{message.created_at|date:'medium'}}</span>
+              </div>
+               
+							</div>
+
+
+					
+
+						</div>
+					</div>
+
+					<div class="flex-grow-0 py-3 px-4 border-top">
+						<div class="input-group" [formGroup]="formMessage">
+							<input type="text" class="form-control" formControlName="message"placeholder="Type your message">
+							<button class="btn btn-primary"(click)="sendMessage()" >Send</button>
+						</div>
+					</div>
+
+				</div>
+      </div>
+		
+</main>
+  <!-- <div class="container">
     <div class="row clearfix">
       <div class="col-lg-12">
           <div id="plist" class="people-list">
@@ -74,7 +146,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 </body>
 

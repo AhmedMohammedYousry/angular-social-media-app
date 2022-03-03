@@ -75,7 +75,7 @@
               <h3>Photos</h3>
               <a routerLink="/profile/photos">Photos</a>
             </div>
-            <div class="photo-box">
+            <div class="photo-box col-md-4">
               <div *ngFor="let profilepicture of profilepictures">
                   <img src="{{storageURL}}/profiles/{{profilepicture.profilePic}}"
                    mat-raised-button (click)="expandPic(storageURL+'/profiles/'+profilepicture.profilePic)">
@@ -95,7 +95,7 @@
               <a class="ms-3" routerLink="/profile/friends">Friends</a>
             </div>
           
-          <div class="photo-box">
+          <div class="photo-box col-md-4 ">
             <div *ngFor="let friend of user.friend">
               <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
                 <img class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
@@ -103,7 +103,7 @@
               </figure>
             </div>
           </div>
-          <div class="photo-box">
+          <div class="photo-box col-md-4">
             <div *ngFor="let friend of user.friends">
               <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
                 <img class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">

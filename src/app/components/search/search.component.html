@@ -16,7 +16,7 @@
 
 <body>
   <div class="container mt-4">
-    <div class="nav-right" [formGroup]="formsearch">
+    <!-- <div class="nav-right" [formGroup]="formsearch">
       <div class="search-box">
 
         <input type="text" class="search-input" (keyup.enter)="search()" formControlName="search"
@@ -27,6 +27,16 @@
       </div>
 
 
+    </div> -->
+    <div class="main"  >
+    <div class="input-group"  [formGroup]="formsearch">
+      <input type="text" class="form-control" placeholder="Search " (keyup.enter)="search()" formControlName="search">
+      <div class="input-group-append">
+        <button class="btn btn-secondary"  (click)="search()"type="button">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
     </div>
     <div class=" text-center p-4" *ngIf="userName.length==0&&post.length==0&&page.length==0">
       <h3>Go to search now
@@ -95,7 +105,7 @@
                   <p class="card-text text-muted">{{userName.mobile}}</p> -->
                   <br>
                 </div>
-                <a  class="tile-link"></a>
+                <a href="#" class="tile-link"></a>
                 <div class=" responsive">
                   <button type="button" class="btn1">
                     <a routerLink="/pages/{{page.id}}">
@@ -127,7 +137,7 @@
                   <p class="card-text text-muted">{{userName.mobile}}</p>
                   <br>
                 </div>
-                <a  class="tile-link"></a>
+                <a href="#" class="tile-link"></a>
                 <div class=" responsive">
                   <button type="button" class="btn">
                     <a routerLink="/users/{{userName.id}}">
@@ -152,4 +162,4 @@
 
 </body>
 
-</html> 
+</html>
