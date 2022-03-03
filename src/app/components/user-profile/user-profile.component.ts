@@ -125,7 +125,10 @@ export class UserProfileComponent implements OnInit {
     )
   }
   goToProfile(user_id: number) {
-    this._router.navigateByUrl(`users/${user_id}`)
+    this._router.navigate([`/users/${user_id}`])
+              .then(() => {
+                window.location.reload();
+              });
 
   }
 

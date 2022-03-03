@@ -8,7 +8,7 @@
             <img class="comment-owner-pic img-fluid" src="{{storageURL}}/profiles/{{commentOwnerPic}}">
           </div>
           <div class="col-md-10">
-            <h6 class="card-title"><a href="/users/{{commentOwnerId}}">{{commentOwner}}</a></h6>
+            <h6 class="card-title"><a (click)="goToProfile(commentOwnerId)">{{commentOwner}}</a></h6>
             <p class="card-text">{{commentContent}}</p>
           </div>
         </div>
