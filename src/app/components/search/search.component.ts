@@ -52,7 +52,7 @@ export class SearchComponent implements OnInit {
         this._router.navigateByUrl (`search`);
       },
       (error: any) => {
-        alert(error)
+        alert(JSON.stringify(error))
       }
       );
   }

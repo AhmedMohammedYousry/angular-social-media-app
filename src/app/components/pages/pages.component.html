@@ -105,14 +105,14 @@
         <div class="col-md-12 grid-margin">
           <div class="card rounded">
             <div class="card-body">
-              <h6 class="card-title">suggestions Pages for you</h6>
+              <h6 class="card-title">Pages suggestions for you</h6>
               <div class="d-flex justify-content-between mb-2 pb-2 border-bottom "  *ngFor="let listpages of listpages;index as i" >
                 <div class="d-flex align-items-center hover-pointer  ">
                   <img class="rounded-circle me-3 page-photo" src="{{storageURL}}/pages/{{listpages.profile_image}}">
                                   <!-- {{listpages.profile_image}} -->
                                   <!-- "https://i.postimg.cc/WbdZmNs2/member-1.png" -->
                   <div class="ml-2">
-                    <p><a class="pageslist-names" href="/pages/{{listpages.id}}">{{listpages.page_name}}</a> </p>
+                    <p><a class="pageslist-names" (click)="goToPage(listpages.id)">{{listpages.page_name}}</a> </p>
                   </div>
                 </div>
               </div>

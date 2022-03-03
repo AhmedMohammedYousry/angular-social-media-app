@@ -53,7 +53,7 @@ const routes: Routes = [
     },
     {
         path: 'pages',
-        component: PagesComponent, canActivate: [AuthGuard]
+        component: AllpagesComponent, canActivate: [AuthGuard]
     },
     {
         path: 'createpage',
