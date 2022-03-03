@@ -24,7 +24,7 @@
                     <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper">
                         <div class="row">
                             <div >
-                                <h3 class="mt-4 ">Save Posts</h3>
+                                <h3 class="mt-4 ">Saved Posts</h3>
                                 <hr>
                                 <div *ngFor='let saveposts  of saveposts ;let i = index' class="postdiv">
                                     <div >
@@ -34,7 +34,8 @@
                                         [post_id]="saveposts.post.id"
                                         [post_likes_number]="saveposts.post.post_likes.length"
                                         [profilePic]="saveposts.user.profilePic" [hasPic]="saveposts.post.hasPic"
-                                        [postPic]="saveposts.post.postPic" [showDeleteButton]="true"></app-show-post>
+                                        [postPic]="saveposts.post.postPic" [showDeleteButton]="true"
+                                        [showDots]="false"></app-show-post>
                                     <!-- create comment here -->
                                     <app-create-comment [post_id]="saveposts.post.id"></app-create-comment>
                                     <!-- display comments here -->

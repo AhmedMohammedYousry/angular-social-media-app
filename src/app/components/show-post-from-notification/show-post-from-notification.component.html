@@ -24,17 +24,17 @@
                     <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper">
                         <div class="row">
                             <div >
-                                <h3 class="mt-4 ">Your Post</h3>
-                                <hr>
+                                <!-- <h3 class="mt-4 ">Your Post</h3>
+                                <hr> -->
                                 <div class="postdiv">
                                     <div >
                                     <app-show-post [postOwner]="post.user_id.name"
-                                        [postContent]="post.content" [created_at]="post.created_at"
-                                        [comments_number]="post.comments.length==0? '' : post.comments.length"
-                                        [post_id]="post.id"
-                                        [post_likes_number]="post.post_likes.length"
-                                        [profilePic]="post.user.profilePic" [hasPic]="post.hasPic"
-                                        [postPic]="post.postPic" [showDeleteButton]="true"></app-show-post>
+                                    [postContent]="post.content" [created_at]="post.created_at"
+                                    [comments_number]="post.comments.length==0? '' : post.comments.length"
+                                    [post_id]="post.id"
+                                    [post_likes_number]="post.post_likes.length"
+                                    [profilePic]="post.user_id.profilePic" [hasPic]="post.hasPic"
+                                    [postPic]="post.postPic" [showDeleteButton]="false"></app-show-post>
                                     <!-- create comment here -->
                                     <app-create-comment [post_id]="post.id"></app-create-comment>
                                     <!-- display comments here -->
@@ -49,7 +49,9 @@
 
                                             <app-show-comment [commentOwner]="comment.user.firstname"
                                                 [commentContent]="comment.content"
-                                                [comment_created_at]="comment.created_at">
+                                                [comment_created_at]="comment.created_at"
+                                                [commentOwnerPic]="comment.user.profilePic"
+                                                [commentOwnerId]="comment.user.id">
                                             </app-show-comment>
                                         </div>
                                     </div>

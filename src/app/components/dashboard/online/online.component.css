@@ -251,7 +251,9 @@ margin-bottom: 4px;
  
 .chat-message {
   margin: 0px 0px;
-  
+  /* position: absolute ;
+  bottom: 0;
+  right:11%; */
 }
  
 .chat-message img {

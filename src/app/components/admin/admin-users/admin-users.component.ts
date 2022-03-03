@@ -82,6 +82,7 @@ export class AdminUsersComponent implements OnInit {
   
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
+        this.ngOnInit();
 
       },
       (error:any)=>{
@@ -113,6 +114,7 @@ export class AdminUsersComponent implements OnInit {
      
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
+        this.ngOnInit();
 
       },
       (error:any)=>{
@@ -127,6 +129,7 @@ export class AdminUsersComponent implements OnInit {
   deleteUser(user_id:number){
     this._apiService.delete('users',user_id).subscribe(
       (response:any)=>{
+        this.ngOnInit();
 
       },
       (error:any)=>{}
@@ -154,6 +157,7 @@ export class AdminUsersComponent implements OnInit {
      
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
+        this.ngOnInit();
 
       },
       (error:any)=>{
@@ -184,6 +188,7 @@ export class AdminUsersComponent implements OnInit {
      
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
+        this.ngOnInit();
 
       },
       (error:any)=>{
@@ -213,6 +218,7 @@ export class AdminUsersComponent implements OnInit {
      
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
+        this.ngOnInit();
 
       },
       (error:any)=>{
@@ -241,6 +247,7 @@ export class AdminUsersComponent implements OnInit {
      
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
+        this.ngOnInit();
 
       },
       (error:any)=>{

@@ -92,7 +92,7 @@ export class ProfileComponent implements OnInit {
         },
         (error: any) => {
           // unauthorized
-          this._router.navigateByUrl('/login')
+          // this._router.navigateByUrl('/login')
         }
       )
   }

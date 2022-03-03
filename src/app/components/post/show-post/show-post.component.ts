@@ -33,6 +33,7 @@ export class ShowPostComponent implements OnInit {
   @Input() hasPic: boolean = false;
   @Input() postPic: any;
   @Input() showDeleteButton: boolean = false;
+  @Input() showDots: boolean = true;
   @Input() showShareButton: boolean = false;
   @Input() saveposts: SavePost = new SavePost();
   notificationLike:Notification=new Notification();

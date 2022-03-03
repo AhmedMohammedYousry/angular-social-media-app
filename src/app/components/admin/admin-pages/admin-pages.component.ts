@@ -51,7 +51,7 @@ export class AdminPagesComponent implements OnInit {
   deletePage(page_id:number){
     this._apiService.delete('pages',page_id).subscribe(
       (response:any)=>{
-
+        this.ngOnInit();
       },
       (error:any)=>{
 
@@ -79,6 +79,37 @@ export class AdminPagesComponent implements OnInit {
   
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
+        this.ngOnInit();
+
+      },
+      (error:any)=>{
+
+      }
+    );
+
+  }
+
+  unreportPage(user_id:number ,page_id:number){
+    this._apiService.update('pages',page_id,{
+      is_reported: false,
+    }).subscribe(
+      (response:any)=>{
+
+      },
+      (error:any)=>{}
+    );
+
+    this.reportNotification =  {
+      from_user_id: parseInt(localStorage.getItem('id')),
+      to_user_id:user_id,
+      type: 'good news, we delete the report on your page',
+      post_id:null,
+    }
+     
+  
+    this._apiService.post('notifications',this.reportNotification).subscribe(
+      (response:any)=>{
+        this.ngOnInit();
 
       },
       (error:any)=>{

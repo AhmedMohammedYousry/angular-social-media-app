@@ -58,12 +58,14 @@ export class AdminPostsComponent implements OnInit {
     )
 
   }
-  reportUser(user_id:number ){
-    this._apiService.update('users',user_id,{
+  reportUser(post_id:number,user_id:number ){
+    this._apiService.update('posts',post_id,{
       is_reported: true,
     }).subscribe(
       (response:any)=>{
 
+        console.log(response);
+        
       },
       (error:any)=>{}
     );
@@ -78,6 +80,37 @@ export class AdminPostsComponent implements OnInit {
   
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
+        this.ngOnInit();
+
+      },
+      (error:any)=>{
+
+      }
+    );
+
+  }
+
+  unreportUser(post_id:number,user_id:number ){
+    this._apiService.update('posts',post_id,{
+      is_reported: false,
+    }).subscribe(
+      (response:any)=>{
+
+      },
+      (error:any)=>{}
+    );
+
+    this.reportNotification =  {
+      from_user_id: parseInt(localStorage.getItem('id')),
+      to_user_id:user_id,
+      type: 'good news, your post is unreported',
+      post_id:null,
+    }
+     
+  
+    this._apiService.post('notifications',this.reportNotification).subscribe(
+      (response:any)=>{
+        this.ngOnInit();
 
       },
       (error:any)=>{

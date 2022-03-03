@@ -1,3 +1,4 @@
+import { Page } from 'src/app/models/page';
 
 import { Post } from "./post";
 import { User } from "./user";
@@ -9,4 +10,5 @@ export class SavePost {
     user:User=new User();
     posts:Post[]=[];
     post:Post=new Post();
+    page:Page=new Page();
 }

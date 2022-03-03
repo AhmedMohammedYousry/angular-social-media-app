@@ -63,7 +63,7 @@ export class AdminNormalUsersComponent implements OnInit {
   
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
-
+        this.ngOnInit();
       },
       (error:any)=>{
 
@@ -94,13 +94,13 @@ export class AdminNormalUsersComponent implements OnInit {
      
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
-
+        this.ngOnInit();
       },
       (error:any)=>{
 
       }
     );
-
+    
 
 
 
@@ -129,6 +129,7 @@ export class AdminNormalUsersComponent implements OnInit {
      
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
+        this.ngOnInit();
 
       },
       (error:any)=>{
@@ -157,7 +158,7 @@ export class AdminNormalUsersComponent implements OnInit {
      
     this._apiService.post('notifications',this.reportNotification).subscribe(
       (response:any)=>{
-
+        this.ngOnInit();
       },
       (error:any)=>{
 

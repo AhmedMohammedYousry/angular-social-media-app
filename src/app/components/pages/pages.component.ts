@@ -56,7 +56,7 @@ export class PagesComponent implements OnInit {
     // form for create post
     this.formPost=this._formBuilder.group({
       content:['' , [Validators.required,Validators.maxLength(120),Validators.minLength(10)]],
-      // image: [null]
+      image: [null]
 
     });
 
@@ -128,7 +128,7 @@ export class PagesComponent implements OnInit {
         if(this.filesPost){
           this.addPicToPost();
         }
-        location.reload();
+        
       },(error:any)=>{console.log(error);
       }
     )
@@ -150,6 +150,7 @@ export class PagesComponent implements OnInit {
     .subscribe((response:any)=>{
       this.dataPost = response;
       this.formPost.get('image').reset();
+      location.reload();
     })
   }
 }

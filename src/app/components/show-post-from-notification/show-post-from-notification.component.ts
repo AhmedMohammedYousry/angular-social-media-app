@@ -14,7 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ShowPostFromNotificationComponent implements OnInit {
   post_id:number;
-  post:Post;
+  post:Post = new Post;
 
   constructor(private route: ActivatedRoute, private _apiUserService: ApiUserService,
     private _httpClient: HttpClient, private _apiService: ApiService,
@@ -25,9 +25,9 @@ export class ShowPostFromNotificationComponent implements OnInit {
     this.post_id = this.route.snapshot.params['id'],
     this._apiService.getOne('posts',this.post_id).subscribe(
       (response:any)=>{
-        this.post = response;
-        console.log(this.post);
-        console.log(this.post.id);
+        this.post = response.data;
+        // console.log(this.post);
+        // console.log(this.post.id);
 
       },
       (error:any)=>{}
