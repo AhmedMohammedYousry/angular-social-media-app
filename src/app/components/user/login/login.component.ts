@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
             this._userService.login(response);
             this._router.navigate(['/profile'])
               .then(() => {
-                window.location.reload();
+                // window.location.reload();
               });
           },(error:any)=>{
 
