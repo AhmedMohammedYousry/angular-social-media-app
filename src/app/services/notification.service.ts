@@ -35,7 +35,6 @@ export class NotificationService {
 
   changeValue(hasNotify:boolean){
     this.hasNotification.next(hasNotify);
-
   }
 
   getFeedItems(): Observable<Notification> {
