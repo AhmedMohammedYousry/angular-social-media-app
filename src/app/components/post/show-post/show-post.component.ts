@@ -177,13 +177,13 @@ export class ShowPostComponent implements OnInit {
 
   unsave() {
     this._apiService.get('saveposts')
-      .subscribe((saveposts: any) => {
-        let saveposts_id = saveposts.filter((SavePost: any) => {
+      .subscribe((saveposts:any) => {
+        let saveposts_id = saveposts.filter((SavePost:any) => {
           return (SavePost.user_id == parseInt(localStorage.getItem('user_id')))
-            || (SavePost.post_id == parseInt(localStorage.getItem('id')))
+            || (SavePost.post_id == this.post_id)
         })[0].id
         // delete friendship
-        this._apiService.delete('saveposts', saveposts_id)
+        this._apiService.delete('saveposts',saveposts_id)
           .subscribe((response: any) => {
             window.location.reload()
             this.ngOnInit()

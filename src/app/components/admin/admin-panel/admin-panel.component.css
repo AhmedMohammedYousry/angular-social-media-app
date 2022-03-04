@@ -9,14 +9,7 @@
 }
 
 .admin{
-    max-width: 650px;
-    max-height: 600px;
+    width: 90%;
 }
-@media (max-width:425px) {
-  .admin{
-      max-width: 320px;
-    max-height: 300px;
-}  
-    
-}
+
 

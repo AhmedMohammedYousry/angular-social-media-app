@@ -13,6 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ImageFormComponent } from '../image-form/image-form.component';
 import { ProfilePicture } from 'src/app/models/profilepicture';
 import { FullImageComponent } from '../../full-image/full-image.component';
+import { CoverPicture } from 'src/app/models/coverpicture';
 
 @Component({
   selector: 'app-profile',
@@ -25,6 +26,9 @@ export class ProfileComponent implements OnInit {
   sharedPosts: Post[] = [];
   profilePosts: Post[] = [];
   profilepictures: ProfilePicture[] = [];
+  prof: ProfilePicture = new ProfilePicture();
+  coverpictures: CoverPicture[] = [];
+
   storageURL = environment.storage_URL
   constructor(private _apiUserService: ApiUserService, private _httpClient: HttpClient,
     private _apiService: ApiService, private _router: Router, private _matDialog: MatDialog) {

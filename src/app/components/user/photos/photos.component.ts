@@ -23,10 +23,11 @@ import { FullImageComponent } from '../../full-image/full-image.component';
 export class PhotosComponent implements OnInit {
   user: User = new User();
   profilepictures: ProfilePicture[] = [];
+  prof: ProfilePicture = new ProfilePicture();
   coverpictures: CoverPicture[] = [];
   storageURL = environment.storage_URL
-  profilesTab:boolean = true;
-  coversTab:boolean = false;
+  profilesTab: boolean = true;
+  coversTab: boolean = false;
 
 
   constructor(private _apiUserService: ApiUserService, private _httpClient: HttpClient,
@@ -34,73 +35,100 @@ export class PhotosComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    
-    
-    this._apiService.getOne('users',parseInt(`${localStorage.getItem('id')}`))
-    .subscribe(
-      (response:any)=>{
-        // alert(JSON.stringify(response))
-        this.user = response
 
 
-        
+    this._apiService.getOne('users', parseInt(`${localStorage.getItem('id')}`))
+      .subscribe(
+        (response: any) => {
+          // alert(JSON.stringify(response))
+          this.user = response
 
-        // this.user.posts=this.user.posts.reverse()
 
 
-        // [parseInt(`${localStorage.getItem('id')}`)-1]
-        this._apiService.get('profilepics').subscribe((pics:any)=> {
-          pics = pics.filter((pic:any) => pic.user_id == this.user.id)
-          this.profilepictures = pics
-        })
 
-        this._apiService.get('coverpics').subscribe((pics:any)=> {
-          pics = pics.filter((pic:any) => pic.user_id == this.user.id)
-          this.coverpictures = pics
-        })
-        
-      },
-      (error:any)=> {}
-    )   
+          // this.user.posts=this.user.posts.reverse()
+
+
+          // [parseInt(`${localStorage.getItem('id')}`)-1]
+          this._apiService.get('profilepics').subscribe((pics: any) => {
+            pics = pics.filter((pic: any) => pic.user_id == this.user.id)
+            this.profilepictures = pics
+          })
+
+          this._apiService.get('coverpics').subscribe((pics: any) => {
+            pics = pics.filter((pic: any) => pic.user_id == this.user.id)
+            this.coverpictures = pics
+          })
+
+        },
+        (error: any) => { }
+      )
   }
-  expandPic(data:string){
+  expandPic(data: string) {
     const dialogRef = this._matDialog.open(FullImageComponent
       , {
         data: data,
         height: '450px',
         width: '650px',
-    });
-  }
-
-  setProfile(profilePic:any){
-    this._apiService.update("users", this.user.id,{
-      profilePic: profilePic
-    } )
-    .subscribe((response:any)=>{
-      this._router.navigate(['/profile'])
-      .then(() => {
-        window.location.reload();
       });
+  }
+
+  setProfile(profilePic: any) {
+    this._apiService.update("users", this.user.id, {
+      profilePic: profilePic
     })
+      .subscribe((response: any) => {
+        this._router.navigate(['/profile'])
+          .then(() => {
+            window.location.reload();
+          });
+      })
 
   }
-  setCover(coverPic:any){
-    this._apiService.update("users", this.user.id,{
+  setCover(coverPic: any) {
+    this._apiService.update("users", this.user.id, {
       coverPic
-    } )
-    .subscribe((response:any)=>{
-      
-      this._router.navigate(['/profile']);
     })
+      .subscribe((response: any) => {
+
+        this._router.navigate(['/profile']);
+      })
 
   }
-  showProfilesTab(){
-    this.profilesTab=true;
-    this.coversTab=false;
+  showProfilesTab() {
+    this.profilesTab = true;
+    this.coversTab = false;
   }
-  showCoversTab(){
-    this.profilesTab=false;
-    this.coversTab=true;
+  showCoversTab() {
+    this.profilesTab = false;
+    this.coversTab = true;
   }
 
+  deleteprofile(namepic) {
+
+        // delete friendship
+        this._apiService.delete('profilepics', namepic)   
+          .subscribe((response: any) => {
+            window.location.reload();
+          }, (error: any) => {
+          })
+  
+
   }
+
+
+  deletecover(namepic) {
+
+    // delete friendship
+    this._apiService.delete('coverpics', namepic)
+      .subscribe((response: any) => {
+
+        window.location.reload();
+      }, (error: any) => {
+
+      })
+
+
+}
+
+}

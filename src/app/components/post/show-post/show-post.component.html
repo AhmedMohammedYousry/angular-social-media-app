@@ -23,7 +23,7 @@
 
          
             <ul class="dropdown-menu p-1" aria-labelledby="dropdownMenuButton1" >
-                <li *ngIf="showDeleteButton" style="cursor: pointer;" (click)="deletePost()">delete post</li>
+                <li *ngIf="showDeleteButton" style="cursor: pointer;" (click)="deletePost()"><i class="fa-solid fa-trash-can me-2"></i>delete post</li>
                 <li style="cursor: pointer;" (click)="savePost()"><i class="fa-solid fa-bookmark pe-2" style="color:rgb(82, 3, 3)"></i>save post</li>
                 <li style="cursor: pointer;" (click)="unsave()"><i class="fa-solid fa-bookmark pe-2" style="color:black"></i>unsave post</li>
             </ul>

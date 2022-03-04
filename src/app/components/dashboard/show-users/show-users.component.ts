@@ -25,7 +25,7 @@ export class ShowUsersComponent implements OnInit {
   constructor(private _apiService:ApiService, private _apiUserService:ApiUserService) { }
 
   ngOnInit(): void {
-    this._apiService.get('users')
+    this._apiService.get('normal')
     .subscribe(
       (response:any)=>{
         response= response.filter((user:any)=> {return user.id != localStorage.getItem('id')});

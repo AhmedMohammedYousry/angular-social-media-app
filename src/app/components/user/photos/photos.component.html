@@ -56,7 +56,7 @@
                     <tr>
                       <th scope="col">photo</th>
                       <th scope="col">Time</th>
-                      <!-- <th scope="col">Edit</th> -->
+                       <th scope="col">Delete</th>
                       <th class="text-center" scope="col">Actions</th>
                     </tr>
                   </thead>
@@ -78,20 +78,23 @@
                           </div>
                         </div>
                       </td>
-                      <!-- <td>
-                        <div class="v-no">
-                          <a class="btn " href="#"><i class="fa-solid fa-pen-to-square me-2 "></i>Edit</a>
+                    <td>
+                        <div class="v-no" (click)="deleteprofile(profilepicture.id)" >
+                          <a class="btn " ><i class="fa-solid fa-trash-can me-2"></i>Delete</a>
                         </div>
-                      </td> -->
+                      </td> 
                       <td>
 
                         <!-- <div class="primary-btn">
                           <a class="btn"><i class="fa-solid fa-trash-can me-2"></i>Delete</a>
                         </div> -->
                         <div class="primary-btn" (click)="setProfile(profilepicture.profilePic)">
-                          <a class="btn">Set as Profile</a>
+                          <a class="btn"><i class="fa-solid fa-gear me-2"></i>Set as Profile</a>
                         </div>
                       </td>
+
+
+                      
                     </tr>
 
                   </tbody>
@@ -102,7 +105,7 @@
                     <tr>
                       <th scope="col">photo</th>
                       <th scope="col">Time</th>
-                      <!-- <th scope="col">Edit</th> -->
+                      <th scope="col">Delete</th>
                       <th class="text-center" scope="col">Actions</th>
                     </tr>
                   </thead>
@@ -124,18 +127,16 @@
                           </div>
                         </div>
                       </td>
-                      <!-- <td>
-                        <div class="v-no">
-                          <a class="btn " href="#"><i class="fa-solid fa-pen-to-square me-2 "></i>Edit</a>
-                        </div>
-                      </td> -->
+                      <div class="v-no"  (click)="deletecover(coverpicture.id)">
+                        <a class="btn " href="#"><i class="fa-solid fa-trash-can me-2"></i>Delete</a>
+                      </div>
                       <td>
 
                         <!-- <div class="primary-btn">
                           <a class="btn"><i class="fa-solid fa-trash-can me-2"></i>Delete</a>
                         </div> -->
                         <div class="primary-btn" (click)="setCover(coverpicture.coverPic)">
-                          <a class="btn">Set as Cover</a>
+                          <a class="btn"><i class="fa-solid fa-gear me-2"></i>Set as Cover</a>
                         </div>
                       </td>
                     </tr>

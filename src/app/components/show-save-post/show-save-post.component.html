@@ -28,14 +28,14 @@
                                 <hr>
                                 <div *ngFor='let saveposts  of saveposts ;let i = index' class="postdiv">
                                     <div >
-                                    <app-show-post [postOwner]="saveposts.user.name"
+                                    <app-show-post [postOwner]="saveposts.post.user.name"
                                         [postContent]="saveposts.post.content" [created_at]="saveposts.post.created_at"
                                         [comments_number]="saveposts.post.comments.length==0? '' : saveposts.post.comments.length"
                                         [post_id]="saveposts.post.id"
                                         [post_likes_number]="saveposts.post.post_likes.length"
-                                        [profilePic]="saveposts.user.profilePic" [hasPic]="saveposts.post.hasPic"
-                                        [postPic]="saveposts.post.postPic" [showDeleteButton]="true"
-                                        [showDots]="false"></app-show-post>
+                                        [profilePic]="saveposts.post.user.profilePic" [hasPic]="saveposts.post.hasPic"
+                                        [postPic]="saveposts.post.postPic" [showDeleteButton]="false"
+                                        [showDots]="true"></app-show-post>
                                     <!-- create comment here -->
                                     <app-create-comment [post_id]="saveposts.post.id"></app-create-comment>
                                     <!-- display comments here -->
