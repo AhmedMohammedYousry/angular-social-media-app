@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
           users.forEach((user:any)=>{
             if(user.email == email)
               {localStorage.setItem('id', user.id)
+              this._userService.login(response);
               this._router.navigate(['/profile'])
               .then(() => {
                 window.location.reload();
@@ -45,17 +46,17 @@ export class LoginComponent implements OnInit {
             }
           })
         })
-        this._apiUserService.getUserId(email,password)
-        .subscribe(
-          (res:any)=>{
+        // this._apiUserService.getUserId(email,password)
+        // .subscribe(
+        //   (res:any)=>{
             
-            localStorage.setItem("userid",res);
-            this._userService.login(response);
+        //     localStorage.setItem("userid",res);
+            
            
-          },(error:any)=>{
+        //   },(error:any)=>{
 
-          }
-        )
+        //   }
+        // )
       },
       (error:any)=> {
         console.log(error);

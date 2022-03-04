@@ -67,6 +67,7 @@ export class PagesComponent implements OnInit {
       .subscribe(
         (response: any) => {
           this.page = response
+          this.page.posts.reverse();
           console.log(response);
 
         }

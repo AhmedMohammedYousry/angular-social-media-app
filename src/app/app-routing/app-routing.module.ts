@@ -76,7 +76,7 @@ const routes: Routes = [
     { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
     {
         path: '',
-        component: DashboardComponent,
+        component: DashboardComponent, canActivate: [AuthGuard]
     },
 ];
 
