@@ -20,6 +20,7 @@ import { AdminPanelComponent } from '../components/admin/admin-panel/admin-panel
 import { AdminPagesComponent } from '../components/admin/admin-pages/admin-pages.component';
 import { AdminPostsComponent } from '../components/admin/admin-posts/admin-posts.component';
 import { AdminUsersComponent } from '../components/admin/admin-users/admin-users.component';
+import { AdminAuthService } from '../admin-auth.service';
 
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -37,19 +38,19 @@ const routes: Routes = [
     //admin routes
     {
         path: 'admin-panle',
-        component: AdminPanelComponent, canActivate: [AuthGuard],
+        component: AdminPanelComponent, canActivate: [AuthGuard,AdminAuthService],
     },
     {
         path: 'admin-panle/admin-pages',
-        component: AdminPagesComponent, canActivate: [AuthGuard],
+        component: AdminPagesComponent, canActivate: [AuthGuard,AdminAuthService],
     },
     {
         path: 'admin-panle/admin-posts',
-        component: AdminPostsComponent, canActivate: [AuthGuard],
+        component: AdminPostsComponent, canActivate: [AuthGuard,AdminAuthService],
     },
     {
         path: 'admin-panle/admin-users',
-        component: AdminUsersComponent, canActivate: [AuthGuard],
+        component: AdminUsersComponent, canActivate: [AuthGuard,AdminAuthService],
     },
     {
         path: 'pages',

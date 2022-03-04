@@ -1,3 +1,5 @@
+import { User } from 'src/app/models/user';
+import { AdminAuthService } from './../../../admin-auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,7 +15,10 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
 
   formLogin=new FormGroup({});
-  constructor(private _formBuilder:FormBuilder,private _apiUserService:ApiUserService,private _router:Router,private _userService:UserService,private _apiService:ApiService) { }
+  constructor(private _formBuilder:FormBuilder,
+    private _apiUserService:ApiUserService,
+    private _router:Router,private _userService:UserService,
+    private _apiService:ApiService, private admin:AdminAuthService) { }
 
   ngOnInit(): void {
     this.formLogin=this._formBuilder.group({
@@ -38,10 +43,11 @@ export class LoginComponent implements OnInit {
           users.forEach((user:any)=>{
             if(user.email == email)
               {localStorage.setItem('id', user.id)
+              this._userService.login(response);
               this._router.navigate(['/profile'])
               .then(() => {
                 window.location.reload();
-              });
+              });  
             }
           })
         })
@@ -82,5 +88,6 @@ export class LoginComponent implements OnInit {
   {
     return  this.formLogin.controls[name].invalid && this.formLogin.controls[name].errors?.[error];
   }
+
 
 }
