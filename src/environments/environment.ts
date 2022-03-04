@@ -4,14 +4,14 @@
 
 export const environment = {
   production: false,
-  api_URL: 'http://localhost:8003/api',
+  api_URL: 'http://localhost:8000/api',
 
   pusher: {
-    key: '17e9116e9feb151a1092',
+    key: '473d6c2ef580e2c7c5d8',
     // key: 'b8dd19d436b6a0402060',
   },
   
-  storage_URL: 'http://127.0.0.1:8003/storage'
+  storage_URL: 'http://127.0.0.1:8000/storage'
 };
 
 /*
