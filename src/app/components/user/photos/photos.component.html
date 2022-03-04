@@ -79,8 +79,8 @@
                         </div>
                       </td>
                     <td>
-                        <div class="v-no">
-                          <a class="btn " href="#"><i class="fa-solid fa-trash-can me-2"></i>Delete</a>
+                        <div class="v-no" (click)="deleteprofile(profilepicture.id)" >
+                          <a class="btn " ><i class="fa-solid fa-trash-can me-2"></i>Delete</a>
                         </div>
                       </td> 
                       <td>
@@ -127,7 +127,7 @@
                           </div>
                         </div>
                       </td>
-                      <div class="v-no">
+                      <div class="v-no"  (click)="deletecover(coverpicture.id)">
                         <a class="btn " href="#"><i class="fa-solid fa-trash-can me-2"></i>Delete</a>
                       </div>
                       <td>
