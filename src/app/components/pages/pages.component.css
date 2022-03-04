@@ -33,6 +33,7 @@ body{
      /* font-weight: bold; */
      margin-left: 5px;
      font-size: large;
+     cursor: pointer;
  }
  .profile-cover {
      position: relative;

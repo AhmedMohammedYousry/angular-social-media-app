@@ -94,22 +94,25 @@
               <h3>Friends</h3>
               <a class="ms-3" routerLink="/profile/friends">Friends</a>
             </div>
-            <div class="row">
-            <div class="col-md-4" *ngFor="let friend of user.friends;index as i">
+          
+          <div class="photo-box">
+            <div *ngFor="let friend of user.friend">
               <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
-                <!-- <p>{{i+1}}(10 Mutual)</p> -->
-                <img style="height: 50px; width: 50px;" class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
-                <figcaption class="small">{{friend.firstname}}</figcaption>
-              </figure>
-            </div>
-            <div class="col-md-4" *ngFor="let friend of user.friend;index as i">
-              <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
-                <!-- <p>{{i+1}}(10 Mutual)</p> -->
-                <img style="height: 50px;" class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
-                <figcaption class="small">{{friend.firstname}}</figcaption>
+                <img class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
+                <figcaption class="small">{{ (friend.firstname.length>7)? (friend.firstname | slice:0:6)+'..':(friend.firstname) }}</figcaption>
               </figure>
             </div>
           </div>
+          <div class="photo-box">
+            <div *ngFor="let friend of user.friends">
+              <figure (click)="goToProfile(friend.id)" style="cursor: pointer;">
+                <img class="img-fluid" src="{{storageURL}}/profiles/{{friend.profilePic}}" alt="">
+                <figcaption class="small">{{ (friend.firstname.length>7)? (friend.firstname | slice:0:6)+'..':(friend.firstname) }}</figcaption>
+              </figure>
+            </div>
+          </div>
+
+
         </div>
 
           <!-- pages part -->
@@ -121,12 +124,16 @@
   
               
             </div>
-            <div class="col-md-4" *ngFor="let likedpage of user.page_likes; index as i">
-              <figure (click)="goToPage(likedpage.id)" style="cursor: pointer;">
-                <img class="img-fluid rounded-circle" src="{{storageURL}}/pages/{{likedpage.page.profile_image}}" alt="page-photo">
-                <figcaption class="small text-center">{{likedpage.page.page_name}}</figcaption>
-              </figure>
+            
+            <div class="photo-box">
+              <div *ngFor="let likedpage of user.page_likes; index as i">
+                <figure (click)="goToPage(likedpage.page.id)" style="cursor: pointer;">
+                  <img class="img-fluid" src="{{storageURL}}/pages/{{likedpage.page.profile_image}}" alt="">
+                  <figcaption class="small">{{ (likedpage.page.page_name.length>7)? (likedpage.page.page_name | slice:0:6)+'..':(likedpage.page.page_name) }}</figcaption>
+                </figure>
+              </div>
             </div>
+            
           </div>
           <!-- <div class="profile-intro">
             <div class="title-box">

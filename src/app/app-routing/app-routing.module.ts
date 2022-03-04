@@ -53,7 +53,7 @@ const routes: Routes = [
     },
     {
         path: 'pages',
-        component: PagesComponent, canActivate: [AuthGuard]
+        component: AllpagesComponent, canActivate: [AuthGuard]
     },
     {
         path: 'createpage',
@@ -82,7 +82,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes,{useHash: true})
     ],
     exports: [
         RouterModule

@@ -73,7 +73,7 @@ flex-wrap: nowrap;
     display: inline-block;
      -webkit-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    padding: 22px;
+    padding: 10px 22px 10px 22px;
     color: #f3eeee;
 }
 .nav-left ul li i {

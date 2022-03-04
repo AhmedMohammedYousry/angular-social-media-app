@@ -76,14 +76,16 @@ export class PagesComponent implements OnInit {
       .subscribe(
         (response: any) => {
           this.listpages = response
-          console.log(response);
-
+          this.listpages = this.listpages.filter((page:any)=> page.id != this.page_id)
         }
       )
 
   }
   goToPage(page_id: number) {
-    this._router.navigateByUrl(`pages/${page_id}`);
+    this._router.navigate([`/pages/${page_id}`])
+    .then(() => {
+      window.location.reload();
+    });
   }
   addLike(){
     this._apiService.post('pagelikes',{

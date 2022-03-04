@@ -37,7 +37,12 @@ export class LoginComponent implements OnInit {
         .subscribe((users:any)=>{
           users.forEach((user:any)=>{
             if(user.email == email)
-              localStorage.setItem('id', user.id)
+              {localStorage.setItem('id', user.id)
+              this._router.navigate(['/profile'])
+              .then(() => {
+                window.location.reload();
+              });
+            }
           })
         })
         this._apiUserService.getUserId(email,password)
@@ -46,10 +51,7 @@ export class LoginComponent implements OnInit {
             
             localStorage.setItem("userid",res);
             this._userService.login(response);
-            this._router.navigate(['/profile'])
-              .then(() => {
-                window.location.reload();
-              });
+           
           },(error:any)=>{
 
           }

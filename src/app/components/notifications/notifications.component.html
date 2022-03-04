@@ -44,7 +44,7 @@
           <h6 class="m-0">Recent</h6>
         </div>
         <div class="box-body p-0">
-          <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header " *ngFor="let notification of notifications" (click)="getNotify(notification.post_id,notification.from_user.id)" >
+          <div class="p-3 d-flex align-items-center bg-light border-bottom osahan-post-header " *ngFor="let notification of notifications" (click)="getNotify(notification.post_id,notification.from_user.id)" style="cursor: pointer;">
             <div class="dropdown-list-image mr-3">
               <img class="rounded-circle" 
               src="{{storageURL}}/profiles/{{notification.from_user.profilePic}}" alt="" />

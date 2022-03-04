@@ -50,7 +50,7 @@ i{
   width: 100%;
   background: var(--bg-color);
   border-radius: 6px;
-  padding: 20px;
+  padding-right: 20px;
   color: #626262;
 
 }
@@ -75,6 +75,7 @@ i{
   
 }
 .post-input-container{
+    padding-left: 40px;
   padding-top: 20px;
 
 }
