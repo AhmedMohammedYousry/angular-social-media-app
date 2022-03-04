@@ -12,7 +12,7 @@
             <div>
                 <p><a routerLink="/{{nameLink}}/{{postOwnerId}}" style="text-decoration: none;color: gray;font-size: large;"
                     >{{postOwner}}</a></p>
-               <span>{{ created_at| date:'medium'}}</span>
+               <span>{{ created_at| dateAgo:'medium'}}</span>
             </div>
         </div>
         <!-- three dots icon to delete a post -->

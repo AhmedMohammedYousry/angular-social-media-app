@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 import { FullImageComponent } from '../full-image/full-image.component';
-
+import { DateAgoPipe  } from 'src/app/pipes/date-ago.pipe';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',

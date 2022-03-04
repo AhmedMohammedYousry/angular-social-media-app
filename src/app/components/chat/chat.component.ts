@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Pusher from 'pusher-js';
 import { any, number, string } from 'joi';
 import { environment } from 'src/environments/environment';
-
+import { DateAgoPipe  } from 'src/app/pipes/date-ago.pipe';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',

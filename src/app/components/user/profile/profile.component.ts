@@ -5,7 +5,7 @@ import { User } from 'src/app/models/user';
 
 import { ApiUserService } from 'src/app/services/api-user.service';
 import { ApiService } from 'src/app/services/api.service';
-
+import { DateAgoPipe  } from 'src/app/pipes/date-ago.pipe';
 import { CommentcontentPipe } from 'src/app/pipes/commentcontent.pipe';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';

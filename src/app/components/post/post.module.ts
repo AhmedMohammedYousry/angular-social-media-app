@@ -31,6 +31,7 @@ const routes: Routes = [
   ],
   exports: [
     CreatePostComponent,ShowPostComponent,CreateCommentComponent,ShowCommentComponent,
+    DateAgoPipe,
     NotificationsComponent
   ]
 })

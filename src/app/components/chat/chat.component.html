@@ -49,13 +49,13 @@
                 <li class="clearfix" *ngFor="let message of messages">
                   <div class="message my-message" *ngIf="message.to_user_id!=middelRequiredData.toUserId">{{message.content}}
                     <div>
-                      <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
+                      <small class="message-data-time h6 text-secondary">{{message.created_at| dateAgo:'medium'}}</small>
                     </div>
                   </div>
 
                   <div class="message float-right other-message" *ngIf="message.to_user_id==middelRequiredData.toUserId">{{message.content}}
                     <div>
-                      <small class="message-data-time h6 text-secondary">{{message.created_at|date:'medium'}}</small>
+                      <small class="message-data-time h6 text-secondary">{{message.created_at|dateAgo:'medium'}}</small>
                     </div>
                   </div>
 

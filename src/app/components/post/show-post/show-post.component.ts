@@ -9,7 +9,7 @@ import { SavePost } from 'src/app/models/savepost';
 import { User } from 'src/app/models/user';
 import { Post } from 'src/app/models/post';
 import { PusherService } from 'src/app/services/pusher.service';
-
+import { DateAgoPipe  } from 'src/app/pipes/date-ago.pipe';
 @Component({
   selector: 'app-show-post',
   templateUrl: './show-post.component.html',
