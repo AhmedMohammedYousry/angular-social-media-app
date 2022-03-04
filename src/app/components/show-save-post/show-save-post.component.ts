@@ -54,7 +54,6 @@ export class ShowSavePostComponent implements OnInit {
         (response: any) => {
             this.user = response;
             this.saveposts=this.user.save_post;
-            console.log(this.user)
         },
 
         (error: any) => { }
