@@ -39,6 +39,8 @@ export class CreatePostComponent implements OnInit {
         this.post_id=response.id;
         if(this.filesPost){
           this.addPicToPost();
+        }else{
+          location.reload(); 
         }
         
       },(error:any)=>{
