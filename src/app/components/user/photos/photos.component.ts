@@ -104,24 +104,38 @@ export class PhotosComponent implements OnInit {
     this.coversTab = true;
   }
 
-  deleteprofile(namepic) {
+  deleteprofile(idpic, namepic) {
+    if (namepic== this.user.profilePic) {
+      this._apiService.update("users", this.user.id, {
+        profilePic: '.jpg'
+      })
+        .subscribe((response: any) => {
+          this._router.navigate(['/profile']);
+        })
+    }
+    // delete friendship
+    this._apiService.delete('profilepics',idpic)
+      .subscribe((response: any) => {
+        window.location.reload();
+      }, (error: any) => {
+      })
 
-        // delete friendship
-        this._apiService.delete('profilepics', namepic)   
-          .subscribe((response: any) => {
-            
-            window.location.reload();
-          }, (error: any) => {
-          })
-  
+
 
   }
 
 
-  deletecover(namepic) {
-
+  deletecover(idpic,namepic) {
+    if (namepic== this.user.coverPic) {
+      this._apiService.update("users", this.user.id, {
+        coverPic: '.jpg'
+      })
+        .subscribe((response: any) => {
+          this._router.navigate(['/profile']);
+        })
+    }
     // delete friendship
-    this._apiService.delete('coverpics', namepic)
+    this._apiService.delete('coverpics', idpic)
       .subscribe((response: any) => {
 
         window.location.reload();
@@ -130,6 +144,6 @@ export class PhotosComponent implements OnInit {
       })
 
 
-}
+  }
 
 }
