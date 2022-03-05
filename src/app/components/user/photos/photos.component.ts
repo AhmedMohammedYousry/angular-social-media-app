@@ -109,6 +109,7 @@ export class PhotosComponent implements OnInit {
         // delete friendship
         this._apiService.delete('profilepics', namepic)   
           .subscribe((response: any) => {
+            
             window.location.reload();
           }, (error: any) => {
           })
