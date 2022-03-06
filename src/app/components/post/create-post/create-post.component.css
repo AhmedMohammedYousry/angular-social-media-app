@@ -1,14 +1,14 @@
-textarea{
-    resize: none;
-}
+
 .shadow-textarea textarea.form-control::placeholder {
-    font-weight: 300;
+    font-weight: 150;
 }
 .shadow-textarea textarea.form-control {
     padding-left: 0.8rem;
 }
 .button{
+    margin-top: 5px;
     background: #6d0606;
+    margin-left: 24px;
 
 }
 input[type="file"] {
@@ -69,6 +69,9 @@ img{
 }
 .clearfix {
     font-size: 10px;
-    width: 160px;
+ 
 }
 
+.form-control{
+    margin-left: 24px;
+}
