@@ -1012,12 +1012,15 @@ img {
 
 .card-header:first-child {
   border-radius: 0 0 0 0;
+
 }
 .card-header {
   padding: 0.875rem 1.5rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0);
   border-bottom: 1px solid #f2f4f9;
+
+
 }
 
 .card-footer:last-child {
@@ -1038,6 +1041,7 @@ img {
   -webkit-box-shadow: 0 0 10px 0 rgba(183, 192, 206, 0.2);
   -moz-box-shadow: 0 0 10px 0 rgba(183, 192, 206, 0.2);
   -ms-box-shadow: 0 0 10px 0 rgba(183, 192, 206, 0.2);
+
 }
 .rounded {
   border-radius: 0.25rem !important;

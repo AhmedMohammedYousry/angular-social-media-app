@@ -18,52 +18,47 @@
  
 <body>
  
-  <div class="card mb-4">
-    <div class="card-header with-elements">
-      <span class="card-header-title">Friends</span>
-      <div class="card-header-elements ml-md-auto see">
-        <a href="javascript:void(0)">see more</a>
-      </div>
-    </div>
-    <div class="row no-gutters row-bordered row-border-light">
-      <a href="javascript:void(0)"
-        class="d-flex col-4 col-sm-3 col-md-4 flex-column align-items-center text-body py-3 px-2"
-        *ngFor="let user of users; let i as index">
-        <img src="{{storageURL}}/profiles/{{user.profilePic}}" alt="" class="d-block ui-w-40 rounded-circle mb-2">
-        <div class="text-center small">{{user.name}}</div>
-      </a>
- 
-    </div>
-  </div>
-  <!-- / Side info -->
- 
-  <div class="card mb-4">
-    <div class="card-header with-elements">
-      <span class="card-header-title"><a routerLink="/allpages">Pages</a>
-      </span>
-      <div class="card-header-elements ml-md-auto see">
-        <a routerLink="/createpage" >New page</a>
-      </div>
-    </div>
-    <div class="row no-gutters row-bordered row-border-light">
-      <a 
-        class="d-flex col-4 col-sm-3 col-md-4 flex-column align-items-center text-body py-3 px-2"
-        *ngFor="let page of listPages;let i=index">
-        <img src="{{storageURL}}/{{'pages'}}/{{page.profile_image}}" routerLink="/pages/{{page.id}}" alt="" class="d-block ui-w-40 rounded-circle mb-2">
-        <div class="text-center small" routerLink="/pages/{{page.id}}">{{page.page_name}}</div>
-      </a>
- 
-    </div>
-  </div>
- 
- <!-- Save Post -->
-  <div class="card mb-4">
-    <div class="card-header with-elements">
-      <i class="fa-solid fa-bookmark"></i> <span class="card-header-title ms-1"><a routerLink="/savepost" >Save Post</a></span>
+  <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="menu">
+
+    
+    
+    <li class="nav-item">
+          <a routerLink="/profile/friends" class="nav-link align-middle px-0">
+            <i class="far fa-user-friends"></i> <span class="ms-1 d-none d-sm-inline">Friends</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="/allpages" class="nav-link align-middle px-0">
+            <i class="fa fa-flag"></i> <span class="ms-1 d-none d-sm-inline">allpages</span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a routerLink="/createpage" class="nav-link align-middle px-0">
+            <i class="fa-solid fa-circle-plus"></i> <span class="ms-1 d-none d-sm-inline">newpage</span>
+          </a>
+      </li>
+      
+      <li class="nav-item">
+          <a routerLink="/profile/friends" class="nav-link align-middle px-0">
+            <i class="fab fa-facebook-messenger"></i> <span class="ms-1 d-none d-sm-inline">Inbox</span>
+          </a>
+      </li>
+
      
-    </div>
-   
-  </div>
+      <li>
+          <a routerLink="/savepost"  class="nav-link px-0 align-middle">
+            <i class="fa fa-bookmark"></i> <span class="ms-1 d-none d-sm-inline">bookmark</span></a>
+      </li>
+     
+          
+      <li>
+        <a routerLink="/profile/edit"  class="nav-link px-0 align-middle">
+          <i class="fa-solid fa-gear"></i> <span class="ms-1 d-none d-sm-inline">setting</span></a>
+    </li>
+     
+      
+  </ul>
+
 
 
  
