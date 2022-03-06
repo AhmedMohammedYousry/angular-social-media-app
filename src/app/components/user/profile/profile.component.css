@@ -275,7 +275,7 @@ i{
 }
 
 .pofile-container{
-  padding: 20px 15%;
+  padding: 22px 15%;
   color: #626262;
 
 }
@@ -284,10 +284,8 @@ i{
   border-radius: 6px;
   margin-bottom: 14px;
   height:300px;
-  /* background-size:cover;
-          background-position:center;
-          background-repeat:no-repeat; */
-
+  margin-top: 15px;
+  
 }
 
 .profile-details{
