@@ -18,10 +18,8 @@
 <body>
 
   <div class="container ">
-
     <div class="row ">
       <div class="col-lg-12">
-        
         <div class="panel profile-cover ">
           <div class="profile-cover__img">
             <img class="rounded-circle page-photo" src="{{storageURL}}/pages/{{page.profile_image}}">
@@ -69,7 +67,7 @@
                     </button>
                     
                   </div>
-                  <button type="submit" class="btn btn-sm btn-rounded button">
+                  <button type="submit" class="btn btn-sm btn-rounded button ">
                     Post
                   </button>
                 </div>
@@ -79,11 +77,7 @@
         </div>
       </div>
     </div>
-
-
-
     <div class="row">
-  
       <div class="col-lg-4">
         <div class="panel panel-theme rounded shadow">
           <div class="panel-heading">
@@ -109,8 +103,7 @@
               <div class="d-flex justify-content-between mb-2 pb-2 border-bottom "  *ngFor="let listpages of listpages;index as i" >
                 <div class="d-flex align-items-center hover-pointer  ">
                   <img class="rounded-circle me-3 page-photo" src="{{storageURL}}/pages/{{listpages.profile_image}}">
-                                  <!-- {{listpages.profile_image}} -->
-                                  <!-- "https://i.postimg.cc/WbdZmNs2/member-1.png" -->
+                           
                   <div class="ml-2">
                     <p><a class="pageslist-names" (click)="goToPage(listpages.id)">{{listpages.page_name}}</a> </p>
                   </div>
@@ -135,22 +128,6 @@
       <div class="col-lg-8">
         <ul class="panel-activity__list ">
           <li *ngFor="let post of page.posts let i = index">
-            <!-- <i class="activity__list__icon fa fa-question-circle-o"></i>
-            <div class="activity__list__header">
-              <img src="https://i.postimg.cc/WbdZmNs2/member-1.png" alt="" />
-              <a href="#" class="h5">{{page.page_name}}</a>
-              <div>{{post.created_at|date:'medium'}}</div>
-            </div>
-            <div class="activity__list__body entry-content">
-              <p>
-                <strong>{{post.content}}</strong>
-              </p>
-            </div>
-            <div class="activity__list__footer">
-              <a href="#"> <i class="fa fa-thumbs-up"></i></a>
-              <a href="#"> <i class="fa fa-comments"></i></a>
-              <span> <i class="fa fa-clock"></i></span>
-            </div> -->
             <app-show-post [postOwner]="page.page_name" [postOwnerId]="page.id"
                      [postContent]="post.content"
                      [created_at]="post.created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"

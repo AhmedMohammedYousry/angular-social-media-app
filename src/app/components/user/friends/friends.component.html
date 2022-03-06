@@ -1,82 +1,82 @@
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends</title>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
-  
-  <body>
-    <div class="container">
-      <div class="row">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friends</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container ">
+    <div class="row">
 
 
 
-        <div class="col-md-6 col-xl-4" *ngFor="let friend of user.friends">
-          <div class="card ">
-            <div class="card-body">
-              <div class="media align-items-center text-center"><img class="photo"
-                  src="{{storageURL}}/profiles/{{friend.profilePic}}">
-                <div class="media-body overflow-hidden">
-                  <h5 class="card-text mb-0 name">{{friend.name}}</h5>
-                  <p class="card-text text-muted">{{friend.email}}</p>
-                  <!-- <p class="card-text">
+      <div class="col-md-6 col-xl-4" *ngFor="let friend of user.friends">
+        <div class="card ">
+          <div class="card-body">
+            <div class="media align-items-center text-center"><img class="photo"
+                src="{{storageURL}}/profiles/{{friend.profilePic}}">
+              <div class="media-body overflow-hidden">
+                <h5 class="card-text mb-0 name">{{friend.name}}</h5>
+                <p class="card-text text-muted">{{friend.email}}</p>
+                <!-- <p class="card-text">
                     Lola@gmail.com<br>
                   </p> --><br>
-                </div>
-                <a   class="tile-link"></a>
-                <div class=" responsive">
-                  <button type="button" class="btn" (click)="unfriend(friend.id)"> 
-                    <a routerLink="/users/{{friend.id}}">
-                      <i class="fa-solid fa-user-group"></i> Friends
+              </div>
+              <a class="tile-link"></a>
+              <div class=" responsive">
+                <button type="button" class="btn" (click)="unfriend(friend.id)">
+                  <a routerLink="/users/{{friend.id}}">
+                    <i class="fa-solid fa-user-group"></i> Friends
                   </a>
-                    </button>
-                  <button type="button" class="btn1  ">
-                    <a [routerLink]="['/chat']">
-                      <i class="fab fa-facebook-messenger icon">  </i>  Message
-                    </a></button>
-                </div>
+                </button>
+                <button type="button" class="btn1  ">
+                  <a [routerLink]="['/chat']">
+                    <i class="fab fa-facebook-messenger icon"> </i> Message
+                  </a></button>
               </div>
             </div>
           </div>
         </div>
-        
-        
-        <div class="col-md-6 col-xl-4" *ngFor="let friend of user.friend">
-            <div class="card ">
-              <div class="card-body">
-                <div class="media align-items-center text-center"><img class="photo"
-                    src="{{storageURL}}/profiles/{{friend.profilePic}}">
-                  <div class="media-body overflow-hidden">
-                    <h5 class="card-text mb-0 name">{{friend.name}}</h5>
-                    <p class="card-text text-muted">{{friend.email}}</p>
-                    <!-- <p class="card-text">
+      </div>
+
+
+      <div class="col-md-6 col-xl-4" *ngFor="let friend of user.friend">
+        <div class="card ">
+          <div class="card-body">
+            <div class="media align-items-center text-center"><img class="photo"
+                src="{{storageURL}}/profiles/{{friend.profilePic}}">
+              <div class="media-body overflow-hidden">
+                <h5 class="card-text mb-0 name">{{friend.name}}</h5>
+                <p class="card-text text-muted">{{friend.email}}</p>
+                <!-- <p class="card-text">
                       Lola@gmail.com<br>
                     </p> --><br>
-                  </div>
-                  <a   class="tile-link"></a>
-                  <div class=" responsive">
-                    <button (click)="unfriend(friend.id)" type="button" class="btn "> 
-                      <a routerLink="/users/{{friend.id}}">
-                        <i class="fa-solid fa-user-group"></i>  Friends
-                      </a></button>
-                    <button type="button" class="btn1">
-                      <a [routerLink]="['/chat']">
-                        <i class="fab fa-facebook-messenger icon">  </i>  Message
-                      </a></button>
-                  </div>
-                </div>
+              </div>
+              <a class="tile-link"></a>
+              <div class=" responsive">
+                <button (click)="unfriend(friend.id)" type="button" class="btn ">
+                  <a routerLink="/users/{{friend.id}}">
+                    <i class="fa-solid fa-user-group"></i> Friends
+                  </a></button>
+                <button type="button" class="btn1">
+                  <a [routerLink]="['/chat']">
+                    <i class="fab fa-facebook-messenger icon"> </i> Message
+                  </a></button>
               </div>
             </div>
           </div>
-        
-        
-        
-  
+        </div>
       </div>
+
+
+
+
     </div>
-  </body>
+  </div>
+</body>

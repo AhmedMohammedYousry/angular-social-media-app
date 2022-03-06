@@ -13,19 +13,9 @@
       content: "";
       position: absolute;
       -webkit-box-shadow: 0 5px 30px 0 rgba(39, 39, 39, 0.15);
-              box-shadow: 0 5px 30px 0 rgba(39, 39, 39, 0.15);
+      box-shadow: 0 5px 30px 0 rgba(39, 39, 39, 0.15);
       border-radius: 10px;
       z-index: -1;
-    }
-    
-    .team-item:before {
-      height: 100%;
-      background-color: #fff;
-      left: 0;
-      top: 0;
-      right: 30px;
-      -webkit-transition: all 0.3s ease;
-      transition: all 0.3s ease;
     }
     
     .team-item:after {
@@ -45,7 +35,6 @@
         color: #871010;
         text-decoration: none;
     }
-    
     .team-item .img-holder {
       -ms-flex-negative: 0;
           flex-shrink: 0;
