@@ -1,14 +1,18 @@
 ul {
  
-  font-size: 16px;
+  font-size: 20px;
   margin-top: 25px;
   margin-left: 30px;
  }
  ul li i{
    color: #6d0606;
+   margin-right: 10px;
+
  }
  ul li span {
    color: black;
+   color: rgb(99, 97, 95);
+
  }
 
   
