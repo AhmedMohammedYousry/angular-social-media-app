@@ -2,7 +2,9 @@ body{
     margin-top:20px;
     background:#eee;
 }
-
+.container{
+    margin-top: 50px;
+}
 
 .name{
     margin-top: 10px;
@@ -24,6 +26,7 @@ body{
 
 
 }
+
 .btn a{
     text-decoration: none;
     color: white;

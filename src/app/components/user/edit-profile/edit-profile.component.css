@@ -2,6 +2,9 @@ body{
     background: #eaeaea;
     margin-top:20px;
 }
+.container{
+    margin-top: 50px;
+}
 .profile-info-list {
     padding: 0;
     margin: 0;
