@@ -392,8 +392,7 @@ nav{
     border-radius: 6px;
     padding: 15px;
     color: #626262;
-    margin: 20px 0;
-
+    margin-left: 127px;
 }
 .user-profile span{
     font-size: 13px;
@@ -507,6 +506,7 @@ nav{
     margin: 15px 0;
 
 }
+
 .settings-links{
     display: flex;
     align-items: center;

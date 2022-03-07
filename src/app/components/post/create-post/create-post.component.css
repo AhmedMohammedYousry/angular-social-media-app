@@ -8,7 +8,7 @@
 .button{
     margin-top: 5px;
     background: #6d0606;
-    margin-left: 24px;
+    margin-left: 127px;
 
 }
 input[type="file"] {
@@ -73,5 +73,9 @@ img{
 }
 
 .form-control{
-    margin-left: 24px;
+    margin-left: 127px;
+}
+.post-container{
+    margin-left: 127px;
+    width:66%;
 }

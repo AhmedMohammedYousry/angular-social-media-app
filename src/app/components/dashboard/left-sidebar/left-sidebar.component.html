@@ -20,16 +20,16 @@
  
   <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start  " id="menu">
    <li class="nav-item mb-3">
-    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-      <img src="{{storageURL}}/profiles/{{user.profilePic}}" (click)="visitProfile()" width="50" height="50" class="rounded-circle" >
+    <a href="#" class="d-flex align-items-center text-white text-decoration-none " id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="{{storageURL}}/profiles/{{user.profilePic}}" (click)="visitProfile()" width="50" height="50" class="rounded-circle me-3" >
       <span class="d-none d-sm-inline mx-1"> {{user.firstname}}</span>
   </a>
   </li> 
     
     
-    <li class="nav-item ">
-          <a routerLink="/profile/friends" class="nav-link align-middle px-0">
-            <i class="far fa-user-friends"></i> <span class="ms-1 d-none d-sm-inline">Friends</span>
+    <li class="nav-item  ">
+          <a routerLink="/profile/friends" class="nav-link align-middle px-0 ">
+            <i class="far fa-user-friends"></i> <span class="ms-1 d-none d-sm-inline  ">Friends</span>
           </a>
       </li>
       <li class="nav-item">
