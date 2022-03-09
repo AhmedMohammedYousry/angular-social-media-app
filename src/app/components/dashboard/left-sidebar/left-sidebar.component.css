@@ -1,21 +1,26 @@
 body{
   background-color: hsl(210, 11%, 15%);
-  margin-top: 26px;
-  width: 230px;
+  /* width: 315px; */
 }
 
 ul {
  
   font-size: 20px;
   margin-top: 50px;
-  margin-left: 30px;
   position: fixed;
   width: 200px;
+ }
+ li{
+   width: 100%;
+     padding-left: 30px;
+
+
  }
  ul li i{
    color: white;
    margin-right: 10px;
    margin-top: 30px;
+
 
  }
  ul li span {
@@ -25,16 +30,8 @@ ul {
  li:hover{
    background-color: #b6b7b9;
  }
- @media (max-width:425px) {
-   ul{
-    font-size: 10px;
-    margin-top: 25px;
-    margin-left: 15px;
-    position: fixed;
-    width: 100px;
-   }
-   
- }
+
+
 
 
   

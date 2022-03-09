@@ -8,20 +8,18 @@
 
 
 
-<div class="container-fluid mt-3 pt-4 body" >
-  <div class="row">
-    <!-- <div class="col-md-1 fixed-left">
-  </div> -->
-      <div class="col-md-3 fixed-left">
+<div class="container-fluid mt-3 pt-4  " >
+  <div class="row ">
+      <div class="col-md-3 fixed-left left">
           <app-left-sidebar></app-left-sidebar>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 ">
         <app-online></app-online>
           
-          <div class="col-md-8">
+          <div class="col-md-8 ps-3">
               <app-create-post></app-create-post>
                <div *ngFor='let post of dashboardPosts ;let i = index'>
-                 <div class="postdiv">
+                 <div class="postdiv ">
                   <app-show-post [postOwner]="post.page?post.page.page_name:post.user.name" 
                   [postOwnerId]="post.page? post.page.id :post.user.id"
                    [postContent]="post.content"
@@ -53,7 +51,7 @@
                 </div>
           </div> 
       </div>
-      <div class="col-md-3 fixed-right">
+      <div class="col-md-3 fixed-right right">
         <app-rightside></app-rightside>
       </div>
   </div>

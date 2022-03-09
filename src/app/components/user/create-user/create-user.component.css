@@ -23,6 +23,8 @@ a {
   box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
  
   }
+  input:-webkit-autofill, input:-webkit-autofill:focus { transition: background-color 600000s 0s, color 600000s 0s; }
+
 
   .hit-the-floor h1{
     font-weight:900;}

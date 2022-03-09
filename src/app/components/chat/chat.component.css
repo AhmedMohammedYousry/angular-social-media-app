@@ -13,6 +13,7 @@
 
 
 }
+
 .send{
     padding: 12px;
 
@@ -48,10 +49,12 @@
     padding: 10px 15px;
     list-style: none;
     border-radius: 3px;
+    color: white;
+    
 }
 
 .people-list .chat-list li:hover {
-    background: #efefef;
+    background: #a8a5a5;
     cursor: pointer
 }
 
@@ -232,6 +235,8 @@
 } 
 @media (max-width:760px) {
     .people-list {
+    margin-right: 0px;
+    right: 0px;
     width: 100%;
     height: 100px;
     margin-bottom: 30px;

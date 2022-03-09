@@ -4,6 +4,9 @@
   font-family: 'poppins',sans-serif;
   box-sizing: border-box;
 }
+.create{
+  width: 70%;
+}
 
 .postdiv{
   background-color: #fff;

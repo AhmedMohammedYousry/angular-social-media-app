@@ -21,6 +21,7 @@ import { AdminPagesComponent } from '../components/admin/admin-pages/admin-pages
 import { AdminPostsComponent } from '../components/admin/admin-posts/admin-posts.component';
 import { AdminUsersComponent } from '../components/admin/admin-users/admin-users.component';
 import { AdminAuthService } from '../admin-auth.service';
+import {FooterComponent  } from "../components/dashboard/footer/footer.component";
 
 const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -34,6 +35,10 @@ const routes: Routes = [
     {
         path: 'chat',
         component: ChatComponent, canActivate: [AuthGuard]
+    },
+    {
+        path: 'footer',
+        component: FooterComponent, canActivate: [AuthGuard]
     },
     //admin routes
     {

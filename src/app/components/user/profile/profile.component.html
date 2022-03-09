@@ -14,12 +14,12 @@
 </head>
 
 <body>
-  <div > 
+  <div  > 
     <!----------------Porfile page----------------------->
-    <div class="pofile-container ">
+    <div class="pofile-container pt-5">
       <!-- cover src="https://i.postimg.cc/sfQS7fj3/cover.png"  -->
-      <div class="cover-img" 
-      style="width: 100%; height: 300px; background-color: rgb(202, 202, 202);">
+      <div class="cover-img " 
+      style="width: 100%; height: 300px">
       <img *ngIf="user.hasCover" src="{{storageURL}}/covers/{{user.coverPic}}" class="cover-img">
     </div>
     <div class="d-flex justify-content-end">
@@ -137,36 +137,7 @@
             </div>
             
           </div>
-          <!-- <div class="profile-intro">
-            <div class="title-box">
-              <h3>Pages</h3>
-              <a href="">myPages</a>
-            </div>
-            <div class="col-md-4" *ngFor="let page of user.pages; index as i">
-              <figure (click)="goToPage(page.id)">
-                <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo">
-                <figcaption class="small text-center"><a [routerLink]="['/pages',page.id]" routerLinkActive="router-link-active">{{page.page_name}}</a></figcaption>
-              </figure>
-              <a [routerLink]="['/pages',page.id]">{{page.page_name}}</a>
-            </div>
-          </div> -->
 
-
-            <!-- <h6 >Liked Pages</h6>
-            <div class="col-md-4" *ngFor="let page of user.page_likes;index as i">
-              <figure (click)="goToPage(page.page.id)">
-                <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo">
-                <figcaption class="small text-center"><a [routerLink]="['/pages/[page.page.id]']" routerLinkActive="router-link-active">{{page.page.page_name}}</a></figcaption>
-              </figure>
-            </div>
-
-            <h6 >My Pages</h6>
-            <div class="col-md-4" *ngFor="let page of user.pages;index as i">
-              <figure (click)="goToPage(page.id)">
-                <img class="img-fluid rounded-circle" src="https://i.postimg.cc/QNwC3pr3/photo6.png" alt="page-photo">
-                <figcaption class="small text-center">{{page.page_name}}</figcaption>
-              </figure>
-            </div> -->
 
           
 
@@ -180,8 +151,11 @@
 
               <div class="col-md-12 col-sm-12 col-xl-12 middle-wrapper" >
                 <div class="row">
-                  <div>
-                    <app-create-post></app-create-post>
+                  <div >
+                    <div class="create">
+                      <app-create-post></app-create-post>
+                    </div>
+                   
                     <!-- start of post -->
                     <div *ngFor='let post of profilePosts ;let i = index' class="postdiv">
                         <!-- if user shared a post -->

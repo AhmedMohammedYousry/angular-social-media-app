@@ -2,29 +2,42 @@
     background-color: bisque;
 }
 .postdiv{
-    background-color: #fff;
+    background-color: #f0f2f5;
     padding: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
     border-style: solid;
     border-color: #fff;
-    width:550px;
+    width:700px;
 }
-.collapse{
-    margin-left: 127px;
-}
+
+
 
 a { 
     text-decoration: none;
-    margin-left: 127px;
+    /* margin-left: 36px; */
  }
 
 
-fieldset {
-	border: 0;
-	margin: 0;
-	padding: 0;
+
+
+@media (max-width:760px) {
+    .left{
+        display: none;
+    }
+    .right{
+        display: none;
+    }
+ 
+
+    
 }
 
+@media (min-width: 991px){
+ .left{
+ 
+    /* width: 160px; */
+ }
 
+}
