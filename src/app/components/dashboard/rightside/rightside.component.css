@@ -1,19 +1,25 @@
 
     
     /* ===== ABOUT PAGE ===== */
+   body{
+
+     margin-top: 26px;
+
+   }
     .team-item {
       padding: 35px;
       padding-right: 0;
       position: absolute;
       z-index: 0;
       margin-top: 30px;
+      position: fixed;
     }
  
     .team-item:after, .team-item:before {
       content: "";
       position: absolute;
-      -webkit-box-shadow: 0 5px 30px 0 rgba(39, 39, 39, 0.15);
-      box-shadow: 0 5px 30px 0 rgba(39, 39, 39, 0.15);
+      -webkit-box-shadow: 0 5px 30px 0 rgba(224, 14, 14, 0.15);
+      box-shadow: 0 5px 30px 0 rgba(203, 24, 24, 0.15);
       border-radius: 10px;
       z-index: -1;
     }
@@ -37,12 +43,12 @@
     }
     .team-item .img-holder {
       -ms-flex-negative: 0;
-          flex-shrink: 0;
+      flex-shrink: 0;
       -webkit-box-shadow: 0 0 20px 0 rgba(51, 51, 51, 0.2);
-              box-shadow: 0 0 20px 0 rgba(51, 51, 51, 0.2);
+       box-shadow: 0 0 20px 0 rgba(51, 51, 51, 0.2);
       border-radius: 10px;
       width: calc(100% - 70px);
-      margin-left: 55px;
+      /* margin-left: 55px; */
       overflow: hidden;
     }
     
@@ -50,7 +56,7 @@
       border-radius: 10px;
       width: 100%;
       -webkit-transform: scale(1.1);
-              transform: scale(1.1);
+     transform: scale(1.1);
       -webkit-transition: all 0.6s ease;
       transition: all 0.6s ease;
     }
@@ -96,7 +102,7 @@
     }
     
     .team-item:hover .team-content h5, .team-item:hover .team-content p {
-      color: #fff;
+      color: #871010;
       -webkit-transition: all 0.3s ease;
       transition: all 0.3s ease;
     }
@@ -241,7 +247,7 @@
    
   .chat-message img {
       border-radius: 50%;
-      float: left;
+      /* float: left; */
   }
    
   .chat-message-content-right {

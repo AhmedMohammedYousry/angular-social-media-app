@@ -1,8 +1,11 @@
 .rounded-card{
-    border-radius: 10px
+    border-radius: 10px;
+
 }
 h6{
     display: inline-block;
+
+
 }
 .comment-owner-pic{
     width: 40px;
@@ -10,9 +13,13 @@ h6{
     border-radius: 50%; 
     background-position: center center;
     background-size: cover;
+
 }
 a{
     text-decoration: none;
     color: black;
     cursor: pointer;
+    margin-left: 127px;
+
+
 }

@@ -4,11 +4,12 @@
 }
 .shadow-textarea textarea.form-control {
     padding-left: 0.8rem;
+    width: 143%;
 }
 .button{
     margin-top: 5px;
     background: #6d0606;
-    margin-left: 24px;
+    margin-left: 36px;
 
 }
 input[type="file"] {
@@ -71,7 +72,16 @@ img{
     font-size: 10px;
  
 }
-
+/* 
 .form-control{
-    margin-left: 24px;
+    margin-left: 36px;
+    width: 667px;
 }
+.post-container{
+    margin-left: 36px;
+    width:100%%;
+} */
+/* .create{
+    width: 100%;
+
+} */

@@ -15,11 +15,11 @@
 
 <body>
 
-  <div class="sources row chat-box">
-    <div id="plist" class="people-list col-md-3 col-sm-12">
+  <div class="sources row chat-box mt-1 ">
+    <div id="plist" class="people-list col-md-3 col-sm-12 ">
       <ul class="list-unstyled chat-list  mb-0">
         <li class="clearfix" *ngFor="let chat of chats"
-          (click)="getChat(chat.chat_id,chat.to_user.name,chat.to_user.profilePic,chat.to_user_id)">
+          (click)="getChat(chat.chat_id,chat.to_user.name,chat.to_user. profilePic,chat.to_user_id)">
           <img src="{{storageURL}}/profiles/{{chat.to_user.profilePic}}" alt="user image">
           <div class="about">
             <div class="name">{{chat.to_user.name}}</div>
