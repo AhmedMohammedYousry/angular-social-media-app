@@ -1,11 +1,13 @@
 body{
-  background-color: hsl(210, 11%, 15%);
+  background-color: white;
   /* width: 315px; */
 }
 
 ul {
  
-  font-size: 20px;
+  font-size: 15px;
+  line-height: normal;
+  font-weight: 450;
   margin-top: 50px;
   position: fixed;
   width: 200px;
@@ -17,18 +19,22 @@ ul {
 
  }
  ul li i{
-   color: white;
-   margin-right: 10px;
-   margin-top: 30px;
+  font-size: 22px;
+   color: #6d0606;
+   margin-right: 18px;
+   margin-top: 12px;
+   margin-bottom: 12px;
 
 
  }
  ul li span {
-   color: white;
+   color: hsl(210, 11%, 15%);
+   margin-left: 10px;
 
  }
  li:hover{
-   background-color: #b6b7b9;
+   background-color: #b6b7b93b;
+   width: 300px;
  }
 
 

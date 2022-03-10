@@ -12,7 +12,7 @@ margin-top: 100px;
 
 .team .team-content {
   position: absolute;
-  bottom: 10px;
+  bottom: 30px;
   margin: 0 20px;
   left: 0;
   right: 0;
@@ -330,3 +330,8 @@ a{
 }
 
 .btn{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
+
+
+.color-class{
+    background-color: #212529;
+}
