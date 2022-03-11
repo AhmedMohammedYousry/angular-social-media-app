@@ -335,3 +335,14 @@ a{
 .color-class{
     background-color: #212529;
 }
+.hover-color{
+    font-size: 15px;
+    margin: 5px;
+    padding: 10px;
+}
+.hover-color:hover{
+    background-color: #9b000059;
+}
+.color-dif{
+    background-color: #e5e5e50a;
+}
