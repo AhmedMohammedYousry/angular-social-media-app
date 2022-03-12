@@ -13,7 +13,9 @@
     /* width:100%; */
 }
 
-
+.right-sidebar{
+z-index: -1;
+}
 
 a { 
     text-decoration: none;

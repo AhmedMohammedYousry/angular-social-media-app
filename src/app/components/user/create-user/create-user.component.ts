@@ -20,8 +20,8 @@ export class CreateUserComponent implements OnInit {
     this.formRegister=this._formBuilder.group({
       email:['',[Validators.required,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
       password:['',[Validators.required,Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
-      firstname:['',[Validators.required,Validators.minLength(4),Validators.maxLength(20)]],
-      lastname:['',[Validators.required,Validators.minLength(4),Validators.maxLength(20)]],
+      firstname:['',[Validators.required,Validators.minLength(3),Validators.maxLength(20)]],
+      lastname:['',[Validators.required,Validators.minLength(3),Validators.maxLength(20)]],
       location:['',[Validators.required]],
       date_of_birth: ['',[Validators.required]],
       gender: ['',[Validators.required]],
