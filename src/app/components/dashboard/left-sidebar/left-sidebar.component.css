@@ -27,13 +27,17 @@ ul {
 
 
  }
+ i:hover{
+   transform: rotate(-20deg);
+   transform: scale(1.2);
+ }
  ul li span {
    color: hsl(210, 11%, 15%);
    margin-left: 10px;
 
  }
  li:hover{
-   background-color: #b6b7b93b;
+   background-color: #b6b7b946;
    width: 300px;
  }
 

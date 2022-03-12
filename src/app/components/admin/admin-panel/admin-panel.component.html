@@ -21,32 +21,32 @@
             <li class="nav-item">
               <a (click)="home()" class="nav-link align-middle px-0">
                 <i class="fa-solid fa-house"></i>
-                <span class="ms-1 d-none d-sm-inline">Home</span>
+                <span class="ms-1 d-none d-sm-inline link"> Home</span>
               </a>
             </li>
             <li class="nav-item">
               <a (click)="users()" class="nav-link align-middle px-0">
                 <i class="fa-solid fa-user-group"></i>
-                <span class="ms-1 d-none d-sm-inline">Users</span>
+                <span class="ms-1 d-none d-sm-inline link"> Users</span>
               </a>
             </li>
             <li class="nav-item">
               <a (click)="pages()" class="nav-link align-middle px-0">
                 <i class="fa-solid fa-flag"></i>
-                <span class="ms-1 d-none d-sm-inline">Pages</span>
+                <span class="ms-1 d-none d-sm-inline link"> Pages</span>
               </a>
             </li>
             <li class="nav-item">
               <a (click)="posts()" class="nav-link align-middle px-0">
                 <i class="fa-regular fa-newspaper"></i>
-                <span class="ms-1 d-none d-sm-inline">Posts</span>
+                <span class="ms-1 d-none d-sm-inline link"> Posts</span>
               </a>
             </li>
             <li class="nav-item" *ngIf="superAdmin">
               <a (click)="allUsers()" 
                 class="nav-link align-middle px-0">
                 <i class="fa-solid fa-users"></i>
-                <span class="ms-1 d-none d-sm-inline">All Users</span>
+                <span class="ms-1 d-none d-sm-inline link"> All Users</span>
               </a>
             </li>
           </ul>
@@ -56,6 +56,8 @@
         <div class="card shadow border-0 mb-7">
           <!-- content -->
           <div *ngIf="homePressed">
+            <br>
+            <br>
             <h3 >
               Hello in admin panel, <span class="text-primary">{{user.firstname}}.</span> 
             </h3>
