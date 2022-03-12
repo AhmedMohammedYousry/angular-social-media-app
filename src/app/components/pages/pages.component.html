@@ -51,7 +51,7 @@
             <h3 class="panel-title">Activity Feed</h3>
           </div>
           <div class="panel-content panel-activity">
-            <div class="row">
+            <div class="row ms-2 me-2">
               <form class="panel-activity__status" [formGroup]="formPost" (ngSubmit)="create_post()">
                 <textarea name="user_activity" placeholder="Share what you've been up to..."
                   class="form-control" formControlName="content"></textarea>
@@ -91,7 +91,7 @@
             </div>
             
           </div><!-- /.panel-heading -->
-          <div class="panel-body no-padding rounded">
+          <div class="panel-body p-3 rounded">
            {{page.about}}
           </div><!-- /.panel-body -->
         </div><!-- /.panel -->
@@ -125,9 +125,9 @@
 
         <!-- create post -->
 
-      <div class="col-lg-8">
-        <ul class="panel-activity__list ">
-          <li *ngFor="let post of page.posts let i = index">
+      <div class="col-lg-8 ">
+        <ul class="panel-activity__list " style="list-style: none;">
+          <li *ngFor="let post of page.posts let i = index" class="postdiv">
             <app-show-post [postOwner]="page.page_name" [postOwnerId]="page.id"
                      [postContent]="post.content"
                      [created_at]="post.created_at" [comments_number]="post.comments.length==0? '' : post.comments.length"

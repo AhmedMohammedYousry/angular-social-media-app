@@ -67,8 +67,8 @@ export class PagesComponent implements OnInit {
       .subscribe(
         (response: any) => {
           this.page = response
-          this.page.posts.reverse();
-          console.log(response);
+          this.page.posts = this.page.posts.reverse();
+          // console.log(response);
 
         }
       )
@@ -130,6 +130,9 @@ export class PagesComponent implements OnInit {
         this.post_id=response.id;
         if(this.filesPost){
           this.addPicToPost();
+        }else{
+          location.reload();
+
         }
         
       },(error:any)=>{console.log(error);
