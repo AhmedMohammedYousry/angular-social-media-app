@@ -17,6 +17,7 @@
           
           <div class="col-md-8 ps-3">
               <app-create-post></app-create-post>
+          </div> 
                <div *ngFor='let post of dashboardPosts ;let i = index'>
                  <div class="postdiv ">
                   <app-show-post [postOwner]="post.page?post.page.page_name:post.user.name" 
@@ -48,7 +49,6 @@
                   
                   </div>
                 </div>
-          </div> 
       </div>
       <div class="col-md-3 fixed-right right">
         <app-rightside></app-rightside>

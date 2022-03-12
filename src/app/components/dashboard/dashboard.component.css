@@ -4,13 +4,13 @@
 
 .postdiv{
     background-color: #f0f2f5;
-    padding: 5px;
+    padding: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
     border-style: solid;
     border-color: #fff;
-    width:700px;
+    /* width:100%; */
 }
 
 

@@ -46,7 +46,7 @@
   <ul class="nav-right ">
     <li class="username-profilepic user-inf" (click)="visitProfile()">
       {{user.firstname}}</li>
-    <li class="nav-user-icon " onclick="settingsMenuToggle()">
+    <li class="nav-user-icon " (click)="visitProfile()">
       <img src="{{storageURL}}/profiles/{{user.profilePic}}" />
     </li>
   <li>

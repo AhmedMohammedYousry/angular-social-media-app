@@ -9,7 +9,7 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="container "> 
+  <div class="container ms-3"> 
           <div class="row justify-content-center  ">
               <div class="col-md-6 col-lg-4 mb-30">
                   <div class="team-item">
@@ -20,7 +20,8 @@
                           </span>
                       </div>
                       <div class="team-content">
-                          <p class="text-uppercase mb-0">{{user.name}}</p>
+                          <p class="text-uppercase mb-0"  (click)="visitProfile()" style="cursor: pointer;"
+                          >{{user.name}}</p>
                       </div>
                   </div>
         

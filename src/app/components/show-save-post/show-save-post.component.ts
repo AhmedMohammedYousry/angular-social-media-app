@@ -34,12 +34,7 @@ export class ShowSavePostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('Token')}`
-    });
-    let options = {
-      'headers': headers
-    }
+    
  /*   this._apiService.get('saveposts')
       .subscribe(
         (response: any) => {
@@ -53,7 +48,7 @@ export class ShowSavePostComponent implements OnInit {
       .subscribe(
         (response: any) => {
             this.user = response;
-            this.saveposts=this.user.save_post;
+            this.saveposts=this.user.save_post.reverse();
         },
 
         (error: any) => { }

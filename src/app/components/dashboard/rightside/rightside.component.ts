@@ -118,7 +118,9 @@ export class RightsideComponent implements OnInit {
     this.pusherService.channel.trigger('client-event', this.message);
     this.messages.push(this.message);
   }
-  
+  visitProfile(){
+    this._router.navigateByUrl('/profile')
+  }
 
 
 }
