@@ -10,39 +10,40 @@
 </head>
 
 <body>
+  <br><br>
   <div class="container-fluid">
     <div class="row flex-nowrap">
       <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 side">
         <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
           <a routerLink="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <span class="fs-5 d-none d-sm-inline ">Dashboard</span>
+            <span class="fs-5 d-none d-sm-inline link">Dashboard</span>
           </a>
           <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text" id="menu">
-            <li class="nav-item">
+            <li class="nav-item new-hover">
               <a (click)="home()" class="nav-link align-middle px-0">
                 <i class="fa-solid fa-house"></i>
                 <span class="ms-1 d-none d-sm-inline link"> Home</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item new-hover">
               <a (click)="users()" class="nav-link align-middle px-0">
                 <i class="fa-solid fa-user-group"></i>
                 <span class="ms-1 d-none d-sm-inline link"> Users</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item new-hover">
               <a (click)="pages()" class="nav-link align-middle px-0">
                 <i class="fa-solid fa-flag"></i>
                 <span class="ms-1 d-none d-sm-inline link"> Pages</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item new-hover">
               <a (click)="posts()" class="nav-link align-middle px-0">
                 <i class="fa-regular fa-newspaper"></i>
                 <span class="ms-1 d-none d-sm-inline link"> Posts</span>
               </a>
             </li>
-            <li class="nav-item" *ngIf="superAdmin">
+            <li class="nav-item new-hover" *ngIf="superAdmin">
               <a (click)="allUsers()" 
                 class="nav-link align-middle px-0">
                 <i class="fa-solid fa-users"></i>
