@@ -13,8 +13,9 @@
     /* width:100%; */
 }
 
-.right-sidebar{
-z-index: -1;
+.chat-element{
+    z-index: 1;
+    position: relative;
 }
 
 a { 
