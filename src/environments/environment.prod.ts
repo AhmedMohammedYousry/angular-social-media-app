@@ -3,7 +3,7 @@ export const environment = {
   api_URL: 'https://fireclub.herokuapp.com/api',
 
   pusher: {
-    key: '473d6c2ef580e2c7c5d8'
+    key: '17e9116e9feb151a1092'
   },
   
   storage_URL: 'https://fireclub.herokuapp.com/storage'
