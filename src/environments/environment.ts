@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_URL: 'http://localhost:8002/api',
+  api_URL: 'http://localhost:8000/api',
 
   pusher: {
     key: '17e9116e9feb151a1092',
@@ -12,7 +12,7 @@ export const environment = {
     //17e9116e9feb151a1092
   },
   
-  storage_URL: 'http://127.0.0.1:8002/storage'
+  storage_URL: 'https://file-upload-example-1.s3.amazonaws.com'
 };
 
 /*
