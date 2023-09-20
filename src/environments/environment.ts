@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_URL: 'http://localhost:8000/api',
+  api_URL: 'https://social-media-laravel-843c70632aa2.herokuapp.com/api',
 
   pusher: {
     key: '17e9116e9feb151a1092',
